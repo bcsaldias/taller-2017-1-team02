@@ -6,16 +6,6 @@ IIC3103 Pontificia Universidad Católica de Chile - Proyecto Grupo 2
 
 [https://gist.github.com/nebil/f96a2f0bfe1e059d589d6a2190a2ac8
 
-## Rationale
-
->_A styleguide is about consistency.
-  Consistency with this styleguide is important. [...]  
-  However, **know when to be inconsistent** --
-  sometimes the styleguide just doesn't apply.  
-  When in doubt, use your best judgment.
-  Look at other examples and decide what looks best._  
->                            [PEP 8], the styleguide for Python code
-
 ## Message
 
 Each commit message uploaded to the repository **must**...
