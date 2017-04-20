@@ -2,9 +2,7 @@
 IIC3103 Pontificia Universidad Católica de Chile - Proyecto Grupo 2
 
 
-# Git – styleguide 
-
-[https://gist.github.com/nebil/f96a2f0bfe1e059d589d6a2190a2ac8
+# Git – [styleguide](https://gist.github.com/nebil/f96a2f0bfe1e059d589d6a2190a2ac8)
 
 ## Message
 
