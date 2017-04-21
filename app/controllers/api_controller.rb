@@ -3,7 +3,7 @@ require 'net/http'
 
 class ApiController < ApplicationController
   def prices
-    json_response("lista de precios")
+    json_response("DEV: lista de precios")
   end
 
   # POST /api/oc/recibir
