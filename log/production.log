@@ -1,0 +1,116 @@
+I, [2017-04-21T19:12:18.016047 #16063]  INFO -- : [243f3f16-8196-4e98-bbc1-631f942decf8] Started GET "/api/prices" for 200.104.133.107 at 2017-04-21 19:12:18 -0300
+I, [2017-04-21T19:12:18.022881 #16063]  INFO -- : [243f3f16-8196-4e98-bbc1-631f942decf8] Processing by ApiController#prices as HTML
+I, [2017-04-21T19:12:18.025030 #16063]  INFO -- : [243f3f16-8196-4e98-bbc1-631f942decf8] Completed 200 OK in 2ms (Views: 0.4ms)
+I, [2017-04-21T19:12:37.311475 #16063]  INFO -- : [4fe13d07-ba89-40bc-aa44-285fe1781ea2] Started GET "/api/prices" for 149.154.167.162 at 2017-04-21 19:12:37 -0300
+I, [2017-04-21T19:12:37.312911 #16063]  INFO -- : [4fe13d07-ba89-40bc-aa44-285fe1781ea2] Processing by ApiController#prices as HTML
+I, [2017-04-21T19:12:37.313735 #16063]  INFO -- : [4fe13d07-ba89-40bc-aa44-285fe1781ea2] Completed 200 OK in 1ms (Views: 0.2ms)
+I, [2017-04-21T19:13:17.382094 #16063]  INFO -- : [ce0fd100-1654-4447-965f-e38bbce59029] Started GET "/api/prices" for 200.104.133.107 at 2017-04-21 19:13:17 -0300
+I, [2017-04-21T19:13:17.383589 #16063]  INFO -- : [ce0fd100-1654-4447-965f-e38bbce59029] Processing by ApiController#prices as HTML
+I, [2017-04-21T19:13:17.384449 #16063]  INFO -- : [ce0fd100-1654-4447-965f-e38bbce59029] Completed 200 OK in 1ms (Views: 0.2ms)
+I, [2017-04-21T19:13:34.739183 #16063]  INFO -- : [f9dc252d-ec93-41df-83ae-89171f217555] Started GET "/api/prices" for 200.104.133.107 at 2017-04-21 19:13:34 -0300
+I, [2017-04-21T19:13:34.740315 #16063]  INFO -- : [f9dc252d-ec93-41df-83ae-89171f217555] Processing by ApiController#prices as HTML
+I, [2017-04-21T19:13:34.741111 #16063]  INFO -- : [f9dc252d-ec93-41df-83ae-89171f217555] Completed 200 OK in 1ms (Views: 0.2ms)
+I, [2017-04-21T19:13:34.977278 #16063]  INFO -- : [8f95a25e-b6bf-419c-8209-47249dec4a09] Started GET "/favicon.ico" for 200.104.133.107 at 2017-04-21 19:13:34 -0300
+F, [2017-04-21T19:13:34.979062 #16063] FATAL -- : [8f95a25e-b6bf-419c-8209-47249dec4a09]   
+F, [2017-04-21T19:13:34.979206 #16063] FATAL -- : [8f95a25e-b6bf-419c-8209-47249dec4a09] ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+F, [2017-04-21T19:13:34.979317 #16063] FATAL -- : [8f95a25e-b6bf-419c-8209-47249dec4a09]   
+F, [2017-04-21T19:13:34.979476 #16063] FATAL -- : [8f95a25e-b6bf-419c-8209-47249dec4a09] actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+[8f95a25e-b6bf-419c-8209-47249dec4a09] actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+[8f95a25e-b6bf-419c-8209-47249dec4a09] railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+[8f95a25e-b6bf-419c-8209-47249dec4a09] railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+[8f95a25e-b6bf-419c-8209-47249dec4a09] activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+[8f95a25e-b6bf-419c-8209-47249dec4a09] activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+[8f95a25e-b6bf-419c-8209-47249dec4a09] activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+[8f95a25e-b6bf-419c-8209-47249dec4a09] railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+[8f95a25e-b6bf-419c-8209-47249dec4a09] actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+[8f95a25e-b6bf-419c-8209-47249dec4a09] rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+[8f95a25e-b6bf-419c-8209-47249dec4a09] activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+[8f95a25e-b6bf-419c-8209-47249dec4a09] actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+[8f95a25e-b6bf-419c-8209-47249dec4a09] rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+[8f95a25e-b6bf-419c-8209-47249dec4a09] railties (5.0.2) lib/rails/engine.rb:522:in `call'
+[8f95a25e-b6bf-419c-8209-47249dec4a09] /usr/lib/ruby/vendor_ruby/phusion_passenger/rack/thread_handler_extension.rb:97:in `process_request'
+[8f95a25e-b6bf-419c-8209-47249dec4a09] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:152:in `accept_and_process_next_request'
+[8f95a25e-b6bf-419c-8209-47249dec4a09] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:113:in `main_loop'
+[8f95a25e-b6bf-419c-8209-47249dec4a09] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler.rb:416:in `block (3 levels) in start_threads'
+[8f95a25e-b6bf-419c-8209-47249dec4a09] /usr/lib/ruby/vendor_ruby/phusion_passenger/utils.rb:113:in `block in create_thread_and_abort_on_exception'
+I, [2017-04-21T19:13:38.495540 #16063]  INFO -- : [2f317e96-f78b-4ae5-bb2f-86193a893c9b] Started GET "/" for 200.104.133.107 at 2017-04-21 19:13:38 -0300
+F, [2017-04-21T19:13:38.496768 #16063] FATAL -- : [2f317e96-f78b-4ae5-bb2f-86193a893c9b]   
+F, [2017-04-21T19:13:38.496910 #16063] FATAL -- : [2f317e96-f78b-4ae5-bb2f-86193a893c9b] ActionController::RoutingError (No route matches [GET] "/"):
+F, [2017-04-21T19:13:38.497004 #16063] FATAL -- : [2f317e96-f78b-4ae5-bb2f-86193a893c9b]   
+F, [2017-04-21T19:13:38.497099 #16063] FATAL -- : [2f317e96-f78b-4ae5-bb2f-86193a893c9b] actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+[2f317e96-f78b-4ae5-bb2f-86193a893c9b] actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+[2f317e96-f78b-4ae5-bb2f-86193a893c9b] railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+[2f317e96-f78b-4ae5-bb2f-86193a893c9b] railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+[2f317e96-f78b-4ae5-bb2f-86193a893c9b] activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+[2f317e96-f78b-4ae5-bb2f-86193a893c9b] activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+[2f317e96-f78b-4ae5-bb2f-86193a893c9b] activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+[2f317e96-f78b-4ae5-bb2f-86193a893c9b] railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+[2f317e96-f78b-4ae5-bb2f-86193a893c9b] actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+[2f317e96-f78b-4ae5-bb2f-86193a893c9b] rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+[2f317e96-f78b-4ae5-bb2f-86193a893c9b] activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+[2f317e96-f78b-4ae5-bb2f-86193a893c9b] actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+[2f317e96-f78b-4ae5-bb2f-86193a893c9b] rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+[2f317e96-f78b-4ae5-bb2f-86193a893c9b] railties (5.0.2) lib/rails/engine.rb:522:in `call'
+[2f317e96-f78b-4ae5-bb2f-86193a893c9b] /usr/lib/ruby/vendor_ruby/phusion_passenger/rack/thread_handler_extension.rb:97:in `process_request'
+[2f317e96-f78b-4ae5-bb2f-86193a893c9b] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:152:in `accept_and_process_next_request'
+[2f317e96-f78b-4ae5-bb2f-86193a893c9b] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:113:in `main_loop'
+[2f317e96-f78b-4ae5-bb2f-86193a893c9b] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler.rb:416:in `block (3 levels) in start_threads'
+[2f317e96-f78b-4ae5-bb2f-86193a893c9b] /usr/lib/ruby/vendor_ruby/phusion_passenger/utils.rb:113:in `block in create_thread_and_abort_on_exception'
+I, [2017-04-21T19:13:54.300466 #16063]  INFO -- : [0a746a03-dee0-4fff-b4e2-51556b2966c0] Started GET "/api/prices" for 200.104.133.107 at 2017-04-21 19:13:54 -0300
+I, [2017-04-21T19:13:54.302091 #16063]  INFO -- : [0a746a03-dee0-4fff-b4e2-51556b2966c0] Processing by ApiController#prices as HTML
+I, [2017-04-21T19:13:54.303064 #16063]  INFO -- : [0a746a03-dee0-4fff-b4e2-51556b2966c0] Completed 200 OK in 1ms (Views: 0.2ms)
+I, [2017-04-21T19:22:07.765613 #16063]  INFO -- : [fc8c5a40-5d87-4a34-94d7-bee383bcc6ab] Started GET "/api/prices" for 200.104.133.107 at 2017-04-21 19:22:07 -0300
+I, [2017-04-21T19:22:07.767585 #16063]  INFO -- : [fc8c5a40-5d87-4a34-94d7-bee383bcc6ab] Processing by ApiController#prices as HTML
+I, [2017-04-21T19:22:07.768384 #16063]  INFO -- : [fc8c5a40-5d87-4a34-94d7-bee383bcc6ab] Completed 200 OK in 1ms (Views: 0.2ms)
+I, [2017-04-21T19:22:08.311446 #16063]  INFO -- : [4e2bb230-3bd8-43f7-be72-8e61be24ed05] Started GET "/favicon.ico" for 200.104.133.107 at 2017-04-21 19:22:08 -0300
+F, [2017-04-21T19:22:08.312561 #16063] FATAL -- : [4e2bb230-3bd8-43f7-be72-8e61be24ed05]   
+F, [2017-04-21T19:22:08.312663 #16063] FATAL -- : [4e2bb230-3bd8-43f7-be72-8e61be24ed05] ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+F, [2017-04-21T19:22:08.312730 #16063] FATAL -- : [4e2bb230-3bd8-43f7-be72-8e61be24ed05]   
+F, [2017-04-21T19:22:08.312812 #16063] FATAL -- : [4e2bb230-3bd8-43f7-be72-8e61be24ed05] actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+[4e2bb230-3bd8-43f7-be72-8e61be24ed05] actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+[4e2bb230-3bd8-43f7-be72-8e61be24ed05] railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+[4e2bb230-3bd8-43f7-be72-8e61be24ed05] railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+[4e2bb230-3bd8-43f7-be72-8e61be24ed05] activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+[4e2bb230-3bd8-43f7-be72-8e61be24ed05] activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+[4e2bb230-3bd8-43f7-be72-8e61be24ed05] activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+[4e2bb230-3bd8-43f7-be72-8e61be24ed05] railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+[4e2bb230-3bd8-43f7-be72-8e61be24ed05] actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+[4e2bb230-3bd8-43f7-be72-8e61be24ed05] rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+[4e2bb230-3bd8-43f7-be72-8e61be24ed05] activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+[4e2bb230-3bd8-43f7-be72-8e61be24ed05] actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+[4e2bb230-3bd8-43f7-be72-8e61be24ed05] rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+[4e2bb230-3bd8-43f7-be72-8e61be24ed05] railties (5.0.2) lib/rails/engine.rb:522:in `call'
+[4e2bb230-3bd8-43f7-be72-8e61be24ed05] /usr/lib/ruby/vendor_ruby/phusion_passenger/rack/thread_handler_extension.rb:97:in `process_request'
+[4e2bb230-3bd8-43f7-be72-8e61be24ed05] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:152:in `accept_and_process_next_request'
+[4e2bb230-3bd8-43f7-be72-8e61be24ed05] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:113:in `main_loop'
+[4e2bb230-3bd8-43f7-be72-8e61be24ed05] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler.rb:416:in `block (3 levels) in start_threads'
+[4e2bb230-3bd8-43f7-be72-8e61be24ed05] /usr/lib/ruby/vendor_ruby/phusion_passenger/utils.rb:113:in `block in create_thread_and_abort_on_exception'
+I, [2017-04-21T19:22:08.366248 #16063]  INFO -- : [925818d5-4a25-472d-8b04-ee0108e2054b] Started GET "/favicon.ico" for 200.104.133.107 at 2017-04-21 19:22:08 -0300
+F, [2017-04-21T19:22:08.367182 #16063] FATAL -- : [925818d5-4a25-472d-8b04-ee0108e2054b]   
+F, [2017-04-21T19:22:08.367278 #16063] FATAL -- : [925818d5-4a25-472d-8b04-ee0108e2054b] ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+F, [2017-04-21T19:22:08.367342 #16063] FATAL -- : [925818d5-4a25-472d-8b04-ee0108e2054b]   
+F, [2017-04-21T19:22:08.367421 #16063] FATAL -- : [925818d5-4a25-472d-8b04-ee0108e2054b] actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+[925818d5-4a25-472d-8b04-ee0108e2054b] actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+[925818d5-4a25-472d-8b04-ee0108e2054b] railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+[925818d5-4a25-472d-8b04-ee0108e2054b] railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+[925818d5-4a25-472d-8b04-ee0108e2054b] activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+[925818d5-4a25-472d-8b04-ee0108e2054b] activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+[925818d5-4a25-472d-8b04-ee0108e2054b] activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+[925818d5-4a25-472d-8b04-ee0108e2054b] railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+[925818d5-4a25-472d-8b04-ee0108e2054b] actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+[925818d5-4a25-472d-8b04-ee0108e2054b] rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+[925818d5-4a25-472d-8b04-ee0108e2054b] activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+[925818d5-4a25-472d-8b04-ee0108e2054b] actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+[925818d5-4a25-472d-8b04-ee0108e2054b] rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+[925818d5-4a25-472d-8b04-ee0108e2054b] railties (5.0.2) lib/rails/engine.rb:522:in `call'
+[925818d5-4a25-472d-8b04-ee0108e2054b] /usr/lib/ruby/vendor_ruby/phusion_passenger/rack/thread_handler_extension.rb:97:in `process_request'
+[925818d5-4a25-472d-8b04-ee0108e2054b] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:152:in `accept_and_process_next_request'
+[925818d5-4a25-472d-8b04-ee0108e2054b] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:113:in `main_loop'
+[925818d5-4a25-472d-8b04-ee0108e2054b] /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler.rb:416:in `block (3 levels) in start_threads'
+[925818d5-4a25-472d-8b04-ee0108e2054b] /usr/lib/ruby/vendor_ruby/phusion_passenger/utils.rb:113:in `block in create_thread_and_abort_on_exception'
+I, [2017-04-21T19:27:55.212257 #16063]  INFO -- : [efd40aea-7bd5-4b61-b2ba-681c865cba0f] Started GET "/api/prices" for 200.104.133.107 at 2017-04-21 19:27:55 -0300
+I, [2017-04-21T19:27:55.214003 #16063]  INFO -- : [efd40aea-7bd5-4b61-b2ba-681c865cba0f] Processing by ApiController#prices as HTML
+I, [2017-04-21T19:27:55.215343 #16063]  INFO -- : [efd40aea-7bd5-4b61-b2ba-681c865cba0f] Completed 200 OK in 1ms (Views: 0.3ms)
+I, [2017-04-21T19:27:57.786601 #16063]  INFO -- : [8cdfbfd8-c1cf-4b38-a10a-aca196e288e6] Started GET "/api/prices" for 200.104.133.107 at 2017-04-21 19:27:57 -0300
+I, [2017-04-21T19:27:57.787536 #16063]  INFO -- : [8cdfbfd8-c1cf-4b38-a10a-aca196e288e6] Processing by ApiController#prices as HTML
+I, [2017-04-21T19:27:57.788235 #16063]  INFO -- : [8cdfbfd8-c1cf-4b38-a10a-aca196e288e6] Completed 200 OK in 0ms (Views: 0.2ms)
