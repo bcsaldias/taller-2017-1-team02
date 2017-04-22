@@ -20,7 +20,7 @@ class InvoiceController < ApplicationController
 
       @body =  JSON.parse request.body.read
       @keys = @body.keys
-      if not @keys.include?("id_provider")
+      if not @keys.include?("id_supplier")
           json_response({ :error => "Proveedor debe ser distinto de nulo" }, 400)
 
       elsif not @keys.include?("id_invoice")
@@ -29,7 +29,7 @@ class InvoiceController < ApplicationController
       else
       json_response(
           {
-            id_provider: params[:id_provider],
+            id_supplier: params[:id_supplier],
             id_invoice: params[:id_invoice]
           }, 201)
     end
