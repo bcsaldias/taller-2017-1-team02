@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'products' => 'api#products'
 
   put 'purchase_orders/:id' => 'purchase_order#realizar_pedido'
+  
   patch 'purchase_orders/:id' => 'purchase_order#responder_orden_compra'
 
   put 'invoices/:id' => 'invoice#enviar_confirmacion_factura'
@@ -13,7 +14,7 @@ Rails.application.routes.draw do
   put 'invoices' => 'invoice#enviar_factura'
   patch 'invoices/:id' => 'invoice#notificar_orden_despachada'
 
-  patch 'suppliers/:id' => 'suppliers/informar_cuenta_banco'
+  patch 'suppliers/:id' => 'suppliers#informar_cuenta_banco'
 
 
 end

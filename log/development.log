@@ -547,3 +547,734 @@ Processing by ApiController#recibir_factura as HTML
 Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/news_items" for 127.0.0.1 at 2017-04-22 19:31:52 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/news_items"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/favicon.ico" for 127.0.0.1 at 2017-04-22 19:31:52 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/favicon.ico" for 127.0.0.1 at 2017-04-22 19:31:52 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/products" for 127.0.0.1 at 2017-04-22 19:31:55 -0300
+Processing by ApiController#products as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/purchase_orders/:id" for 127.0.0.1 at 2017-04-22 19:32:20 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/purchase_orders/:id"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/purchase_orders/:id" for 127.0.0.1 at 2017-04-22 19:33:09 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/purchase_orders/:id"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/purchase_orders/:id" for 127.0.0.1 at 2017-04-22 19:33:41 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/purchase_orders/:id"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/purchase_orders/:id" for 127.0.0.1 at 2017-04-22 19:33:43 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/purchase_orders/:id"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/purchase_orders/:id" for 127.0.0.1 at 2017-04-22 19:34:11 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/purchase_orders/:id"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started PATCH "/purchase_orders/" for 127.0.0.1 at 2017-04-22 19:34:44 -0300
+  
+ActionController::RoutingError (No route matches [PATCH] "/purchase_orders"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started PATCH "/purchase_orders/" for 127.0.0.1 at 2017-04-22 19:34:45 -0300
+  
+ActionController::RoutingError (No route matches [PATCH] "/purchase_orders"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started PATCH "/purchase_orders/" for 127.0.0.1 at 2017-04-22 19:34:49 -0300
+  
+ActionController::RoutingError (No route matches [PATCH] "/purchase_orders"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started PATCH "/purchase_orders/hol" for 127.0.0.1 at 2017-04-22 19:34:59 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id"=>"hol", "purchase_order"=>{}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/hol" for 127.0.0.1 at 2017-04-22 19:35:01 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id"=>"hol", "purchase_order"=>{}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/hol" for 127.0.0.1 at 2017-04-22 19:35:58 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id"=>"hol", "purchase_order"=>{}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/hol" for 127.0.0.1 at 2017-04-22 19:35:59 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id"=>"hol", "purchase_order"=>{}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/hol" for 127.0.0.1 at 2017-04-22 19:36:12 -0300
+  
+SyntaxError (/home/bcsaldias/Desktop/taller-2017-1-team02/app/controllers/purchase_order_controller.rb:9: syntax error, unexpected '}', expecting =>
+    json_response({"DEV: responder_orden_compra"}, 200)
+                                                 ^):
+  
+app/controllers/purchase_order_controller.rb:9: syntax error, unexpected '}', expecting =>
+Started PATCH "/purchase_orders/hol" for 127.0.0.1 at 2017-04-22 19:36:13 -0300
+  
+SyntaxError (/home/bcsaldias/Desktop/taller-2017-1-team02/app/controllers/purchase_order_controller.rb:9: syntax error, unexpected '}', expecting =>
+    json_response({"DEV: responder_orden_compra"}, 200)
+                                                 ^):
+  
+app/controllers/purchase_order_controller.rb:9: syntax error, unexpected '}', expecting =>
+Started PATCH "/purchase_orders/hol" for 127.0.0.1 at 2017-04-22 19:36:21 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id"=>"hol", "purchase_order"=>{}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/hol" for 127.0.0.1 at 2017-04-22 19:36:22 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id"=>"hol", "purchase_order"=>{}}
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/hol" for 127.0.0.1 at 2017-04-22 19:36:22 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id"=>"hol", "purchase_order"=>{}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/hol" for 127.0.0.1 at 2017-04-22 19:44:48 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id"=>"hol", "purchase_order"=>{}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/hol" for 127.0.0.1 at 2017-04-22 19:44:49 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id"=>"hol", "purchase_order"=>{}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/hol" for 127.0.0.1 at 2017-04-22 19:45:00 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id"=>"hol", "purchase_order"=>{}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/hol" for 127.0.0.1 at 2017-04-22 19:45:01 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id"=>"hol", "purchase_order"=>{}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/hol" for 127.0.0.1 at 2017-04-22 19:45:05 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id"=>"hol", "purchase_order"=>{}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/hol" for 127.0.0.1 at 2017-04-22 19:45:05 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id"=>"hol", "purchase_order"=>{}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/hol" for 127.0.0.1 at 2017-04-22 19:47:57 -0300
+  
+SyntaxError (/home/bcsaldias/Desktop/taller-2017-1-team02/app/controllers/purchase_order_controller.rb:16: syntax error, unexpected ',', expecting ')'
+    	, 200)
+    	 ^):
+  
+app/controllers/purchase_order_controller.rb:16: syntax error, unexpected ',', expecting ')'
+Started PATCH "/purchase_orders/hol" for 127.0.0.1 at 2017-04-22 19:48:32 -0300
+  
+SyntaxError (/home/bcsaldias/Desktop/taller-2017-1-team02/app/controllers/purchase_order_controller.rb:16: syntax error, unexpected ',', expecting ')'
+    	, 200)
+    	 ^):
+  
+app/controllers/purchase_order_controller.rb:16: syntax error, unexpected ',', expecting ')'
+Started PATCH "/purchase_orders/hol" for 127.0.0.1 at 2017-04-22 19:48:32 -0300
+  
+SyntaxError (/home/bcsaldias/Desktop/taller-2017-1-team02/app/controllers/purchase_order_controller.rb:16: syntax error, unexpected ',', expecting ')'
+    	, 200)
+    	 ^):
+  
+app/controllers/purchase_order_controller.rb:16: syntax error, unexpected ',', expecting ')'
+Started PATCH "/purchase_orders/hol" for 127.0.0.1 at 2017-04-22 19:50:09 -0300
+  
+SyntaxError (/home/bcsaldias/Desktop/taller-2017-1-team02/app/controllers/purchase_order_controller.rb:27: syntax error, unexpected ',', expecting ')'
+	    	, 200)
+	    	 ^):
+  
+app/controllers/purchase_order_controller.rb:27: syntax error, unexpected ',', expecting ')'
+Started PATCH "/purchase_orders/hol" for 127.0.0.1 at 2017-04-22 19:50:09 -0300
+  
+SyntaxError (/home/bcsaldias/Desktop/taller-2017-1-team02/app/controllers/purchase_order_controller.rb:27: syntax error, unexpected ',', expecting ')'
+	    	, 200)
+	    	 ^):
+  
+app/controllers/purchase_order_controller.rb:27: syntax error, unexpected ',', expecting ')'
+Started PATCH "/purchase_orders/hol" for 127.0.0.1 at 2017-04-22 19:50:18 -0300
+  
+SyntaxError (/home/bcsaldias/Desktop/taller-2017-1-team02/app/controllers/purchase_order_controller.rb:29: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/purchase_order_controller.rb:29: syntax error, unexpected end-of-input, expecting keyword_end
+Started PATCH "/purchase_orders/hol" for 127.0.0.1 at 2017-04-22 19:50:19 -0300
+  
+SyntaxError (/home/bcsaldias/Desktop/taller-2017-1-team02/app/controllers/purchase_order_controller.rb:29: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/purchase_order_controller.rb:29: syntax error, unexpected end-of-input, expecting keyword_end
+Started PATCH "/purchase_orders/hol" for 127.0.0.1 at 2017-04-22 19:50:32 -0300
+  
+SyntaxError (/home/bcsaldias/Desktop/taller-2017-1-team02/app/controllers/purchase_order_controller.rb:27: syntax error, unexpected ',', expecting ')'
+	    	, 200)
+	    	 ^):
+  
+app/controllers/purchase_order_controller.rb:27: syntax error, unexpected ',', expecting ')'
+Started PATCH "/purchase_orders/hol" for 127.0.0.1 at 2017-04-22 19:50:37 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id_provider"=>"prov", "id"=>"hol", "purchase_order"=>{"id_provider"=>"prov"}}
+Completed 400 Bad Request in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/hol" for 127.0.0.1 at 2017-04-22 19:50:37 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id_provider"=>"prov", "id"=>"hol", "purchase_order"=>{"id_provider"=>"prov"}}
+Completed 400 Bad Request in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/hol" for 127.0.0.1 at 2017-04-22 19:50:54 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id_provider"=>"prov", "id"=>"hol", "purchase_order"=>{"id_provider"=>"prov"}}
+Completed 400 Bad Request in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/hol" for 127.0.0.1 at 2017-04-22 19:51:10 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id_provider"=>"prov", "id"=>"hol", "purchase_order"=>{"id_provider"=>"prov"}}
+Completed 400 Bad Request in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/hol" for 127.0.0.1 at 2017-04-22 19:51:11 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id_provider"=>"prov", "id"=>"hol", "purchase_order"=>{"id_provider"=>"prov"}}
+Completed 400 Bad Request in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/hol" for 127.0.0.1 at 2017-04-22 19:51:25 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id_provider"=>"prov", "id"=>"hol", "purchase_order"=>{"id_provider"=>"prov"}}
+Completed 400 Bad Request in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/hol" for 127.0.0.1 at 2017-04-22 19:51:26 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id_provider"=>"prov", "id"=>"hol", "purchase_order"=>{"id_provider"=>"prov"}}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/hol" for 127.0.0.1 at 2017-04-22 19:51:34 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id_provider"=>"prov", "id"=>"hol", "purchase_order"=>{"id_provider"=>"prov"}}
+Completed 400 Bad Request in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/hol" for 127.0.0.1 at 2017-04-22 19:51:44 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id_provider"=>"prov", "id"=>"hol", "purchase_order"=>{"id_provider"=>"prov"}}
+Completed 400 Bad Request in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/hol" for 127.0.0.1 at 2017-04-22 19:51:45 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id_provider"=>"prov", "id"=>"hol", "purchase_order"=>{"id_provider"=>"prov"}}
+Completed 400 Bad Request in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/hol" for 127.0.0.1 at 2017-04-22 19:52:16 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id_provider"=>"prov", "id"=>"hol", "purchase_order"=>{"id_provider"=>"prov"}}
+Completed 400 Bad Request in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/hol" for 127.0.0.1 at 2017-04-22 19:52:16 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id_provider"=>"prov", "id"=>"hol", "purchase_order"=>{"id_provider"=>"prov"}}
+Completed 400 Bad Request in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/hol" for 127.0.0.1 at 2017-04-22 19:52:17 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id_provider"=>"prov", "id"=>"hol", "purchase_order"=>{"id_provider"=>"prov"}}
+Completed 400 Bad Request in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/hol" for 127.0.0.1 at 2017-04-22 19:52:24 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id_provider"=>"prov", "id"=>"hol", "purchase_order"=>{"id_provider"=>"prov"}}
+Completed 400 Bad Request in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/hol" for 127.0.0.1 at 2017-04-22 19:52:24 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id_provider"=>"prov", "id"=>"hol", "purchase_order"=>{"id_provider"=>"prov"}}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/hol" for 127.0.0.1 at 2017-04-22 19:52:33 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id_provider"=>"prov", "id"=>"hol", "purchase_order"=>{"id_provider"=>"prov"}}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/hol" for 127.0.0.1 at 2017-04-22 19:52:35 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id_provider"=>"prov", "id"=>"hol", "purchase_order"=>{"id_provider"=>"prov"}}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/hol" for 127.0.0.1 at 2017-04-22 19:52:40 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id_provider"=>"prov", "id"=>"hol", "purchase_order"=>{"id_provider"=>"prov"}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/hol" for 127.0.0.1 at 2017-04-22 19:52:41 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id_provider"=>"prov", "id"=>"hol", "purchase_order"=>{"id_provider"=>"prov"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/hol" for 127.0.0.1 at 2017-04-22 19:52:57 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id_provider"=>"prov", "id"=>"hol", "purchase_order"=>{"id_provider"=>"prov"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/hol" for 127.0.0.1 at 2017-04-22 19:52:57 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id_provider"=>"prov", "id"=>"hol", "purchase_order"=>{"id_provider"=>"prov"}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/hol" for 127.0.0.1 at 2017-04-22 19:52:57 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id_provider"=>"prov", "id"=>"hol", "purchase_order"=>{"id_provider"=>"prov"}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/hol" for 127.0.0.1 at 2017-04-22 19:54:19 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id"=>"hol", "purchase_order"=>{}}
+Completed 400 Bad Request in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/hol" for 127.0.0.1 at 2017-04-22 19:54:22 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id_provider"=>"prov", "id"=>"hol", "purchase_order"=>{"id_provider"=>"prov"}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/hol" for 127.0.0.1 at 2017-04-22 19:54:34 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id_provider"=>"prov", "id"=>"hol", "purchase_order"=>{"id_provider"=>"prov"}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/hol" for 127.0.0.1 at 2017-04-22 19:54:35 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id_provider"=>"prov", "id"=>"hol", "purchase_order"=>{"id_provider"=>"prov"}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/hol" for 127.0.0.1 at 2017-04-22 19:54:35 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id_provider"=>"prov", "id"=>"hol", "purchase_order"=>{"id_provider"=>"prov"}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/hol" for 127.0.0.1 at 2017-04-22 19:54:35 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id_provider"=>"prov", "id"=>"hol", "purchase_order"=>{"id_provider"=>"prov"}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/hol" for 127.0.0.1 at 2017-04-22 19:54:38 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id_provider"=>"prov", "id"=>"hol", "purchase_order"=>{"id_provider"=>"prov"}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/hol" for 127.0.0.1 at 2017-04-22 19:54:39 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id_provider"=>"prov", "id"=>"hol", "purchase_order"=>{"id_provider"=>"prov"}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/hol" for 127.0.0.1 at 2017-04-22 19:54:39 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id_provider"=>"prov", "id"=>"hol", "purchase_order"=>{"id_provider"=>"prov"}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/hol" for 127.0.0.1 at 2017-04-22 19:54:39 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id_provider"=>"prov", "id"=>"hol", "purchase_order"=>{"id_provider"=>"prov"}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/hol" for 127.0.0.1 at 2017-04-22 19:54:43 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id_provider"=>"prov", "id"=>"hol", "purchase_order"=>{"id_provider"=>"prov"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/hol" for 127.0.0.1 at 2017-04-22 19:54:43 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id_provider"=>"prov", "id"=>"hol", "purchase_order"=>{"id_provider"=>"prov"}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/hol" for 127.0.0.1 at 2017-04-22 19:54:43 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id_provider"=>"prov", "id"=>"hol", "purchase_order"=>{"id_provider"=>"prov"}}
+Completed 200 OK in 0ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/hol" for 127.0.0.1 at 2017-04-22 19:58:48 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id_provider"=>"prov", "id"=>"hol", "purchase_order"=>{"id_provider"=>"prov"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/orden09" for 127.0.0.1 at 2017-04-22 19:58:52 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id_provider"=>"prov", "id"=>"orden09", "purchase_order"=>{"id_provider"=>"prov"}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/orden09" for 127.0.0.1 at 2017-04-22 19:58:53 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id_provider"=>"prov", "id"=>"orden09", "purchase_order"=>{"id_provider"=>"prov"}}
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/orden09" for 127.0.0.1 at 2017-04-22 19:59:03 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id_provider"=>"belen", "accepted"=>true, "id"=>"orden09", "purchase_order"=>{"id_provider"=>"belen", "accepted"=>true}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/orden09" for 127.0.0.1 at 2017-04-22 19:59:03 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id_provider"=>"belen", "accepted"=>true, "id"=>"orden09", "purchase_order"=>{"id_provider"=>"belen", "accepted"=>true}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/orden09" for 127.0.0.1 at 2017-04-22 19:59:44 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id_provider"=>"belen", "accepted"=>true, "id"=>"orden09", "purchase_order"=>{"id_provider"=>"belen", "accepted"=>true}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/orden09" for 127.0.0.1 at 2017-04-22 19:59:44 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id_provider"=>"belen", "accepted"=>true, "id"=>"orden09", "purchase_order"=>{"id_provider"=>"belen", "accepted"=>true}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/orden09" for 127.0.0.1 at 2017-04-22 19:59:45 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id_provider"=>"belen", "accepted"=>true, "id"=>"orden09", "purchase_order"=>{"id_provider"=>"belen", "accepted"=>true}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/orden09" for 127.0.0.1 at 2017-04-22 19:59:49 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id_provider"=>"belen", "id"=>"orden09", "purchase_order"=>{"id_provider"=>"belen"}}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/orden09" for 127.0.0.1 at 2017-04-22 19:59:51 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id_provider"=>"belen", "accepted"=>true, "id"=>"orden09", "purchase_order"=>{"id_provider"=>"belen", "accepted"=>true}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/orden09" for 127.0.0.1 at 2017-04-22 19:59:51 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id_provider"=>"belen", "accepted"=>true, "id"=>"orden09", "purchase_order"=>{"id_provider"=>"belen", "accepted"=>true}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/orden09" for 127.0.0.1 at 2017-04-22 20:01:14 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id_provider"=>"belen", "accepted"=>true, "id"=>"orden09", "purchase_order"=>{"id_provider"=>"belen", "accepted"=>true}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/orden09" for 127.0.0.1 at 2017-04-22 20:01:14 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id_provider"=>"belen", "accepted"=>true, "id"=>"orden09", "purchase_order"=>{"id_provider"=>"belen", "accepted"=>true}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/orden09" for 127.0.0.1 at 2017-04-22 20:01:29 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id_provider"=>"belen", "accepted"=>true, "id"=>"orden09", "purchase_order"=>{"id_provider"=>"belen", "accepted"=>true}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/orden09" for 127.0.0.1 at 2017-04-22 20:01:29 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id_provider"=>"belen", "accepted"=>true, "id"=>"orden09", "purchase_order"=>{"id_provider"=>"belen", "accepted"=>true}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/orden09" for 127.0.0.1 at 2017-04-22 20:01:32 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id_provider"=>"belen", "accepted"=>false, "id"=>"orden09", "purchase_order"=>{"id_provider"=>"belen", "accepted"=>false}}
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/orden09" for 127.0.0.1 at 2017-04-22 20:01:33 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id_provider"=>"belen", "accepted"=>false, "id"=>"orden09", "purchase_order"=>{"id_provider"=>"belen", "accepted"=>false}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/orden09" for 127.0.0.1 at 2017-04-22 20:01:33 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id_provider"=>"belen", "accepted"=>false, "id"=>"orden09", "purchase_order"=>{"id_provider"=>"belen", "accepted"=>false}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
