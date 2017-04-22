@@ -14,7 +14,7 @@ class PurchaseOrderController < ApplicationController
 
       @body =  JSON.parse request.body.read
       @keys = @body.keys
-      if not @keys.include?("id_provider")
+      if not @keys.include?("id_supplier")
           json_response({ :error => "Proveedor debe ser distinto de nulo" }, 400)
 
       elsif not @keys.include?("accepted")
@@ -23,7 +23,7 @@ class PurchaseOrderController < ApplicationController
       else
 	    json_response(
 					{
-					  id_provider: params[:id_provider],
+					  id_supplier: params[:id_supplier],
 					  id_purchase_order: params[:id],
 					  accepted: params[:accepted]
 					}, 200)
