@@ -1278,3 +1278,57 @@ Processing by PurchaseOrderController#responder_orden_compra as */*
 Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
 
 
+Started PUT "/invoices" for 127.0.0.1 at 2017-04-22 20:11:13 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_provider"=>"belen", "accepted"=>false, "invoice"=>{"id_provider"=>"belen", "accepted"=>false}}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices" for 127.0.0.1 at 2017-04-22 20:11:28 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_provider"=>"belen", "id_invoice"=>"facturaX", "invoice"=>{"id_provider"=>"belen", "id_invoice"=>"facturaX"}}
+Completed 201 Created in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices" for 127.0.0.1 at 2017-04-22 20:11:29 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_provider"=>"belen", "id_invoice"=>"facturaX", "invoice"=>{"id_provider"=>"belen", "id_invoice"=>"facturaX"}}
+Completed 201 Created in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices" for 127.0.0.1 at 2017-04-22 20:11:36 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_provider"=>"belen", "id_invoice"=>"facturaX", "invoice"=>{"id_provider"=>"belen", "id_invoice"=>"facturaX"}}
+Completed 201 Created in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices" for 127.0.0.1 at 2017-04-22 20:11:36 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_provider"=>"belen", "id_invoice"=>"facturaX", "invoice"=>{"id_provider"=>"belen", "id_invoice"=>"facturaX"}}
+Completed 201 Created in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices" for 127.0.0.1 at 2017-04-22 20:11:40 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_invoice"=>"facturaX", "invoice"=>{"id_invoice"=>"facturaX"}}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices" for 127.0.0.1 at 2017-04-22 20:11:41 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_invoice"=>"facturaX", "invoice"=>{"id_invoice"=>"facturaX"}}
+Completed 400 Bad Request in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices" for 127.0.0.1 at 2017-04-22 20:11:43 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_provider"=>"belen", "id_invoice"=>"facturaX", "invoice"=>{"id_provider"=>"belen", "id_invoice"=>"facturaX"}}
+Completed 201 Created in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices" for 127.0.0.1 at 2017-04-22 20:11:43 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_provider"=>"belen", "id_invoice"=>"facturaX", "invoice"=>{"id_provider"=>"belen", "id_invoice"=>"facturaX"}}
+Completed 201 Created in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
