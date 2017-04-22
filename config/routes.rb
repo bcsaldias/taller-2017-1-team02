@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
+
   get 'products' => 'api#products'
+
+  put 'purchase_orders/:id' => 'purchase_order#realizar_pedido'
+  patch 'purchase_orders/:id' => 'purchase_order/responder_orden_compra'
 
   put 'invoices/:id' => 'invoice#enviar_confirmacion_factura'
   delete 'invoices/:id' => 'invoice#enviar_rechazo_factura'
@@ -8,8 +12,5 @@ Rails.application.routes.draw do
   put 'invoices' => 'invoice#enviar_factura'
   patch 'invoices/:id' => 'invoice#notificar_orden_despachada'
 
-  get 'api/oc/recibir/:id' => 'api#recibir_oc'
-  get 'api/factura/recibir/:id' => 'api#recibir_factura'
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
