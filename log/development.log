@@ -1458,3 +1458,117 @@ Processing by SuppliersController#informar_cuenta_banco as */*
 Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
 
 
+Started PATCH "/invoices/supp0" for 127.0.0.1 at 2017-04-22 20:29:33 -0300
+Processing by InvoiceController#enviar_confirmacion_pago as */*
+  Parameters: {"id"=>"supp0", "invoice"=>{}}
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/supp0" for 127.0.0.1 at 2017-04-22 20:29:34 -0300
+Processing by InvoiceController#enviar_confirmacion_pago as */*
+  Parameters: {"id"=>"supp0", "invoice"=>{}}
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/supp0" for 127.0.0.1 at 2017-04-22 20:29:35 -0300
+Processing by InvoiceController#enviar_confirmacion_pago as */*
+  Parameters: {"id"=>"supp0", "invoice"=>{}}
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/supp0" for 127.0.0.1 at 2017-04-22 20:29:36 -0300
+Processing by InvoiceController#enviar_confirmacion_pago as */*
+  Parameters: {"id"=>"supp0", "invoice"=>{}}
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/supp0" for 127.0.0.1 at 2017-04-22 20:29:36 -0300
+Processing by InvoiceController#enviar_confirmacion_pago as */*
+  Parameters: {"id"=>"supp0", "invoice"=>{}}
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/supp0" for 127.0.0.1 at 2017-04-22 20:30:17 -0300
+Processing by InvoiceController#enviar_confirmacion_pago as */*
+  Parameters: {"id"=>"supp0", "invoice"=>{}}
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/supp0" for 127.0.0.1 at 2017-04-22 20:30:18 -0300
+Processing by InvoiceController#enviar_confirmacion_pago as */*
+  Parameters: {"id"=>"supp0", "invoice"=>{}}
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/supp0" for 127.0.0.1 at 2017-04-22 20:30:18 -0300
+Processing by InvoiceController#enviar_confirmacion_pago as */*
+  Parameters: {"id"=>"supp0", "invoice"=>{}}
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/supp0" for 127.0.0.1 at 2017-04-22 20:30:18 -0300
+Processing by InvoiceController#enviar_confirmacion_pago as */*
+  Parameters: {"id"=>"supp0", "invoice"=>{}}
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/supp0" for 127.0.0.1 at 2017-04-22 20:30:22 -0300
+Processing by InvoiceController#enviar_confirmacion_pago as */*
+  Parameters: {"id"=>"supp0", "invoice"=>{}}
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/supp0" for 127.0.0.1 at 2017-04-22 20:30:22 -0300
+Processing by InvoiceController#enviar_confirmacion_pago as */*
+  Parameters: {"id"=>"supp0", "invoice"=>{}}
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/supp0" for 127.0.0.1 at 2017-04-22 20:30:22 -0300
+Processing by InvoiceController#enviar_confirmacion_pago as */*
+  Parameters: {"id"=>"supp0", "invoice"=>{}}
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/supp0" for 127.0.0.1 at 2017-04-22 20:30:23 -0300
+Processing by InvoiceController#enviar_confirmacion_pago as */*
+  Parameters: {"id"=>"supp0", "invoice"=>{}}
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/supp0" for 127.0.0.1 at 2017-04-22 20:30:23 -0300
+Processing by InvoiceController#enviar_confirmacion_pago as */*
+  Parameters: {"id"=>"supp0", "invoice"=>{}}
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/supp0" for 127.0.0.1 at 2017-04-22 20:30:23 -0300
+Processing by InvoiceController#enviar_confirmacion_pago as */*
+  Parameters: {"id"=>"supp0", "invoice"=>{}}
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/supp0" for 127.0.0.1 at 2017-04-22 20:30:23 -0300
+Processing by InvoiceController#enviar_confirmacion_pago as */*
+  Parameters: {"id"=>"supp0", "invoice"=>{}}
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/supp0" for 127.0.0.1 at 2017-04-22 20:30:23 -0300
+Processing by InvoiceController#enviar_confirmacion_pago as */*
+  Parameters: {"id"=>"supp0", "invoice"=>{}}
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/supp0" for 127.0.0.1 at 2017-04-22 20:30:24 -0300
+Processing by InvoiceController#enviar_confirmacion_pago as */*
+  Parameters: {"id"=>"supp0", "invoice"=>{}}
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/supp0" for 127.0.0.1 at 2017-04-22 20:30:40 -0300
+Processing by InvoiceController#enviar_confirmacion_pago as */*
+  Parameters: {"id"=>"supp0", "invoice"=>{}}
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+

@@ -38,6 +38,11 @@ class InvoiceController < ApplicationController
 
   # PATCH /invoices/:id
   def notificar_orden_despachada
+
+      json_response(204)
+
   end
+
+
 end
 
