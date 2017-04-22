@@ -2,7 +2,8 @@ require 'json'
 require 'net/http'
 
 class ApiController < ApplicationController
-  def prices
+  
+  def products
     json_response("DEV: lista de precios")
   end
 
