@@ -1885,3 +1885,539 @@ Processing by InvoiceController#enviar_factura as */*
 Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
 
 
+Started PUT "/invoices" for 127.0.0.1 at 2017-04-22 21:06:38 -0300
+  
+SyntaxError (/home/bcsaldias/Desktop/taller-2017-1-team02/app/controllers/invoice_controller.rb:42: syntax error, unexpected keyword_rescue, expecting keyword_end):
+  
+app/controllers/invoice_controller.rb:42: syntax error, unexpected keyword_rescue, expecting keyword_end
+Started PUT "/invoices" for 127.0.0.1 at 2017-04-22 21:07:06 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>"supp0", "id_invoice"=>"factura0", "bank_account"=>"cuenta", "invoice"=>{"id_supplier"=>"supp0", "id_invoice"=>"factura0", "bank_account"=>"cuenta"}}
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices" for 127.0.0.1 at 2017-04-22 21:07:06 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>"supp0", "id_invoice"=>"factura0", "bank_account"=>"cuenta", "invoice"=>{"id_supplier"=>"supp0", "id_invoice"=>"factura0", "bank_account"=>"cuenta"}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices" for 127.0.0.1 at 2017-04-22 21:07:12 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"invoice"=>{}}
+Completed 400 Bad Request in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices" for 127.0.0.1 at 2017-04-22 21:07:14 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"invoice"=>{}}
+Completed 404 Not Found in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices" for 127.0.0.1 at 2017-04-22 21:08:10 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"invoice"=>{}}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices" for 127.0.0.1 at 2017-04-22 21:08:11 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"invoice"=>{}}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices" for 127.0.0.1 at 2017-04-22 21:08:11 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"invoice"=>{}}
+Completed 400 Bad Request in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices/" for 127.0.0.1 at 2017-04-22 21:10:31 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"invoice"=>{}}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices/" for 127.0.0.1 at 2017-04-22 21:10:32 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"invoice"=>{}}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices/" for 127.0.0.1 at 2017-04-22 21:10:34 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>"supp0", "id_invoice"=>"factura0", "bank_account"=>"cuenta", "invoice"=>{"id_supplier"=>"supp0", "id_invoice"=>"factura0", "bank_account"=>"cuenta"}}
+Completed 200 OK in 0ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices/" for 127.0.0.1 at 2017-04-22 21:10:34 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>"supp0", "id_invoice"=>"factura0", "bank_account"=>"cuenta", "invoice"=>{"id_supplier"=>"supp0", "id_invoice"=>"factura0", "bank_account"=>"cuenta"}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices(300" for 127.0.0.1 at 2017-04-22 21:23:27 -0300
+  
+ActionController::RoutingError (No route matches [PATCH] "/invoices(300"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started PATCH "/invoices(300" for 127.0.0.1 at 2017-04-22 21:23:38 -0300
+  
+ActionController::RoutingError (No route matches [PATCH] "/invoices(300"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started PATCH "/invoices/300" for 127.0.0.1 at 2017-04-22 21:23:41 -0300
+Processing by InvoiceController#enviar_confirmacion_pago as */*
+  Parameters: {"id_supplier"=>"supp0", "id_invoice"=>"factura0", "bank_account"=>"cuenta", "id"=>"300", "invoice"=>{"id_supplier"=>"supp0", "id_invoice"=>"factura0", "bank_account"=>"cuenta"}}
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300" for 127.0.0.1 at 2017-04-22 21:23:42 -0300
+Processing by InvoiceController#enviar_confirmacion_pago as */*
+  Parameters: {"id_supplier"=>"supp0", "id_invoice"=>"factura0", "bank_account"=>"cuenta", "id"=>"300", "invoice"=>{"id_supplier"=>"supp0", "id_invoice"=>"factura0", "bank_account"=>"cuenta"}}
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300" for 127.0.0.1 at 2017-04-22 21:23:42 -0300
+Processing by InvoiceController#enviar_confirmacion_pago as */*
+  Parameters: {"id_supplier"=>"supp0", "id_invoice"=>"factura0", "bank_account"=>"cuenta", "id"=>"300", "invoice"=>{"id_supplier"=>"supp0", "id_invoice"=>"factura0", "bank_account"=>"cuenta"}}
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300" for 127.0.0.1 at 2017-04-22 21:23:47 -0300
+Processing by InvoiceController#enviar_confirmacion_pago as */*
+  Parameters: {"id"=>"300", "invoice"=>{}}
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300" for 127.0.0.1 at 2017-04-22 21:23:47 -0300
+Processing by InvoiceController#enviar_confirmacion_pago as */*
+  Parameters: {"id"=>"300", "invoice"=>{}}
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/orden09" for 127.0.0.1 at 2017-04-22 21:24:22 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id_supplier"=>"supp0", "id_invoice"=>"factura0", "bank_account"=>"cuenta", "id"=>"orden09", "purchase_order"=>{"id_supplier"=>"supp0", "id_invoice"=>"factura0", "bank_account"=>"cuenta"}}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/orden09" for 127.0.0.1 at 2017-04-22 21:24:30 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id_supplier"=>"supp0", "id_invoice"=>"factura0", "bank_account"=>"cuenta", "accepted"=>true, "id"=>"orden09", "purchase_order"=>{"id_supplier"=>"supp0", "id_invoice"=>"factura0", "bank_account"=>"cuenta", "accepted"=>true}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/orden09" for 127.0.0.1 at 2017-04-22 21:24:31 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id_supplier"=>"supp0", "id_invoice"=>"factura0", "bank_account"=>"cuenta", "accepted"=>true, "id"=>"orden09", "purchase_order"=>{"id_supplier"=>"supp0", "id_invoice"=>"factura0", "bank_account"=>"cuenta", "accepted"=>true}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/orden09" for 127.0.0.1 at 2017-04-22 21:24:33 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id"=>"orden09", "purchase_order"=>{}}
+Completed 400 Bad Request in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/orden09" for 127.0.0.1 at 2017-04-22 21:24:33 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id"=>"orden09", "purchase_order"=>{}}
+Completed 400 Bad Request in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/orden09" for 127.0.0.1 at 2017-04-22 21:24:35 -0300
+Processing by PurchaseOrderController#responder_orden_compra as */*
+  Parameters: {"id_supplier"=>"supp0", "id_invoice"=>"factura0", "bank_account"=>"cuenta", "accepted"=>true, "id"=>"orden09", "purchase_order"=>{"id_supplier"=>"supp0", "id_invoice"=>"factura0", "bank_account"=>"cuenta", "accepted"=>true}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300" for 127.0.0.1 at 2017-04-22 21:26:13 -0300
+Processing by InvoiceController#enviar_confirmacion_pago as */*
+  Parameters: {"id_supplier"=>"supp0", "id_invoice"=>"factura0", "bank_account"=>"cuenta", "accepted"=>true, "id"=>"300", "invoice"=>{"id_supplier"=>"supp0", "id_invoice"=>"factura0", "bank_account"=>"cuenta", "accepted"=>true}}
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300" for 127.0.0.1 at 2017-04-22 21:26:20 -0300
+Processing by InvoiceController#enviar_confirmacion_pago as */*
+  Parameters: {"id"=>"300", "invoice"=>{}}
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300" for 127.0.0.1 at 2017-04-22 21:26:21 -0300
+Processing by InvoiceController#enviar_confirmacion_pago as */*
+  Parameters: {"id"=>"300", "invoice"=>{}}
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300" for 127.0.0.1 at 2017-04-22 21:26:21 -0300
+Processing by InvoiceController#enviar_confirmacion_pago as */*
+  Parameters: {"id"=>"300", "invoice"=>{}}
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300" for 127.0.0.1 at 2017-04-22 21:26:39 -0300
+Processing by InvoiceController#enviar_confirmacion_pago as */*
+  Parameters: {"id"=>"300", "invoice"=>{}}
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300" for 127.0.0.1 at 2017-04-22 21:26:39 -0300
+Processing by InvoiceController#enviar_confirmacion_pago as */*
+  Parameters: {"id"=>"300", "invoice"=>{}}
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300" for 127.0.0.1 at 2017-04-22 21:26:40 -0300
+Processing by InvoiceController#enviar_confirmacion_pago as */*
+  Parameters: {"id"=>"300", "invoice"=>{}}
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/delivered" for 127.0.0.1 at 2017-04-22 21:26:43 -0300
+Processing by InvoiceController#notificar_orden_despachada as */*
+  Parameters: {"id"=>"300", "invoice"=>{}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/delivered" for 127.0.0.1 at 2017-04-22 21:26:44 -0300
+Processing by InvoiceController#notificar_orden_despachada as */*
+  Parameters: {"id"=>"300", "invoice"=>{}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/delivered" for 127.0.0.1 at 2017-04-22 21:26:51 -0300
+  
+SyntaxError (/home/bcsaldias/Desktop/taller-2017-1-team02/app/controllers/invoice_controller.rb:53: syntax error, unexpected ',', expecting ')'
+      json_response(,204)
+                     ^):
+  
+app/controllers/invoice_controller.rb:53: syntax error, unexpected ',', expecting ')'
+Started PATCH "/invoices/300/delivered" for 127.0.0.1 at 2017-04-22 21:26:56 -0300
+Processing by InvoiceController#notificar_orden_despachada as */*
+  Parameters: {"id"=>"300", "invoice"=>{}}
+Completed 204 No Content in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/delivered" for 127.0.0.1 at 2017-04-22 21:26:57 -0300
+Processing by InvoiceController#notificar_orden_despachada as */*
+  Parameters: {"id"=>"300", "invoice"=>{}}
+Completed 204 No Content in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/delivered" for 127.0.0.1 at 2017-04-22 21:26:57 -0300
+Processing by InvoiceController#notificar_orden_despachada as */*
+  Parameters: {"id"=>"300", "invoice"=>{}}
+Completed 204 No Content in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/delivered" for 127.0.0.1 at 2017-04-22 21:26:58 -0300
+Processing by InvoiceController#notificar_orden_despachada as */*
+  Parameters: {"id"=>"300", "invoice"=>{}}
+Completed 204 No Content in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/delivered" for 127.0.0.1 at 2017-04-22 21:26:58 -0300
+Processing by InvoiceController#notificar_orden_despachada as */*
+  Parameters: {"id"=>"300", "invoice"=>{}}
+Completed 204 No Content in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/delivered" for 127.0.0.1 at 2017-04-22 21:27:01 -0300
+Processing by InvoiceController#notificar_orden_despachada as */*
+  Parameters: {"id"=>"300", "invoice"=>{}}
+Completed 204 No Content in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/delivered" for 127.0.0.1 at 2017-04-22 21:27:02 -0300
+Processing by InvoiceController#notificar_orden_despachada as */*
+  Parameters: {"id"=>"300", "invoice"=>{}}
+Completed 204 No Content in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/delivered" for 127.0.0.1 at 2017-04-22 21:27:02 -0300
+Processing by InvoiceController#notificar_orden_despachada as */*
+  Parameters: {"id"=>"300", "invoice"=>{}}
+Completed 204 No Content in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/delivered" for 127.0.0.1 at 2017-04-22 21:27:02 -0300
+Processing by InvoiceController#notificar_orden_despachada as */*
+  Parameters: {"id"=>"300", "invoice"=>{}}
+Completed 204 No Content in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/delivered" for 127.0.0.1 at 2017-04-22 21:27:02 -0300
+Processing by InvoiceController#notificar_orden_despachada as */*
+  Parameters: {"id"=>"300", "invoice"=>{}}
+Completed 204 No Content in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/delivered" for 127.0.0.1 at 2017-04-22 21:27:16 -0300
+Processing by InvoiceController#notificar_orden_despachada as */*
+  Parameters: {"id"=>"300", "invoice"=>{}}
+Completed 204 No Content in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/delivered" for 127.0.0.1 at 2017-04-22 21:27:17 -0300
+Processing by InvoiceController#notificar_orden_despachada as */*
+  Parameters: {"id"=>"300", "invoice"=>{}}
+Completed 204 No Content in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/delivered" for 127.0.0.1 at 2017-04-22 21:27:17 -0300
+Processing by InvoiceController#notificar_orden_despachada as */*
+  Parameters: {"id"=>"300", "invoice"=>{}}
+Completed 204 No Content in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/delivered" for 127.0.0.1 at 2017-04-22 21:27:18 -0300
+Processing by InvoiceController#notificar_orden_despachada as */*
+  Parameters: {"id"=>"300", "invoice"=>{}}
+Completed 204 No Content in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/delivered" for 127.0.0.1 at 2017-04-22 21:27:18 -0300
+Processing by InvoiceController#notificar_orden_despachada as */*
+  Parameters: {"id"=>"300", "invoice"=>{}}
+Completed 204 No Content in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/delivered" for 127.0.0.1 at 2017-04-22 21:27:21 -0300
+Processing by InvoiceController#notificar_orden_despachada as */*
+  Parameters: {"id"=>"300", "invoice"=>{}}
+Completed 204 No Content in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/delivered" for 127.0.0.1 at 2017-04-22 21:27:21 -0300
+Processing by InvoiceController#notificar_orden_despachada as */*
+  Parameters: {"id"=>"300", "invoice"=>{}}
+Completed 204 No Content in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/delivered" for 127.0.0.1 at 2017-04-22 21:27:21 -0300
+Processing by InvoiceController#notificar_orden_despachada as */*
+  Parameters: {"id"=>"300", "invoice"=>{}}
+Completed 204 No Content in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/delivered" for 127.0.0.1 at 2017-04-22 21:27:22 -0300
+Processing by InvoiceController#notificar_orden_despachada as */*
+  Parameters: {"id"=>"300", "invoice"=>{}}
+Completed 204 No Content in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/delivered" for 127.0.0.1 at 2017-04-22 21:27:31 -0300
+Processing by InvoiceController#notificar_orden_despachada as */*
+  Parameters: {"id"=>"300", "invoice"=>{}}
+Completed 204 No Content in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/delivered" for 127.0.0.1 at 2017-04-22 21:27:37 -0300
+Processing by InvoiceController#notificar_orden_despachada as */*
+  Parameters: {"id"=>"300", "invoice"=>{}}
+Completed 204 No Content in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/delivered" for 127.0.0.1 at 2017-04-22 21:27:37 -0300
+Processing by InvoiceController#notificar_orden_despachada as */*
+  Parameters: {"id"=>"300", "invoice"=>{}}
+Completed 204 No Content in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/orden09" for 127.0.0.1 at 2017-04-22 21:30:07 -0300
+  
+AbstractController::ActionNotFound (The action 'responder_orden_compra' could not be found for PurchaseOrderController):
+  
+actionpack (5.0.2) lib/abstract_controller/base.rb:121:in `process'
+actionpack (5.0.2) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (5.0.2) lib/action_controller/metal.rb:262:in `dispatch'
+actionpack (5.0.2) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (5.0.2) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.0.2) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.2) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.2) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.2) lib/action_dispatch/routing/route_set.rb:725:in `call'
+rack (2.0.1) lib/rack/etag.rb:25:in `call'
+rack (2.0.1) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.1) lib/rack/head.rb:12:in `call'
+activerecord (5.0.2) lib/active_record/migration.rb:553:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.2) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.2) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.2) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.2) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started PATCH "/purchase_orders/orden09/accepted" for 127.0.0.1 at 2017-04-22 21:30:13 -0300
+  
+ActionController::RoutingError (No route matches [PATCH] "/purchase_orders/orden09/accepted"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started PATCH "/purchase_orders/orden09/accepted" for 127.0.0.1 at 2017-04-22 21:30:40 -0300
+Processing by PurchaseOrderController#confirmar_orden_compra as */*
+  Parameters: {"id"=>"orden09", "purchase_order"=>{}}
+Completed 400 Bad Request in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/orden09/accepted" for 127.0.0.1 at 2017-04-22 21:30:40 -0300
+Processing by PurchaseOrderController#confirmar_orden_compra as */*
+  Parameters: {"id"=>"orden09", "purchase_order"=>{}}
+Completed 400 Bad Request in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/orden09/accepted" for 127.0.0.1 at 2017-04-22 21:30:40 -0300
+Processing by PurchaseOrderController#confirmar_orden_compra as */*
+  Parameters: {"id"=>"orden09", "purchase_order"=>{}}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/orden09/accepted" for 127.0.0.1 at 2017-04-22 21:30:52 -0300
+Processing by PurchaseOrderController#confirmar_orden_compra as */*
+  Parameters: {"id"=>"orden09", "purchase_order"=>{}}
+Completed 400 Bad Request in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/orden09/accepted" for 127.0.0.1 at 2017-04-22 21:30:52 -0300
+Processing by PurchaseOrderController#confirmar_orden_compra as */*
+  Parameters: {"id"=>"orden09", "purchase_order"=>{}}
+Completed 400 Bad Request in 0ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/orden09/accepted" for 127.0.0.1 at 2017-04-22 21:31:05 -0300
+Processing by PurchaseOrderController#confirmar_orden_compra as */*
+  Parameters: {"id_supplier"=>"sup", "id"=>"orden09", "purchase_order"=>{"id_supplier"=>"sup"}}
+Completed 200 OK in 0ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/orden09/accepted" for 127.0.0.1 at 2017-04-22 21:31:06 -0300
+Processing by PurchaseOrderController#confirmar_orden_compra as */*
+  Parameters: {"id_supplier"=>"sup", "id"=>"orden09", "purchase_order"=>{"id_supplier"=>"sup"}}
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/orden09/accepted" for 127.0.0.1 at 2017-04-22 21:31:06 -0300
+Processing by PurchaseOrderController#confirmar_orden_compra as */*
+  Parameters: {"id_supplier"=>"sup", "id"=>"orden09", "purchase_order"=>{"id_supplier"=>"sup"}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/orden09/accepted" for 127.0.0.1 at 2017-04-22 21:31:06 -0300
+Processing by PurchaseOrderController#confirmar_orden_compra as */*
+  Parameters: {"id_supplier"=>"sup", "id"=>"orden09", "purchase_order"=>{"id_supplier"=>"sup"}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/orden09/accepted" for 127.0.0.1 at 2017-04-22 21:31:06 -0300
+Processing by PurchaseOrderController#confirmar_orden_compra as */*
+  Parameters: {"id_supplier"=>"sup", "id"=>"orden09", "purchase_order"=>{"id_supplier"=>"sup"}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/orden09/accepted" for 127.0.0.1 at 2017-04-22 21:31:07 -0300
+Processing by PurchaseOrderController#confirmar_orden_compra as */*
+  Parameters: {"id_supplier"=>"sup", "id"=>"orden09", "purchase_order"=>{"id_supplier"=>"sup"}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/orden09/rejected" for 127.0.0.1 at 2017-04-22 21:31:10 -0300
+Processing by PurchaseOrderController#rechazar_orden_compra as */*
+  Parameters: {"id_supplier"=>"sup", "id"=>"orden09", "purchase_order"=>{"id_supplier"=>"sup"}}
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/orden09/rejected" for 127.0.0.1 at 2017-04-22 21:31:10 -0300
+Processing by PurchaseOrderController#rechazar_orden_compra as */*
+  Parameters: {"id_supplier"=>"sup", "id"=>"orden09", "purchase_order"=>{"id_supplier"=>"sup"}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/orden09/rejected" for 127.0.0.1 at 2017-04-22 21:31:11 -0300
+Processing by PurchaseOrderController#rechazar_orden_compra as */*
+  Parameters: {"id_supplier"=>"sup", "id"=>"orden09", "purchase_order"=>{"id_supplier"=>"sup"}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/orden09/rejected" for 127.0.0.1 at 2017-04-22 21:31:11 -0300
+Processing by PurchaseOrderController#rechazar_orden_compra as */*
+  Parameters: {"id_supplier"=>"sup", "id"=>"orden09", "purchase_order"=>{"id_supplier"=>"sup"}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
