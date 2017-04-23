@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   put 'invoices' => 'invoice#enviar_factura'
   patch 'invoices/:id' => 'invoice#notificar_orden_despachada'
 
-  patch 'suppliers/:id_supplier' => 'suppliers#informar_cuenta_banco'
+  #patch 'suppliers/:id_supplier' => 'suppliers#informar_cuenta_banco'
 
 
 end
