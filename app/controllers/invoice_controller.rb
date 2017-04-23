@@ -26,12 +26,16 @@ class InvoiceController < ApplicationController
       elsif not @keys.include?("id_invoice")
           json_response({ :error => "Factura debe ser distinto de nulo" }, 400)
 
+      elsif not @keys.include?("bank_account")
+          json_response({ :error => "Debe proporcionar una cuenta bancaria" }, 400)
+
       else
       json_response(
           {
             id_supplier: params[:id_supplier],
-            id_invoice: params[:id_invoice]
-          }, 201)
+            id_invoice: params[:id_invoice],
+            bank_account: params[:bank_account]
+          }, 200)
     end
 
   end

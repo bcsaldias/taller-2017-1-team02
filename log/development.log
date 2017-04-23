@@ -1572,3 +1572,316 @@ Processing by InvoiceController#enviar_confirmacion_pago as */*
 Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
 
 
+Started PUT "/invoices/" for 127.0.0.1 at 2017-04-22 21:01:06 -0300
+  
+SyntaxError (/home/bcsaldias/Desktop/taller-2017-1-team02/app/controllers/invoice_controller.rb:34: syntax error, unexpected keyword_else):
+  
+app/controllers/invoice_controller.rb:34: syntax error, unexpected keyword_else
+Started PUT "/invoices/" for 127.0.0.1 at 2017-04-22 21:01:23 -0300
+Processing by InvoiceController#enviar_factura as */*
+Started PUT "/invoices/" for 127.0.0.1 at 2017-04-22 21:01:34 -0300
+  Parameters: {"invoice"=>{}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+JSON::ParserError (A JSON text must at least contain two octets!):
+  
+app/controllers/invoice_controller.rb:21:in `enviar_factura'
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"invoice"=>{}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+JSON::ParserError (A JSON text must at least contain two octets!):
+  
+app/controllers/invoice_controller.rb:21:in `enviar_factura'
+Started PUT "/invoices" for 127.0.0.1 at 2017-04-22 21:01:45 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"invoice"=>{}}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+JSON::ParserError (A JSON text must at least contain two octets!):
+  
+app/controllers/invoice_controller.rb:21:in `enviar_factura'
+Started PUT "/invoices" for 127.0.0.1 at 2017-04-22 21:02:07 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"invoice"=>{}}
+Completed 400 Bad Request in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices" for 127.0.0.1 at 2017-04-22 21:02:08 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"invoice"=>{}}
+Completed 400 Bad Request in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices" for 127.0.0.1 at 2017-04-22 21:02:08 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"invoice"=>{}}
+Completed 400 Bad Request in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices" for 127.0.0.1 at 2017-04-22 21:02:08 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"invoice"=>{}}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices" for 127.0.0.1 at 2017-04-22 21:02:08 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"invoice"=>{}}
+Completed 400 Bad Request in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices" for 127.0.0.1 at 2017-04-22 21:02:09 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"invoice"=>{}}
+Completed 400 Bad Request in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices" for 127.0.0.1 at 2017-04-22 21:02:09 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"invoice"=>{}}
+Completed 400 Bad Request in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices" for 127.0.0.1 at 2017-04-22 21:02:09 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"invoice"=>{}}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices" for 127.0.0.1 at 2017-04-22 21:02:10 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"invoice"=>{}}
+Completed 400 Bad Request in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices" for 127.0.0.1 at 2017-04-22 21:02:17 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"invoice"=>{}}
+Completed 400 Bad Request in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices" for 127.0.0.1 at 2017-04-22 21:02:18 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"invoice"=>{}}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices" for 127.0.0.1 at 2017-04-22 21:02:20 -0300
+Error occurred while parsing request parameters.
+Contents:
+
+{
+  
+ActionDispatch::ParamsParser::ParseError (822: unexpected token at '{'):
+  
+actionpack (5.0.2) lib/action_dispatch/http/parameters.rb:88:in `rescue in parse_formatted_parameters'
+actionpack (5.0.2) lib/action_dispatch/http/parameters.rb:82:in `parse_formatted_parameters'
+actionpack (5.0.2) lib/action_dispatch/http/request.rb:354:in `block in POST'
+rack (2.0.1) lib/rack/request.rb:57:in `fetch'
+rack (2.0.1) lib/rack/request.rb:57:in `fetch_header'
+actionpack (5.0.2) lib/action_dispatch/http/request.rb:353:in `POST'
+actionpack (5.0.2) lib/action_controller/metal/params_wrapper.rb:282:in `_wrapper_enabled?'
+actionpack (5.0.2) lib/action_controller/metal/params_wrapper.rb:231:in `process_action'
+activerecord (5.0.2) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+actionpack (5.0.2) lib/abstract_controller/base.rb:126:in `process'
+actionpack (5.0.2) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (5.0.2) lib/action_controller/metal.rb:262:in `dispatch'
+actionpack (5.0.2) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (5.0.2) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.0.2) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.2) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.2) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.2) lib/action_dispatch/routing/route_set.rb:725:in `call'
+rack (2.0.1) lib/rack/etag.rb:25:in `call'
+rack (2.0.1) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.1) lib/rack/head.rb:12:in `call'
+activerecord (5.0.2) lib/active_record/migration.rb:553:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.2) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.2) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.2) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.2) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started PUT "/invoices" for 127.0.0.1 at 2017-04-22 21:02:21 -0300
+Error occurred while parsing request parameters.
+Contents:
+
+{
+  
+ActionDispatch::ParamsParser::ParseError (822: unexpected token at '{'):
+  
+actionpack (5.0.2) lib/action_dispatch/http/parameters.rb:88:in `rescue in parse_formatted_parameters'
+actionpack (5.0.2) lib/action_dispatch/http/parameters.rb:82:in `parse_formatted_parameters'
+actionpack (5.0.2) lib/action_dispatch/http/request.rb:354:in `block in POST'
+rack (2.0.1) lib/rack/request.rb:57:in `fetch'
+rack (2.0.1) lib/rack/request.rb:57:in `fetch_header'
+actionpack (5.0.2) lib/action_dispatch/http/request.rb:353:in `POST'
+actionpack (5.0.2) lib/action_controller/metal/params_wrapper.rb:282:in `_wrapper_enabled?'
+actionpack (5.0.2) lib/action_controller/metal/params_wrapper.rb:231:in `process_action'
+activerecord (5.0.2) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+actionpack (5.0.2) lib/abstract_controller/base.rb:126:in `process'
+actionpack (5.0.2) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (5.0.2) lib/action_controller/metal.rb:262:in `dispatch'
+actionpack (5.0.2) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (5.0.2) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.0.2) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.2) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.2) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.2) lib/action_dispatch/routing/route_set.rb:725:in `call'
+rack (2.0.1) lib/rack/etag.rb:25:in `call'
+rack (2.0.1) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.1) lib/rack/head.rb:12:in `call'
+activerecord (5.0.2) lib/active_record/migration.rb:553:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.2) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.2) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.2) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.2) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started PUT "/invoices" for 127.0.0.1 at 2017-04-22 21:02:23 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"invoice"=>{}}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+JSON::ParserError (A JSON text must at least contain two octets!):
+  
+app/controllers/invoice_controller.rb:21:in `enviar_factura'
+Started PUT "/invoices" for 127.0.0.1 at 2017-04-22 21:02:24 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"invoice"=>{}}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+JSON::ParserError (A JSON text must at least contain two octets!):
+  
+app/controllers/invoice_controller.rb:21:in `enviar_factura'
+Started PUT "/invoices" for 127.0.0.1 at 2017-04-22 21:02:26 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"invoice"=>{}}
+Completed 400 Bad Request in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices" for 127.0.0.1 at 2017-04-22 21:02:26 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"invoice"=>{}}
+Completed 400 Bad Request in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices" for 127.0.0.1 at 2017-04-22 21:02:37 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"invoice"=>{}}
+Completed 400 Bad Request in 1ms (Views: 0.8ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices" for 127.0.0.1 at 2017-04-22 21:02:49 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>"supp0", "invoice"=>{"id_supplier"=>"supp0"}}
+Completed 400 Bad Request in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices" for 127.0.0.1 at 2017-04-22 21:02:50 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>"supp0", "invoice"=>{"id_supplier"=>"supp0"}}
+Completed 400 Bad Request in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices" for 127.0.0.1 at 2017-04-22 21:03:02 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>"supp0", "id_invoice"=>"factura0", "invoice"=>{"id_supplier"=>"supp0", "id_invoice"=>"factura0"}}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices" for 127.0.0.1 at 2017-04-22 21:03:02 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>"supp0", "id_invoice"=>"factura0", "invoice"=>{"id_supplier"=>"supp0", "id_invoice"=>"factura0"}}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices" for 127.0.0.1 at 2017-04-22 21:03:11 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>"supp0", "id_invoice"=>"factura0", "banck_account"=>"cuenta", "invoice"=>{"id_supplier"=>"supp0", "id_invoice"=>"factura0", "banck_account"=>"cuenta"}}
+Completed 400 Bad Request in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices" for 127.0.0.1 at 2017-04-22 21:03:12 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>"supp0", "id_invoice"=>"factura0", "banck_account"=>"cuenta", "invoice"=>{"id_supplier"=>"supp0", "id_invoice"=>"factura0", "banck_account"=>"cuenta"}}
+Completed 400 Bad Request in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices" for 127.0.0.1 at 2017-04-22 21:03:23 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>"supp0", "id_invoice"=>"factura0", "banck_account"=>"cuenta", "invoice"=>{"id_supplier"=>"supp0", "id_invoice"=>"factura0", "banck_account"=>"cuenta"}}
+Completed 400 Bad Request in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices" for 127.0.0.1 at 2017-04-22 21:03:38 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>"supp0", "id_invoice"=>"factura0", "bank_account"=>"cuenta", "invoice"=>{"id_supplier"=>"supp0", "id_invoice"=>"factura0", "bank_account"=>"cuenta"}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices" for 127.0.0.1 at 2017-04-22 21:03:38 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>"supp0", "id_invoice"=>"factura0", "bank_account"=>"cuenta", "invoice"=>{"id_supplier"=>"supp0", "id_invoice"=>"factura0", "bank_account"=>"cuenta"}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices" for 127.0.0.1 at 2017-04-22 21:03:39 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>"supp0", "id_invoice"=>"factura0", "bank_account"=>"cuenta", "invoice"=>{"id_supplier"=>"supp0", "id_invoice"=>"factura0", "bank_account"=>"cuenta"}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
