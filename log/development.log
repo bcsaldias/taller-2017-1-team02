@@ -711,3 +711,165 @@ Processing by PurchaseOrderController#rechazar_orden_compra as */*
 Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
 
 
+Started PATCH "/invoices/300/rejected" for 127.0.0.1 at 2017-04-25 11:36:55 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"id_supplier"=>200, "id"=>"300", "invoice"=>{"id_supplier"=>200}}
+Completed 404 Not Found in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/rejected" for 127.0.0.1 at 2017-04-25 11:37:03 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"cause"=>"", "id"=>"300", "invoice"=>{"cause"=>""}}
+Completed 400 Bad Request in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/rejected" for 127.0.0.1 at 2017-04-25 11:37:05 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"cause"=>"", "id"=>"300", "invoice"=>{"cause"=>""}}
+Completed 400 Bad Request in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/rejected" for 127.0.0.1 at 2017-04-25 11:37:16 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"cause"=>"", "id"=>"300", "invoice"=>{"cause"=>""}}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/rejected" for 127.0.0.1 at 2017-04-25 11:37:17 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"cause"=>"", "id"=>"300", "invoice"=>{"cause"=>""}}
+Completed 400 Bad Request in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/rejected" for 127.0.0.1 at 2017-04-25 11:37:27 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"cause"=>"", "id"=>"300", "invoice"=>{"cause"=>""}}
+Completed 400 Bad Request in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/rejected" for 127.0.0.1 at 2017-04-25 11:37:28 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"cause"=>"", "id"=>"300", "invoice"=>{"cause"=>""}}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/rejected" for 127.0.0.1 at 2017-04-25 11:37:37 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"cause"=>"", "id"=>"300", "invoice"=>{"cause"=>""}}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/rejected" for 127.0.0.1 at 2017-04-25 11:37:38 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"cause"=>"", "id"=>"300", "invoice"=>{"cause"=>""}}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/rejected" for 127.0.0.1 at 2017-04-25 11:37:38 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"cause"=>"", "id"=>"300", "invoice"=>{"cause"=>""}}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/rejected" for 127.0.0.1 at 2017-04-25 11:37:38 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"cause"=>"", "id"=>"300", "invoice"=>{"cause"=>""}}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/rejected" for 127.0.0.1 at 2017-04-25 11:37:38 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"cause"=>"", "id"=>"300", "invoice"=>{"cause"=>""}}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/rejected" for 127.0.0.1 at 2017-04-25 11:37:39 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"cause"=>"", "id"=>"300", "invoice"=>{"cause"=>""}}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/rejected" for 127.0.0.1 at 2017-04-25 11:37:39 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"cause"=>"", "id"=>"300", "invoice"=>{"cause"=>""}}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/rejected" for 127.0.0.1 at 2017-04-25 11:37:40 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"cause"=>"", "id"=>"300", "invoice"=>{"cause"=>""}}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/rejected" for 127.0.0.1 at 2017-04-25 11:37:41 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"cause"=>"", "id"=>"300", "invoice"=>{"cause"=>""}}
+Completed 400 Bad Request in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/rejected" for 127.0.0.1 at 2017-04-25 11:37:41 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"cause"=>"", "id"=>"300", "invoice"=>{"cause"=>""}}
+Completed 400 Bad Request in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/rejected" for 127.0.0.1 at 2017-04-25 11:37:53 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"cause"=>"", "id"=>"300", "invoice"=>{"cause"=>""}}
+Completed 400 Bad Request in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/rejected" for 127.0.0.1 at 2017-04-25 11:37:54 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"cause"=>"", "id"=>"300", "invoice"=>{"cause"=>""}}
+Completed 400 Bad Request in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/rejected" for 127.0.0.1 at 2017-04-25 11:38:13 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"cause"=>"", "id"=>"300", "invoice"=>{"cause"=>""}}
+Completed 404 Not Found in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/rejected" for 127.0.0.1 at 2017-04-25 11:38:14 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"cause"=>"", "id"=>"300", "invoice"=>{"cause"=>""}}
+Completed 404 Not Found in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/rejected" for 127.0.0.1 at 2017-04-25 11:38:14 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"cause"=>"", "id"=>"300", "invoice"=>{"cause"=>""}}
+Completed 404 Not Found in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/rejected" for 127.0.0.1 at 2017-04-25 11:38:20 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"cause"=>"s", "id"=>"300", "invoice"=>{"cause"=>"s"}}
+Completed 204 No Content in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/rejected" for 127.0.0.1 at 2017-04-25 11:38:24 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"cause"=>"", "id"=>"300", "invoice"=>{"cause"=>""}}
+Completed 404 Not Found in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/rejected" for 127.0.0.1 at 2017-04-25 11:38:24 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"cause"=>"", "id"=>"300", "invoice"=>{"cause"=>""}}
+Completed 404 Not Found in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/rejected" for 127.0.0.1 at 2017-04-25 11:38:34 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"cause"=>"", "id"=>"300", "invoice"=>{"cause"=>""}}
+Completed 404 Not Found in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/rejected" for 127.0.0.1 at 2017-04-25 11:38:35 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"cause"=>"", "id"=>"300", "invoice"=>{"cause"=>""}}
+Completed 404 Not Found in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
