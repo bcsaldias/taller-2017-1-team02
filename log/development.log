@@ -873,3 +873,117 @@ Processing by InvoiceController#enviar_rechazo_factura as */*
 Completed 404 Not Found in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
 
 
+Started PUT "/invoices/300" for 127.0.0.1 at 2017-04-25 15:23:41 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"cause"=>"", "id"=>"300", "invoice"=>{"cause"=>""}}
+Completed 400 Bad Request in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices/300" for 127.0.0.1 at 2017-04-25 15:23:50 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>20, "id"=>"300", "invoice"=>{"id_supplier"=>20}}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices/300" for 127.0.0.1 at 2017-04-25 15:23:52 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>20, "id"=>"300", "invoice"=>{"id_supplier"=>20}}
+Completed 400 Bad Request in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices/300" for 127.0.0.1 at 2017-04-25 15:24:00 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>20, "bank_account"=>"joo", "id"=>"300", "invoice"=>{"id_supplier"=>20, "bank_account"=>"joo"}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices/300" for 127.0.0.1 at 2017-04-25 15:24:01 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>20, "bank_account"=>"joo", "id"=>"300", "invoice"=>{"id_supplier"=>20, "bank_account"=>"joo"}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices/300" for 127.0.0.1 at 2017-04-25 15:24:01 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>20, "bank_account"=>"joo", "id"=>"300", "invoice"=>{"id_supplier"=>20, "bank_account"=>"joo"}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices/300" for 127.0.0.1 at 2017-04-25 15:24:01 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>20, "bank_account"=>"joo", "id"=>"300", "invoice"=>{"id_supplier"=>20, "bank_account"=>"joo"}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices/300" for 127.0.0.1 at 2017-04-25 15:27:51 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>20, "bank_account"=>"joo", "id"=>"300", "invoice"=>{"id_supplier"=>20, "bank_account"=>"joo"}}
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices/300" for 127.0.0.1 at 2017-04-25 15:27:52 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>20, "bank_account"=>"joo", "id"=>"300", "invoice"=>{"id_supplier"=>20, "bank_account"=>"joo"}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices/300" for 127.0.0.1 at 2017-04-25 15:27:52 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>20, "bank_account"=>"joo", "id"=>"300", "invoice"=>{"id_supplier"=>20, "bank_account"=>"joo"}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices/300" for 127.0.0.1 at 2017-04-25 15:27:52 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>20, "bank_account"=>"joo", "id"=>"300", "invoice"=>{"id_supplier"=>20, "bank_account"=>"joo"}}
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices/300" for 127.0.0.1 at 2017-04-25 15:28:11 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>20, "bank_account"=>"joo", "id"=>"300", "invoice"=>{"id_supplier"=>20, "bank_account"=>"joo"}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices/300" for 127.0.0.1 at 2017-04-25 15:28:12 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>20, "bank_account"=>"joo", "id"=>"300", "invoice"=>{"id_supplier"=>20, "bank_account"=>"joo"}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices/300" for 127.0.0.1 at 2017-04-25 15:28:12 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>20, "bank_account"=>"joo", "id"=>"300", "invoice"=>{"id_supplier"=>20, "bank_account"=>"joo"}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices/300" for 127.0.0.1 at 2017-04-25 15:28:13 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>20, "bank_account"=>"joo", "id"=>"300", "invoice"=>{"id_supplier"=>20, "bank_account"=>"joo"}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices/300" for 127.0.0.1 at 2017-04-25 15:28:13 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>20, "bank_account"=>"joo", "id"=>"300", "invoice"=>{"id_supplier"=>20, "bank_account"=>"joo"}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices/300" for 127.0.0.1 at 2017-04-25 15:28:27 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>20, "bank_account"=>"joo", "id"=>"300", "invoice"=>{"id_supplier"=>20, "bank_account"=>"joo"}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices/300" for 127.0.0.1 at 2017-04-25 15:28:28 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>20, "bank_account"=>"joo", "id"=>"300", "invoice"=>{"id_supplier"=>20, "bank_account"=>"joo"}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices/300" for 127.0.0.1 at 2017-04-25 15:28:28 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>20, "bank_account"=>"joo", "id"=>"300", "invoice"=>{"id_supplier"=>20, "bank_account"=>"joo"}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
