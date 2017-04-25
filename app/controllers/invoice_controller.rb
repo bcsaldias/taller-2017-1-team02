@@ -2,12 +2,12 @@ class InvoiceController < ApplicationController
 
   require 'json'
 
-  # PUT /invoices/:id
+  # PATCH /invoices/:id
   def enviar_confirmacion_factura
     json_response "", 204
   end
 
-  # DELETE /invoices/:id/rejected
+  # PATCH /invoices/:id/rejected
   def enviar_rechazo_factura
 
     begin
@@ -16,6 +16,8 @@ class InvoiceController < ApplicationController
 
       if not @keys.include?("cause")
         json_response ({ error: "Debe entregar una razón de rechazo" }), 404
+      elsif params[:cause].length == 0
+        json_response ({ error: "La razón debe ser distinta de nula" }), 404
       else
         json_response "", 204
       end
@@ -32,7 +34,7 @@ class InvoiceController < ApplicationController
     begin
       @body = JSON.parse request.body.read
       @keys = @body.keys
-      if not @keys.include?("id_payment")
+      if not @keys.include?("id_transaction")
         json_response ({ error: "Debe entregar el id de una transacción"}), 400
       else
         json_response "", 204
