@@ -5,7 +5,8 @@ class ApiController < ApplicationController
 
   def products
     #list = [{producto1: 1290}, {producto2: 1580}, {producto3:15000}]
-    string = %q({[{"producto1": 1290}, {"producto2": 1580}, {"producto3":15000}]})
+    #string = %q({[{"producto1": 1290}, {"producto2": 1580}, {"producto3":15000}]})
+    string = [{sku:'J20000022', unit_price: 20}, {sku: 'J10999972', unit_price: 30}]
     json_response(string)
 
   end
