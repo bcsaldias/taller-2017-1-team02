@@ -1,6 +1,8 @@
 class InvoiceController < ApplicationController
 
-  # PATCH /invoices/:id/accepted
+  require 'json'
+
+  # PUT /invoices/:id
   def enviar_confirmacion_factura
     json_response "", 204
   end
@@ -24,9 +26,40 @@ class InvoiceController < ApplicationController
 
   # PUT /invoices
   def enviar_factura
+
+      begin
+
+        @body =  JSON.parse request.body.read
+        @keys = @body.keys
+        if not @keys.include?("id_supplier")
+            json_response({ :error => "Proveedor debe ser distinto de nulo" }, 400)
+
+        elsif not @keys.include?("id_invoice")
+            json_response({ :error => "Factura debe ser distinto de nulo" }, 400)
+
+        elsif not @keys.include?("bank_account")
+            json_response({ :error => "Debe proporcionar una cuenta bancaria" }, 400)
+
+        else
+        json_response(
+            {
+              id_supplier: params[:id_supplier],
+              id_invoice: params[:id_invoice],
+              bank_account: params[:bank_account]
+            }, 200)
+        end
+
+      rescue
+            json_response({ :error => "Formato de Body incorrecto" }, 400)
+
+      end
+
   end
 
   # PATCH /invoices/:id
   def notificar_orden_despachada
+      json_response('Notificación hecha',204)
   end
+
+
 end
