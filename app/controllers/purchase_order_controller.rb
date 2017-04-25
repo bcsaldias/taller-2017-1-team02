@@ -4,15 +4,21 @@ class PurchaseOrderController < ApplicationController
 
   # PUT purchase_orders/:id
   def realizar_pedido
-    @body = JSON.parse request.body.read
-    @keys = @body.keys
 
-    if not @keys.include?("payment_method")
-      json_response ({ error: "Falta método de pago"}), 400
-    elsif not @keys.include?("id_store_reception")
-      json_response ({error: "Falta bodega de recepción"}), 400
-    else
-      render json: {orden: 15}, status: 201
+    begin
+      @body = JSON.parse request.body.read
+      @keys = @body.keys
+      if not @keys.include?("payment_method")
+        json_response ({ error: "Falta método de pago"}), 400
+
+      elsif not @keys.include?("id_store_reception")
+        json_response ({error: "Falta bodega de recepción"}), 400
+
+      else
+        render json: {orden: 15}, status: 201
+      end
+    rescue
+      json_response({ :error => "Formato de Body incorrecto" }, 400)
     end
 
   end
