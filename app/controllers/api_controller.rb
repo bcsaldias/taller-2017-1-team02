@@ -4,7 +4,10 @@ require 'net/http'
 class ApiController < ApplicationController
 
   def products
-    json_response("DEV: lista de precios")
+    #list = [{producto1: 1290}, {producto2: 1580}, {producto3:15000}]
+    string = %q({[{"producto1": 1290}, {"producto2": 1580}, {"producto3":15000}]})
+    json_response(string)
+
   end
 
   # POST /api/oc/recibir
