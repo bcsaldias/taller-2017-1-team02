@@ -2,7 +2,7 @@ class InvoiceController < ApplicationController
 
   require 'json'
 
-api! "Crea una notificación de que no se rechazará la factura enviada.
+  api! "Crea una notificación de que no se rechazará la factura enviada.
       Debe tener el id de la factura"
   # PATCH /invoices/:id/accepted
   def enviar_confirmacion_factura
@@ -20,9 +20,9 @@ api! "Crea una notificación de que no se rechazará la factura enviada.
       @keys = @body.keys
 
       if not @keys.include?("cause")
-        json_response ({ error: "Debe entregar una razón de rechazo" }), 404
+        json_response ({ error: "Debe entregar una razón de rechazo" }), 400
       elsif params[:cause].length == 0
-        json_response ({ error: "La razón debe ser distinta de nula" }), 404
+        json_response ({ error: "La razón debe ser distinta de nula" }), 400
       else
         json_response "", 204
       end
@@ -57,27 +57,21 @@ api! "Crea una notificación de que no se rechazará la factura enviada.
   api! "Crea una notificación de habernos emitido una factura.
       Debe tener el id de la factura y la cuenta del banco."
   param :bank_account, String, :required => true
-  # PUT /invoices
+  # PUT /invoices/:id
   def enviar_factura
 
       begin
 
         @body =  JSON.parse request.body.read
         @keys = @body.keys
-        if not @keys.include?("id_supplier")
-            json_response({ :error => "Proveedor debe ser distinto de nulo" }, 400)
 
-        elsif not @keys.include?("id_invoice")
-            json_response({ :error => "Factura debe ser distinto de nulo" }, 400)
-
-        elsif not @keys.include?("bank_account")
+        if not @keys.include?("bank_account")
             json_response({ :error => "Debe proporcionar una cuenta bancaria" }, 400)
 
         else
-        json_response(
+            json_response(
             {
-              id_supplier: params[:id_supplier],
-              id_invoice: params[:id_invoice],
+              id_invoice: params[:id],
               bank_account: params[:bank_account]
             }, 200)
         end

@@ -35,19 +35,11 @@ class PurchaseOrderController < ApplicationController
   def confirmar_orden_compra
 
       begin
-        @body =  JSON.parse request.body.read
-        @keys = @body.keys
-        if not @keys.include?("id_supplier")
-            json_response({ :error => "Proveedor debe ser distinto de nulo" }, 400)
-
-        else
   	    json_response(
   					{
-  					  id_supplier: params[:id_supplier],
   					  id_purchase_order: params[:id],
   					  accepted: true
   					}, 200)
-  	    end
       rescue
         json_response({ :error => "Formato de Body incorrecto" }, 400)
       end
@@ -64,12 +56,14 @@ class PurchaseOrderController < ApplicationController
       begin
         @body =  JSON.parse request.body.read
         @keys = @body.keys
-        if not @keys.include?("id_supplier")
-            json_response({ :error => "Proveedor debe ser distinto de nulo" }, 400)
+
+        if not @keys.include?("cause")
+          json_response ({ error: "Debe entregar una razón de rechazo" }), 400
+        elsif params[:cause].length == 0
+          json_response ({ error: "La razón debe ser distinta de nula" }), 400
         else
         json_response(
             {
-              id_supplier: params[:id_supplier],
               id_purchase_order: params[:id],
               accepted: false
             }, 200)
