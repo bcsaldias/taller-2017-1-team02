@@ -3,7 +3,7 @@ require 'net/http'
 
 class ApiController < ApplicationController
 
-  api! "Retorna una lista de los productos, materias primas y precios disponibles
+  api! "obtener_precios: Retorna una lista de los productos, materias primas y precios disponibles
       para venta por la empresa."
   meta :product => {sku:'J20000022', name: 'producto0', price: 20, stock: 100}
   error 404, "Lista de precios no disponible"

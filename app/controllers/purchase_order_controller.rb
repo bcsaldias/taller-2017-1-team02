@@ -2,7 +2,7 @@ class PurchaseOrderController < ApplicationController
 
   require 'json'
 
-  api! "Crea una notificación de que se nos hizo una orden de compra.
+  api! "realizar_pedido: Crea una notificación de que se nos hizo una orden de compra.
       Debe tener el id de la orden de compra, el método de pago (puede ser
       contra factura o contra despacho) y el id de la bodega."
   param :payment_method, String, :required => true, :desc => "Método de pago contra_factura o contra_despacho."
@@ -35,7 +35,7 @@ class PurchaseOrderController < ApplicationController
 
   end
 
-  api! "Crea una notificación de aceptación de la orden de compra generada por nosotros.
+  api! "confirmar_orden_compra: Crea una notificación de aceptación de la orden de compra generada por nosotros.
       Debe tener el id de la orden de compra."
     error 403, "Ya se confirmó/rechazó entrega de esta orden de compra"
     error 404, "Orden de compra no existe"
@@ -55,7 +55,7 @@ class PurchaseOrderController < ApplicationController
       end
   end
 
-  api! "Crea una notificación de rechazo de la orden de compra generada por nosotros.
+  api! "rechazar_orden_compra: Crea una notificación de rechazo de la orden de compra generada por nosotros.
       Debe tener el id de la orden de compra."
 
   param :cause, String, :required => true, :desc => "Causa de rechazo."
