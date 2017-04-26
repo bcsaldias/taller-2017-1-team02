@@ -2,7 +2,7 @@ class InvoiceController < ApplicationController
 
   require 'json'
 
-  api! "Crea una notificación de que no se rechazará la factura enviada.
+  api! "enviar_confirmacion_factura: Crea una notificación de que no se rechazará la factura enviada.
       Debe tener el id de la factura"
   error 403, "Ya se confirmó/rechazó la factura"
   error 404, "Factura no existente"
@@ -13,7 +13,7 @@ class InvoiceController < ApplicationController
     json_response "", 204
   end
 
-  api! "Crea una notificación de que se rechaza la factura enviada.
+  api! "enviar_rechazo_factura: Crea una notificación de que se rechaza la factura enviada.
       Debe tener el id de la factura."
   param :cause, String, :required => true, :desc => "Causa de rechazo."
   error 400, "Formato de  Body incorrecto"
@@ -44,7 +44,7 @@ class InvoiceController < ApplicationController
 
   end
 
-  api! "Crea una notificación de que se pagó la factura.
+  api! "enviar_confirmacion_pago: Crea una notificación de que se pagó la factura.
       Debe tener el id de la factura."
   param :id_transaction, String, :required => true, :desc => "Identificador transacción bancaria."
   error 400, "Formato de  Body incorrecto"
@@ -71,7 +71,7 @@ class InvoiceController < ApplicationController
 
   end
 
-  api! "Crea una notificación de habernos emitido una factura.
+  api! "enviar_factura: Crea una notificación de habernos emitido una factura.
       Debe tener el id de la factura y la cuenta del banco."
   param :bank_account, String, :required => true, :desc => "Identificador de la cuenta destino de pago."
 
@@ -108,7 +108,7 @@ class InvoiceController < ApplicationController
 
   end
 
-  api! "Notificar para cambiar de estado de una factura.
+  api! "notificar_orden_despachada: Notificar para cambiar de estado de una factura.
       Debe tener el id de la factura."
   error 403, "Ya se notificó entrega de esta factura"
   error 404, "Factura no encontrada"
