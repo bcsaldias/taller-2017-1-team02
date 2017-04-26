@@ -1,8 +1,19 @@
 Rails.application.routes.draw do
 
-  get 'api/prices'
-  get 'api/oc/recibir/:id' => 'api#recibir_oc'
-  get 'api/factura/recibir/:id' => 'api#recibir_factura'
+  get 'products' => 'api#products'
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  put 'purchase_orders/:id' => 'purchase_order#realizar_pedido'
+  patch 'purchase_orders/:id/accepted' => 'purchase_order#confirmar_orden_compra'
+  patch 'purchase_orders/:id/rejected' => 'purchase_order#rechazar_orden_compra'
+  #patch 'purchase_orders/:id' => 'purchase_order#responder_orden_compra'
+
+  put 'invoices/:id' => 'invoice#enviar_factura'
+  patch 'invoices/:id/accepted' => 'invoice#enviar_confirmacion_factura'
+  patch 'invoices/:id/rejected' => 'invoice#enviar_rechazo_factura'
+  patch 'invoices/:id/delivered' => 'invoice#notificar_orden_despachada'  
+  patch 'invoices/:id/paid' => 'invoice#enviar_confirmacion_pago'
+
+
+  #patch 'suppliers/:id_supplier' => 'suppliers#informar_cuenta_banco'
+
 end
