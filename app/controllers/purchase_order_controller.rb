@@ -32,7 +32,6 @@ class PurchaseOrderController < ApplicationController
   					  id_purchase_order: params[:id],
   					  accepted: true
   					}, 200)
-  	    end
       rescue
         json_response({ :error => "Formato de Body incorrecto" }, 400)
       end
