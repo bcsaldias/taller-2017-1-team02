@@ -2155,3 +2155,536 @@ Started GET "/apipie/javascripts/bundled/jquery.js" for 127.0.0.1 at 2017-04-25 
 Started GET "/apipie/javascripts/bundled/bootstrap-collapse.js" for 127.0.0.1 at 2017-04-25 23:41:49 -0300
 Started GET "/apipie/javascripts/apipie.js" for 127.0.0.1 at 2017-04-25 23:41:50 -0300
 Started GET "/apipie/javascripts/bundled/prettify.js" for 127.0.0.1 at 2017-04-25 23:41:50 -0300
+Started GET "/apipie/1.0/purchase_order/rechazar_orden_compra.html" for 127.0.0.1 at 2017-04-25 23:42:31 -0300
+Processing by Apipie::ApipiesController#index as HTML
+  Parameters: {"version"=>"1.0", "resource"=>"purchase_order", "method"=>"rechazar_orden_compra.html"}
+  Rendering /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/method.html.erb within layouts/apipie/apipie
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_languages.erb (0.6ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_errors.html.erb (1.0ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_params.html.erb (1.7ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_headers.html.erb (1.3ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_method_detail.erb (8.3ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/method.html.erb within layouts/apipie/apipie (12.6ms)
+Completed 200 OK in 60ms (Views: 16.8ms)
+
+
+Started GET "/apipie/stylesheets/bundled/bootstrap.min.css" for 127.0.0.1 at 2017-04-25 23:42:31 -0300
+Started GET "/apipie/stylesheets/bundled/prettify.css" for 127.0.0.1 at 2017-04-25 23:42:31 -0300
+Started GET "/apipie/stylesheets/bundled/bootstrap-responsive.min.css" for 127.0.0.1 at 2017-04-25 23:42:31 -0300
+Started GET "/apipie/stylesheets/application.css" for 127.0.0.1 at 2017-04-25 23:42:31 -0300
+Started GET "/apipie/javascripts/bundled/jquery.js" for 127.0.0.1 at 2017-04-25 23:42:31 -0300
+Started GET "/apipie/javascripts/apipie.js" for 127.0.0.1 at 2017-04-25 23:42:31 -0300
+Started GET "/apipie/javascripts/bundled/prettify.js" for 127.0.0.1 at 2017-04-25 23:42:31 -0300
+Started GET "/apipie/javascripts/bundled/bootstrap-collapse.js" for 127.0.0.1 at 2017-04-25 23:42:31 -0300
+Started GET "/apipie/1.0.html" for 127.0.0.1 at 2017-04-25 23:42:33 -0300
+Processing by Apipie::ApipiesController#index as HTML
+  Parameters: {"version"=>"1.0.html"}
+  Rendering /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/index.html.erb within layouts/apipie/apipie
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_languages.erb (0.5ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/index.html.erb within layouts/apipie/apipie (2.8ms)
+Completed 200 OK in 32ms (Views: 5.0ms)
+
+
+Started GET "/apipie/stylesheets/bundled/bootstrap.min.css" for 127.0.0.1 at 2017-04-25 23:42:33 -0300
+Started GET "/apipie/stylesheets/bundled/prettify.css" for 127.0.0.1 at 2017-04-25 23:42:33 -0300
+Started GET "/apipie/stylesheets/bundled/bootstrap-responsive.min.css" for 127.0.0.1 at 2017-04-25 23:42:33 -0300
+Started GET "/apipie/stylesheets/application.css" for 127.0.0.1 at 2017-04-25 23:42:33 -0300
+Started GET "/apipie/javascripts/bundled/jquery.js" for 127.0.0.1 at 2017-04-25 23:42:33 -0300
+Started GET "/apipie/javascripts/apipie.js" for 127.0.0.1 at 2017-04-25 23:42:33 -0300
+Started GET "/apipie/javascripts/bundled/prettify.js" for 127.0.0.1 at 2017-04-25 23:42:33 -0300
+Started GET "/apipie/javascripts/bundled/bootstrap-collapse.js" for 127.0.0.1 at 2017-04-25 23:42:33 -0300
+Started GET "/apipie/1.0/invoice/enviar_factura.html" for 127.0.0.1 at 2017-04-25 23:42:37 -0300
+Processing by Apipie::ApipiesController#index as HTML
+  Parameters: {"version"=>"1.0", "resource"=>"invoice", "method"=>"enviar_factura.html"}
+  Rendering /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/method.html.erb within layouts/apipie/apipie
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_languages.erb (0.4ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_errors.html.erb (0.8ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_params.html.erb (1.1ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_headers.html.erb (0.6ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_method_detail.erb (5.8ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/method.html.erb within layouts/apipie/apipie (8.6ms)
+Completed 200 OK in 36ms (Views: 11.2ms)
+
+
+Started GET "/apipie/stylesheets/bundled/bootstrap.min.css" for 127.0.0.1 at 2017-04-25 23:42:37 -0300
+Started GET "/apipie/stylesheets/bundled/prettify.css" for 127.0.0.1 at 2017-04-25 23:42:37 -0300
+Started GET "/apipie/stylesheets/application.css" for 127.0.0.1 at 2017-04-25 23:42:37 -0300
+Started GET "/apipie/stylesheets/bundled/bootstrap-responsive.min.css" for 127.0.0.1 at 2017-04-25 23:42:37 -0300
+Started GET "/apipie/javascripts/apipie.js" for 127.0.0.1 at 2017-04-25 23:42:37 -0300
+Started GET "/apipie/javascripts/bundled/bootstrap-collapse.js" for 127.0.0.1 at 2017-04-25 23:42:37 -0300
+Started GET "/apipie/javascripts/bundled/jquery.js" for 127.0.0.1 at 2017-04-25 23:42:37 -0300
+Started GET "/apipie/javascripts/bundled/prettify.js" for 127.0.0.1 at 2017-04-25 23:42:37 -0300
+Started GET "/apipie/1.0/purchase_order/realizar_pedido.html" for 127.0.0.1 at 2017-04-25 23:43:14 -0300
+Processing by Apipie::ApipiesController#index as HTML
+  Parameters: {"version"=>"1.0", "resource"=>"purchase_order", "method"=>"realizar_pedido.html"}
+  Rendering /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/method.html.erb within layouts/apipie/apipie
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_languages.erb (0.3ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_errors.html.erb (0.7ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_params.html.erb (1.2ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_headers.html.erb (0.4ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_method_detail.erb (4.8ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/method.html.erb within layouts/apipie/apipie (7.1ms)
+Completed 200 OK in 35ms (Views: 9.2ms)
+
+
+Started GET "/apipie/stylesheets/bundled/bootstrap.min.css" for 127.0.0.1 at 2017-04-25 23:43:15 -0300
+Started GET "/apipie/stylesheets/bundled/prettify.css" for 127.0.0.1 at 2017-04-25 23:43:15 -0300
+Started GET "/apipie/stylesheets/bundled/bootstrap-responsive.min.css" for 127.0.0.1 at 2017-04-25 23:43:15 -0300
+Started GET "/apipie/stylesheets/application.css" for 127.0.0.1 at 2017-04-25 23:43:15 -0300
+Started GET "/apipie/javascripts/bundled/jquery.js" for 127.0.0.1 at 2017-04-25 23:43:15 -0300
+Started GET "/apipie/javascripts/apipie.js" for 127.0.0.1 at 2017-04-25 23:43:15 -0300
+Started GET "/apipie/javascripts/bundled/bootstrap-collapse.js" for 127.0.0.1 at 2017-04-25 23:43:15 -0300
+Started GET "/apipie/javascripts/bundled/prettify.js" for 127.0.0.1 at 2017-04-25 23:43:15 -0300
+Started GET "/apipie/1.0/invoice/enviar_confirmacion_pago.html" for 127.0.0.1 at 2017-04-25 23:43:38 -0300
+Processing by Apipie::ApipiesController#index as HTML
+  Parameters: {"version"=>"1.0", "resource"=>"invoice", "method"=>"enviar_confirmacion_pago.html"}
+  Rendering /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/method.html.erb within layouts/apipie/apipie
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_languages.erb (0.5ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_errors.html.erb (0.7ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_params.html.erb (1.1ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_headers.html.erb (0.4ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_method_detail.erb (5.1ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/method.html.erb within layouts/apipie/apipie (8.1ms)
+Completed 200 OK in 48ms (Views: 10.8ms)
+
+
+Started GET "/apipie/stylesheets/bundled/bootstrap.min.css" for 127.0.0.1 at 2017-04-25 23:43:38 -0300
+Started GET "/apipie/stylesheets/bundled/prettify.css" for 127.0.0.1 at 2017-04-25 23:43:38 -0300
+Started GET "/apipie/javascripts/apipie.js" for 127.0.0.1 at 2017-04-25 23:43:38 -0300
+Started GET "/apipie/stylesheets/application.css" for 127.0.0.1 at 2017-04-25 23:43:38 -0300
+Started GET "/apipie/stylesheets/bundled/bootstrap-responsive.min.css" for 127.0.0.1 at 2017-04-25 23:43:38 -0300
+Started GET "/apipie/javascripts/bundled/prettify.js" for 127.0.0.1 at 2017-04-25 23:43:38 -0300
+Started GET "/apipie/javascripts/bundled/bootstrap-collapse.js" for 127.0.0.1 at 2017-04-25 23:43:38 -0300
+Started GET "/apipie/javascripts/bundled/jquery.js" for 127.0.0.1 at 2017-04-25 23:43:38 -0300
+Started GET "/apipie/1.0/purchase_order/rechazar_orden_compra.html" for 127.0.0.1 at 2017-04-25 23:43:55 -0300
+Processing by Apipie::ApipiesController#index as HTML
+  Parameters: {"version"=>"1.0", "resource"=>"purchase_order", "method"=>"rechazar_orden_compra.html"}
+  Rendering /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/method.html.erb within layouts/apipie/apipie
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_languages.erb (0.3ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_errors.html.erb (0.8ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_params.html.erb (1.4ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_headers.html.erb (0.7ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_method_detail.erb (5.6ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/method.html.erb within layouts/apipie/apipie (7.9ms)
+Completed 200 OK in 36ms (Views: 10.6ms)
+
+
+Started GET "/apipie/stylesheets/bundled/bootstrap.min.css" for 127.0.0.1 at 2017-04-25 23:43:55 -0300
+Started GET "/apipie/stylesheets/bundled/prettify.css" for 127.0.0.1 at 2017-04-25 23:43:55 -0300
+Started GET "/apipie/stylesheets/bundled/bootstrap-responsive.min.css" for 127.0.0.1 at 2017-04-25 23:43:55 -0300
+Started GET "/apipie/stylesheets/application.css" for 127.0.0.1 at 2017-04-25 23:43:55 -0300
+Started GET "/apipie/javascripts/apipie.js" for 127.0.0.1 at 2017-04-25 23:43:55 -0300
+Started GET "/apipie/javascripts/bundled/jquery.js" for 127.0.0.1 at 2017-04-25 23:43:55 -0300
+Started GET "/apipie/javascripts/bundled/bootstrap-collapse.js" for 127.0.0.1 at 2017-04-25 23:43:55 -0300
+Started GET "/apipie/javascripts/bundled/prettify.js" for 127.0.0.1 at 2017-04-25 23:43:55 -0300
+Started GET "/apipie/1.0/invoice/enviar_rechazo_factura.html" for 127.0.0.1 at 2017-04-25 23:43:59 -0300
+Processing by Apipie::ApipiesController#index as HTML
+  Parameters: {"version"=>"1.0", "resource"=>"invoice", "method"=>"enviar_rechazo_factura.html"}
+  Rendering /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/method.html.erb within layouts/apipie/apipie
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_languages.erb (0.4ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_errors.html.erb (0.7ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_params.html.erb (1.4ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_headers.html.erb (0.5ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_method_detail.erb (5.4ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/method.html.erb within layouts/apipie/apipie (8.1ms)
+Completed 200 OK in 42ms (Views: 10.2ms)
+
+
+Started GET "/apipie/stylesheets/bundled/bootstrap.min.css" for 127.0.0.1 at 2017-04-25 23:43:59 -0300
+Started GET "/apipie/stylesheets/bundled/prettify.css" for 127.0.0.1 at 2017-04-25 23:43:59 -0300
+Started GET "/apipie/stylesheets/bundled/bootstrap-responsive.min.css" for 127.0.0.1 at 2017-04-25 23:43:59 -0300
+Started GET "/apipie/stylesheets/application.css" for 127.0.0.1 at 2017-04-25 23:43:59 -0300
+Started GET "/apipie/javascripts/bundled/jquery.js" for 127.0.0.1 at 2017-04-25 23:43:59 -0300
+Started GET "/apipie/javascripts/bundled/bootstrap-collapse.js" for 127.0.0.1 at 2017-04-25 23:43:59 -0300
+Started GET "/apipie/javascripts/bundled/prettify.js" for 127.0.0.1 at 2017-04-25 23:43:59 -0300
+Started GET "/apipie/javascripts/apipie.js" for 127.0.0.1 at 2017-04-25 23:43:59 -0300
+Started GET "/apipie/1.0/purchase_order/confirmar_orden_compra.html" for 127.0.0.1 at 2017-04-25 23:44:04 -0300
+Processing by Apipie::ApipiesController#index as HTML
+  Parameters: {"version"=>"1.0", "resource"=>"purchase_order", "method"=>"confirmar_orden_compra.html"}
+  Rendering /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/method.html.erb within layouts/apipie/apipie
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_languages.erb (0.4ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_errors.html.erb (0.7ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_headers.html.erb (0.6ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_method_detail.erb (3.4ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/method.html.erb within layouts/apipie/apipie (6.1ms)
+Completed 200 OK in 49ms (Views: 9.5ms)
+
+
+Started GET "/apipie/stylesheets/bundled/bootstrap.min.css" for 127.0.0.1 at 2017-04-25 23:44:04 -0300
+Started GET "/apipie/stylesheets/bundled/prettify.css" for 127.0.0.1 at 2017-04-25 23:44:04 -0300
+Started GET "/apipie/stylesheets/bundled/bootstrap-responsive.min.css" for 127.0.0.1 at 2017-04-25 23:44:04 -0300
+Started GET "/apipie/stylesheets/application.css" for 127.0.0.1 at 2017-04-25 23:44:04 -0300
+Started GET "/apipie/javascripts/bundled/jquery.js" for 127.0.0.1 at 2017-04-25 23:44:04 -0300
+Started GET "/apipie/javascripts/bundled/bootstrap-collapse.js" for 127.0.0.1 at 2017-04-25 23:44:04 -0300
+Started GET "/apipie/javascripts/bundled/prettify.js" for 127.0.0.1 at 2017-04-25 23:44:04 -0300
+Started GET "/apipie/javascripts/apipie.js" for 127.0.0.1 at 2017-04-25 23:44:04 -0300
+Started GET "/apipie/1.0.html" for 127.0.0.1 at 2017-04-25 23:44:27 -0300
+Processing by Apipie::ApipiesController#index as HTML
+  Parameters: {"version"=>"1.0.html"}
+  Rendering /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/index.html.erb within layouts/apipie/apipie
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_languages.erb (1.2ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/index.html.erb within layouts/apipie/apipie (5.2ms)
+Completed 200 OK in 48ms (Views: 7.9ms)
+
+
+Started GET "/apipie/stylesheets/bundled/bootstrap.min.css" for 127.0.0.1 at 2017-04-25 23:44:27 -0300
+Started GET "/apipie/stylesheets/bundled/prettify.css" for 127.0.0.1 at 2017-04-25 23:44:27 -0300
+Started GET "/apipie/stylesheets/bundled/bootstrap-responsive.min.css" for 127.0.0.1 at 2017-04-25 23:44:27 -0300
+Started GET "/apipie/stylesheets/application.css" for 127.0.0.1 at 2017-04-25 23:44:27 -0300
+Started GET "/apipie/javascripts/bundled/jquery.js" for 127.0.0.1 at 2017-04-25 23:44:27 -0300
+Started GET "/apipie/javascripts/apipie.js" for 127.0.0.1 at 2017-04-25 23:44:27 -0300
+Started GET "/apipie/javascripts/bundled/prettify.js" for 127.0.0.1 at 2017-04-25 23:44:27 -0300
+Started GET "/apipie/javascripts/bundled/bootstrap-collapse.js" for 127.0.0.1 at 2017-04-25 23:44:27 -0300
+Started GET "/apipie/1.0/purchase_order/realizar_pedido.html" for 127.0.0.1 at 2017-04-25 23:44:30 -0300
+Processing by Apipie::ApipiesController#index as HTML
+  Parameters: {"version"=>"1.0", "resource"=>"purchase_order", "method"=>"realizar_pedido.html"}
+  Rendering /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/method.html.erb within layouts/apipie/apipie
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_languages.erb (0.4ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_errors.html.erb (0.7ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_params.html.erb (1.3ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_headers.html.erb (0.4ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_method_detail.erb (5.2ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/method.html.erb within layouts/apipie/apipie (7.9ms)
+Completed 200 OK in 54ms (Views: 14.8ms)
+
+
+Started GET "/apipie/stylesheets/bundled/bootstrap.min.css" for 127.0.0.1 at 2017-04-25 23:44:30 -0300
+Started GET "/apipie/stylesheets/bundled/prettify.css" for 127.0.0.1 at 2017-04-25 23:44:30 -0300
+Started GET "/apipie/javascripts/bundled/bootstrap-collapse.js" for 127.0.0.1 at 2017-04-25 23:44:30 -0300
+Started GET "/apipie/stylesheets/bundled/bootstrap-responsive.min.css" for 127.0.0.1 at 2017-04-25 23:44:30 -0300
+Started GET "/apipie/javascripts/bundled/jquery.js" for 127.0.0.1 at 2017-04-25 23:44:30 -0300
+Started GET "/apipie/javascripts/apipie.js" for 127.0.0.1 at 2017-04-25 23:44:30 -0300
+Started GET "/apipie/javascripts/bundled/prettify.js" for 127.0.0.1 at 2017-04-25 23:44:30 -0300
+Started GET "/apipie/stylesheets/application.css" for 127.0.0.1 at 2017-04-25 23:44:31 -0300
+Started GET "/apipie/1.0.html" for 127.0.0.1 at 2017-04-25 23:44:37 -0300
+Processing by Apipie::ApipiesController#index as HTML
+  Parameters: {"version"=>"1.0.html"}
+  Rendering /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/index.html.erb within layouts/apipie/apipie
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_languages.erb (0.3ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/index.html.erb within layouts/apipie/apipie (2.2ms)
+Completed 200 OK in 35ms (Views: 5.0ms)
+
+
+Started GET "/apipie/stylesheets/bundled/bootstrap.min.css" for 127.0.0.1 at 2017-04-25 23:44:37 -0300
+Started GET "/apipie/stylesheets/bundled/prettify.css" for 127.0.0.1 at 2017-04-25 23:44:37 -0300
+Started GET "/apipie/javascripts/bundled/prettify.js" for 127.0.0.1 at 2017-04-25 23:44:37 -0300
+Started GET "/apipie/stylesheets/bundled/bootstrap-responsive.min.css" for 127.0.0.1 at 2017-04-25 23:44:37 -0300
+Started GET "/apipie/javascripts/bundled/bootstrap-collapse.js" for 127.0.0.1 at 2017-04-25 23:44:37 -0300
+Started GET "/apipie/stylesheets/application.css" for 127.0.0.1 at 2017-04-25 23:44:37 -0300
+Started GET "/apipie/javascripts/apipie.js" for 127.0.0.1 at 2017-04-25 23:44:37 -0300
+Started GET "/apipie/javascripts/bundled/jquery.js" for 127.0.0.1 at 2017-04-25 23:44:37 -0300
+Started GET "/apipie/1.0/invoice/enviar_factura.html" for 127.0.0.1 at 2017-04-25 23:44:40 -0300
+Processing by Apipie::ApipiesController#index as HTML
+  Parameters: {"version"=>"1.0", "resource"=>"invoice", "method"=>"enviar_factura.html"}
+  Rendering /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/method.html.erb within layouts/apipie/apipie
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_languages.erb (0.3ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_errors.html.erb (0.6ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_params.html.erb (0.9ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_headers.html.erb (0.4ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_method_detail.erb (4.6ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/method.html.erb within layouts/apipie/apipie (7.0ms)
+Completed 200 OK in 37ms (Views: 9.2ms)
+
+
+Started GET "/apipie/stylesheets/bundled/bootstrap.min.css" for 127.0.0.1 at 2017-04-25 23:44:40 -0300
+Started GET "/apipie/stylesheets/bundled/prettify.css" for 127.0.0.1 at 2017-04-25 23:44:40 -0300
+Started GET "/apipie/stylesheets/application.css" for 127.0.0.1 at 2017-04-25 23:44:40 -0300
+Started GET "/apipie/javascripts/bundled/bootstrap-collapse.js" for 127.0.0.1 at 2017-04-25 23:44:40 -0300
+Started GET "/apipie/stylesheets/bundled/bootstrap-responsive.min.css" for 127.0.0.1 at 2017-04-25 23:44:40 -0300
+Started GET "/apipie/javascripts/bundled/prettify.js" for 127.0.0.1 at 2017-04-25 23:44:40 -0300
+Started GET "/apipie/javascripts/apipie.js" for 127.0.0.1 at 2017-04-25 23:44:40 -0300
+Started GET "/apipie/javascripts/bundled/jquery.js" for 127.0.0.1 at 2017-04-25 23:44:40 -0300
+Started GET "/apipie/1.0/invoice/enviar_factura.html" for 127.0.0.1 at 2017-04-25 23:45:28 -0300
+Processing by Apipie::ApipiesController#index as HTML
+  Parameters: {"version"=>"1.0", "resource"=>"invoice", "method"=>"enviar_factura.html"}
+Completed 500 Internal Server Error in 19ms
+
+
+  
+SyntaxError (/home/bcsaldias/Desktop/taller-2017-1-team02/app/controllers/invoice_controller.rb:77: syntax error, unexpected tINTEGER, expecting keyword_do or '{' or '('
+  error 400, "Formato de  Body incorrecto" 
+           ^):
+  
+app/controllers/invoice_controller.rb:77: syntax error, unexpected tINTEGER, expecting keyword_do or '{' or '('
+app/controllers/purchase_order_controller.rb:18:in `<class:PurchaseOrderController>'
+app/controllers/purchase_order_controller.rb:1:in `<top (required)>'
+app/controllers/api_controller.rb:10:in `<class:ApiController>'
+app/controllers/api_controller.rb:4:in `<top (required)>'
+Started GET "/apipie/1.0/invoice/enviar_factura.html" for 127.0.0.1 at 2017-04-25 23:45:44 -0300
+Processing by Apipie::ApipiesController#index as HTML
+  Parameters: {"version"=>"1.0", "resource"=>"invoice", "method"=>"enviar_factura.html"}
+  Rendering /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/method.html.erb within layouts/apipie/apipie
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_languages.erb (0.3ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_errors.html.erb (0.8ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_params.html.erb (1.1ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_headers.html.erb (0.4ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_method_detail.erb (5.7ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/method.html.erb within layouts/apipie/apipie (7.9ms)
+Completed 200 OK in 35ms (Views: 9.7ms)
+
+
+Started GET "/apipie/stylesheets/bundled/bootstrap.min.css" for 127.0.0.1 at 2017-04-25 23:45:44 -0300
+Started GET "/apipie/stylesheets/bundled/prettify.css" for 127.0.0.1 at 2017-04-25 23:45:44 -0300
+Started GET "/apipie/javascripts/bundled/prettify.js" for 127.0.0.1 at 2017-04-25 23:45:44 -0300
+Started GET "/apipie/javascripts/bundled/jquery.js" for 127.0.0.1 at 2017-04-25 23:45:44 -0300
+Started GET "/apipie/javascripts/bundled/bootstrap-collapse.js" for 127.0.0.1 at 2017-04-25 23:45:44 -0300
+Started GET "/apipie/stylesheets/application.css" for 127.0.0.1 at 2017-04-25 23:45:44 -0300
+Started GET "/apipie/javascripts/apipie.js" for 127.0.0.1 at 2017-04-25 23:45:44 -0300
+Started GET "/apipie/stylesheets/bundled/bootstrap-responsive.min.css" for 127.0.0.1 at 2017-04-25 23:45:44 -0300
+Started GET "/apipie/1.0/invoice/enviar_factura.html" for 127.0.0.1 at 2017-04-25 23:46:18 -0300
+Processing by Apipie::ApipiesController#index as HTML
+  Parameters: {"version"=>"1.0", "resource"=>"invoice", "method"=>"enviar_factura.html"}
+  Rendering /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/method.html.erb within layouts/apipie/apipie
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_languages.erb (0.3ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_errors.html.erb (0.6ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_params.html.erb (0.9ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_headers.html.erb (0.4ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_method_detail.erb (4.3ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/method.html.erb within layouts/apipie/apipie (6.5ms)
+Completed 200 OK in 29ms (Views: 8.5ms)
+
+
+Started GET "/apipie/stylesheets/bundled/bootstrap.min.css" for 127.0.0.1 at 2017-04-25 23:46:18 -0300
+Started GET "/apipie/stylesheets/bundled/prettify.css" for 127.0.0.1 at 2017-04-25 23:46:18 -0300
+Started GET "/apipie/stylesheets/bundled/bootstrap-responsive.min.css" for 127.0.0.1 at 2017-04-25 23:46:18 -0300
+Started GET "/apipie/javascripts/bundled/jquery.js" for 127.0.0.1 at 2017-04-25 23:46:18 -0300
+Started GET "/apipie/stylesheets/application.css" for 127.0.0.1 at 2017-04-25 23:46:18 -0300
+Started GET "/apipie/javascripts/bundled/bootstrap-collapse.js" for 127.0.0.1 at 2017-04-25 23:46:18 -0300
+Started GET "/apipie/javascripts/bundled/prettify.js" for 127.0.0.1 at 2017-04-25 23:46:18 -0300
+Started GET "/apipie/javascripts/apipie.js" for 127.0.0.1 at 2017-04-25 23:46:18 -0300
+Started GET "/apipie/1.0/invoice/enviar_factura.html" for 127.0.0.1 at 2017-04-25 23:49:27 -0300
+Processing by Apipie::ApipiesController#index as HTML
+  Parameters: {"version"=>"1.0", "resource"=>"invoice", "method"=>"enviar_factura.html"}
+  Rendering /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/method.html.erb within layouts/apipie/apipie
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_languages.erb (0.3ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_errors.html.erb (0.6ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_params.html.erb (0.8ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_headers.html.erb (0.4ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_method_detail.erb (4.2ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/method.html.erb within layouts/apipie/apipie (6.5ms)
+Completed 200 OK in 37ms (Views: 8.4ms)
+
+
+Started GET "/apipie/stylesheets/bundled/bootstrap.min.css" for 127.0.0.1 at 2017-04-25 23:49:27 -0300
+Started GET "/apipie/stylesheets/bundled/prettify.css" for 127.0.0.1 at 2017-04-25 23:49:27 -0300
+Started GET "/apipie/stylesheets/bundled/bootstrap-responsive.min.css" for 127.0.0.1 at 2017-04-25 23:49:27 -0300
+Started GET "/apipie/stylesheets/application.css" for 127.0.0.1 at 2017-04-25 23:49:27 -0300
+Started GET "/apipie/javascripts/bundled/jquery.js" for 127.0.0.1 at 2017-04-25 23:49:27 -0300
+Started GET "/apipie/javascripts/apipie.js" for 127.0.0.1 at 2017-04-25 23:49:27 -0300
+Started GET "/apipie/javascripts/bundled/prettify.js" for 127.0.0.1 at 2017-04-25 23:49:27 -0300
+Started GET "/apipie/javascripts/bundled/bootstrap-collapse.js" for 127.0.0.1 at 2017-04-25 23:49:27 -0300
+Started GET "/apipie/1.0/invoice/enviar_factura.html" for 127.0.0.1 at 2017-04-25 23:49:45 -0300
+Processing by Apipie::ApipiesController#index as HTML
+  Parameters: {"version"=>"1.0", "resource"=>"invoice", "method"=>"enviar_factura.html"}
+  Rendering /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/method.html.erb within layouts/apipie/apipie
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_languages.erb (0.3ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_errors.html.erb (0.7ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_params.html.erb (1.2ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_headers.html.erb (0.7ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_method_detail.erb (5.5ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/method.html.erb within layouts/apipie/apipie (8.3ms)
+Completed 200 OK in 36ms (Views: 11.3ms)
+
+
+Started GET "/apipie/stylesheets/bundled/bootstrap.min.css" for 127.0.0.1 at 2017-04-25 23:49:45 -0300
+Started GET "/apipie/stylesheets/bundled/prettify.css" for 127.0.0.1 at 2017-04-25 23:49:45 -0300
+Started GET "/apipie/stylesheets/bundled/bootstrap-responsive.min.css" for 127.0.0.1 at 2017-04-25 23:49:45 -0300
+Started GET "/apipie/stylesheets/application.css" for 127.0.0.1 at 2017-04-25 23:49:45 -0300
+Started GET "/apipie/javascripts/bundled/jquery.js" for 127.0.0.1 at 2017-04-25 23:49:45 -0300
+Started GET "/apipie/javascripts/bundled/bootstrap-collapse.js" for 127.0.0.1 at 2017-04-25 23:49:45 -0300
+Started GET "/apipie/javascripts/bundled/prettify.js" for 127.0.0.1 at 2017-04-25 23:49:45 -0300
+Started GET "/apipie/javascripts/apipie.js" for 127.0.0.1 at 2017-04-25 23:49:45 -0300
+Started GET "/apipie/1.0.html" for 127.0.0.1 at 2017-04-25 23:49:49 -0300
+Processing by Apipie::ApipiesController#index as HTML
+  Parameters: {"version"=>"1.0.html"}
+  Rendering /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/index.html.erb within layouts/apipie/apipie
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_languages.erb (0.4ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/index.html.erb within layouts/apipie/apipie (2.6ms)
+Completed 200 OK in 35ms (Views: 4.8ms)
+
+
+Started GET "/apipie/stylesheets/bundled/bootstrap.min.css" for 127.0.0.1 at 2017-04-25 23:49:49 -0300
+Started GET "/apipie/stylesheets/bundled/prettify.css" for 127.0.0.1 at 2017-04-25 23:49:49 -0300
+Started GET "/apipie/stylesheets/bundled/bootstrap-responsive.min.css" for 127.0.0.1 at 2017-04-25 23:49:49 -0300
+Started GET "/apipie/stylesheets/application.css" for 127.0.0.1 at 2017-04-25 23:49:49 -0300
+Started GET "/apipie/javascripts/bundled/jquery.js" for 127.0.0.1 at 2017-04-25 23:49:49 -0300
+Started GET "/apipie/javascripts/bundled/prettify.js" for 127.0.0.1 at 2017-04-25 23:49:49 -0300
+Started GET "/apipie/javascripts/apipie.js" for 127.0.0.1 at 2017-04-25 23:49:49 -0300
+Started GET "/apipie/javascripts/bundled/bootstrap-collapse.js" for 127.0.0.1 at 2017-04-25 23:49:49 -0300
+Started GET "/apipie/1.0.html" for 127.0.0.1 at 2017-04-25 23:50:20 -0300
+Processing by Apipie::ApipiesController#index as HTML
+  Parameters: {"version"=>"1.0.html"}
+  Rendering /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/index.html.erb within layouts/apipie/apipie
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_languages.erb (1.3ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/index.html.erb within layouts/apipie/apipie (8.9ms)
+Completed 200 OK in 112ms (Views: 16.8ms)
+
+
+Started GET "/apipie/stylesheets/bundled/bootstrap.min.css" for 127.0.0.1 at 2017-04-25 23:50:20 -0300
+Started GET "/apipie/stylesheets/bundled/prettify.css" for 127.0.0.1 at 2017-04-25 23:50:20 -0300
+Started GET "/apipie/stylesheets/bundled/bootstrap-responsive.min.css" for 127.0.0.1 at 2017-04-25 23:50:20 -0300
+Started GET "/apipie/stylesheets/application.css" for 127.0.0.1 at 2017-04-25 23:50:20 -0300
+Started GET "/apipie/javascripts/apipie.js" for 127.0.0.1 at 2017-04-25 23:50:20 -0300
+Started GET "/apipie/javascripts/bundled/bootstrap-collapse.js" for 127.0.0.1 at 2017-04-25 23:50:20 -0300
+Started GET "/apipie/javascripts/bundled/jquery.js" for 127.0.0.1 at 2017-04-25 23:50:20 -0300
+Started GET "/apipie/javascripts/bundled/prettify.js" for 127.0.0.1 at 2017-04-25 23:50:20 -0300
+Started GET "/apipie/1.0/invoice/enviar_confirmacion_pago.html" for 127.0.0.1 at 2017-04-25 23:51:41 -0300
+Processing by Apipie::ApipiesController#index as HTML
+  Parameters: {"version"=>"1.0", "resource"=>"invoice", "method"=>"enviar_confirmacion_pago.html"}
+  Rendering /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/method.html.erb within layouts/apipie/apipie
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_languages.erb (0.3ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_errors.html.erb (0.6ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_params.html.erb (0.9ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_headers.html.erb (0.4ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_method_detail.erb (4.4ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/method.html.erb within layouts/apipie/apipie (6.7ms)
+Completed 200 OK in 33ms (Views: 8.7ms)
+
+
+Started GET "/apipie/stylesheets/bundled/bootstrap.min.css" for 127.0.0.1 at 2017-04-25 23:51:41 -0300
+Started GET "/apipie/stylesheets/bundled/prettify.css" for 127.0.0.1 at 2017-04-25 23:51:41 -0300
+Started GET "/apipie/stylesheets/bundled/bootstrap-responsive.min.css" for 127.0.0.1 at 2017-04-25 23:51:41 -0300
+Started GET "/apipie/stylesheets/application.css" for 127.0.0.1 at 2017-04-25 23:51:41 -0300
+Started GET "/apipie/javascripts/bundled/jquery.js" for 127.0.0.1 at 2017-04-25 23:51:41 -0300
+Started GET "/apipie/javascripts/bundled/bootstrap-collapse.js" for 127.0.0.1 at 2017-04-25 23:51:41 -0300
+Started GET "/apipie/javascripts/apipie.js" for 127.0.0.1 at 2017-04-25 23:51:41 -0300
+Started GET "/apipie/javascripts/bundled/prettify.js" for 127.0.0.1 at 2017-04-25 23:51:41 -0300
+Started GET "/apipie/1.0/invoice/enviar_confirmacion_pago.html" for 127.0.0.1 at 2017-04-25 23:52:33 -0300
+Processing by Apipie::ApipiesController#index as HTML
+  Parameters: {"version"=>"1.0", "resource"=>"invoice", "method"=>"enviar_confirmacion_pago.html"}
+  Rendering /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/method.html.erb within layouts/apipie/apipie
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_languages.erb (0.3ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_errors.html.erb (0.7ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_params.html.erb (1.0ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_headers.html.erb (0.6ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_method_detail.erb (5.0ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/method.html.erb within layouts/apipie/apipie (7.3ms)
+Completed 200 OK in 39ms (Views: 9.2ms)
+
+
+Started GET "/apipie/stylesheets/bundled/bootstrap.min.css" for 127.0.0.1 at 2017-04-25 23:52:33 -0300
+Started GET "/apipie/stylesheets/bundled/prettify.css" for 127.0.0.1 at 2017-04-25 23:52:33 -0300
+Started GET "/apipie/javascripts/bundled/prettify.js" for 127.0.0.1 at 2017-04-25 23:52:33 -0300
+Started GET "/apipie/javascripts/apipie.js" for 127.0.0.1 at 2017-04-25 23:52:33 -0300
+Started GET "/apipie/javascripts/bundled/bootstrap-collapse.js" for 127.0.0.1 at 2017-04-25 23:52:33 -0300
+Started GET "/apipie/javascripts/bundled/jquery.js" for 127.0.0.1 at 2017-04-25 23:52:33 -0300
+Started GET "/apipie/stylesheets/application.css" for 127.0.0.1 at 2017-04-25 23:52:33 -0300
+Started GET "/apipie/stylesheets/bundled/bootstrap-responsive.min.css" for 127.0.0.1 at 2017-04-25 23:52:33 -0300
+Started GET "/apipie/1.0.html" for 127.0.0.1 at 2017-04-25 23:52:37 -0300
+Processing by Apipie::ApipiesController#index as HTML
+  Parameters: {"version"=>"1.0.html"}
+  Rendering /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/index.html.erb within layouts/apipie/apipie
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_languages.erb (0.3ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/index.html.erb within layouts/apipie/apipie (2.2ms)
+Completed 200 OK in 35ms (Views: 4.3ms)
+
+
+Started GET "/apipie/stylesheets/bundled/bootstrap.min.css" for 127.0.0.1 at 2017-04-25 23:52:38 -0300
+Started GET "/apipie/stylesheets/bundled/prettify.css" for 127.0.0.1 at 2017-04-25 23:52:38 -0300
+Started GET "/apipie/stylesheets/application.css" for 127.0.0.1 at 2017-04-25 23:52:38 -0300
+Started GET "/apipie/stylesheets/bundled/bootstrap-responsive.min.css" for 127.0.0.1 at 2017-04-25 23:52:38 -0300
+Started GET "/apipie/javascripts/bundled/prettify.js" for 127.0.0.1 at 2017-04-25 23:52:38 -0300
+Started GET "/apipie/javascripts/bundled/jquery.js" for 127.0.0.1 at 2017-04-25 23:52:38 -0300
+Started GET "/apipie/javascripts/apipie.js" for 127.0.0.1 at 2017-04-25 23:52:38 -0300
+Started GET "/apipie/javascripts/bundled/bootstrap-collapse.js" for 127.0.0.1 at 2017-04-25 23:52:38 -0300
+Started GET "/apipie/1.0/invoice/enviar_confirmacion_pago.html" for 127.0.0.1 at 2017-04-25 23:52:42 -0300
+Processing by Apipie::ApipiesController#index as HTML
+  Parameters: {"version"=>"1.0", "resource"=>"invoice", "method"=>"enviar_confirmacion_pago.html"}
+  Rendering /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/method.html.erb within layouts/apipie/apipie
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_languages.erb (0.4ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_errors.html.erb (0.8ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_params.html.erb (1.5ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_headers.html.erb (0.5ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_method_detail.erb (6.1ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/method.html.erb within layouts/apipie/apipie (8.6ms)
+Completed 200 OK in 36ms (Views: 10.7ms)
+
+
+Started GET "/apipie/stylesheets/bundled/bootstrap.min.css" for 127.0.0.1 at 2017-04-25 23:52:42 -0300
+Started GET "/apipie/stylesheets/bundled/prettify.css" for 127.0.0.1 at 2017-04-25 23:52:42 -0300
+Started GET "/apipie/stylesheets/bundled/bootstrap-responsive.min.css" for 127.0.0.1 at 2017-04-25 23:52:42 -0300
+Started GET "/apipie/stylesheets/application.css" for 127.0.0.1 at 2017-04-25 23:52:42 -0300
+Started GET "/apipie/javascripts/bundled/jquery.js" for 127.0.0.1 at 2017-04-25 23:52:42 -0300
+Started GET "/apipie/javascripts/bundled/bootstrap-collapse.js" for 127.0.0.1 at 2017-04-25 23:52:42 -0300
+Started GET "/apipie/javascripts/apipie.js" for 127.0.0.1 at 2017-04-25 23:52:42 -0300
+Started GET "/apipie/javascripts/bundled/prettify.js" for 127.0.0.1 at 2017-04-25 23:52:42 -0300
+Started GET "/apipie/1.0/invoice/enviar_rechazo_factura.html" for 127.0.0.1 at 2017-04-25 23:53:36 -0300
+Processing by Apipie::ApipiesController#index as HTML
+  Parameters: {"version"=>"1.0", "resource"=>"invoice", "method"=>"enviar_rechazo_factura.html"}
+  Rendering /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/method.html.erb within layouts/apipie/apipie
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_languages.erb (0.6ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_errors.html.erb (0.7ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_params.html.erb (1.0ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_headers.html.erb (0.4ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_method_detail.erb (5.4ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/method.html.erb within layouts/apipie/apipie (9.5ms)
+Completed 200 OK in 44ms (Views: 11.7ms)
+
+
+Started GET "/apipie/stylesheets/bundled/bootstrap.min.css" for 127.0.0.1 at 2017-04-25 23:53:37 -0300
+Started GET "/apipie/stylesheets/bundled/prettify.css" for 127.0.0.1 at 2017-04-25 23:53:37 -0300
+Started GET "/apipie/stylesheets/bundled/bootstrap-responsive.min.css" for 127.0.0.1 at 2017-04-25 23:53:37 -0300
+Started GET "/apipie/stylesheets/application.css" for 127.0.0.1 at 2017-04-25 23:53:37 -0300
+Started GET "/apipie/javascripts/bundled/jquery.js" for 127.0.0.1 at 2017-04-25 23:53:37 -0300
+Started GET "/apipie/javascripts/apipie.js" for 127.0.0.1 at 2017-04-25 23:53:37 -0300
+Started GET "/apipie/javascripts/bundled/prettify.js" for 127.0.0.1 at 2017-04-25 23:53:37 -0300
+Started GET "/apipie/javascripts/bundled/bootstrap-collapse.js" for 127.0.0.1 at 2017-04-25 23:53:37 -0300
+Started GET "/apipie/1.0.html" for 127.0.0.1 at 2017-04-25 23:54:19 -0300
+Processing by Apipie::ApipiesController#index as HTML
+  Parameters: {"version"=>"1.0.html"}
+  Rendering /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/index.html.erb within layouts/apipie/apipie
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_languages.erb (0.3ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/index.html.erb within layouts/apipie/apipie (2.3ms)
+Completed 200 OK in 37ms (Views: 4.3ms)
+
+
+Started GET "/apipie/stylesheets/bundled/bootstrap.min.css" for 127.0.0.1 at 2017-04-25 23:54:19 -0300
+Started GET "/apipie/stylesheets/bundled/prettify.css" for 127.0.0.1 at 2017-04-25 23:54:19 -0300
+Started GET "/apipie/javascripts/bundled/prettify.js" for 127.0.0.1 at 2017-04-25 23:54:19 -0300
+Started GET "/apipie/javascripts/bundled/jquery.js" for 127.0.0.1 at 2017-04-25 23:54:19 -0300
+Started GET "/apipie/javascripts/bundled/bootstrap-collapse.js" for 127.0.0.1 at 2017-04-25 23:54:19 -0300
+Started GET "/apipie/stylesheets/application.css" for 127.0.0.1 at 2017-04-25 23:54:19 -0300
+Started GET "/apipie/javascripts/apipie.js" for 127.0.0.1 at 2017-04-25 23:54:19 -0300
+Started GET "/apipie/stylesheets/bundled/bootstrap-responsive.min.css" for 127.0.0.1 at 2017-04-25 23:54:19 -0300
+Started GET "/apipie/1.0/invoice/enviar_confirmacion_pago.html" for 127.0.0.1 at 2017-04-25 23:54:23 -0300
+Processing by Apipie::ApipiesController#index as HTML
+  Parameters: {"version"=>"1.0", "resource"=>"invoice", "method"=>"enviar_confirmacion_pago.html"}
+  Rendering /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/method.html.erb within layouts/apipie/apipie
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_languages.erb (0.4ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_errors.html.erb (0.7ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_params.html.erb (1.0ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_headers.html.erb (1.1ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_method_detail.erb (5.4ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/method.html.erb within layouts/apipie/apipie (8.2ms)
+Completed 200 OK in 38ms (Views: 10.7ms)
+
+
+Started GET "/apipie/stylesheets/bundled/bootstrap.min.css" for 127.0.0.1 at 2017-04-25 23:54:23 -0300
+Started GET "/apipie/stylesheets/bundled/prettify.css" for 127.0.0.1 at 2017-04-25 23:54:23 -0300
+Started GET "/apipie/stylesheets/bundled/bootstrap-responsive.min.css" for 127.0.0.1 at 2017-04-25 23:54:23 -0300
+Started GET "/apipie/javascripts/bundled/bootstrap-collapse.js" for 127.0.0.1 at 2017-04-25 23:54:23 -0300
+Started GET "/apipie/stylesheets/application.css" for 127.0.0.1 at 2017-04-25 23:54:23 -0300
+Started GET "/apipie/javascripts/bundled/prettify.js" for 127.0.0.1 at 2017-04-25 23:54:23 -0300
+Started GET "/apipie/javascripts/apipie.js" for 127.0.0.1 at 2017-04-25 23:54:23 -0300
+Started GET "/apipie/javascripts/bundled/jquery.js" for 127.0.0.1 at 2017-04-25 23:54:23 -0300
+Started GET "/apipie/1.0/invoice/enviar_factura.html" for 127.0.0.1 at 2017-04-25 23:54:38 -0300
+Processing by Apipie::ApipiesController#index as HTML
+  Parameters: {"version"=>"1.0", "resource"=>"invoice", "method"=>"enviar_factura.html"}
+  Rendering /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/method.html.erb within layouts/apipie/apipie
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_languages.erb (0.3ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_errors.html.erb (0.6ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_params.html.erb (0.9ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_headers.html.erb (0.4ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_method_detail.erb (4.3ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/method.html.erb within layouts/apipie/apipie (6.7ms)
+Completed 200 OK in 34ms (Views: 9.3ms)
+
+
+Started GET "/apipie/stylesheets/bundled/bootstrap.min.css" for 127.0.0.1 at 2017-04-25 23:54:38 -0300
+Started GET "/apipie/stylesheets/bundled/prettify.css" for 127.0.0.1 at 2017-04-25 23:54:38 -0300
+Started GET "/apipie/stylesheets/application.css" for 127.0.0.1 at 2017-04-25 23:54:38 -0300
+Started GET "/apipie/stylesheets/bundled/bootstrap-responsive.min.css" for 127.0.0.1 at 2017-04-25 23:54:38 -0300
+Started GET "/apipie/javascripts/bundled/prettify.js" for 127.0.0.1 at 2017-04-25 23:54:38 -0300
+Started GET "/apipie/javascripts/bundled/bootstrap-collapse.js" for 127.0.0.1 at 2017-04-25 23:54:38 -0300
+Started GET "/apipie/javascripts/apipie.js" for 127.0.0.1 at 2017-04-25 23:54:38 -0300
+Started GET "/apipie/javascripts/bundled/jquery.js" for 127.0.0.1 at 2017-04-25 23:54:38 -0300
