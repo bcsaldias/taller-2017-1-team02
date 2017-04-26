@@ -873,6 +873,7 @@ Processing by InvoiceController#enviar_rechazo_factura as */*
 Completed 404 Not Found in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
 
 
+<<<<<<< HEAD
 Started GET "/apipie" for 127.0.0.1 at 2017-04-25 22:08:25 -0300
 Processing by Apipie::ApipiesController#index as HTML
 Completed 500 Internal Server Error in 20ms
@@ -1534,3 +1535,226 @@ Started GET "/apipie/stylesheets/application.css" for 127.0.0.1 at 2017-04-25 22
 Started GET "/apipie/javascripts/bundled/prettify.js" for 127.0.0.1 at 2017-04-25 22:59:42 -0300
 Started GET "/apipie/javascripts/apipie.js" for 127.0.0.1 at 2017-04-25 22:59:42 -0300
 Started GET "/apipie/javascripts/bundled/bootstrap-collapse.js" for 127.0.0.1 at 2017-04-25 22:59:42 -0300
+=======
+Started PUT "/invoices/300" for 127.0.0.1 at 2017-04-25 15:23:41 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"cause"=>"", "id"=>"300", "invoice"=>{"cause"=>""}}
+Completed 400 Bad Request in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices/300" for 127.0.0.1 at 2017-04-25 15:23:50 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>20, "id"=>"300", "invoice"=>{"id_supplier"=>20}}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices/300" for 127.0.0.1 at 2017-04-25 15:23:52 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>20, "id"=>"300", "invoice"=>{"id_supplier"=>20}}
+Completed 400 Bad Request in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices/300" for 127.0.0.1 at 2017-04-25 15:24:00 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>20, "bank_account"=>"joo", "id"=>"300", "invoice"=>{"id_supplier"=>20, "bank_account"=>"joo"}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices/300" for 127.0.0.1 at 2017-04-25 15:24:01 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>20, "bank_account"=>"joo", "id"=>"300", "invoice"=>{"id_supplier"=>20, "bank_account"=>"joo"}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices/300" for 127.0.0.1 at 2017-04-25 15:24:01 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>20, "bank_account"=>"joo", "id"=>"300", "invoice"=>{"id_supplier"=>20, "bank_account"=>"joo"}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices/300" for 127.0.0.1 at 2017-04-25 15:24:01 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>20, "bank_account"=>"joo", "id"=>"300", "invoice"=>{"id_supplier"=>20, "bank_account"=>"joo"}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices/300" for 127.0.0.1 at 2017-04-25 15:27:51 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>20, "bank_account"=>"joo", "id"=>"300", "invoice"=>{"id_supplier"=>20, "bank_account"=>"joo"}}
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+<<<<<<< HEAD
+  [1m[35m (7.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (5.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", 2017-04-21 21:56:51 UTC], ["updated_at", 2017-04-21 21:56:51 UTC]]
+  [1m[35m (3.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (4.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (0)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (6.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (4.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (0)[0m
+  [1m[35m (6.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", 2017-04-21 21:56:55 UTC], ["updated_at", 2017-04-21 21:56:55 UTC]]
+  [1m[35m (5.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+=======
+Started PUT "/invoices/300" for 127.0.0.1 at 2017-04-25 15:27:52 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>20, "bank_account"=>"joo", "id"=>"300", "invoice"=>{"id_supplier"=>20, "bank_account"=>"joo"}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices/300" for 127.0.0.1 at 2017-04-25 15:27:52 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>20, "bank_account"=>"joo", "id"=>"300", "invoice"=>{"id_supplier"=>20, "bank_account"=>"joo"}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices/300" for 127.0.0.1 at 2017-04-25 15:27:52 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>20, "bank_account"=>"joo", "id"=>"300", "invoice"=>{"id_supplier"=>20, "bank_account"=>"joo"}}
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices/300" for 127.0.0.1 at 2017-04-25 15:28:11 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>20, "bank_account"=>"joo", "id"=>"300", "invoice"=>{"id_supplier"=>20, "bank_account"=>"joo"}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices/300" for 127.0.0.1 at 2017-04-25 15:28:12 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>20, "bank_account"=>"joo", "id"=>"300", "invoice"=>{"id_supplier"=>20, "bank_account"=>"joo"}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices/300" for 127.0.0.1 at 2017-04-25 15:28:12 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>20, "bank_account"=>"joo", "id"=>"300", "invoice"=>{"id_supplier"=>20, "bank_account"=>"joo"}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices/300" for 127.0.0.1 at 2017-04-25 15:28:13 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>20, "bank_account"=>"joo", "id"=>"300", "invoice"=>{"id_supplier"=>20, "bank_account"=>"joo"}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices/300" for 127.0.0.1 at 2017-04-25 15:28:13 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>20, "bank_account"=>"joo", "id"=>"300", "invoice"=>{"id_supplier"=>20, "bank_account"=>"joo"}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices/300" for 127.0.0.1 at 2017-04-25 15:28:27 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>20, "bank_account"=>"joo", "id"=>"300", "invoice"=>{"id_supplier"=>20, "bank_account"=>"joo"}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices/300" for 127.0.0.1 at 2017-04-25 15:28:28 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>20, "bank_account"=>"joo", "id"=>"300", "invoice"=>{"id_supplier"=>20, "bank_account"=>"joo"}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices/300" for 127.0.0.1 at 2017-04-25 15:28:28 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>20, "bank_account"=>"joo", "id"=>"300", "invoice"=>{"id_supplier"=>20, "bank_account"=>"joo"}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+>>>>>>> 28e1520cab31d2ca828f9a20e0a9947de6047742
+>>>>>>> 5d666b5754c640e6d7299b9f25a03be06ecfc971
+Started GET "/apipie/1.0.html" for 127.0.0.1 at 2017-04-25 23:16:13 -0300
+Processing by Apipie::ApipiesController#index as HTML
+  Parameters: {"version"=>"1.0.html"}
+  Rendering /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/index.html.erb within layouts/apipie/apipie
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_languages.erb (0.3ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/index.html.erb within layouts/apipie/apipie (9.2ms)
+Completed 200 OK in 81ms (Views: 13.0ms)
+
+
+Started GET "/apipie/stylesheets/bundled/bootstrap.min.css" for 127.0.0.1 at 2017-04-25 23:16:13 -0300
+Started GET "/apipie/stylesheets/bundled/prettify.css" for 127.0.0.1 at 2017-04-25 23:16:13 -0300
+Started GET "/apipie/stylesheets/bundled/bootstrap-responsive.min.css" for 127.0.0.1 at 2017-04-25 23:16:13 -0300
+Started GET "/apipie/stylesheets/application.css" for 127.0.0.1 at 2017-04-25 23:16:13 -0300
+Started GET "/apipie/javascripts/bundled/prettify.js" for 127.0.0.1 at 2017-04-25 23:16:13 -0300
+Started GET "/apipie/javascripts/apipie.js" for 127.0.0.1 at 2017-04-25 23:16:13 -0300
+Started GET "/apipie/javascripts/bundled/bootstrap-collapse.js" for 127.0.0.1 at 2017-04-25 23:16:13 -0300
+Started GET "/apipie/javascripts/bundled/jquery.js" for 127.0.0.1 at 2017-04-25 23:16:13 -0300
+Started GET "/apipie/1.0/invoice/enviar_factura.html" for 127.0.0.1 at 2017-04-25 23:16:16 -0300
+Processing by Apipie::ApipiesController#index as HTML
+  Parameters: {"version"=>"1.0", "resource"=>"invoice", "method"=>"enviar_factura.html"}
+  Rendering /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/method.html.erb within layouts/apipie/apipie
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_languages.erb (0.4ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_params.html.erb (0.9ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_headers.html.erb (0.4ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_method_detail.erb (5.1ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/method.html.erb within layouts/apipie/apipie (8.2ms)
+Completed 200 OK in 32ms (Views: 10.9ms)
+
+
+Started GET "/apipie/stylesheets/bundled/bootstrap.min.css" for 127.0.0.1 at 2017-04-25 23:16:16 -0300
+Started GET "/apipie/stylesheets/bundled/prettify.css" for 127.0.0.1 at 2017-04-25 23:16:16 -0300
+Started GET "/apipie/stylesheets/bundled/bootstrap-responsive.min.css" for 127.0.0.1 at 2017-04-25 23:16:16 -0300
+Started GET "/apipie/stylesheets/application.css" for 127.0.0.1 at 2017-04-25 23:16:16 -0300
+Started GET "/apipie/javascripts/bundled/jquery.js" for 127.0.0.1 at 2017-04-25 23:16:16 -0300
+Started GET "/apipie/javascripts/bundled/prettify.js" for 127.0.0.1 at 2017-04-25 23:16:16 -0300
+Started GET "/apipie/javascripts/apipie.js" for 127.0.0.1 at 2017-04-25 23:16:16 -0300
+Started GET "/apipie/javascripts/bundled/bootstrap-collapse.js" for 127.0.0.1 at 2017-04-25 23:16:17 -0300
+Started GET "/apipie/1.0.html" for 127.0.0.1 at 2017-04-25 23:17:36 -0300
+Processing by Apipie::ApipiesController#index as HTML
+  Parameters: {"version"=>"1.0.html"}
+  Rendering /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/index.html.erb within layouts/apipie/apipie
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_languages.erb (0.3ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/index.html.erb within layouts/apipie/apipie (8.8ms)
+Completed 200 OK in 80ms (Views: 12.3ms)
+
+
+Started GET "/apipie/stylesheets/bundled/bootstrap.min.css" for 127.0.0.1 at 2017-04-25 23:17:36 -0300
+Started GET "/apipie/stylesheets/bundled/prettify.css" for 127.0.0.1 at 2017-04-25 23:17:36 -0300
+Started GET "/apipie/javascripts/bundled/jquery.js" for 127.0.0.1 at 2017-04-25 23:17:36 -0300
+Started GET "/apipie/stylesheets/application.css" for 127.0.0.1 at 2017-04-25 23:17:36 -0300
+Started GET "/apipie/javascripts/bundled/prettify.js" for 127.0.0.1 at 2017-04-25 23:17:36 -0300
+Started GET "/apipie/stylesheets/bundled/bootstrap-responsive.min.css" for 127.0.0.1 at 2017-04-25 23:17:36 -0300
+Started GET "/apipie/javascripts/apipie.js" for 127.0.0.1 at 2017-04-25 23:17:36 -0300
+Started GET "/apipie/javascripts/bundled/bootstrap-collapse.js" for 127.0.0.1 at 2017-04-25 23:17:36 -0300
+Started GET "/apipie/1.0/invoice/enviar_factura.html" for 127.0.0.1 at 2017-04-25 23:17:39 -0300
+Processing by Apipie::ApipiesController#index as HTML
+  Parameters: {"version"=>"1.0", "resource"=>"invoice", "method"=>"enviar_factura.html"}
+  Rendering /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/method.html.erb within layouts/apipie/apipie
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_languages.erb (0.4ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_errors.html.erb (0.5ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_params.html.erb (0.9ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_headers.html.erb (0.4ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/_method_detail.erb (6.6ms)
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/apipie-rails-0.5.0/app/views/apipie/apipies/method.html.erb within layouts/apipie/apipie (10.0ms)
+Completed 200 OK in 34ms (Views: 13.0ms)
+
+
+Started GET "/apipie/stylesheets/bundled/bootstrap.min.css" for 127.0.0.1 at 2017-04-25 23:17:39 -0300
+Started GET "/apipie/stylesheets/bundled/prettify.css" for 127.0.0.1 at 2017-04-25 23:17:39 -0300
+Started GET "/apipie/stylesheets/bundled/bootstrap-responsive.min.css" for 127.0.0.1 at 2017-04-25 23:17:39 -0300
+Started GET "/apipie/stylesheets/application.css" for 127.0.0.1 at 2017-04-25 23:17:39 -0300
+Started GET "/apipie/javascripts/bundled/prettify.js" for 127.0.0.1 at 2017-04-25 23:17:39 -0300
+Started GET "/apipie/javascripts/bundled/jquery.js" for 127.0.0.1 at 2017-04-25 23:17:39 -0300
+Started GET "/apipie/javascripts/apipie.js" for 127.0.0.1 at 2017-04-25 23:17:39 -0300
+Started GET "/apipie/javascripts/bundled/bootstrap-collapse.js" for 127.0.0.1 at 2017-04-25 23:17:39 -0300
