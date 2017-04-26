@@ -2,31 +2,35 @@ require 'json'
 require 'net/http'
 
 class ApiController < ApplicationController
-  def prices
-    json_response("lista de precios")
+
+  def products
+    #list = [{producto1: 1290}, {producto2: 1580}, {producto3:15000}]
+    #string = %q({[{"producto1": 1290}, {"producto2": 1580}, {"producto3":15000}]})
+    string = [{sku:'J20000022', name: 'producto0', price: 20, stock: 100}, 
+              {sku: 'J10999972', name: 'producto1', price: 30, stock: 200}]
+    json_response(string)
+
   end
 
   # POST /api/oc/recibir
-  def recibir_oc
-    json_response("se ha recibido la OC: "+params[:id])
-  end
+  #def recibir_oc
+  #  json_response("se ha recibido la OC: "+params[:id])
+  #end
 
   # GET /sistema_central
-  def get_oc
+  #def get_oc
   	# ir al servidor
-    json_response("se ha ido a buscar la OC: "+params[:id])
-  end
+    #json_response("se ha ido a buscar la OC: "+params[:id])
+  #end
 
   # POST /api/factura/recibir
-  def recibir_factura
-    json_response("se ha recibido la factura: "+params[:id])
-  end
+  #def recibir_factura
+  #  json_response("se ha recibido la factura: "+params[:id])
+  #end
 
   # GET /sistema_central
-  def get_factura
-    json_response("se ha ido a buscar la factura: "+params[:id])
-  end
-
-
+  #def get_factura
+  #  json_response("se ha ido a buscar la factura: "+params[:id])
+  #end
 
 end

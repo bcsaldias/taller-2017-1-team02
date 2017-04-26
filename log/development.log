@@ -1,9 +1,12 @@
-Started GET "/api/prices" for 127.0.0.1 at 2017-04-19 23:42:12 -0300
-Processing by ApiController#prices as HTML
-Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+Started GET "/" for 127.0.0.1 at 2017-04-25 10:44:42 -0300
+Processing by Rails::WelcomeController#index as HTML
+  Parameters: {"internal"=>true}
+  Rendering /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/railties-5.0.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/railties-5.0.2/lib/rails/templates/rails/welcome/index.html.erb (2.7ms)
+Completed 200 OK in 8ms (Views: 6.1ms | ActiveRecord: 0.0ms)
 
 
-Started GET "/favicon.ico" for 127.0.0.1 at 2017-04-19 23:42:13 -0300
+Started GET "/favicon.ico" for 127.0.0.1 at 2017-04-25 10:44:42 -0300
   
 ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
   
@@ -27,7 +30,7 @@ puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
 puma (3.8.2) lib/puma/server.rb:435:in `process_client'
 puma (3.8.2) lib/puma/server.rb:299:in `block in run'
 puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
-Started GET "/favicon.ico" for 127.0.0.1 at 2017-04-19 23:42:13 -0300
+Started GET "/favicon.ico" for 127.0.0.1 at 2017-04-25 10:44:42 -0300
   
 ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
   
@@ -51,502 +54,874 @@ puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
 puma (3.8.2) lib/puma/server.rb:435:in `process_client'
 puma (3.8.2) lib/puma/server.rb:299:in `block in run'
 puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
-Started GET "/api/prices" for 127.0.0.1 at 2017-04-19 23:43:26 -0300
-Processing by ApiController#prices as HTML
+Started GET "/products" for 127.0.0.1 at 2017-04-25 10:44:46 -0300
+Processing by ApiController#products as HTML
 Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
 
 
-Started GET "/api/" for 127.0.0.1 at 2017-04-19 23:43:28 -0300
-  
-ActionController::RoutingError (No route matches [GET] "/api"):
-  
-actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
-railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
-railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
-activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
-activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
-activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
-railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
-rack (2.0.1) lib/rack/runtime.rb:22:in `call'
-activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
-rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
-railties (5.0.2) lib/rails/engine.rb:522:in `call'
-puma (3.8.2) lib/puma/configuration.rb:224:in `call'
-puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
-puma (3.8.2) lib/puma/server.rb:435:in `process_client'
-puma (3.8.2) lib/puma/server.rb:299:in `block in run'
-puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
-Started GET "/api" for 127.0.0.1 at 2017-04-19 23:43:35 -0300
-  
-ActionController::RoutingError (No route matches [GET] "/api"):
-  
-actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
-railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
-railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
-activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
-activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
-activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
-railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
-rack (2.0.1) lib/rack/runtime.rb:22:in `call'
-activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
-rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
-railties (5.0.2) lib/rails/engine.rb:522:in `call'
-puma (3.8.2) lib/puma/configuration.rb:224:in `call'
-puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
-puma (3.8.2) lib/puma/server.rb:435:in `process_client'
-puma (3.8.2) lib/puma/server.rb:299:in `block in run'
-puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
-Started GET "/api/prices" for 127.0.0.1 at 2017-04-19 23:43:37 -0300
-Processing by ApiController#prices as HTML
-Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+Started GET "/products" for 127.0.0.1 at 2017-04-25 10:45:48 -0300
+Processing by ApiController#products as HTML
+Started GET "/products" for 127.0.0.1 at 2017-04-25 10:45:58 -0300
+Completed 500 Internal Server Error in 68ms (ActiveRecord: 0.0ms)
 
 
-Started GET "/api/prices" for 127.0.0.1 at 2017-04-19 23:55:29 -0300
-Processing by ApiController#prices as HTML
-Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+  
+NameError (undefined local variable or method `string' for #<ApiController:0x007efe5808aab8>
+Did you mean?  @string
+               String):
+  
+app/controllers/api_controller.rb:10:in `products'
+Processing by ApiController#products as HTML
+Completed 500 Internal Server Error in 48ms (ActiveRecord: 0.0ms)
 
 
-Started GET "/api/oc/recibir/3" for 127.0.0.1 at 2017-04-19 23:55:39 -0300
-Started GET "/api/oc/recibir/3" for 127.0.0.1 at 2017-04-19 23:55:39 -0300
   
+NameError (undefined local variable or method `string' for #<ApiController:0x007efe6883b680>
+Did you mean?  @string
+               String):
   
-ActionController::RoutingError (No route matches [GET] "/api/oc/recibir/3"):
-ActionController::RoutingError (No route matches [GET] "/api/oc/recibir/3"):
-  
-  
-actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
-railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
-railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
-activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
-activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
-activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
-railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
-rack (2.0.1) lib/rack/runtime.rb:22:in `call'
-activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
-rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
-railties (5.0.2) lib/rails/engine.rb:522:in `call'
-puma (3.8.2) lib/puma/configuration.rb:224:in `call'
-puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
-puma (3.8.2) lib/puma/server.rb:435:in `process_client'
-puma (3.8.2) lib/puma/server.rb:299:in `block in run'
-puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
-actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
-railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
-railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
-activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
-activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
-activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
-railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
-rack (2.0.1) lib/rack/runtime.rb:22:in `call'
-activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
-rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
-railties (5.0.2) lib/rails/engine.rb:522:in `call'
-puma (3.8.2) lib/puma/configuration.rb:224:in `call'
-puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
-puma (3.8.2) lib/puma/server.rb:435:in `process_client'
-puma (3.8.2) lib/puma/server.rb:299:in `block in run'
-puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
-Started GET "/api/oc/recibir/3" for 127.0.0.1 at 2017-04-19 23:55:58 -0300
-  
-ActionController::RoutingError (No route matches [GET] "/api/oc/recibir/3"):
-  
-actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
-railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
-railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
-activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
-activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
-activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
-railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
-rack (2.0.1) lib/rack/runtime.rb:22:in `call'
-activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
-rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
-railties (5.0.2) lib/rails/engine.rb:522:in `call'
-puma (3.8.2) lib/puma/configuration.rb:224:in `call'
-puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
-puma (3.8.2) lib/puma/server.rb:435:in `process_client'
-puma (3.8.2) lib/puma/server.rb:299:in `block in run'
-puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
-Started GET "/api/oc/recibir/3" for 127.0.0.1 at 2017-04-19 23:56:41 -0300
-  
-Started GET "/api/oc/recibir/3" for 127.0.0.1 at 2017-04-19 23:56:51 -0300
-ActionController::RoutingError (No route matches [GET] "/api/oc/recibir/3"):
-  
-  
-ActionController::RoutingError (No route matches [GET] "/api/oc/recibir/3"):
-actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
-railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
-railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
-activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
-activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
-activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
-railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
-rack (2.0.1) lib/rack/runtime.rb:22:in `call'
-activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
-rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
-railties (5.0.2) lib/rails/engine.rb:522:in `call'
-puma (3.8.2) lib/puma/configuration.rb:224:in `call'
-puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
-puma (3.8.2) lib/puma/server.rb:435:in `process_client'
-puma (3.8.2) lib/puma/server.rb:299:in `block in run'
-puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
-  
-actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
-railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
-railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
-activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
-activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
-activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
-railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
-rack (2.0.1) lib/rack/runtime.rb:22:in `call'
-activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
-rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
-railties (5.0.2) lib/rails/engine.rb:522:in `call'
-puma (3.8.2) lib/puma/configuration.rb:224:in `call'
-puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
-puma (3.8.2) lib/puma/server.rb:435:in `process_client'
-puma (3.8.2) lib/puma/server.rb:299:in `block in run'
-puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
-Started GET "/api/prices" for 127.0.0.1 at 2017-04-19 23:56:55 -0300
-Processing by ApiController#prices as HTML
+app/controllers/api_controller.rb:10:in `products'
+Started GET "/products" for 127.0.0.1 at 2017-04-25 10:46:16 -0300
+Processing by ApiController#products as HTML
 Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
 
 
-Started GET "/api/oc/recibir/3" for 127.0.0.1 at 2017-04-19 23:57:03 -0300
-  
-ActionController::RoutingError (No route matches [GET] "/api/oc/recibir/3"):
-  
-actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
-railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
-railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
-activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
-activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
-activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
-railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
-rack (2.0.1) lib/rack/runtime.rb:22:in `call'
-activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
-rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
-railties (5.0.2) lib/rails/engine.rb:522:in `call'
-puma (3.8.2) lib/puma/configuration.rb:224:in `call'
-puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
-puma (3.8.2) lib/puma/server.rb:435:in `process_client'
-puma (3.8.2) lib/puma/server.rb:299:in `block in run'
-puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
-Started GET "/api/oc/recibir/3" for 127.0.0.1 at 2017-04-19 23:58:02 -0300
-  
-ActionController::RoutingError (No route matches [GET] "/api/oc/recibir/3"):
-  
-actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
-railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
-railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
-activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
-activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
-activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
-railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
-rack (2.0.1) lib/rack/runtime.rb:22:in `call'
-activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
-rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
-railties (5.0.2) lib/rails/engine.rb:522:in `call'
-puma (3.8.2) lib/puma/configuration.rb:224:in `call'
-puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
-puma (3.8.2) lib/puma/server.rb:435:in `process_client'
-puma (3.8.2) lib/puma/server.rb:299:in `block in run'
-puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
-Started GET "/api/oc/recibir/3" for 127.0.0.1 at 2017-04-19 23:58:15 -0300
-Processing by ApiController#recibir_oc as JSON
-Started GET "/api/oc/recibir/3" for 127.0.0.1 at 2017-04-19 23:58:25 -0300
-  Parameters: {"id"=>"3"}
-Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
-
-
-  
-ArgumentError (wrong number of arguments (given 0, expected 1)):
-  
-app/controllers/api_controller.rb:10:in `recibir_oc'
-Processing by ApiController#recibir_oc as JSON
-  Parameters: {"id"=>"3"}
-Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
-
-
-  
-ArgumentError (wrong number of arguments (given 0, expected 1)):
-  
-app/controllers/api_controller.rb:10:in `recibir_oc'
-Started GET "/api/oc/recibir/3" for 127.0.0.1 at 2017-04-19 23:58:33 -0300
-Processing by ApiController#recibir_oc as JSON
-  Parameters: {"id_oc"=>"3"}
-Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
-
-
-  
-ArgumentError (wrong number of arguments (given 0, expected 1)):
-  
-app/controllers/api_controller.rb:10:in `recibir_oc'
-Started GET "/api/oc/recibir/3" for 127.0.0.1 at 2017-04-19 23:58:52 -0300
-Processing by ApiController#recibir_oc as HTML
-  Parameters: {"id_oc"=>"3"}
-Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
-
-
-  
-ArgumentError (wrong number of arguments (given 0, expected 1)):
-  
-app/controllers/api_controller.rb:10:in `recibir_oc'
-Started GET "/api/oc/recibir/?id=3" for 127.0.0.1 at 2017-04-19 23:59:40 -0300
-  
-Started GET "/api/oc/recibir/?id=3" for 127.0.0.1 at 2017-04-19 23:59:50 -0300
-ActionController::RoutingError (No route matches [GET] "/api/oc/recibir"):
-  
-actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
-railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
-railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
-activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
-activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
-activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
-railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
-rack (2.0.1) lib/rack/runtime.rb:22:in `call'
-activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
-rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
-railties (5.0.2) lib/rails/engine.rb:522:in `call'
-puma (3.8.2) lib/puma/configuration.rb:224:in `call'
-puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
-puma (3.8.2) lib/puma/server.rb:435:in `process_client'
-puma (3.8.2) lib/puma/server.rb:299:in `block in run'
-puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
-  
-ActionController::RoutingError (No route matches [GET] "/api/oc/recibir"):
-  
-actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
-railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
-railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
-activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
-activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
-activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
-railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
-rack (2.0.1) lib/rack/runtime.rb:22:in `call'
-activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
-rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
-railties (5.0.2) lib/rails/engine.rb:522:in `call'
-puma (3.8.2) lib/puma/configuration.rb:224:in `call'
-puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
-puma (3.8.2) lib/puma/server.rb:435:in `process_client'
-puma (3.8.2) lib/puma/server.rb:299:in `block in run'
-puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
-Started GET "/api/oc/recibir/?id=3" for 127.0.0.1 at 2017-04-19 23:59:57 -0300
-  
-ActionController::RoutingError (No route matches [GET] "/api/oc/recibir"):
-  
-actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
-railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
-railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
-activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
-activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
-activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
-railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
-rack (2.0.1) lib/rack/runtime.rb:22:in `call'
-activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
-rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
-railties (5.0.2) lib/rails/engine.rb:522:in `call'
-puma (3.8.2) lib/puma/configuration.rb:224:in `call'
-puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
-puma (3.8.2) lib/puma/server.rb:435:in `process_client'
-puma (3.8.2) lib/puma/server.rb:299:in `block in run'
-puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
-Started GET "/api/oc/recibir/?id=3" for 127.0.0.1 at 2017-04-19 23:59:59 -0300
-  
-ActionController::RoutingError (No route matches [GET] "/api/oc/recibir"):
-  
-actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
-railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
-railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
-activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
-activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
-activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
-railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
-rack (2.0.1) lib/rack/runtime.rb:22:in `call'
-activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
-rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
-railties (5.0.2) lib/rails/engine.rb:522:in `call'
-puma (3.8.2) lib/puma/configuration.rb:224:in `call'
-puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
-puma (3.8.2) lib/puma/server.rb:435:in `process_client'
-puma (3.8.2) lib/puma/server.rb:299:in `block in run'
-puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
-Started GET "/api/oc/recibir/?id=3" for 127.0.0.1 at 2017-04-20 00:00:18 -0300
-Processing by ApiController#recibir_oc as HTML
-Started GET "/api/oc/recibir/?id=3" for 127.0.0.1 at 2017-04-20 00:00:29 -0300
-  Parameters: {"id"=>"3"}
-Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
-
-
-  
-ArgumentError (wrong number of arguments (given 0, expected 1)):
-  
-app/controllers/api_controller.rb:10:in `recibir_oc'
-Processing by ApiController#recibir_oc as HTML
-  Parameters: {"id"=>"3"}
-Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
-
-
-  
-ArgumentError (wrong number of arguments (given 0, expected 1)):
-  
-app/controllers/api_controller.rb:10:in `recibir_oc'
-Started GET "/api/oc/recibir/3" for 127.0.0.1 at 2017-04-20 00:00:53 -0300
-  
-ActionController::RoutingError (No route matches [GET] "/api/oc/recibir/3"):
-  
-actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
-railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
-railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
-activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
-activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
-activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
-railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
-rack (2.0.1) lib/rack/runtime.rb:22:in `call'
-activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
-rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
-railties (5.0.2) lib/rails/engine.rb:522:in `call'
-puma (3.8.2) lib/puma/configuration.rb:224:in `call'
-puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
-puma (3.8.2) lib/puma/server.rb:435:in `process_client'
-puma (3.8.2) lib/puma/server.rb:299:in `block in run'
-puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
-Started GET "/api/oc/recibir/3" for 127.0.0.1 at 2017-04-20 00:00:55 -0300
-  
-ActionController::RoutingError (No route matches [GET] "/api/oc/recibir/3"):
-  
-actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
-railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
-railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
-activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
-activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
-activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
-railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
-rack (2.0.1) lib/rack/runtime.rb:22:in `call'
-activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
-actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
-rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
-railties (5.0.2) lib/rails/engine.rb:522:in `call'
-puma (3.8.2) lib/puma/configuration.rb:224:in `call'
-puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
-puma (3.8.2) lib/puma/server.rb:435:in `process_client'
-puma (3.8.2) lib/puma/server.rb:299:in `block in run'
-puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
-Started GET "/api/oc/recibir/3" for 127.0.0.1 at 2017-04-20 00:01:00 -0300
-Processing by ApiController#recibir_oc as HTML
-  Parameters: {"id"=>"3"}
-Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
-
-
-  
-ArgumentError (wrong number of arguments (given 0, expected 1)):
-  
-app/controllers/api_controller.rb:10:in `recibir_oc'
-Started GET "/api/oc/recibir/3" for 127.0.0.1 at 2017-04-20 00:01:07 -0300
-Processing by ApiController#recibir_oc as HTML
-  Parameters: {"id"=>"3"}
-Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
-
-
-  
-ArgumentError (wrong number of arguments (given 0, expected 1)):
-  
-app/controllers/api_controller.rb:10:in `recibir_oc'
-Started GET "/api/oc/recibir/3" for 127.0.0.1 at 2017-04-20 00:02:15 -0300
-Processing by ApiController#recibir_oc as HTML
-  Parameters: {"id"=>"3"}
-Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms)
-
-
-Started GET "/api/oc/recibir/3" for 127.0.0.1 at 2017-04-20 00:02:17 -0300
-Processing by ApiController#recibir_oc as HTML
-  Parameters: {"id"=>"3"}
+Started GET "/products" for 127.0.0.1 at 2017-04-25 10:46:18 -0300
+Processing by ApiController#products as HTML
 Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
 
 
-Started GET "/api/oc/recibir/3" for 127.0.0.1 at 2017-04-20 00:03:17 -0300
-Processing by ApiController#recibir_oc as HTML
-  Parameters: {"id"=>"3"}
-Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+Started GET "/products" for 127.0.0.1 at 2017-04-25 10:46:33 -0300
+Processing by ApiController#products as HTML
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms)
 
 
-Started GET "/api/factura/recibir/3" for 127.0.0.1 at 2017-04-20 00:03:43 -0300
-Processing by ApiController#recibir_factura as HTML
-  Parameters: {"id"=>"3"}
-Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms)
-
-
-Started GET "/api/factura/recibir/3f" for 127.0.0.1 at 2017-04-20 00:03:45 -0300
-Processing by ApiController#recibir_factura as HTML
-  Parameters: {"id"=>"3f"}
-Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
-
-
-Started GET "/api/factura/recibir/22" for 127.0.0.1 at 2017-04-20 00:03:48 -0300
-Processing by ApiController#recibir_factura as HTML
-  Parameters: {"id"=>"22"}
+Started GET "/products" for 127.0.0.1 at 2017-04-25 10:48:18 -0300
+Processing by ApiController#products as HTML
 Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/products" for 127.0.0.1 at 2017-04-25 10:48:19 -0300
+Processing by ApiController#products as HTML
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2017-04-25 10:48:28 -0300
+Processing by ApiController#products as HTML
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2017-04-25 10:50:03 -0300
+Processing by ApiController#products as HTML
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2017-04-25 10:50:25 -0300
+Processing by ApiController#products as HTML
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/products" for 127.0.0.1 at 2017-04-25 10:54:14 -0300
+  
+ActionController::RoutingError (No route matches [PATCH] "/products"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started PATCH "/products" for 127.0.0.1 at 2017-04-25 10:54:29 -0300
+  
+ActionController::RoutingError (No route matches [PATCH] "/products"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/products" for 127.0.0.1 at 2017-04-25 10:54:34 -0300
+Processing by ApiController#products as */*
+  Parameters: {"api"=>{}}
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2017-04-25 10:54:35 -0300
+Processing by ApiController#products as */*
+  Parameters: {"api"=>{}}
+Completed 200 OK in 0ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2017-04-25 10:54:35 -0300
+Processing by ApiController#products as */*
+  Parameters: {"api"=>{}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2017-04-25 10:54:35 -0300
+Processing by ApiController#products as */*
+  Parameters: {"api"=>{}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2017-04-25 10:54:35 -0300
+Processing by ApiController#products as */*
+  Parameters: {"api"=>{}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2017-04-25 10:54:36 -0300
+Processing by ApiController#products as */*
+  Parameters: {"api"=>{}}
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2017-04-25 10:54:47 -0300
+Processing by ApiController#products as */*
+  Parameters: {"api"=>{}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2017-04-25 10:54:48 -0300
+Processing by ApiController#products as */*
+  Parameters: {"api"=>{}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2017-04-25 10:54:48 -0300
+Processing by ApiController#products as */*
+  Parameters: {"api"=>{}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/purchase_orders/" for 127.0.0.1 at 2017-04-25 10:55:24 -0300
+  
+ActionController::RoutingError (No route matches [PUT] "/purchase_orders"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started PUT "/purchase_orders/200" for 127.0.0.1 at 2017-04-25 10:55:30 -0300
+Processing by PurchaseOrderController#realizar_pedido as */*
+  Parameters: {"id_supplier"=>"sup", "id"=>"200", "purchase_order"=>{"id_supplier"=>"sup"}}
+Completed 400 Bad Request in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/purchase_orders/200" for 127.0.0.1 at 2017-04-25 10:55:43 -0300
+Processing by PurchaseOrderController#realizar_pedido as */*
+  Parameters: {"id"=>"200", "purchase_order"=>{}}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/purchase_orders/200" for 127.0.0.1 at 2017-04-25 10:55:45 -0300
+Processing by PurchaseOrderController#realizar_pedido as */*
+  Parameters: {"id_supplier"=>"sup", "id"=>"200", "purchase_order"=>{"id_supplier"=>"sup"}}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices/supp0" for 127.0.0.1 at 2017-04-25 10:56:51 -0300
+  
+ActionController::RoutingError (No route matches [PUT] "/invoices/supp0"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started PUT "/invoices/100/accepted" for 127.0.0.1 at 2017-04-25 10:56:59 -0300
+Processing by InvoiceController#enviar_confirmacion_factura as */*
+  Parameters: {"id_supplier"=>"sup", "id"=>"100", "invoice"=>{"id_supplier"=>"sup"}}
+Completed 204 No Content in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices/100/accepted" for 127.0.0.1 at 2017-04-25 10:57:00 -0300
+Processing by InvoiceController#enviar_confirmacion_factura as */*
+  Parameters: {"id_supplier"=>"sup", "id"=>"100", "invoice"=>{"id_supplier"=>"sup"}}
+Completed 204 No Content in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started DELETE "/invoices/100/rejected" for 127.0.0.1 at 2017-04-25 10:57:18 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"id_supplier"=>"sup", "id"=>"100", "invoice"=>{"id_supplier"=>"sup"}}
+Completed 204 No Content in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices/100/rejected" for 127.0.0.1 at 2017-04-25 10:57:33 -0300
+  
+ActionController::RoutingError (No route matches [PUT] "/invoices/100/rejected"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started PUT "/invoices/100/rejected" for 127.0.0.1 at 2017-04-25 10:57:33 -0300
+  
+ActionController::RoutingError (No route matches [PUT] "/invoices/100/rejected"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started PUT "/invoices/100/rejected" for 127.0.0.1 at 2017-04-25 10:59:49 -0300
+  
+ActionController::RoutingError (No route matches [PUT] "/invoices/100/rejected"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started PATCH "/invoices/100/rejected" for 127.0.0.1 at 2017-04-25 10:59:54 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"id_supplier"=>"sup", "id"=>"100", "invoice"=>{"id_supplier"=>"sup"}}
+Completed 204 No Content in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/100/rejected" for 127.0.0.1 at 2017-04-25 10:59:54 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"id_supplier"=>"sup", "id"=>"100", "invoice"=>{"id_supplier"=>"sup"}}
+Completed 204 No Content in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/100/rejected" for 127.0.0.1 at 2017-04-25 10:59:55 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"id_supplier"=>"sup", "id"=>"100", "invoice"=>{"id_supplier"=>"sup"}}
+Completed 204 No Content in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/100/accepted" for 127.0.0.1 at 2017-04-25 11:00:00 -0300
+Processing by InvoiceController#enviar_confirmacion_factura as */*
+  Parameters: {"id_supplier"=>"sup", "id"=>"100", "invoice"=>{"id_supplier"=>"sup"}}
+Completed 204 No Content in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/100/accepted" for 127.0.0.1 at 2017-04-25 11:00:05 -0300
+Processing by InvoiceController#enviar_confirmacion_factura as */*
+  Parameters: {"id_supplier"=>"sup", "id"=>"100", "invoice"=>{"id_supplier"=>"sup"}}
+Completed 204 No Content in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/100/accepted" for 127.0.0.1 at 2017-04-25 11:00:05 -0300
+Processing by InvoiceController#enviar_confirmacion_factura as */*
+  Parameters: {"id_supplier"=>"sup", "id"=>"100", "invoice"=>{"id_supplier"=>"sup"}}
+Completed 204 No Content in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/100/accepted" for 127.0.0.1 at 2017-04-25 11:00:10 -0300
+Processing by InvoiceController#enviar_confirmacion_factura as */*
+  Parameters: {"id_supplier"=>"sup", "id"=>"100", "invoice"=>{"id_supplier"=>"sup"}}
+Completed 204 No Content in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/100/accepted" for 127.0.0.1 at 2017-04-25 11:00:10 -0300
+Processing by InvoiceController#enviar_confirmacion_factura as */*
+  Parameters: {"id_supplier"=>"sup", "id"=>"100", "invoice"=>{"id_supplier"=>"sup"}}
+Completed 204 No Content in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/100/accepted" for 127.0.0.1 at 2017-04-25 11:00:22 -0300
+Processing by InvoiceController#enviar_confirmacion_factura as */*
+  Parameters: {"id_supplier"=>"sup", "id"=>"100", "invoice"=>{"id_supplier"=>"sup"}}
+Completed 204 No Content in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/100/accepted" for 127.0.0.1 at 2017-04-25 11:00:31 -0300
+Processing by InvoiceController#enviar_confirmacion_factura as */*
+  Parameters: {"id_supplier"=>"sup", "id"=>"100", "invoice"=>{"id_supplier"=>"sup"}}
+Completed 204 No Content in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/100/accepted" for 127.0.0.1 at 2017-04-25 11:00:36 -0300
+Processing by InvoiceController#enviar_confirmacion_factura as */*
+  Parameters: {"id_supplier"=>"sup", "id"=>"100", "invoice"=>{"id_supplier"=>"sup"}}
+Completed 204 No Content in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/100/rejected" for 127.0.0.1 at 2017-04-25 11:00:39 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"id_supplier"=>"sup", "id"=>"100", "invoice"=>{"id_supplier"=>"sup"}}
+Completed 204 No Content in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/100/rejected" for 127.0.0.1 at 2017-04-25 11:01:08 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"id"=>"100", "invoice"=>{}}
+Completed 204 No Content in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/100/rejected" for 127.0.0.1 at 2017-04-25 11:01:08 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"id"=>"100", "invoice"=>{}}
+Completed 204 No Content in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/100/rejected" for 127.0.0.1 at 2017-04-25 11:01:09 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"id"=>"100", "invoice"=>{}}
+Completed 204 No Content in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/100/rejected" for 127.0.0.1 at 2017-04-25 11:03:29 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"id"=>"100", "invoice"=>{}}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+JSON::ParserError (A JSON text must at least contain two octets!):
+  
+app/controllers/invoice_controller.rb:12:in `enviar_rechazo_factura'
+Started PATCH "/invoices/100/rejected" for 127.0.0.1 at 2017-04-25 11:04:09 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"id"=>"100", "invoice"=>{}}
+Completed 400 Bad Request in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/100/rejected" for 127.0.0.1 at 2017-04-25 11:04:10 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"id"=>"100", "invoice"=>{}}
+Completed 400 Bad Request in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/100/rejected" for 127.0.0.1 at 2017-04-25 11:04:25 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"id"=>"100", "invoice"=>{}}
+Completed 404 Not Found in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/100/rejected" for 127.0.0.1 at 2017-04-25 11:04:26 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"id"=>"100", "invoice"=>{}}
+Completed 404 Not Found in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/100/paid" for 127.0.0.1 at 2017-04-25 11:04:45 -0300
+Processing by InvoiceController#enviar_confirmacion_pago as */*
+  Parameters: {"id"=>"100", "invoice"=>{}}
+Completed 404 Not Found in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/100/paid" for 127.0.0.1 at 2017-04-25 11:04:49 -0300
+Error occurred while parsing request parameters.
+Contents:
+
+
+
+  
+ActionDispatch::ParamsParser::ParseError (822: unexpected token at ''):
+  
+actionpack (5.0.2) lib/action_dispatch/http/parameters.rb:88:in `rescue in parse_formatted_parameters'
+actionpack (5.0.2) lib/action_dispatch/http/parameters.rb:82:in `parse_formatted_parameters'
+actionpack (5.0.2) lib/action_dispatch/http/request.rb:354:in `block in POST'
+rack (2.0.1) lib/rack/request.rb:57:in `fetch'
+rack (2.0.1) lib/rack/request.rb:57:in `fetch_header'
+actionpack (5.0.2) lib/action_dispatch/http/request.rb:353:in `POST'
+actionpack (5.0.2) lib/action_controller/metal/params_wrapper.rb:282:in `_wrapper_enabled?'
+actionpack (5.0.2) lib/action_controller/metal/params_wrapper.rb:231:in `process_action'
+activerecord (5.0.2) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+actionpack (5.0.2) lib/abstract_controller/base.rb:126:in `process'
+actionpack (5.0.2) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (5.0.2) lib/action_controller/metal.rb:262:in `dispatch'
+actionpack (5.0.2) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (5.0.2) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.0.2) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.2) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.2) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.2) lib/action_dispatch/routing/route_set.rb:725:in `call'
+rack (2.0.1) lib/rack/etag.rb:25:in `call'
+rack (2.0.1) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.1) lib/rack/head.rb:12:in `call'
+activerecord (5.0.2) lib/active_record/migration.rb:553:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.2) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.2) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.2) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.2) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started PATCH "/invoices/100/paid" for 127.0.0.1 at 2017-04-25 11:04:52 -0300
+Processing by InvoiceController#enviar_confirmacion_pago as */*
+  Parameters: {"id"=>"100", "invoice"=>{}}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/100/paid" for 127.0.0.1 at 2017-04-25 11:04:54 -0300
+Processing by InvoiceController#enviar_confirmacion_pago as */*
+  Parameters: {"id"=>"100", "invoice"=>{}}
+Completed 400 Bad Request in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/100/paid" for 127.0.0.1 at 2017-04-25 11:04:57 -0300
+Processing by InvoiceController#enviar_confirmacion_pago as */*
+  Parameters: {"id"=>"100", "invoice"=>{}}
+Completed 404 Not Found in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/100/paid" for 127.0.0.1 at 2017-04-25 11:04:57 -0300
+Processing by InvoiceController#enviar_confirmacion_pago as */*
+  Parameters: {"id"=>"100", "invoice"=>{}}
+Completed 404 Not Found in 0ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/100/paid" for 127.0.0.1 at 2017-04-25 11:06:28 -0300
+Processing by InvoiceController#enviar_confirmacion_pago as */*
+  Parameters: {"id"=>"100", "invoice"=>{}}
+Completed 404 Not Found in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/100/paid" for 127.0.0.1 at 2017-04-25 11:06:29 -0300
+Processing by InvoiceController#enviar_confirmacion_pago as */*
+  Parameters: {"id"=>"100", "invoice"=>{}}
+Completed 404 Not Found in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/100/paid" for 127.0.0.1 at 2017-04-25 11:07:22 -0300
+Processing by InvoiceController#enviar_confirmacion_pago as */*
+  Parameters: {"id"=>"100", "invoice"=>{}}
+Completed 404 Not Found in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/100/paid" for 127.0.0.1 at 2017-04-25 11:07:22 -0300
+Processing by InvoiceController#enviar_confirmacion_pago as */*
+  Parameters: {"id"=>"100", "invoice"=>{}}
+Completed 404 Not Found in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/100/paid" for 127.0.0.1 at 2017-04-25 11:07:23 -0300
+Processing by InvoiceController#enviar_confirmacion_pago as */*
+  Parameters: {"id"=>"100", "invoice"=>{}}
+Completed 404 Not Found in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/100/paid" for 127.0.0.1 at 2017-04-25 11:07:23 -0300
+Processing by InvoiceController#enviar_confirmacion_pago as */*
+  Parameters: {"id"=>"100", "invoice"=>{}}
+Completed 404 Not Found in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/100/paid" for 127.0.0.1 at 2017-04-25 11:10:18 -0300
+Processing by InvoiceController#enviar_confirmacion_pago as */*
+  Parameters: {"id"=>"100", "invoice"=>{}}
+Completed 400 Bad Request in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/100/paid" for 127.0.0.1 at 2017-04-25 11:10:18 -0300
+Processing by InvoiceController#enviar_confirmacion_pago as */*
+  Parameters: {"id"=>"100", "invoice"=>{}}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/100/paid" for 127.0.0.1 at 2017-04-25 11:10:18 -0300
+Processing by InvoiceController#enviar_confirmacion_pago as */*
+  Parameters: {"id"=>"100", "invoice"=>{}}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/200/accepted" for 127.0.0.1 at 2017-04-25 11:13:40 -0300
+Processing by PurchaseOrderController#confirmar_orden_compra as */*
+  Parameters: {"id"=>"200", "purchase_order"=>{}}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/200/accepted" for 127.0.0.1 at 2017-04-25 11:13:53 -0300
+Processing by PurchaseOrderController#confirmar_orden_compra as */*
+  Parameters: {"id_providder"=>200, "id"=>"200", "purchase_order"=>{"id_providder"=>200}}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/200/accepted" for 127.0.0.1 at 2017-04-25 11:13:53 -0300
+Processing by PurchaseOrderController#confirmar_orden_compra as */*
+  Parameters: {"id_providder"=>200, "id"=>"200", "purchase_order"=>{"id_providder"=>200}}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/200/accepted" for 127.0.0.1 at 2017-04-25 11:14:02 -0300
+Processing by PurchaseOrderController#confirmar_orden_compra as */*
+  Parameters: {"id_supplier"=>200, "id"=>"200", "purchase_order"=>{"id_supplier"=>200}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/200/accepted" for 127.0.0.1 at 2017-04-25 11:14:03 -0300
+Processing by PurchaseOrderController#confirmar_orden_compra as */*
+  Parameters: {"id_supplier"=>200, "id"=>"200", "purchase_order"=>{"id_supplier"=>200}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/200/accepted" for 127.0.0.1 at 2017-04-25 11:14:08 -0300
+Processing by PurchaseOrderController#confirmar_orden_compra as */*
+  Parameters: {"id_supplier"=>200, "id"=>"200", "purchase_order"=>{"id_supplier"=>200}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/200/accepted" for 127.0.0.1 at 2017-04-25 11:14:08 -0300
+Processing by PurchaseOrderController#confirmar_orden_compra as */*
+  Parameters: {"id_supplier"=>200, "id"=>"200", "purchase_order"=>{"id_supplier"=>200}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/200/accepted" for 127.0.0.1 at 2017-04-25 11:14:08 -0300
+Processing by PurchaseOrderController#confirmar_orden_compra as */*
+  Parameters: {"id_supplier"=>200, "id"=>"200", "purchase_order"=>{"id_supplier"=>200}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/200/accepted" for 127.0.0.1 at 2017-04-25 11:14:09 -0300
+Processing by PurchaseOrderController#confirmar_orden_compra as */*
+  Parameters: {"id_supplier"=>200, "id"=>"200", "purchase_order"=>{"id_supplier"=>200}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/200/accepted" for 127.0.0.1 at 2017-04-25 11:14:10 -0300
+Processing by PurchaseOrderController#confirmar_orden_compra as */*
+  Parameters: {"id_supplier"=>200, "id"=>"200", "purchase_order"=>{"id_supplier"=>200}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/purchase_orders/200/rejected" for 127.0.0.1 at 2017-04-25 11:14:13 -0300
+Processing by PurchaseOrderController#rechazar_orden_compra as */*
+  Parameters: {"id_supplier"=>200, "id"=>"200", "purchase_order"=>{"id_supplier"=>200}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/rejected" for 127.0.0.1 at 2017-04-25 11:36:55 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"id_supplier"=>200, "id"=>"300", "invoice"=>{"id_supplier"=>200}}
+Completed 404 Not Found in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/rejected" for 127.0.0.1 at 2017-04-25 11:37:03 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"cause"=>"", "id"=>"300", "invoice"=>{"cause"=>""}}
+Completed 400 Bad Request in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/rejected" for 127.0.0.1 at 2017-04-25 11:37:05 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"cause"=>"", "id"=>"300", "invoice"=>{"cause"=>""}}
+Completed 400 Bad Request in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/rejected" for 127.0.0.1 at 2017-04-25 11:37:16 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"cause"=>"", "id"=>"300", "invoice"=>{"cause"=>""}}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/rejected" for 127.0.0.1 at 2017-04-25 11:37:17 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"cause"=>"", "id"=>"300", "invoice"=>{"cause"=>""}}
+Completed 400 Bad Request in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/rejected" for 127.0.0.1 at 2017-04-25 11:37:27 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"cause"=>"", "id"=>"300", "invoice"=>{"cause"=>""}}
+Completed 400 Bad Request in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/rejected" for 127.0.0.1 at 2017-04-25 11:37:28 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"cause"=>"", "id"=>"300", "invoice"=>{"cause"=>""}}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/rejected" for 127.0.0.1 at 2017-04-25 11:37:37 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"cause"=>"", "id"=>"300", "invoice"=>{"cause"=>""}}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/rejected" for 127.0.0.1 at 2017-04-25 11:37:38 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"cause"=>"", "id"=>"300", "invoice"=>{"cause"=>""}}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/rejected" for 127.0.0.1 at 2017-04-25 11:37:38 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"cause"=>"", "id"=>"300", "invoice"=>{"cause"=>""}}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/rejected" for 127.0.0.1 at 2017-04-25 11:37:38 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"cause"=>"", "id"=>"300", "invoice"=>{"cause"=>""}}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/rejected" for 127.0.0.1 at 2017-04-25 11:37:38 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"cause"=>"", "id"=>"300", "invoice"=>{"cause"=>""}}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/rejected" for 127.0.0.1 at 2017-04-25 11:37:39 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"cause"=>"", "id"=>"300", "invoice"=>{"cause"=>""}}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/rejected" for 127.0.0.1 at 2017-04-25 11:37:39 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"cause"=>"", "id"=>"300", "invoice"=>{"cause"=>""}}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/rejected" for 127.0.0.1 at 2017-04-25 11:37:40 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"cause"=>"", "id"=>"300", "invoice"=>{"cause"=>""}}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/rejected" for 127.0.0.1 at 2017-04-25 11:37:41 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"cause"=>"", "id"=>"300", "invoice"=>{"cause"=>""}}
+Completed 400 Bad Request in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/rejected" for 127.0.0.1 at 2017-04-25 11:37:41 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"cause"=>"", "id"=>"300", "invoice"=>{"cause"=>""}}
+Completed 400 Bad Request in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/rejected" for 127.0.0.1 at 2017-04-25 11:37:53 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"cause"=>"", "id"=>"300", "invoice"=>{"cause"=>""}}
+Completed 400 Bad Request in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/rejected" for 127.0.0.1 at 2017-04-25 11:37:54 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"cause"=>"", "id"=>"300", "invoice"=>{"cause"=>""}}
+Completed 400 Bad Request in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/rejected" for 127.0.0.1 at 2017-04-25 11:38:13 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"cause"=>"", "id"=>"300", "invoice"=>{"cause"=>""}}
+Completed 404 Not Found in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/rejected" for 127.0.0.1 at 2017-04-25 11:38:14 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"cause"=>"", "id"=>"300", "invoice"=>{"cause"=>""}}
+Completed 404 Not Found in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/rejected" for 127.0.0.1 at 2017-04-25 11:38:14 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"cause"=>"", "id"=>"300", "invoice"=>{"cause"=>""}}
+Completed 404 Not Found in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/rejected" for 127.0.0.1 at 2017-04-25 11:38:20 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"cause"=>"s", "id"=>"300", "invoice"=>{"cause"=>"s"}}
+Completed 204 No Content in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/rejected" for 127.0.0.1 at 2017-04-25 11:38:24 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"cause"=>"", "id"=>"300", "invoice"=>{"cause"=>""}}
+Completed 404 Not Found in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/rejected" for 127.0.0.1 at 2017-04-25 11:38:24 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"cause"=>"", "id"=>"300", "invoice"=>{"cause"=>""}}
+Completed 404 Not Found in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/rejected" for 127.0.0.1 at 2017-04-25 11:38:34 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"cause"=>"", "id"=>"300", "invoice"=>{"cause"=>""}}
+Completed 404 Not Found in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/invoices/300/rejected" for 127.0.0.1 at 2017-04-25 11:38:35 -0300
+Processing by InvoiceController#enviar_rechazo_factura as */*
+  Parameters: {"cause"=>"", "id"=>"300", "invoice"=>{"cause"=>""}}
+Completed 404 Not Found in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices/300" for 127.0.0.1 at 2017-04-25 15:23:41 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"cause"=>"", "id"=>"300", "invoice"=>{"cause"=>""}}
+Completed 400 Bad Request in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices/300" for 127.0.0.1 at 2017-04-25 15:23:50 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>20, "id"=>"300", "invoice"=>{"id_supplier"=>20}}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices/300" for 127.0.0.1 at 2017-04-25 15:23:52 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>20, "id"=>"300", "invoice"=>{"id_supplier"=>20}}
+Completed 400 Bad Request in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices/300" for 127.0.0.1 at 2017-04-25 15:24:00 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>20, "bank_account"=>"joo", "id"=>"300", "invoice"=>{"id_supplier"=>20, "bank_account"=>"joo"}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices/300" for 127.0.0.1 at 2017-04-25 15:24:01 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>20, "bank_account"=>"joo", "id"=>"300", "invoice"=>{"id_supplier"=>20, "bank_account"=>"joo"}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices/300" for 127.0.0.1 at 2017-04-25 15:24:01 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>20, "bank_account"=>"joo", "id"=>"300", "invoice"=>{"id_supplier"=>20, "bank_account"=>"joo"}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices/300" for 127.0.0.1 at 2017-04-25 15:24:01 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>20, "bank_account"=>"joo", "id"=>"300", "invoice"=>{"id_supplier"=>20, "bank_account"=>"joo"}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices/300" for 127.0.0.1 at 2017-04-25 15:27:51 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>20, "bank_account"=>"joo", "id"=>"300", "invoice"=>{"id_supplier"=>20, "bank_account"=>"joo"}}
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+<<<<<<< HEAD
   [1m[35m (7.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
   [1m[35m (5.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
   [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
@@ -576,3 +951,71 @@ Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
   [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+=======
+Started PUT "/invoices/300" for 127.0.0.1 at 2017-04-25 15:27:52 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>20, "bank_account"=>"joo", "id"=>"300", "invoice"=>{"id_supplier"=>20, "bank_account"=>"joo"}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices/300" for 127.0.0.1 at 2017-04-25 15:27:52 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>20, "bank_account"=>"joo", "id"=>"300", "invoice"=>{"id_supplier"=>20, "bank_account"=>"joo"}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices/300" for 127.0.0.1 at 2017-04-25 15:27:52 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>20, "bank_account"=>"joo", "id"=>"300", "invoice"=>{"id_supplier"=>20, "bank_account"=>"joo"}}
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices/300" for 127.0.0.1 at 2017-04-25 15:28:11 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>20, "bank_account"=>"joo", "id"=>"300", "invoice"=>{"id_supplier"=>20, "bank_account"=>"joo"}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices/300" for 127.0.0.1 at 2017-04-25 15:28:12 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>20, "bank_account"=>"joo", "id"=>"300", "invoice"=>{"id_supplier"=>20, "bank_account"=>"joo"}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices/300" for 127.0.0.1 at 2017-04-25 15:28:12 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>20, "bank_account"=>"joo", "id"=>"300", "invoice"=>{"id_supplier"=>20, "bank_account"=>"joo"}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices/300" for 127.0.0.1 at 2017-04-25 15:28:13 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>20, "bank_account"=>"joo", "id"=>"300", "invoice"=>{"id_supplier"=>20, "bank_account"=>"joo"}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices/300" for 127.0.0.1 at 2017-04-25 15:28:13 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>20, "bank_account"=>"joo", "id"=>"300", "invoice"=>{"id_supplier"=>20, "bank_account"=>"joo"}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices/300" for 127.0.0.1 at 2017-04-25 15:28:27 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>20, "bank_account"=>"joo", "id"=>"300", "invoice"=>{"id_supplier"=>20, "bank_account"=>"joo"}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices/300" for 127.0.0.1 at 2017-04-25 15:28:28 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>20, "bank_account"=>"joo", "id"=>"300", "invoice"=>{"id_supplier"=>20, "bank_account"=>"joo"}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/invoices/300" for 127.0.0.1 at 2017-04-25 15:28:28 -0300
+Processing by InvoiceController#enviar_factura as */*
+  Parameters: {"id_supplier"=>20, "bank_account"=>"joo", "id"=>"300", "invoice"=>{"id_supplier"=>20, "bank_account"=>"joo"}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+>>>>>>> 28e1520cab31d2ca828f9a20e0a9947de6047742
