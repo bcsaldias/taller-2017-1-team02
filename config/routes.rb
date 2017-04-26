@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  apipie
   get 'products' => 'api#products'
 
   put 'purchase_orders/:id' => 'purchase_order#realizar_pedido'

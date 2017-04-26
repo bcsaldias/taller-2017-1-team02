@@ -2,11 +2,16 @@ class InvoiceController < ApplicationController
 
   require 'json'
 
-  # PATCH /invoices/:id
+api! "Crea una notificación de que no se rechazará la factura enviada.
+      Debe tener el id de la factura"
+  # PATCH /invoices/:id/accepted
   def enviar_confirmacion_factura
     json_response "", 204
   end
 
+  api! "Crea una notificación de que se rechaza la factura enviada.
+      Debe tener el id de la factura."
+  param :cause, String, :required => true
   # PATCH /invoices/:id/rejected
   def enviar_rechazo_factura
 
@@ -28,6 +33,9 @@ class InvoiceController < ApplicationController
 
   end
 
+  api! "Crea una notificación de que se pagó la factura.
+      Debe tener el id de la factura."
+  param :id_transaction, String, :required => true
   # PATCH /invoices/:id/paid
   def enviar_confirmacion_pago
 
@@ -46,6 +54,9 @@ class InvoiceController < ApplicationController
 
   end
 
+  api! "Crea una notificación de habernos emitido una factura.
+      Debe tener el id de la factura y la cuenta del banco."
+  param :bank_account, String, :required => true
   # PUT /invoices
   def enviar_factura
 
@@ -78,6 +89,8 @@ class InvoiceController < ApplicationController
 
   end
 
+  api! "Notificar para cambiar de estado de una factura.
+      Debe tener el id de la factura."
   # PATCH /invoices/:id
   def notificar_orden_despachada
       json_response('Notificación hecha',204)
