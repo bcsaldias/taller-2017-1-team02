@@ -3,8 +3,10 @@ require 'net/http'
 
 class ApiController < ApplicationController
 
-  api! "Retorna una lista de precio de los productos y materias primas disponibles
-      para venta por la empresa, esta incluye Sku de cada producto y su precio."
+  api! "Retorna una lista de los productos, materias primas y precios disponibles
+      para venta por la empresa."
+  meta :product => {sku:'J20000022', name: 'producto0', price: 20, stock: 100}
+  error 404, "Lista de precios no disponible"
   def products
     #list = [{producto1: 1290}, {producto2: 1580}, {producto3:15000}]
     #string = %q({[{"producto1": 1290}, {"producto2": 1580}, {"producto3":15000}]})
