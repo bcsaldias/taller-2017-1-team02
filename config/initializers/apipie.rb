@@ -5,4 +5,5 @@ Apipie.configure do |config|
   # where is your API defined?
   #config.api_controllers_matcher = "#{Rails.root}/app/controllers/**/*.rb"
   config.api_controllers_matcher = "#{Rails.root}/app/controllers/{[!concerns/]**/*,*}.rb"
+  config.validate = :explicitly
 end
