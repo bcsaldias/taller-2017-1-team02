@@ -5,14 +5,14 @@ class PurchaseOrderController < ApplicationController
   api! "realizar_pedido: Crea una notificación de que se nos hizo una orden de compra.
       Debe tener el id de la orden de compra, el método de pago (puede ser
       contra factura o contra despacho) y el id de la bodega."
-  #param :payment_method, String, :required => true, :desc => "Método de pago contra_factura o contra_despacho."
-  #param :id_store_reception, String, :required => true, :desc => "Identificador de la bodega en que se recibirán los productos."
-  error 400, "Formato de  Body incorrecto" 
-  error 400, "Falta método de pago" 
-  error 400, "Error de proveedor" 
-  error 400, "Falta bodega de recepción" 
-  error 404, "Orden de compra inexistente"    
-  error 500, "El envío ha fallado" 
+  param :payment_method, String, :required => true, :desc => "Método de pago contra_factura o contra_despacho."
+  param :id_store_reception, String, :required => true, :desc => "Identificador de la bodega en que se recibirán los productos."
+  error 400, "Formato de  Body incorrecto"
+  error 400, "Falta método de pago"
+  error 400, "Error de proveedor"
+  error 400, "Falta bodega de recepción"
+  error 404, "Orden de compra inexistente"
+  error 500, "El envío ha fallado"
 
   # PUT purchase_orders/:id realizar_pedido
   def realizar_pedido
@@ -58,10 +58,10 @@ class PurchaseOrderController < ApplicationController
   api! "rechazar_orden_compra: Crea una notificación de rechazo de la orden de compra generada por nosotros.
       Debe tener el id de la orden de compra."
 
-  #param :cause, String, :required => true, :desc => "Causa de rechazo."
-  error 400, "Formato de  Body incorrecto" 
-  error 400, "Debe entregar una razón de rechazo" 
-  error 400, "Razón debe ser distinta de nula" 
+  param :cause, String, :required => true, :desc => "Causa de rechazo."
+  error 400, "Formato de  Body incorrecto"
+  error 400, "Debe entregar una razón de rechazo"
+  error 400, "Razón debe ser distinta de nula"
   error 403, "Ya se confirmó/rechazó entrega de esta orden de compra"
   error 404, "Orden de compra no existe"
   error 404, "Orden de compra no encontrada para ese proveedor"
