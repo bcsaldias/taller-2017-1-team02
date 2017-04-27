@@ -15,7 +15,7 @@ class InvoiceController < ApplicationController
 
   api! "enviar_rechazo_factura: Crea una notificación de que se rechaza la factura enviada.
       Debe tener el id de la factura."
-  param :cause, String, :required => true, :desc => "Causa de rechazo."
+  #param :cause, String, :required => true, :desc => "Causa de rechazo."
   error 400, "Formato de  Body incorrecto"
   error 400, "Debe entregar una razón de rechazo"
   error 400, "Razón debe ser distinta de nula"
@@ -46,7 +46,7 @@ class InvoiceController < ApplicationController
 
   api! "enviar_confirmacion_pago: Crea una notificación de que se pagó la factura.
       Debe tener el id de la factura."
-  param :id_transaction, String, :required => true, :desc => "Identificador transacción bancaria."
+  #param :id_transaction, String, :required => true, :desc => "Identificador transacción bancaria."
   error 400, "Formato de  Body incorrecto"
   error 400, "Debe entregar el id de una transacción"
   error 403, "Ya se envió confirmación de pago"
@@ -73,7 +73,7 @@ class InvoiceController < ApplicationController
 
   api! "enviar_factura: Crea una notificación de habernos emitido una factura.
       Debe tener el id de la factura y la cuenta del banco."
-  param :bank_account, String, :required => true, :desc => "Identificador de la cuenta destino de pago."
+  #param :bank_account, String, :required => true, :desc => "Identificador de la cuenta destino de pago."
 
   error 400, "Formato de  Body incorrecto" 
   error 400, "Factura no corresponde a proveedor"
