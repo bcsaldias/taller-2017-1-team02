@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sku: MyString
+  description: MyString
+  type: 
+  production_unit_cost: 1
+  price: 1
+  min_production_batch: 1
+  expected_production_time: 1
+  supplier: one
+
+two:
+  sku: MyString
+  description: MyString
+  type: 
+  production_unit_cost: 1
+  price: 1
+  min_production_batch: 1
+  expected_production_time: 1
+  supplier: two

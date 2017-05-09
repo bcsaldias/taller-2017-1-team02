@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  resources :recipes
+  resources :products
+  resources :suppliers
   apipie
   get 'products' => 'api#products'
 
