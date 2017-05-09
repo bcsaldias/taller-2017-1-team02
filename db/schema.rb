@@ -10,21 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170509203909) do
+ActiveRecord::Schema.define(version: 20170509221417) do
 
-  create_table "products", id: false, force: :cascade do |t|
-    t.integer  "sku",                      null: false
-    t.string   "description"
-    t.string   "category"
-    t.integer  "production_unit_cost"
-    t.integer  "price"
-    t.integer  "min_production_batch"
-    t.decimal  "expected_production_time"
+  create_table "contacts", force: :cascade do |t|
+    t.integer  "product_id"
     t.integer  "supplier_id"
+    t.integer  "priority"
+    t.decimal  "expected_production_time"
+    t.integer  "production_unit_cost"
+    t.integer  "min_production_batch"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.index ["product_id"], name: "index_contacts_on_product_id"
+    t.index ["supplier_id"], name: "index_contacts_on_supplier_id"
+  end
+
+  create_table "products", id: false, force: :cascade do |t|
+    t.integer  "sku",         null: false
+    t.string   "description"
+    t.string   "category"
+    t.integer  "price"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.index ["sku"], name: "index_products_on_sku", unique: true
-    t.index ["supplier_id"], name: "index_products_on_supplier_id"
   end
 
   create_table "recipes", force: :cascade do |t|
