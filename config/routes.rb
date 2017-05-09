@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
 
-  resources :contacts
-  resources :recipes
-  resources :products
-  resources :suppliers
+  #resources :contacts
+  #resources :recipes
+  #resources :products
+  #resources :suppliers
+  
   apipie
   get 'products' => 'api#products'
 
