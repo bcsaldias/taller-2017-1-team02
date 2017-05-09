@@ -1,13 +1,15 @@
 class CreateSuppliers < ActiveRecord::Migration[5.0]
   def change
-    create_table :suppliers do |t|
-      t.string :key, null:false
+    create_table :suppliers, id: false  do |t|
+      t.integer :id, null:false
+      t.string :key
       t.string :warehouse_id
       t.string :api_prod
       t.string :api_dev
-      t.integer :group_number, null:false
 
       t.timestamps
+      t.index ["id"], name: "index_products_on_id", unique: true
+
     end
   end
 end

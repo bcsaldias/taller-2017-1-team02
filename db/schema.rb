@@ -36,22 +36,26 @@ ActiveRecord::Schema.define(version: 20170509221417) do
   end
 
   create_table "recipes", force: :cascade do |t|
-    t.integer  "final_product_id"
-    t.integer  "needed_product_id"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.integer  "final_product_id",   null: false
+    t.integer  "needed_product_id",  null: false
+    t.string   "final_product_unit"
+    t.integer  "requirement",        null: false
+    t.string   "requirement_unit"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.index ["final_product_id"], name: "index_recipes_on_final_product_id"
     t.index ["needed_product_id"], name: "index_recipes_on_needed_product_id"
   end
 
-  create_table "suppliers", force: :cascade do |t|
-    t.string   "key",          null: false
+  create_table "suppliers", id: false, force: :cascade do |t|
+    t.integer  "id",           null: false
+    t.string   "key"
     t.string   "warehouse_id"
     t.string   "api_prod"
     t.string   "api_dev"
-    t.integer  "group_number", null: false
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.index ["id"], name: "index_products_on_id", unique: true
   end
 
 end
