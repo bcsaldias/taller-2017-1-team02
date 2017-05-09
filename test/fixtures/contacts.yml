@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  product: 
+  supplier: 
+  priority: 1
+  expected_production_time: 9.99
+  production_unit_cost: 1
+  min_production_batch: 1
+
+two:
+  product: 
+  supplier: 
+  priority: 1
+  expected_production_time: 9.99
+  production_unit_cost: 1
+  min_production_batch: 1
