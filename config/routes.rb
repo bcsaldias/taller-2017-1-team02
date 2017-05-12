@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   #resources :products
   #resources :suppliers
   
-  apipie
+  get 'hash' => 'api#generate_authorization'
   get 'products' => 'products#available'
 
   put 'purchase_orders/:id' => 'purchase_order#realizar_pedido'

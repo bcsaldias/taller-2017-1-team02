@@ -1,8 +1,18 @@
 require 'json'
 require 'net/http'
-
+require 'base64'
 class ApiController < ApplicationController
 
+  def generate_authorization(key = 'GbmrOdS%NyVDgbN',
+                              method = 'GET',
+                              params = [''],
+                              base = 'INTEGRACION grupo2:')
+
+    data = method + params.join('')
+    _hash = Base64.encode64(OpenSSL::HMAC.digest(OpenSSL::Digest::Digest.new('sha1'),
+                                                 key, data)).strip()
+    return json_response({"hash": base+_hash})
+  end
 
 
   # POST /api/oc/recibir

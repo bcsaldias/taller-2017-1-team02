@@ -9249,3 +9249,570 @@ Processing by ProductsController#available as HTML
 Completed 200 OK in 16ms (Views: 0.6ms | ActiveRecord: 1.5ms)
 
 
+Started GET "/products" for 127.0.0.1 at 2017-05-12 15:35:59 -0300
+Processing by ProductsController#available as HTML
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."owner" = ?[0m  [["owner", true]]
+Completed 200 OK in 25ms (Views: 0.9ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2017-05-12 15:36:48 -0300
+Processing by ProductsController#available as HTML
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."owner" = ?[0m  [["owner", true]]
+Completed 200 OK in 14ms (Views: 0.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2017-05-12 15:48:36 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProductsController#available as HTML
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."owner" = ?[0m  [["owner", true]]
+Completed 200 OK in 24ms (Views: 0.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2017-05-12 15:49:25 -0300
+Processing by ProductsController#available as HTML
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 15:49:35 -0300
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 15:49:35 -0300
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."owner" = ?[0m  [["owner", true]]
+Completed 200 OK in 24ms (Views: 0.9ms | ActiveRecord: 2.0ms)
+
+
+DEPRECATION WARNING: prepend_before_filter is deprecated and will be removed in Rails 5.1. Use prepend_before_action instead. (called from include at /home/bcsaldias/Desktop/taller-2017-1-team02/app/controllers/api_controller.rb:6)
+Processing by ApiController#hash as HTML
+Processing by ApiController#hash as HTML
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 15:49:42 -0300
+Processing by ApiController#hash as HTML
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 15:49:54 -0300
+DEPRECATION WARNING: prepend_before_filter is deprecated and will be removed in Rails 5.1. Use prepend_before_action instead. (called from include at /home/bcsaldias/Desktop/taller-2017-1-team02/app/controllers/api_controller.rb:6)
+Processing by ApiController#hash as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 15:49:56 -0300
+Processing by ApiController#hash as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 15:50:04 -0300
+  
+SyntaxError (/home/bcsaldias/Desktop/taller-2017-1-team02/app/controllers/api_controller.rb:9: syntax error, unexpected '}', expecting =>
+    json_response({"shakira"})
+                             ^):
+  
+app/controllers/api_controller.rb:9: syntax error, unexpected '}', expecting =>
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 15:50:15 -0300
+DEPRECATION WARNING: prepend_before_filter is deprecated and will be removed in Rails 5.1. Use prepend_before_action instead. (called from include at /home/bcsaldias/Desktop/taller-2017-1-team02/app/controllers/api_controller.rb:6)
+Processing by ApiController#hash as HTML
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 15:54:04 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ApiController#hash as HTML
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 15:54:17 -0300
+Processing by ApiController#hash as HTML
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 15:54:41 -0300
+Processing by ApiController#hash as HTML
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 15:55:46 -0300
+Processing by ApiController#hash as HTML
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 15:56:37 -0300
+Processing by ApiController#hash as HTML
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 15:57:28 -0300
+Processing by ApiController#hash as HTML
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 15:58:14 -0300
+Processing by ApiController#hash as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 15:58:34 -0300
+Processing by ApiController#hash as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 15:59:54 -0300
+Processing by ApiController#hash as HTML
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:00:06 -0300
+Processing by ApiController#hash as HTML
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:01:10 -0300
+Processing by ApiController#hash as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+RuntimeError (Unsupported digest algorithm (HMAC-SHA1).):
+  
+app/controllers/api_controller.rb:13:in `digest'
+app/controllers/api_controller.rb:13:in `hash'
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:01:27 -0300
+Processing by ApiController#hash as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+RuntimeError (Unsupported digest algorithm (AES-128-CBC-HMAC-SHA1).):
+  
+app/controllers/api_controller.rb:13:in `digest'
+app/controllers/api_controller.rb:13:in `hash'
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:01:35 -0300
+Processing by ApiController#hash as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:02:28 -0300
+Processing by ApiController#hash as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:02:31 -0300
+Processing by ApiController#hash as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:03:31 -0300
+Processing by ApiController#hash as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:03:33 -0300
+Processing by ApiController#hash as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:03:44 -0300
+Processing by ApiController#hash as HTML
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:03:45 -0300
+Processing by ApiController#hash as HTML
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:03:51 -0300
+Processing by ApiController#hash as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:06:50 -0300
+Processing by ApiController#hash as HTML
+Completed 204 No Content in 10ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:07:51 -0300
+Processing by ApiController#hash as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:08:00 -0300
+Processing by ApiController#hash as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:10:54 -0300
+Processing by ApiController#hash as HTML
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:12:42 -0300
+Processing by ApiController#hash as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:12:43 -0300
+Processing by ApiController#hash as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:12:48 -0300
+Processing by ApiController#hash as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:12:55 -0300
+Processing by ApiController#hash as HTML
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:14:05 -0300
+Processing by ApiController#generate_authorization as HTML
+Completed 204 No Content in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:16:54 -0300
+Processing by ApiController#generate_authorization as HTML
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:16:57 -0300
+Processing by ApiController#generate_authorization as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:17:03 -0300
+Processing by ApiController#generate_authorization as HTML
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:17:16 -0300
+Processing by ApiController#generate_authorization as HTML
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `join' for "":String
+Did you mean?  JSON):
+  
+app/controllers/api_controller.rb:10:in `generate_authorization'
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:17:22 -0300
+Processing by ApiController#generate_authorization as HTML
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:17:36 -0300
+Processing by ApiController#generate_authorization as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:18:05 -0300
+Processing by ApiController#generate_authorization as HTML
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:18:16 -0300
+Processing by ApiController#generate_authorization as HTML
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:18:25 -0300
+Processing by ApiController#generate_authorization as HTML
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:19:03 -0300
+Processing by ApiController#generate_authorization as HTML
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:19:35 -0300
+Processing by ApiController#generate_authorization as HTML
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:19:56 -0300
+Processing by ApiController#generate_authorization as HTML
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:20:08 -0300
+Processing by ApiController#generate_authorization as HTML
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:20:17 -0300
+Processing by ApiController#generate_authorization as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:21:09 -0300
+Processing by ApiController#generate_authorization as HTML
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:21:18 -0300
+Processing by ApiController#generate_authorization as HTML
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:22:26 -0300
+Processing by ApiController#generate_authorization as HTML
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:23:20 -0300
+Processing by ApiController#generate_authorization as HTML
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:23:50 -0300
+Processing by ApiController#generate_authorization as HTML
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:24:11 -0300
+Processing by ApiController#generate_authorization as HTML
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:24:25 -0300
+Processing by ApiController#generate_authorization as HTML
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:25:23 -0300
+  
+AbstractController::ActionNotFound (The action 'generate_authorization' could not be found for ApiController):
+  
+actionpack (5.0.2) lib/abstract_controller/base.rb:121:in `process'
+actionpack (5.0.2) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (5.0.2) lib/action_controller/metal.rb:262:in `dispatch'
+actionpack (5.0.2) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (5.0.2) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.0.2) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.2) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.2) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.2) lib/action_dispatch/routing/route_set.rb:725:in `call'
+apipie-rails (0.5.0) lib/apipie/static_dispatcher.rb:65:in `call'
+apipie-rails (0.5.0) lib/apipie/extractor/recorder.rb:132:in `call'
+rack (2.0.1) lib/rack/etag.rb:25:in `call'
+rack (2.0.1) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.1) lib/rack/head.rb:12:in `call'
+activerecord (5.0.2) lib/active_record/migration.rb:553:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.2) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.2) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.2) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.2) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:25:47 -0300
+  
+AbstractController::ActionNotFound (The action 'generate_authorization' could not be found for ApiController):
+  
+actionpack (5.0.2) lib/abstract_controller/base.rb:121:in `process'
+actionpack (5.0.2) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (5.0.2) lib/action_controller/metal.rb:262:in `dispatch'
+actionpack (5.0.2) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (5.0.2) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.0.2) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.2) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.2) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.2) lib/action_dispatch/routing/route_set.rb:725:in `call'
+apipie-rails (0.5.0) lib/apipie/static_dispatcher.rb:65:in `call'
+apipie-rails (0.5.0) lib/apipie/extractor/recorder.rb:132:in `call'
+rack (2.0.1) lib/rack/etag.rb:25:in `call'
+rack (2.0.1) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.1) lib/rack/head.rb:12:in `call'
+activerecord (5.0.2) lib/active_record/migration.rb:553:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.2) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.2) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.2) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.2) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:26:07 -0300
+Processing by ApiController#generate_authorization as HTML
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:26:09 -0300
+Processing by ApiController#generate_authorization as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:26:12 -0300
+Processing by ApiController#generate_authorization as HTML
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:26:16 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ApiController#generate_authorization as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:26:18 -0300
+Processing by ApiController#generate_authorization as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:26:20 -0300
+Processing by ApiController#generate_authorization as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:26:45 -0300
+Processing by ApiController#generate_authorization as HTML
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:26:55 -0300
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Processing by ApiController#generate_authorization as HTML
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:27:05 -0300
+Processing by ApiController#generate_authorization as HTML
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:27:23 -0300
+Processing by ApiController#generate_authorization as HTML
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:27:32 -0300
+Processing by ApiController#generate_authorization as HTML
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:27:43 -0300
+Processing by ApiController#generate_authorization as HTML
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:27:45 -0300
+Processing by ApiController#generate_authorization as HTML
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:27:54 -0300
+Processing by ApiController#generate_authorization as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:28:20 -0300
+Processing by ApiController#generate_authorization as HTML
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:28:23 -0300
+Processing by ApiController#generate_authorization as HTML
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:28:57 -0300
+  
+SyntaxError (/home/bcsaldias/Desktop/taller-2017-1-team02/app/controllers/api_controller.rb:10: syntax error, unexpected tINTEGER, expecting ']'
+...C.digest('sha1', key, data)[:-2]
+...                               ^):
+  
+app/controllers/api_controller.rb:10: syntax error, unexpected tINTEGER, expecting ']'
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:29:03 -0300
+Processing by ApiController#generate_authorization as HTML
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:29:19 -0300
+Processing by ApiController#generate_authorization as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 2, expected 1)):
+  
+app/controllers/api_controller.rb:10:in `replace'
+app/controllers/api_controller.rb:10:in `generate_authorization'
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:29:48 -0300
+  
+SyntaxError (/home/bcsaldias/Desktop/taller-2017-1-team02/app/controllers/api_controller.rb:10: syntax error, unexpected ',', expecting ')'
+...('sha1', key, data).gsub(("\n","")
+...                               ^
+/home/bcsaldias/Desktop/taller-2017-1-team02/app/controllers/api_controller.rb:11: syntax error, unexpected tIDENTIFIER, expecting ')'
+    print _hash
+         ^):
+  
+app/controllers/api_controller.rb:10: syntax error, unexpected ',', expecting ')'
+app/controllers/api_controller.rb:11: syntax error, unexpected tIDENTIFIER, expecting ')'
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:29:56 -0300
+Processing by ApiController#generate_authorization as HTML
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:30:06 -0300
+Processing by ApiController#generate_authorization as HTML
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:31:08 -0300
+Processing by ApiController#generate_authorization as HTML
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:31:48 -0300
+Processing by ApiController#generate_authorization as HTML
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:32:24 -0300
+Processing by ApiController#generate_authorization as HTML
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/hash" for 127.0.0.1 at 2017-05-12 16:33:17 -0300
+Processing by ApiController#generate_authorization as HTML
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
