@@ -1,14 +1,16 @@
 Rails.application.routes.draw do
 
-  resources :warehouses
-  resources :invoices
-  resources :purchase_orders
+  #resources :warehouses
+  #resources :invoices
+  #resources :purchase_orders
   #resources :contacts
   #resources :recipes
   #resources :products
   #resources :suppliers
   
-  get 'hash' => 'api#generate_authorization'
+  get 'test' => 'api#test'
+  
+
   get 'products' => 'products#available'
 
   put 'purchase_orders/:id' => 'purchase_order#realizar_pedido'

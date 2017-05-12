@@ -25,6 +25,8 @@ module Project
     # Only loads a smaller set of middleware suitable for API only apps.
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
+
+    config.environment_ids = config_for(:app)
     config.api_only = true
   end
 end
