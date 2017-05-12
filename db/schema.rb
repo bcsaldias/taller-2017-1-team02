@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170509221417) do
+ActiveRecord::Schema.define(version: 20170512190252) do
 
   create_table "contacts", force: :cascade do |t|
     t.integer  "product_id"
@@ -25,6 +25,15 @@ ActiveRecord::Schema.define(version: 20170509221417) do
     t.index ["supplier_id"], name: "index_contacts_on_supplier_id"
   end
 
+  create_table "invoices", force: :cascade do |t|
+    t.integer  "id_cloud",          null: false
+    t.integer  "state"
+    t.integer  "purchase_order_id", null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["purchase_order_id"], name: "index_invoices_on_purchase_order_id"
+  end
+
   create_table "products", id: false, force: :cascade do |t|
     t.integer  "sku",         null: false
     t.string   "description"
@@ -35,6 +44,15 @@ ActiveRecord::Schema.define(version: 20170509221417) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["sku"], name: "index_products_on_sku", unique: true
+  end
+
+  create_table "purchase_orders", force: :cascade do |t|
+    t.integer  "id_cloud",   null: false
+    t.integer  "state"
+    t.integer  "product_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_purchase_orders_on_product_id"
   end
 
   create_table "recipes", force: :cascade do |t|
@@ -51,13 +69,19 @@ ActiveRecord::Schema.define(version: 20170509221417) do
 
   create_table "suppliers", id: false, force: :cascade do |t|
     t.integer  "id",           null: false
-    t.string   "key"
+    t.string   "id_cloud"
     t.string   "warehouse_id"
     t.string   "api_prod"
     t.string   "api_dev"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.index ["id"], name: "index_products_on_id", unique: true
+  end
+
+  create_table "warehouses", force: :cascade do |t|
+    t.integer  "id_cloud",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
