@@ -1,6 +1,18 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :update, :destroy]
 
+  api! "obtener_precios: Retorna una lista de los productos, materias primas y precios disponibles
+      para venta por la empresa."
+  meta :product => {sku:'J20000022', name: 'producto0', price: 20, stock: 100}
+  error 404, "Lista de precios no disponible"
+
+  def available
+    
+    #string = [{sku:'J20000022', name: 'producto0', price: 20, stock: 100},
+    #          {sku: 'J10999972', name: 'producto1', price: 30, stock: 200}]
+    json_response(Product.catalogue)
+  end
+
   # GET /products
   def index
     @products = Product.all
