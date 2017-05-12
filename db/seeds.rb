@@ -6,6 +6,22 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+warehouses_dev = Warehouse.create([
+		{id_cloud: "590baa76d6b4ec000490255d"} , #recepcion
+		{id_cloud: "590baa76d6b4ec000490255e"} , #despacho
+		{id_cloud: "590baa76d6b4ec000490255f"} , #general
+		{id_cloud: "590baa76d6b4ec000490265d"} , #general
+		{id_cloud: "590baa76d6b4ec000490265e"} 	 #pulmon
+	])
+
+#warehouses_prod = Warehouses.create([
+#		{id_cloud: "590baa76d6b4ec000490255d"} , #recepcion
+#		{id_cloud: "590baa76d6b4ec000490255e"} , #despacho
+#		{id_cloud: "590baa76d6b4ec000490255f"} , #general
+#		{id_cloud: "590baa76d6b4ec000490265d"} , #general
+#		{id_cloud: "590baa76d6b4ec000490265e"} 	 #pulmon
+#	])
+
 suppliers = Supplier.create([
 		{id: 1} ,
 		{id: 2} ,
