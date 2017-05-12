@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   #resources :suppliers
   
   apipie
-  get 'products' => 'api#products'
+  get 'products' => 'products#available'
 
   put 'purchase_orders/:id' => 'purchase_order#realizar_pedido'
   patch 'purchase_orders/:id/accepted' => 'purchase_order#confirmar_orden_compra'
