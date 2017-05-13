@@ -14,7 +14,6 @@ class PurchaseOrdersController < ApplicationController
   error 400, "Falta bodega de recepción"
   error 404, "Orden de compra inexistente"
   error 500, "El envío ha fallado"
-
   # PUT purchase_orders/:id realizar_pedido
   def realizar_pedido
 
@@ -28,7 +27,8 @@ class PurchaseOrdersController < ApplicationController
         json_response ({error: "Falta bodega de recepción"}), 400
 
       else
-        render json: {orden: 15}, status: 201
+        
+        render json: {orden: params[:id]}, status: 201
       end
     rescue
       json_response({ :error => "Formato de Body incorrecto" }, 400)
