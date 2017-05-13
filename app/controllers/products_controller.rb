@@ -1,3 +1,4 @@
+#include HTTParty
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :update, :destroy]
 
@@ -48,9 +49,15 @@ class ProductsController < ApplicationController
   end
 
   def buy
-    sku = Product.first.sku
+    # sku = Product.first.sku
+    sku = "2" #"Huevo"
+    p = Product.find(sku)
+    puts "Producto: #{p}"
+
+
     quantity = 100
     comprar_materia_prima(sku, quantity)
+
     # puts "Here is the sku:"
     # puts sku
     # # product = Product.first#find(sku: sku)
@@ -63,6 +70,21 @@ class ProductsController < ApplicationController
     #
     # # proveedor_precio = [] # Lista con precio: proveedor
     # # get_best_supplier(proveedor_precio, producto)
+
+
+    # header = {	'Content-Type' => 'application/json'}
+    # response = HTTParty.get("http://localhost:3000/products", headers: header, query: {})
+    # hash_response = JSON.parse(response.body)
+    # api_product = hash_response.find {|prod| prod['sku'] == sku}#['price']
+    # puts "This is the product:"
+    # puts api_product
+    # puts "This is the price:"
+    # puts api_product['price']
+
+
+
+
+
     json_response(Product.catalogue)
 
   end
