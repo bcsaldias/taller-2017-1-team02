@@ -58,7 +58,7 @@ class PurchaseOrdersController < ApplicationController
         json_response(
             {
               id_purchase_order: params[:id],
-              accepted: true
+              accepted: oc.state
             }, 200)
       rescue
         json_response({ :error => "Formato de Body incorrecto" }, 400)
@@ -78,7 +78,7 @@ class PurchaseOrdersController < ApplicationController
 
   # PATCH purchase_orders/:id/rejected
   def rechazar_orden_compra
-      oc = PurchaseOrder.find(params[:id])
+      oc = PurchaseOrder.where(id_cloud: params[:id]).first
       oc.state = 2
       oc.save
       begin
@@ -93,7 +93,7 @@ class PurchaseOrdersController < ApplicationController
         json_response(
             {
               id_purchase_order: params[:id],
-              accepted: false
+              accepted: oc.state
             }, 200)
         end
       rescue
