@@ -6,14 +6,14 @@ module Sales
 	def self.create_purchase_order(cliente, proveedor, sku, 
 									fechaEntrega, cantidad, precioUnitario, 
 									canal, notas)
-		body = {'cliente' => cliente, 'proveedor' => proveedor, 'sku' => sku, 
+
+		@body = {'cliente' => cliente, 'proveedor' => proveedor, 'sku' => sku, 
 				'fechaEntrega' =>fechaEntrega, 'cantidad' => cantidad, 
 				'precioUnitario' => precioUnitario, 'canal' => canal, 'notas' => notas}
-	    
+		
 	    @result = Queries.put('oc/crear',
-	              body=body)
-
-	    return @result.body
+	              				body=@body)
+	    return @result.body.force_encoding("UTF-8")
 	end
 
 	def self.get_purchase_order(purchase_order_id)
