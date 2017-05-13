@@ -3,13 +3,29 @@ module Production
 	include Queries
   	
 	def self.obtener_almacenes
+		auth = Queries.generate_authorization
 		@result = Queries.get("bodega/almacenes", 
-						  authorization=Queries.generate_authorization)
+						  authorization=auth)
 		return @result.body
 	end
 
-	def get_stock(warehouse_id, sku)
+	def self.get_stock(warehouse_id, sku)
+		auth = Queries.generate_authorization(_method = 'GET',
+											  params = [warehouse_id,sku.to_s])
+		@result = Queries.get(next_path="stock", 
+						  authorization=auth, 
+						  params = {almacenId:warehouse_id, sku:sku})
+		return @result.body
+	end
 
+	def self.get_all_stock_warehouse(warehouse_id)
+		auth = Queries.generate_authorization(_method = 'GET', 
+												params = [warehouse_id])
+
+		@result = Queries.get("skusWithStock", 
+						  authorization=auth, 
+						  params = {almacenId: warehouse_id})
+		return @result.body
 	end
 
 end

@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   
   get 'test' => 'api#test'
   
-
   get 'products' => 'products#available'
 
   put 'purchase_orders/:id' => 'purchase_order#realizar_pedido'

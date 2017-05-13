@@ -3,29 +3,29 @@ require 'httparty'
 module Queries
 	include HTTParty
 
-	def self.generate_authorization(  key = Rails.configuration.environment_ids['warehouses_id'],
-			                          method = 'GET',
+	def self.generate_authorization(  _method = 'GET',
 			                          params = [''],
 			                          base = 'INTEGRACION grupo2:')
 
-		data = method + params.join('')
+		@key = Rails.configuration.environment_ids['warehouses_id']
+		@data = _method + params.join('')
 		_hash = Base64.encode64(OpenSSL::HMAC.digest(OpenSSL::Digest.new('sha1'),
-		                                             key, data)).strip()
+		                                             @key, @data)).strip()
+
 		return base+_hash
 	end
 
-	def self.get(next_path, authorization=false)
+	def self.get(next_path, authorization=false, params={})
 		path = Rails.configuration.environment_ids['environment_path']+next_path
 		header = {	'Content-Type' => 'application/json'}
 		if authorization
 			header = {	'Content-Type' => 'application/json',
 						'Authorization'=> authorization }
 		end
-		@result = HTTParty.get(path, :headers => header )
+		@result = HTTParty.get(path, :headers => header, :query => params )
 	end
 
 	def self.post(next_path, authorization=false)
 
 	end
-	
 end
