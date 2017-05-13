@@ -15350,3 +15350,1136 @@ Processing by ApiController#test as HTML
 Completed 200 OK in 1452ms (Views: 0.2ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/test" for 127.0.0.1 at 2017-05-12 20:47:01 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ApiController#test as HTML
+Completed 200 OK in 1815ms (Views: 0.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 20:53:22 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 2598ms (Views: 0.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 20:55:27 -0300
+Processing by ApiController#test as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 2)):
+  
+app/controllers/concerns/production.rb:11:in `get_stock'
+app/controllers/api_controller.rb:7:in `test'
+Started GET "/test" for 127.0.0.1 at 2017-05-12 20:57:04 -0300
+Processing by ApiController#test as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `almacenes' for Production:Module):
+  
+app/controllers/api_controller.rb:7:in `test'
+Started GET "/test" for 127.0.0.1 at 2017-05-12 20:57:11 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 4506ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 20:59:47 -0300
+Processing by ApiController#test as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+TypeError (no implicit conversion of String into Array):
+  
+app/controllers/concerns/queries.rb:11:in `generate_authorization'
+app/controllers/concerns/production.rb:22:in `get_all_stock_warehouse'
+app/controllers/api_controller.rb:8:in `test'
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:01:36 -0300
+Processing by ApiController#test as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+TypeError (no implicit conversion of String into Array):
+  
+app/controllers/concerns/queries.rb:11:in `generate_authorization'
+app/controllers/concerns/production.rb:22:in `get_all_stock_warehouse'
+app/controllers/api_controller.rb:8:in `test'
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:01:54 -0300
+Processing by ApiController#test as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+TypeError (no implicit conversion of String into Array):
+  
+app/controllers/concerns/queries.rb:11:in `generate_authorization'
+app/controllers/concerns/production.rb:22:in `get_all_stock_warehouse'
+app/controllers/api_controller.rb:8:in `test'
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:02:42 -0300
+Processing by ApiController#test as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+TypeError (no implicit conversion of String into Array):
+  
+app/controllers/concerns/queries.rb:11:in `generate_authorization'
+app/controllers/concerns/production.rb:22:in `get_all_stock_warehouse'
+app/controllers/api_controller.rb:8:in `test'
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:02:55 -0300
+Processing by ApiController#test as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+TypeError (no implicit conversion of String into Array):
+  
+app/controllers/concerns/queries.rb:11:in `generate_authorization'
+app/controllers/concerns/production.rb:22:in `get_all_stock_warehouse'
+app/controllers/api_controller.rb:8:in `test'
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:03:04 -0300
+Processing by ApiController#test as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+TypeError (no implicit conversion of String into Array):
+  
+app/controllers/concerns/queries.rb:11:in `generate_authorization'
+app/controllers/concerns/production.rb:23:in `get_all_stock_warehouse'
+app/controllers/api_controller.rb:8:in `test'
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:03:41 -0300
+  
+SyntaxError (/home/bcsaldias/Desktop/taller-2017-1-team02/app/controllers/concerns/production.rb:23: syntax error, unexpected '='
+		auth = Queries.generate_authorization(params: = [warehouse_id])
+		                                               ^
+/home/bcsaldias/Desktop/taller-2017-1-team02/app/controllers/concerns/production.rb:23: syntax error, unexpected ')', expecting keyword_end):
+  
+app/controllers/concerns/production.rb:23: syntax error, unexpected '='
+app/controllers/concerns/production.rb:23: syntax error, unexpected ')', expecting keyword_end
+app/controllers/application_controller.rb:4:in `<class:ApplicationController>'
+app/controllers/application_controller.rb:1:in `<top (required)>'
+app/controllers/api_controller.rb:4:in `<top (required)>'
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:03:48 -0300
+Processing by ApiController#test as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+TypeError (no implicit conversion of Array into String):
+  
+app/controllers/concerns/queries.rb:12:in `digest'
+app/controllers/concerns/queries.rb:12:in `generate_authorization'
+app/controllers/concerns/production.rb:23:in `get_all_stock_warehouse'
+app/controllers/api_controller.rb:8:in `test'
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:08:12 -0300
+Processing by ApiController#test as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+TypeError (no implicit conversion of Array into String):
+  
+app/controllers/concerns/queries.rb:12:in `digest'
+app/controllers/concerns/queries.rb:12:in `generate_authorization'
+app/controllers/concerns/production.rb:23:in `get_all_stock_warehouse'
+app/controllers/api_controller.rb:8:in `test'
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:10:34 -0300
+  
+SyntaxError (/home/bcsaldias/Desktop/taller-2017-1-team02/app/controllers/concerns/production.rb:23: syntax error, unexpected '}', expecting =>
+		auth = Queries.generate_authorization(params = {warehouse_id})
+		                                                             ^):
+  
+app/controllers/concerns/production.rb:23: syntax error, unexpected '}', expecting =>
+app/controllers/application_controller.rb:4:in `<class:ApplicationController>'
+app/controllers/application_controller.rb:1:in `<top (required)>'
+app/controllers/api_controller.rb:4:in `<top (required)>'
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:11:39 -0300
+Processing by ApiController#test as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+TypeError (no implicit conversion of Array into String):
+  
+app/controllers/concerns/queries.rb:12:in `digest'
+app/controllers/concerns/queries.rb:12:in `generate_authorization'
+app/controllers/concerns/production.rb:25:in `get_all_stock_warehouse'
+app/controllers/api_controller.rb:8:in `test'
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:11:49 -0300
+Processing by ApiController#test as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+TypeError (no implicit conversion of Array into String):
+  
+app/controllers/concerns/queries.rb:12:in `digest'
+app/controllers/concerns/queries.rb:12:in `generate_authorization'
+app/controllers/concerns/production.rb:26:in `get_all_stock_warehouse'
+app/controllers/api_controller.rb:8:in `test'
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:11:57 -0300
+Processing by ApiController#test as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+TypeError (no implicit conversion of Array into String):
+  
+app/controllers/concerns/queries.rb:12:in `digest'
+app/controllers/concerns/queries.rb:12:in `generate_authorization'
+app/controllers/concerns/production.rb:25:in `get_all_stock_warehouse'
+app/controllers/api_controller.rb:8:in `test'
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:11:59 -0300
+Processing by ApiController#test as HTML
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+TypeError (no implicit conversion of Array into String):
+  
+app/controllers/concerns/queries.rb:12:in `digest'
+app/controllers/concerns/queries.rb:12:in `generate_authorization'
+app/controllers/concerns/production.rb:25:in `get_all_stock_warehouse'
+app/controllers/api_controller.rb:8:in `test'
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:12:04 -0300
+Processing by ApiController#test as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+TypeError (no implicit conversion of Array into String):
+  
+app/controllers/concerns/queries.rb:12:in `digest'
+app/controllers/concerns/queries.rb:12:in `generate_authorization'
+app/controllers/concerns/production.rb:24:in `get_all_stock_warehouse'
+app/controllers/api_controller.rb:8:in `test'
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:12:21 -0300
+  
+SyntaxError (/home/bcsaldias/Desktop/taller-2017-1-team02/app/controllers/concerns/production.rb:22: syntax error, unexpected '}', expecting =>):
+  
+app/controllers/concerns/production.rb:22: syntax error, unexpected '}', expecting =>
+app/controllers/application_controller.rb:4:in `<class:ApplicationController>'
+app/controllers/application_controller.rb:1:in `<top (required)>'
+app/controllers/api_controller.rb:4:in `<top (required)>'
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:13:06 -0300
+Processing by ApiController#test as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+TypeError (no implicit conversion of Array into String):
+  
+app/controllers/concerns/queries.rb:12:in `digest'
+app/controllers/concerns/queries.rb:12:in `generate_authorization'
+app/controllers/concerns/production.rb:25:in `get_all_stock_warehouse'
+app/controllers/api_controller.rb:8:in `test'
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:13:16 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 4729ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:13:30 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 13478ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:13:56 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 1169ms (Views: 0.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:16:43 -0300
+  
+ActionController::RoutingError (undefined local variable or method `¨' for Queries:Module):
+  
+app/controllers/concerns/queries.rb:32:in `<module:Queries>'
+app/controllers/concerns/queries.rb:3:in `<top (required)>'
+app/controllers/concerns/production.rb:3:in `<module:Production>'
+app/controllers/concerns/production.rb:2:in `<top (required)>'
+app/controllers/application_controller.rb:4:in `<class:ApplicationController>'
+app/controllers/application_controller.rb:1:in `<top (required)>'
+app/controllers/api_controller.rb:4:in `<top (required)>'
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:16:58 -0300
+  
+ActionController::RoutingError (undefined local variable or method `¨' for Queries:Module):
+  
+app/controllers/concerns/queries.rb:32:in `<module:Queries>'
+app/controllers/concerns/queries.rb:3:in `<top (required)>'
+app/controllers/concerns/production.rb:3:in `<module:Production>'
+app/controllers/concerns/production.rb:2:in `<top (required)>'
+app/controllers/application_controller.rb:4:in `<class:ApplicationController>'
+app/controllers/application_controller.rb:1:in `<top (required)>'
+app/controllers/api_controller.rb:4:in `<top (required)>'
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:17:12 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 3245ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:17:26 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 1288ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:17:40 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 1374ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:17:52 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 1216ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:18:03 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 1348ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:18:13 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 1567ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:18:26 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 1539ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:18:49 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 1065ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:19:01 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 1854ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:19:13 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 1900ms (Views: 0.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:19:38 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 1790ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:19:54 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 2242ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:20:01 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 2763ms (Views: 0.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:20:19 -0300
+Processing by ApiController#test as HTML
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `join' for "[\"590baa76d6b4ec000490255f\"]":String
+Did you mean?  JSON):
+  
+app/controllers/concerns/queries.rb:15:in `generate_authorization'
+app/controllers/concerns/production.rb:25:in `get_all_stock_warehouse'
+app/controllers/api_controller.rb:8:in `test'
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:20:40 -0300
+Processing by ApiController#test as HTML
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `join' for "[\"590baa76d6b4ec000490255f\"]":String
+Did you mean?  JSON):
+  
+app/controllers/concerns/queries.rb:15:in `generate_authorization'
+app/controllers/concerns/production.rb:25:in `get_all_stock_warehouse'
+app/controllers/api_controller.rb:8:in `test'
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:21:00 -0300
+Processing by ApiController#test as HTML
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `join' for "[\"590baa76d6b4ec000490255f\"]":String
+Did you mean?  JSON):
+  
+app/controllers/concerns/queries.rb:15:in `generate_authorization'
+app/controllers/concerns/production.rb:25:in `get_all_stock_warehouse'
+app/controllers/api_controller.rb:8:in `test'
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:21:16 -0300
+Processing by ApiController#test as HTML
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `join' for "[\"590baa76d6b4ec000490255f\"]":String
+Did you mean?  JSON):
+  
+app/controllers/concerns/queries.rb:15:in `generate_authorization'
+app/controllers/concerns/production.rb:25:in `get_all_stock_warehouse'
+app/controllers/api_controller.rb:8:in `test'
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:21:23 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 2871ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:21:48 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 1315ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:22:01 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 2163ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:22:17 -0300
+Processing by ApiController#test as HTML
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `join' for "590baa76d6b4ec000490255f":String
+Did you mean?  JSON):
+  
+app/controllers/concerns/queries.rb:14:in `generate_authorization'
+app/controllers/concerns/production.rb:25:in `get_all_stock_warehouse'
+app/controllers/api_controller.rb:8:in `test'
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:22:23 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 1905ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:22:27 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 1344ms (Views: 0.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:22:38 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 2233ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:23:03 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 1716ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:23:52 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 2380ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:24:33 -0300
+  
+SyntaxError (/home/bcsaldias/Desktop/taller-2017-1-team02/app/controllers/api_controller.rb:9: syntax error, unexpected '}', expecting =>
+		json_response({ret})
+		                   ^):
+  
+app/controllers/api_controller.rb:9: syntax error, unexpected '}', expecting =>
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:24:40 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 1605ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:24:58 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 1701ms (Views: 0.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:25:18 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 3897ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:25:39 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 2009ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:27:02 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 2931ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:29:14 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 5317ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:29:51 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 4779ms (Views: 1.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:30:02 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 2025ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:30:39 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 2969ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:30:53 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 2402ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:31:18 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 2208ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:31:27 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 2283ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:31:40 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 4065ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:32:13 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 2364ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:32:38 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 2029ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:32:50 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 2091ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:33:15 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 1019ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:33:25 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 2044ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:33:34 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 2244ms (Views: 0.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:35:02 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 1319ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:35:57 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 4834ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:36:17 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 1440ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:36:32 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 3524ms (Views: 0.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:36:51 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 1462ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:37:08 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 5583ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:37:53 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 3111ms (Views: 0.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:38:06 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 4760ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:38:51 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 1231ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:41:39 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 1544ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:42:33 -0300
+Processing by ApiController#test as HTML
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `join' for "[\"590baa76d6b4ec000490255f\"]":String
+Did you mean?  JSON):
+  
+app/controllers/concerns/queries.rb:11:in `generate_authorization'
+app/controllers/concerns/production.rb:24:in `get_all_stock_warehouse'
+app/controllers/api_controller.rb:8:in `test'
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:42:48 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 1868ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:42:57 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 1371ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:45:04 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 4451ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:45:17 -0300
+Processing by ApiController#test as HTML
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:45:23 -0300
+Completed 200 OK in 7529ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Processing by ApiController#test as HTML
+Completed 200 OK in 909ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:45:34 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 2794ms (Views: 0.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:45:41 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 1188ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:45:49 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 3027ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:45:55 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 1814ms (Views: 0.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:45:59 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 1235ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:46:12 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 1574ms (Views: 0.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:46:26 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 1964ms (Views: 0.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:46:48 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 2351ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:46:59 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 8449ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:47:32 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 4072ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:47:47 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ApiController#test as HTML
+Completed 200 OK in 2331ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:47:52 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 1750ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:48:33 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 3365ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:49:22 -0300
+  
+SyntaxError (/home/bcsaldias/Desktop/taller-2017-1-team02/app/controllers/concerns/queries.rb:25: syntax error, unexpected tSTRING_DEND, expecting ')'
+...00490255f", :headers => header}#, :query => params )
+...                               ^
+/home/bcsaldias/Desktop/taller-2017-1-team02/app/controllers/concerns/queries.rb:31: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/concerns/queries.rb:25: syntax error, unexpected tSTRING_DEND, expecting ')'
+app/controllers/concerns/queries.rb:31: syntax error, unexpected end-of-input, expecting keyword_end
+app/controllers/concerns/production.rb:3:in `<module:Production>'
+app/controllers/concerns/production.rb:2:in `<top (required)>'
+app/controllers/application_controller.rb:4:in `<class:ApplicationController>'
+app/controllers/application_controller.rb:1:in `<top (required)>'
+app/controllers/api_controller.rb:4:in `<top (required)>'
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:49:32 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 1461ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:50:06 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 2505ms (Views: 0.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:50:28 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 4164ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:52:00 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ApiController#test as HTML
+Completed 200 OK in 796ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:52:17 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ApiController#test as HTML
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `+' for nil:NilClass):
+  
+app/controllers/concerns/queries.rb:24:in `get'
+app/controllers/concerns/production.rb:24:in `get_all_stock_warehouse'
+app/controllers/api_controller.rb:8:in `test'
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:52:44 -0300
+Processing by ApiController#test as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `+' for nil:NilClass):
+  
+app/controllers/concerns/queries.rb:24:in `get'
+app/controllers/concerns/production.rb:6:in `obtener_almacenes'
+app/controllers/api_controller.rb:7:in `test'
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:53:26 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ApiController#test as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `+' for nil:NilClass):
+  
+app/controllers/concerns/queries.rb:24:in `get'
+app/controllers/concerns/production.rb:6:in `obtener_almacenes'
+app/controllers/api_controller.rb:7:in `test'
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:54:03 -0300
+Processing by ApiController#test as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `+' for nil:NilClass):
+  
+app/controllers/concerns/queries.rb:24:in `get'
+app/controllers/concerns/production.rb:6:in `obtener_almacenes'
+app/controllers/api_controller.rb:7:in `test'
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:54:34 -0300
+Processing by ApiController#test as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `+' for nil:NilClass):
+  
+app/controllers/concerns/queries.rb:24:in `get'
+app/controllers/concerns/production.rb:6:in `obtener_almacenes'
+app/controllers/api_controller.rb:7:in `test'
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:55:03 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ApiController#test as HTML
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `+' for nil:NilClass):
+  
+app/controllers/concerns/queries.rb:24:in `get'
+app/controllers/concerns/production.rb:6:in `obtener_almacenes'
+app/controllers/api_controller.rb:7:in `test'
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:55:19 -0300
+Processing by ApiController#test as HTML
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:55:29 -0300
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `+' for nil:NilClass):
+  
+app/controllers/concerns/queries.rb:25:in `get'
+app/controllers/concerns/production.rb:6:in `obtener_almacenes'
+app/controllers/api_controller.rb:7:in `test'
+Processing by ApiController#test as HTML
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `+' for nil:NilClass):
+  
+app/controllers/concerns/queries.rb:25:in `get'
+app/controllers/concerns/production.rb:6:in `obtener_almacenes'
+app/controllers/api_controller.rb:7:in `test'
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:55:39 -0300
+Processing by ApiController#test as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `+' for nil:NilClass):
+  
+app/controllers/concerns/queries.rb:26:in `get'
+app/controllers/concerns/production.rb:6:in `obtener_almacenes'
+app/controllers/api_controller.rb:7:in `test'
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:55:54 -0300
+Processing by ApiController#test as HTML
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `+' for nil:NilClass):
+  
+app/controllers/concerns/queries.rb:27:in `get'
+app/controllers/concerns/production.rb:6:in `obtener_almacenes'
+app/controllers/api_controller.rb:7:in `test'
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:56:15 -0300
+Processing by ApiController#test as HTML
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `+' for nil:NilClass):
+  
+app/controllers/concerns/queries.rb:26:in `get'
+app/controllers/concerns/production.rb:6:in `obtener_almacenes'
+app/controllers/api_controller.rb:7:in `test'
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:56:24 -0300
+Processing by ApiController#test as HTML
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `+' for nil:NilClass):
+  
+app/controllers/concerns/queries.rb:26:in `get'
+app/controllers/concerns/production.rb:6:in `obtener_almacenes'
+app/controllers/api_controller.rb:7:in `test'
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:57:00 -0300
+Processing by ApiController#test as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `+' for nil:NilClass):
+  
+app/controllers/concerns/queries.rb:25:in `get'
+app/controllers/concerns/production.rb:6:in `obtener_almacenes'
+app/controllers/api_controller.rb:7:in `test'
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:57:06 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ApiController#test as HTML
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `+' for nil:NilClass):
+  
+app/controllers/concerns/queries.rb:25:in `get'
+app/controllers/concerns/production.rb:6:in `obtener_almacenes'
+app/controllers/api_controller.rb:7:in `test'
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:57:20 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ApiController#test as HTML
+Completed 200 OK in 4957ms (Views: 0.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:57:38 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ApiController#test as HTML
+Completed 200 OK in 647ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:57:53 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 766ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:58:36 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 1990ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:59:06 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 2869ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:59:16 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 727ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 21:59:27 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 717ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 22:00:47 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 1740ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 22:01:41 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 696ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 22:01:58 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 582ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 22:02:08 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 1719ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 22:02:23 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 886ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 22:03:56 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 636ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 22:04:07 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 1413ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 22:04:30 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 1731ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 22:05:02 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 1918ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 22:05:27 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 660ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 22:05:41 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 459ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 22:07:10 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 814ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 22:07:30 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 776ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 22:07:48 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 612ms (Views: 0.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 22:08:03 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 663ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 22:09:05 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 638ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 22:09:21 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 622ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 22:11:19 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 680ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 22:11:50 -0300
+Processing by ApiController#test as HTML
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `path_with_params' for Queries:Module):
+  
+app/controllers/concerns/queries.rb:20:in `get'
+app/controllers/concerns/production.rb:7:in `obtener_almacenes'
+app/controllers/api_controller.rb:7:in `test'
+Started GET "/test" for 127.0.0.1 at 2017-05-12 22:11:52 -0300
+Processing by ApiController#test as HTML
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `path_with_params' for Queries:Module):
+  
+app/controllers/concerns/queries.rb:20:in `get'
+app/controllers/concerns/production.rb:7:in `obtener_almacenes'
+app/controllers/api_controller.rb:7:in `test'
+Started GET "/test" for 127.0.0.1 at 2017-05-12 22:12:03 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 543ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 22:12:30 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 2413ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 22:13:09 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 465ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 22:14:44 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 1724ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 22:14:51 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 636ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 22:15:06 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 641ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test+" for 127.0.0.1 at 2017-05-12 22:15:15 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/test+"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/test" for 127.0.0.1 at 2017-05-12 22:15:16 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 437ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 22:15:28 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 1645ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 22:15:35 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 700ms (Views: 0.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 22:15:43 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 589ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 22:16:09 -0300
+Processing by ApiController#test as HTML
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `join' for {:almacenId=>"590baa76d6b4ec000490255f", :sku=>2}:Hash
+Did you mean?  JSON):
+  
+app/controllers/concerns/queries.rb:19:in `path_with_params'
+app/controllers/concerns/queries.rb:24:in `get'
+app/controllers/concerns/production.rb:15:in `get_stock'
+app/controllers/api_controller.rb:8:in `test'
+Started GET "/test" for 127.0.0.1 at 2017-05-12 22:16:39 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 1864ms (Views: 0.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 22:17:17 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 709ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 22:17:35 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 1032ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 22:17:48 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 849ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
