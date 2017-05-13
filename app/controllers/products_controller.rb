@@ -56,34 +56,7 @@ class ProductsController < ApplicationController
 
 
     quantity = 100
-    comprar_materia_prima(sku, quantity)
-
-    # puts "Here is the sku:"
-    # puts sku
-    # # product = Product.first#find(sku: sku)
-    # product = Product.find(sku)
-    # puts product.description
-    #
-    # # puts product.description
-    # suppliers = product.suppliers
-    # puts suppliers
-    #
-    # # proveedor_precio = [] # Lista con precio: proveedor
-    # # get_best_supplier(proveedor_precio, producto)
-
-
-    # header = {	'Content-Type' => 'application/json'}
-    # response = HTTParty.get("http://localhost:3000/products", headers: header, query: {})
-    # hash_response = JSON.parse(response.body)
-    # api_product = hash_response.find {|prod| prod['sku'] == sku}#['price']
-    # puts "This is the product:"
-    # puts api_product
-    # puts "This is the price:"
-    # puts api_product['price']
-
-
-
-
+    comprar_materia_prima(sku, quantity, 12039123)
 
     json_response(Product.catalogue)
 
