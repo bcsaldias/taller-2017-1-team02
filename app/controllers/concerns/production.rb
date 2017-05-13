@@ -2,7 +2,7 @@
 module Production
 	include Queries
   	
-	def self.obtener_almacenes
+	def self.get_warehouses
 		auth = Queries.generate_authorization
 		@result = Queries.get("bodega/almacenes", 
 						  authorization=auth)
