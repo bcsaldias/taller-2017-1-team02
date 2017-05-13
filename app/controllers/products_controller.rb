@@ -48,7 +48,12 @@ class ProductsController < ApplicationController
   end
 
   def buy
-    sku = Product.first.sku
+    # sku = Product.first.sku
+    sku = "Huevo"
+    p = Product.find(sku)
+    puts "Producto: #{p}"
+
+
     quantity = 100
     comprar_materia_prima(sku, quantity)
     # puts "Here is the sku:"

@@ -4,8 +4,8 @@ class CreateRecipes < ActiveRecord::Migration[5.0]
       # t.references :final_product, null:false
       # t.references :needed_product, null:false
 
-      t.string :final_product_id, foreign_key: true, null: false
-      t.string :needed_product_id, foreign_key: true, null: false
+      t.string :final_product_sku, foreign_key: true, null: false
+      t.string :needed_product_sku, foreign_key: true, null: false
 
       t.string :final_product_unit
       t.integer :requirement, null: false

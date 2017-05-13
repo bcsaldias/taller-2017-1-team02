@@ -22,31 +22,49 @@ module RawMaterial
     #Almacena Hashes con los datos de los productos
     suppliers_products = []
     Contact.where(product: product).each do |contact|
-      supplier_id = contact.supplier.id
-      ##Get precio de los productos## para el proveedor
-      #response = Queries.get("http://localhost:3000/products", false)
+      supplier = contact.supplier
+      # Get precio de los productos## para el proveedor
 
-      header = {	'Content-Type' => 'application/json'}
-      # response = HTTParty.get("http://localhost:3000/products", :headers => header )
-      response = HTTParty.get("http://integra17-2.ing.puc.cl/products", :headers => header )
-      # puts response.body
+      # La linea de abajo es la que deberia quedar!
+      response = Queries.get_to_groups_api("products", supplier, false, {})
+      #response = Queries.get("products", false, {})
+
+      puts "For supplier #{supplier.id}: "
+      #puts response.body
       # puts response.code
       # puts response.message
       # puts response.headers.inspect
-      hash_response = JSON.parse(response.body)
+      begin
+        hash_response = JSON.parse(response.body)
+        api_product_price = hash_response.find {|prod| prod['sku']== product.sku}['price']
+        #h["incidents"].find {|h1| h1['key']=='xyz098'}['number']
 
-      puts "In front of me me is the sku"
-      puts hash_response[0]["price"].class
-      puts "Behind me is the sku"
-      price = 1000
-      suppliers_products << {supplier_id: supplier_id, priority: contact.priority, price: price}
+        puts "This is the price:"
+        # puts hash_response[0]["price"]#.class
+        puts api_product_price
+        # puts "Behind me is the sku"
+        #price = hash_response[0]["price"]
+        suppliers_products << {supplier_id: supplier.id, priority: contact.priority, price: api_product_price}
+      rescue
+        puts "No pudimos sacar info de supplier #{supplier.id}"
+      end
+
     end
     #Algoritmo que escoge el mejor supplier_id
-    best_current_supplier = suppliers_products[0]
-    suppliers_products.each do |sp|
-      best_current_supplier = sp if sp[:price] < best_current_supplier[:price]
+    puts "Largo: #{suppliers_products.length}"
+    if suppliers_products.lenth
+      best_current_supplier = suppliers_products[0]
+      suppliers_products.each do |sp|
+         best_current_supplier = sp if sp[:price] < best_current_supplier[:price]
+      end
+      Supplier.find(best_current_supplier[:supplier_id])
+    else
+      "No se pudo acceder a ninguna api valida de los demas grupos"
     end
-    Supplier.find(best_current_supplier[:supplier_id])
+
+
+    Supplier.find(1)
+
   end
 
 
