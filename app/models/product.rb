@@ -5,8 +5,8 @@ class Product < ApplicationRecord
 
   self.primary_key = :sku
 
-  has_many :final_product, :class_name => 'Recipe', :foreign_key => 'final_product_id'
-  has_many :needed_product, :class_name => 'Recipe', :foreign_key => 'needed_product_id'
+  has_many :final_product, :class_name => 'Recipe', :foreign_key => 'final_product_sku'
+  has_many :needed_product, :class_name => 'Recipe', :foreign_key => 'needed_product_sku'
 
   def self.catalogue
   	Product.all.where(owner: true).map { |p| {:sku => p.sku,
