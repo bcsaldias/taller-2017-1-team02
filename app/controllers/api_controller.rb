@@ -7,8 +7,8 @@ class ApiController < ApplicationController
 
 
 	def test
-		#ret = Production.obtener_almacenes
-		ret = Production.get_stock("590baa76d6b4ec000490255f", 41)
+		ret = Production.try_put("2", 150)
+		#ret = Production.get_stock("590baa76d6b4ec000490255f", 41)
 		json_response({response: ret})
 	end
 
