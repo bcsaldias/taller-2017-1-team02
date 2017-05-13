@@ -1,11 +1,11 @@
 development:
-    environment_path: 'http://integracion-2017-dev.herokuapp.com/'
+    environment_path: 'https://integracion-2017-dev.herokuapp.com/'
     team_id: "590baa00d6b4ec0004902463"
     bank_id: "590baa00d6b4ec000490246c"
     warehouses_id: "GbmrOdS%NyVDgbN"
 
 test:
-    environment_path: 'http://integracion-2017-dev.herokuapp.com/'
+    environment_path: 'https://integracion-2017-dev.herokuapp.com/'
     team_id: "590baa00d6b4ec0004902463"
     bank_id: "590baa00d6b4ec000490246c"
     warehouses_id: "GbmrOdS%NyVDgbN"
