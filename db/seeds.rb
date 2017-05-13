@@ -40,7 +40,7 @@ Product.all.delete_all
 
 products = Product.create!([
 	{sku:'1',owner:false,category:'Materia prima',description:'Pollo'} ,
-	{sku:'2',owner:true,category:'Materia prima',description:'Huevo'} ,
+	{sku:'2',owner:true,category:'Materia prima',description:'Huevo', price: 1590} ,
 	{sku:'3',owner:false,category:'Materia prima',description:'Maíz'} ,
 	{sku:'4',owner:false,category:'Producto procesado',description:'Aceite de Maravilla'} ,
 	{sku:'5',owner:false,category:'Producto procesado',description:'Yogur'} ,

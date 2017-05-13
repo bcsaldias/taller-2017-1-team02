@@ -3,15 +3,18 @@ development:
     team_id: "590baa00d6b4ec0004902463"
     bank_id: "590baa00d6b4ec000490246c"
     warehouses_id: "GbmrOdS%NyVDgbN"
+    environment: "development"
 
 test:
     environment_path: 'https://integracion-2017-dev.herokuapp.com/'
     team_id: "590baa00d6b4ec0004902463"
     bank_id: "590baa00d6b4ec000490246c"
     warehouses_id: "GbmrOdS%NyVDgbN"
+    environment: "test"
 
 production:
     environment_path: 'https://integracion-2017-prod.herokuapp.com/'
     team_id: "5910c0910e42840004f6e681"
     bank_id: "5910c0910e42840004f6e689"
     warehouses_id: "tPIcA9H8gDk$f6Q"
+    environment: "production"
