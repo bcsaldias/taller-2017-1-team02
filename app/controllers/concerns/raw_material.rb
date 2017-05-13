@@ -2,7 +2,7 @@ module RawMaterial
   # def json_response(object, status = :ok)
   #   render json: object, status: status
   # end
-  def comprar_materia_prima(sku, quantity)
+  def comprar_materia_prima(sku, quantity, needed_date)
     product = Product.find(sku)
 
     # suppliers = product.suppliers
@@ -10,8 +10,25 @@ module RawMaterial
 
     if product.suppliers
       supplier = get_best_supplier(product)
-      if supplier
-        puts "This is the best supplier: #{supplier.id}"
+      supplier_informations = get_best_supplier(product)
+      if supplier_informations
+
+        supplier_id = supplier_informations[:supplier_id]
+        price = supplier_informations[:price]
+        puts "This is the best supplier: #{supplier_informations[:supplier_id]}, PRICE: #{supplier_informations[:price]}"
+
+        Sales.create_purchase_order(2, supplier_id, sku, needed_date, quantity, price, "b2b", "Esta es una nota")
+
+        #Implementar
+        supplier = Supplier.find(supplier_informations[:supplier_id])
+        status = Purchases.realizar_pedido(supplier, "contra_factura", id_oc)
+        if status = 201
+          return true #Orden de compra recibida correctamente
+        else
+          return false #Orden de compra no la recibio bien
+
+
+
       end
     else
       return false
@@ -58,8 +75,12 @@ module RawMaterial
       suppliers_products.each do |sp|
          best_current_supplier = sp if sp[:price] < best_current_supplier[:price]
       end
-      puts "supplier id: #{best_current_supplier[:supplier_id]}"
-      Supplier.find(best_current_supplier[:supplier_id])
+      # puts "supplier id: #{best_current_supplier[:supplier_id]}"
+      # supplier = Supplier.find(best_current_supplier[:supplier_id])
+      # price =
+      #Supplier.find(best_current_supplier[:supplier_id])
+      return best_current_supplier
+
     else
       return false
     end
