@@ -22,7 +22,7 @@ module RawMaterial
         #Implementar
         supplier = Supplier.find(supplier_informations[:supplier_id])
         status = Purchases.realizar_pedido(supplier, "contra_factura", id_oc)
-        if status = 201
+        if status == 201
           return true #Orden de compra recibida correctamente
         else
           return false #Orden de compra no la recibio bien
