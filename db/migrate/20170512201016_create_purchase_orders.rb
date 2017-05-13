@@ -3,7 +3,7 @@ class CreatePurchaseOrders < ActiveRecord::Migration[5.0]
     create_table :purchase_orders do |t|
       t.integer :id_cloud, null: false
       t.integer :state
-      t.string :product_id, foreign_key: true, null: false
+      t.string :product_sku, foreign_key: true, null: false
       # t.references :product, foreign_key: true, null: false
 
       t.timestamps

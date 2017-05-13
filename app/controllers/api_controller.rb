@@ -6,8 +6,11 @@ class ApiController < ApplicationController
 	include Queries
 
 	def test
-		#ret = Production.obtener_almacenes
-		ret = Sales.get_purchase_order('0')
+		ret = Sales.create_purchase_order(cliente = ,
+									proveedor = ,
+									sku = ,
+									fechaEntrega, cantidad, precioUnitario,
+									canal, notas)
 		json_response({response: ret})
 	end
 
