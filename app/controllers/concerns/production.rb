@@ -1,7 +1,8 @@
 
 module Production
 	include Queries
-  	
+  	require 'json'
+
 	def self.get_warehouses
 		auth = Queries.generate_authorization
 		@result = Queries.get("bodega/almacenes", 

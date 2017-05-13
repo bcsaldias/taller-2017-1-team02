@@ -1,6 +1,9 @@
 
 module Sales
 	include Queries
+
+	require 'json'
+
 	def self.create_purchase_order(cliente, proveedor, sku,
 									fechaEntrega, cantidad, precioUnitario,
 									canal, notas)
@@ -16,7 +19,7 @@ module Sales
 
 	def self.get_purchase_order(purchase_order_id)
 		@result = Queries.get(next_path= "oc/obtener/" + purchase_order_id)
-		return @result.body
+		return (JSON.parse @result.body)[0]
 	end
 
 	def self.anular_purchase_order(purchase_order_id, anulacion)
