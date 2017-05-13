@@ -18,10 +18,9 @@ class ApiController < ApplicationController
 		#ret = Production.move_stock("590baa76d6b4ec000490255e", "590baa76d6b4ec000490262a")
 		#ret = Production.get_stock("590baa76d6b4ec000490255e", "41")
 
-		ret = Tiempo.tiempo_a_milisegundos(5,15,0,0)
-
-
-		#json_response({response: ret})
+		#ret = Tiempo.tiempo_a_milisegundos(5,15,0,0)
+		ret = Sales.accept_purchase_order("5917658a1f734200049c0fa5")
+		json_response({response: ret})
 	end
 
 end

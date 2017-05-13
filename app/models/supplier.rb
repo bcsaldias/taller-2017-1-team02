@@ -7,7 +7,7 @@ class Supplier < ApplicationRecord
 
   def get_url
     env = Rails.configuration.environment_ids['environment']
-    if env = "production"
+    if env == "production"
       self.api_prod
     else
       self.api_dev
