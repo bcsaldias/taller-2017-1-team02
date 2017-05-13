@@ -1,5 +1,5 @@
 
-module Factory
+module Sales
 	include Queries
   	
 	def self.get_account
@@ -23,6 +23,18 @@ module Factory
 	    return @result.body
 	end
 
+	def create_purchase_order
+
+	end
+
+	def self.get_stock(warehouse_id, sku)
+		auth = Queries.generate_authorization(_method = 'GET',
+											  params = [warehouse_id,sku.to_s])
+		@result = Queries.get(next_path="bodega/stock", 
+						  authorization=auth, 
+						  params = {almacenId:warehouse_id, sku:sku})
+		return @result.body
+	end
 
 
 end
