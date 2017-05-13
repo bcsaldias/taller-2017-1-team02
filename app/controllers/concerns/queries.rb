@@ -39,5 +39,19 @@ module Queries
 		                        :query => params)
 	end
 
+	def self.post(next_path, authorization=false, body={}, params={})
+		path = Rails.configuration.environment_ids['environment_path']+next_path
+		header = {	'Content-Type' => 'application/json'}
+		if authorization
+			header = {	'Content-Type' => 'application/json',
+						'Authorization'=> authorization }
+		end
+
+		@result = HTTParty.post(path,  
+		                        :body => body.to_json,
+		                        :headers => header,
+		                        :query => params)
+	end
+
 
 end
