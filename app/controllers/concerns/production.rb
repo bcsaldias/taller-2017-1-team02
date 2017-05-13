@@ -12,7 +12,7 @@ module Production
 	def self.get_stock(warehouse_id, sku)
 		auth = Queries.generate_authorization(_method = 'GET',
 											  params = [warehouse_id,sku.to_s])
-		@result = Queries.get(next_path="stock", 
+		@result = Queries.get(next_path="bodega/stock", 
 						  authorization=auth, 
 						  params = {almacenId:warehouse_id, sku:sku})
 		return @result.body
@@ -22,7 +22,7 @@ module Production
 		auth = Queries.generate_authorization(_method = 'GET', 
 												params = [warehouse_id])
 
-		@result = Queries.get("skusWithStock", 
+		@result = Queries.get("bodega/skusWithStock", 
 						  authorization=auth, 
 						  params = {almacenId: warehouse_id})
 		return @result.body

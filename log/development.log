@@ -16483,3 +16483,117 @@ Processing by ApiController#test as HTML
 Completed 200 OK in 849ms (Views: 0.2ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/test" for 127.0.0.1 at 2017-05-12 22:25:20 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 764ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 22:28:37 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 990ms (Views: 0.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-12 22:51:46 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 2407ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-13 08:05:40 -0300
+Processing by ApiController#test as HTML
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.0ms)
+
+
+  
+SocketError (Failed to open TCP connection to integracion-2017-dev.herokuapp.com:80 (getaddrinfo: Temporary failure in name resolution)):
+  
+app/controllers/concerns/queries.rb:25:in `get'
+app/controllers/concerns/production.rb:25:in `get_all_stock_warehouse'
+app/controllers/api_controller.rb:11:in `test'
+Started GET "/test" for 127.0.0.1 at 2017-05-13 08:06:05 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ApiController#test as HTML
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+
+
+  
+SocketError (Failed to open TCP connection to integracion-2017-dev.herokuapp.com:80 (getaddrinfo: Temporary failure in name resolution)):
+  
+app/controllers/concerns/queries.rb:25:in `get'
+app/controllers/concerns/production.rb:25:in `get_all_stock_warehouse'
+app/controllers/api_controller.rb:11:in `test'
+Started GET "/tes" for 127.0.0.1 at 2017-05-13 08:07:37 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/tes"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/test" for 127.0.0.1 at 2017-05-13 08:07:42 -0300
+Processing by ApiController#test as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+SocketError (Failed to open TCP connection to integracion-2017-dev.herokuapp.com:80 (getaddrinfo: Temporary failure in name resolution)):
+  
+app/controllers/concerns/queries.rb:25:in `get'
+app/controllers/concerns/production.rb:25:in `get_all_stock_warehouse'
+app/controllers/api_controller.rb:11:in `test'
+Started GET "/test" for 127.0.0.1 at 2017-05-13 08:08:08 -0300
+Processing by ApiController#test as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+SocketError (Failed to open TCP connection to integracion-2017-dev.herokuapp.com:80 (getaddrinfo: Temporary failure in name resolution)):
+  
+app/controllers/concerns/queries.rb:25:in `get'
+app/controllers/concerns/production.rb:25:in `get_all_stock_warehouse'
+app/controllers/api_controller.rb:11:in `test'
+Started GET "/test" for 127.0.0.1 at 2017-05-13 08:13:45 -0300
+Processing by ApiController#test as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+SocketError (Failed to open TCP connection to integracion-2017-dev.herokuapp.com:80 (getaddrinfo: Temporary failure in name resolution)):
+  
+app/controllers/concerns/queries.rb:25:in `get'
+app/controllers/concerns/production.rb:25:in `get_all_stock_warehouse'
+app/controllers/api_controller.rb:11:in `test'
+Started GET "/test" for 127.0.0.1 at 2017-05-13 08:15:42 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ApiController#test as HTML
+Completed 200 OK in 1125ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2017-05-13 08:16:11 -0300
+Processing by ApiController#test as HTML
+Completed 200 OK in 2398ms (Views: 0.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-13 08:17:05 -0300
+Processing by Rails::WelcomeController#index as HTML
+  Parameters: {"internal"=>true}
+  Rendering /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/railties-5.0.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/bcsaldias/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/railties-5.0.2/lib/rails/templates/rails/welcome/index.html.erb (9.0ms)
+Completed 200 OK in 16ms (Views: 13.9ms | ActiveRecord: 0.0ms)
+
+
