@@ -14,10 +14,8 @@ class PurchaseOrdersController < ApplicationController
   error 400, "Falta bodega de recepción"
   error 404, "Orden de compra inexistente"
   error 500, "El envío ha fallado"
-
   # PUT purchase_orders/:id realizar_pedido
   def realizar_pedido
-
     begin
       @body = JSON.parse request.body.read
       @keys = @body.keys
@@ -26,12 +24,21 @@ class PurchaseOrdersController < ApplicationController
 
       elsif not @keys.include?("id_store_reception")
         json_response ({error: "Falta bodega de recepción"}), 400
-
       else
-        render json: {orden: 15}, status: 201
+        if ['contra_factura', 'contra_despacho'].include?(params[:payment_method])
+          order = Sales.get_purchase_order(params[:id])
+          @purchase_order = PurchaseOrder.create!(id_cloud: order['_id'],
+                                              product_sku: order['sku'],
+                                              payment_method: params[:payment_method],
+                                              id_store_reception:  params[:id_store_reception])
+
+          json_response(@purchase_order, 201)
+        else
+          json_response ({error: "payment_method: contra_factura/contra_despacho"}), 400
+        end
       end
     rescue
-      json_response({ :error => "Formato de Body incorrecto" }, 400)
+      json_response({ :error => "No se pudo crear" }, 400)
     end
 
   end
@@ -135,6 +142,6 @@ class PurchaseOrdersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def purchase_order_params
-      params.require(:purchase_order).permit(:id_cloud, :state, :product_id)
+      params.permit(:id_cloud, :state, :product_sku, :payment_method, :id_store_reception) #.require(:purchase_order)
     end
 end
