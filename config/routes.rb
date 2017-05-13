@@ -7,9 +7,9 @@ Rails.application.routes.draw do
   #resources :recipes
   #resources :products
   #resources :suppliers
-  
+
   get 'test' => 'api#test'
-  
+
 
   get 'products' => 'products#available'
 
@@ -21,10 +21,11 @@ Rails.application.routes.draw do
   put 'invoices/:id' => 'invoice#enviar_factura'
   patch 'invoices/:id/accepted' => 'invoice#enviar_confirmacion_factura'
   patch 'invoices/:id/rejected' => 'invoice#enviar_rechazo_factura'
-  patch 'invoices/:id/delivered' => 'invoice#notificar_orden_despachada'  
+  patch 'invoices/:id/delivered' => 'invoice#notificar_orden_despachada'
   patch 'invoices/:id/paid' => 'invoice#enviar_confirmacion_pago'
 
 
   #patch 'suppliers/:id_supplier' => 'suppliers#informar_cuenta_banco'
+  get 'buy' => 'products#buy'
 
 end
