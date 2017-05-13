@@ -41,13 +41,17 @@ module Production
 		return @result.body.force_encoding("UTF-8")
 	end
 
-	def self.move_stock_external(warehouse_id, product_id)
+	def self.move_stock_external(warehouse_id, product_id, purchase_order, price)
 
 		auth = Queries.generate_authorization(_method = 'POST',
 											  params = [product_id, warehouse_id])
 
-		body = {'productoId' => product_id , 'almacenId' => warehouse_id}
-		@result = Queries.post('bodega/moveStock', 
+		body = {'productoId' => product_id , 
+				'almacenId' => warehouse_id,
+			    'oc' => purchase_order,
+				'precio' => price}
+
+		@result = Queries.post('bodega/moveStockBodega', 
 							authorization=auth,
 							body=body)
 
