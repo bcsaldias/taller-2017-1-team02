@@ -21,7 +21,7 @@ module Factory
 	              body=body)
 
 	    return @result.body
-	  end
+	end
 
 
 
