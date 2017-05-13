@@ -32,7 +32,7 @@ module Queries
 			header = {	'Content-Type' => 'application/json',
 						'Authorization'=> authorization }
 		end
-		@result = HTTParty.put(path,  
+		@result = HTTParty.put(path,
 		                        :body => body.to_json,
 		                        :headers => header,
 		                        :query => params)
@@ -46,11 +46,21 @@ module Queries
 						'Authorization'=> authorization }
 		end
 
-		@result = HTTParty.post(path,  
+		@result = HTTParty.post(path,
 		                        :body => body.to_json,
 		                        :headers => header,
 		                        :query => params)
 	end
 
 
+	def self.get_to_groups_api(next_path, supplier, access_token=false, params={})
+
+		domain = supplier.get_url
+		path = domain + next_path
+
+		header = {	'Content-Type' => 'application/json'}
+		header["Token"] = access_token if access_token
+
+		@result = HTTParty.get(path, headers: header, query: params )
+	end
 end
