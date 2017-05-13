@@ -47,6 +47,27 @@ class ProductsController < ApplicationController
     @product.destroy
   end
 
+  def buy
+    sku = Product.first.sku
+    quantity = 100
+    comprar_materia_prima(sku, quantity)
+    # puts "Here is the sku:"
+    # puts sku
+    # # product = Product.first#find(sku: sku)
+    # product = Product.find(sku)
+    # puts product.description
+    #
+    # # puts product.description
+    # suppliers = product.suppliers
+    # puts suppliers
+    #
+    # # proveedor_precio = [] # Lista con precio: proveedor
+    # # get_best_supplier(proveedor_precio, producto)
+    json_response(Product.catalogue)
+
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product
