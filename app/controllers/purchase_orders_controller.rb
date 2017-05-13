@@ -31,7 +31,6 @@ class PurchaseOrdersController < ApplicationController
                                               product_sku: order['sku'],
                                               payment_method: params[:payment_method],
                                               id_store_reception:  params[:id_store_reception])
-
           json_response(@purchase_order, 201)
         else
           json_response ({error: "payment_method: contra_factura/contra_despacho"}), 400
