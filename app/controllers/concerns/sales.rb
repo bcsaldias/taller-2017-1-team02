@@ -14,7 +14,13 @@ module Sales
 
 	    @result = Queries.put('oc/crear',
 	              				body=@body)
-	    return @result.body.force_encoding("UTF-8")
+	    
+	    order =  JSON.parse @result.body.force_encoding("UTF-8")
+        @purchase_order = PurchaseOrder.create!(id_cloud: order['_id'], state: 0,
+                                          product_sku: order['sku'],
+                                          owner: true)
+
+	    return @purchase_order
 	end
 
 	def self.get_purchase_order(purchase_order_id)

@@ -11,7 +11,17 @@ class ApiController < ApplicationController
 		#ret = Sales.accept_purchase_order("59177e251f734200049c0fab") #5917658a1f734200049c0fa5 #59177b9b1f734200049c0fa9 59177aa91f734200049c0fa8
 		#ret = Sales.reject_purchase_order("59177e251f734200049c0fab", cause='test_cause') 
 		#ret = Sales.recepcionar_purchase_order
-		ret = Sales.get_purchase_order("59177e251f734200049c0fab")
+		#ret = Sales.get_purchase_order("59177e251f734200049c0fab")
+		
+		ret = Sales.create_purchase_order(  cliente = "5910c0910e42840004f6e684",
+										    proveedor = "590baa00d6b4ec0004902463",
+										    sku = "2",
+										    fechaEntrega = 2493314596281,
+										    cantidad = "100",
+										    precioUnitario = "100",
+										    canal = "b2b", notas = "hola"
+										)
+
 		json_response({response: ret})
 	end
 
