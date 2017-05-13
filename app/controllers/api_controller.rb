@@ -18,11 +18,11 @@ class ApiController < ApplicationController
 		#ret = Production.move_stock("590baa76d6b4ec000490255e", "590baa76d6b4ec000490262a")
 		#ret = Production.get_stock("590baa76d6b4ec000490255e", "41")
 
-		ret = Sales.create_purchase_order(cliente = , 
-									proveedor = , 
-									sku = , 
-									fechaEntrega, cantidad, precioUnitario, 
-									canal, notas)
+		#ret = Sales.create_purchase_order(cliente = , 
+		#							proveedor = , 
+		#							sku = , 
+		#							fechaEntrega, cantidad, precioUnitario, 
+		#							canal, notas)
 
 		json_response({response: ret})
 	end

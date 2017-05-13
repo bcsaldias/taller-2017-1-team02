@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20170512201152) do
   end
 
   create_table "purchase_orders", force: :cascade do |t|
-    t.integer  "id_cloud",           null: false
+    t.string   "id_cloud",           null: false
     t.integer  "state"
     t.string   "product_sku",        null: false
     t.string   "id_store_reception"
