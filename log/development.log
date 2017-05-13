@@ -95,3 +95,1091 @@ Migrating to CreateWarehouses (20170512201152)
             FROM sqlite_temp_master
             WHERE name='index_products_on_id' AND type='index'
 [0m
+Started GET "/buy" for 127.0.0.1 at 2017-05-13 16:48:24 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProductsController#buy as HTML
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "2"], ["LIMIT", 1]]
+Completed 404 Not Found in 8ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/buy" for 127.0.0.1 at 2017-05-13 16:49:29 -0300
+Processing by ProductsController#buy as HTML
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "2"], ["LIMIT", 1]]
+Completed 404 Not Found in 6ms (Views: 0.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2017-05-13 16:56:06 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProductsController#available as HTML
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."owner" = ?[0m  [["owner", true]]
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/buy" for 127.0.0.1 at 2017-05-13 16:56:13 -0300
+Processing by ProductsController#buy as HTML
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "2"], ["LIMIT", 1]]
+Completed 404 Not Found in 4ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/buy" for 127.0.0.1 at 2017-05-13 17:00:06 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProductsController#buy as HTML
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "2"], ["LIMIT", 1]]
+Completed 404 Not Found in 8ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "warehouses" ("id_cloud", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["id_cloud", "590baa76d6b4ec000490255d"], ["created_at", 2017-05-13 20:00:43 UTC], ["updated_at", 2017-05-13 20:00:43 UTC]]
+  [1m[35m (128.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "warehouses" ("id_cloud", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["id_cloud", "590baa76d6b4ec000490255e"], ["created_at", 2017-05-13 20:00:44 UTC], ["updated_at", 2017-05-13 20:00:44 UTC]]
+  [1m[35m (120.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "warehouses" ("id_cloud", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["id_cloud", "590baa76d6b4ec000490255f"], ["created_at", 2017-05-13 20:00:44 UTC], ["updated_at", 2017-05-13 20:00:44 UTC]]
+  [1m[35m (109.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "warehouses" ("id_cloud", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["id_cloud", "590baa76d6b4ec000490265d"], ["created_at", 2017-05-13 20:00:44 UTC], ["updated_at", 2017-05-13 20:00:44 UTC]]
+  [1m[35m (86.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "warehouses" ("id_cloud", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["id_cloud", "590baa76d6b4ec000490265e"], ["created_at", 2017-05-13 20:00:44 UTC], ["updated_at", 2017-05-13 20:00:44 UTC]]
+  [1m[35m (109.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35mSQL (83.1ms)[0m  [1m[31mDELETE FROM "suppliers"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "suppliers" ("id", "api_prod", "api_dev", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 1], ["api_prod", "http://integra17-1.ing.puc.cl/"], ["api_dev", "http://dev.integra17-1.ing.puc.cl/"], ["created_at", 2017-05-13 20:00:44 UTC], ["updated_at", 2017-05-13 20:00:44 UTC]]
+  [1m[35m (48.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "suppliers" ("id", "api_prod", "api_dev", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 2], ["api_prod", "http://localhost:3000/"], ["api_dev", "http://localhost:3000/"], ["created_at", 2017-05-13 20:00:44 UTC], ["updated_at", 2017-05-13 20:00:44 UTC]]
+  [1m[35m (74.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "suppliers" ("id", "api_prod", "api_dev", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 3], ["api_prod", "http://integra17-3.ing.puc.cl/"], ["api_dev", "http://dev.integra17-3.ing.puc.cl/"], ["created_at", 2017-05-13 20:00:44 UTC], ["updated_at", 2017-05-13 20:00:44 UTC]]
+  [1m[35m (76.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "suppliers" ("id", "api_prod", "api_dev", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 4], ["api_prod", "http://integra17-4.ing.puc.cl/"], ["api_dev", "http://dev.integra17-4.ing.puc.cl/"], ["created_at", 2017-05-13 20:00:44 UTC], ["updated_at", 2017-05-13 20:00:44 UTC]]
+  [1m[35m (75.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "suppliers" ("id", "api_prod", "api_dev", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 5], ["api_prod", "http://integra17-5.ing.puc.cl/"], ["api_dev", "http://dev.integra17-5.ing.puc.cl/"], ["created_at", 2017-05-13 20:00:44 UTC], ["updated_at", 2017-05-13 20:00:44 UTC]]
+  [1m[35m (87.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "suppliers" ("id", "api_prod", "api_dev", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 6], ["api_prod", "http://integra17-6.ing.puc.cl/"], ["api_dev", "http://dev.integra17-6.ing.puc.cl/"], ["created_at", 2017-05-13 20:00:45 UTC], ["updated_at", 2017-05-13 20:00:45 UTC]]
+  [1m[35m (86.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "suppliers" ("id", "api_prod", "api_dev", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 7], ["api_prod", "http://integra17-7.ing.puc.cl/"], ["api_dev", "http://dev.integra17-7.ing.puc.cl/"], ["created_at", 2017-05-13 20:00:45 UTC], ["updated_at", 2017-05-13 20:00:45 UTC]]
+  [1m[35m (86.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "suppliers" ("id", "api_prod", "api_dev", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 8], ["api_prod", "http://integra17-8.ing.puc.cl/"], ["api_dev", "http://dev.integra17-8.ing.puc.cl/"], ["created_at", 2017-05-13 20:00:45 UTC], ["updated_at", 2017-05-13 20:00:45 UTC]]
+  [1m[35m (86.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35mSQL (86.4ms)[0m  [1m[31mDELETE FROM "products"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "products" ("sku", "description", "category", "owner", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["sku", "1"], ["description", "Pollo"], ["category", "Materia prima"], ["owner", false], ["created_at", 2017-05-13 20:00:45 UTC], ["updated_at", 2017-05-13 20:00:45 UTC]]
+  [1m[35m (67.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "products" ("sku", "description", "category", "price", "owner", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["sku", "2"], ["description", "Huevo"], ["category", "Materia prima"], ["price", 1590], ["owner", true], ["created_at", 2017-05-13 20:00:45 UTC], ["updated_at", 2017-05-13 20:00:45 UTC]]
+  [1m[35m (64.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "products" ("sku", "description", "category", "owner", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["sku", "3"], ["description", "Maíz"], ["category", "Materia prima"], ["owner", false], ["created_at", 2017-05-13 20:00:45 UTC], ["updated_at", 2017-05-13 20:00:45 UTC]]
+  [1m[35m (64.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "products" ("sku", "description", "category", "owner", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["sku", "4"], ["description", "Aceite de Maravilla"], ["category", "Producto procesado"], ["owner", false], ["created_at", 2017-05-13 20:00:45 UTC], ["updated_at", 2017-05-13 20:00:45 UTC]]
+  [1m[35m (66.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "products" ("sku", "description", "category", "owner", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["sku", "5"], ["description", "Yogur"], ["category", "Producto procesado"], ["owner", false], ["created_at", 2017-05-13 20:00:45 UTC], ["updated_at", 2017-05-13 20:00:45 UTC]]
+  [1m[35m (92.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "products" ("sku", "description", "category", "owner", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["sku", "6"], ["description", "Crema"], ["category", "Producto procesado"], ["owner", true], ["created_at", 2017-05-13 20:00:45 UTC], ["updated_at", 2017-05-13 20:00:45 UTC]]
+  [1m[35m (75.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "products" ("sku", "description", "category", "owner", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["sku", "7"], ["description", "Leche"], ["category", "Materia prima"], ["owner", false], ["created_at", 2017-05-13 20:00:45 UTC], ["updated_at", 2017-05-13 20:00:45 UTC]]
+  [1m[35m (87.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "products" ("sku", "description", "category", "owner", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["sku", "8"], ["description", "Trigo"], ["category", "Materia prima"], ["owner", true], ["created_at", 2017-05-13 20:00:45 UTC], ["updated_at", 2017-05-13 20:00:45 UTC]]
+  [1m[35m (98.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "products" ("sku", "description", "category", "owner", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["sku", "9"], ["description", "Carne"], ["category", "Materia prima"], ["owner", false], ["created_at", 2017-05-13 20:00:46 UTC], ["updated_at", 2017-05-13 20:00:46 UTC]]
+  [1m[35m (98.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "products" ("sku", "description", "category", "owner", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["sku", "10"], ["description", "Pan Marraqueta"], ["category", "Producto procesado"], ["owner", false], ["created_at", 2017-05-13 20:00:46 UTC], ["updated_at", 2017-05-13 20:00:46 UTC]]
+  [1m[35m (98.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "products" ("sku", "description", "category", "owner", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["sku", "11"], ["description", "Margarina"], ["category", "Producto procesado"], ["owner", false], ["created_at", 2017-05-13 20:00:46 UTC], ["updated_at", 2017-05-13 20:00:46 UTC]]
+  [1m[35m (104.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "products" ("sku", "description", "category", "owner", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["sku", "12"], ["description", "Cereal Avena"], ["category", "Producto procesado"], ["owner", false], ["created_at", 2017-05-13 20:00:46 UTC], ["updated_at", 2017-05-13 20:00:46 UTC]]
+  [1m[35m (106.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "products" ("sku", "description", "category", "owner", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["sku", "13"], ["description", "Arroz"], ["category", "Materia prima"], ["owner", false], ["created_at", 2017-05-13 20:00:46 UTC], ["updated_at", 2017-05-13 20:00:46 UTC]]
+  [1m[35m (89.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "products" ("sku", "description", "category", "owner", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["sku", "14"], ["description", "Cebada"], ["category", "Materia prima"], ["owner", true], ["created_at", 2017-05-13 20:00:46 UTC], ["updated_at", 2017-05-13 20:00:46 UTC]]
+  [1m[35m (86.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "products" ("sku", "description", "category", "owner", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["sku", "15"], ["description", "Avena"], ["category", "Materia prima"], ["owner", false], ["created_at", 2017-05-13 20:00:46 UTC], ["updated_at", 2017-05-13 20:00:46 UTC]]
+  [1m[35m (77.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "products" ("sku", "description", "category", "owner", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["sku", "16"], ["description", "Pasta de Trigo"], ["category", "Producto procesado"], ["owner", false], ["created_at", 2017-05-13 20:00:46 UTC], ["updated_at", 2017-05-13 20:00:46 UTC]]
+  [1m[35m (96.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "products" ("sku", "description", "category", "owner", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["sku", "17"], ["description", "Cereal Arroz"], ["category", "Producto procesado"], ["owner", false], ["created_at", 2017-05-13 20:00:46 UTC], ["updated_at", 2017-05-13 20:00:46 UTC]]
+  [1m[35m (98.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "products" ("sku", "description", "category", "owner", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["sku", "18"], ["description", "Pastel"], ["category", "Producto procesado"], ["owner", false], ["created_at", 2017-05-13 20:00:46 UTC], ["updated_at", 2017-05-13 20:00:46 UTC]]
+  [1m[35m (86.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "products" ("sku", "description", "category", "owner", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["sku", "19"], ["description", "Sémola"], ["category", "Materia prima"], ["owner", false], ["created_at", 2017-05-13 20:00:46 UTC], ["updated_at", 2017-05-13 20:00:46 UTC]]
+  [1m[35m (76.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "products" ("sku", "description", "category", "owner", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["sku", "20"], ["description", "Cacao"], ["category", "Materia prima"], ["owner", true], ["created_at", 2017-05-13 20:00:47 UTC], ["updated_at", 2017-05-13 20:00:47 UTC]]
+  [1m[35m (86.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "products" ("sku", "description", "category", "owner", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["sku", "22"], ["description", "Mantequilla"], ["category", "Producto procesado"], ["owner", false], ["created_at", 2017-05-13 20:00:47 UTC], ["updated_at", 2017-05-13 20:00:47 UTC]]
+  [1m[35m (76.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "products" ("sku", "description", "category", "owner", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["sku", "23"], ["description", "Harina"], ["category", "Producto procesado"], ["owner", false], ["created_at", 2017-05-13 20:00:47 UTC], ["updated_at", 2017-05-13 20:00:47 UTC]]
+  [1m[35m (108.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "products" ("sku", "description", "category", "owner", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["sku", "25"], ["description", "Azúcar"], ["category", "Materia prima"], ["owner", false], ["created_at", 2017-05-13 20:00:47 UTC], ["updated_at", 2017-05-13 20:00:47 UTC]]
+  [1m[35m (116.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "products" ("sku", "description", "category", "owner", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["sku", "26"], ["description", "Sal"], ["category", "Materia prima"], ["owner", true], ["created_at", 2017-05-13 20:00:47 UTC], ["updated_at", 2017-05-13 20:00:47 UTC]]
+  [1m[35m (89.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "products" ("sku", "description", "category", "owner", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["sku", "27"], ["description", "Levadura"], ["category", "Materia prima"], ["owner", false], ["created_at", 2017-05-13 20:00:47 UTC], ["updated_at", 2017-05-13 20:00:47 UTC]]
+  [1m[35m (87.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "products" ("sku", "description", "category", "owner", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["sku", "34"], ["description", "Cerveza"], ["category", "Producto procesado"], ["owner", false], ["created_at", 2017-05-13 20:00:47 UTC], ["updated_at", 2017-05-13 20:00:47 UTC]]
+  [1m[35m (87.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "products" ("sku", "description", "category", "owner", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["sku", "38"], ["description", "Semillas Maravilla"], ["category", "Materia prima"], ["owner", false], ["created_at", 2017-05-13 20:00:47 UTC], ["updated_at", 2017-05-13 20:00:47 UTC]]
+  [1m[35m (97.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "products" ("sku", "description", "category", "owner", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["sku", "39"], ["description", "Uva"], ["category", "Materia prima"], ["owner", true], ["created_at", 2017-05-13 20:00:47 UTC], ["updated_at", 2017-05-13 20:00:47 UTC]]
+  [1m[35m (118.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "products" ("sku", "description", "category", "owner", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["sku", "40"], ["description", "Queso"], ["category", "Producto procesado"], ["owner", true], ["created_at", 2017-05-13 20:00:47 UTC], ["updated_at", 2017-05-13 20:00:47 UTC]]
+  [1m[35m (75.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "products" ("sku", "description", "category", "owner", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["sku", "41"], ["description", "Suero de Leche"], ["category", "Producto procesado"], ["owner", true], ["created_at", 2017-05-13 20:00:48 UTC], ["updated_at", 2017-05-13 20:00:48 UTC]]
+  [1m[35m (98.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "products" ("sku", "description", "category", "owner", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["sku", "42"], ["description", "Cereal Maíz"], ["category", "Producto procesado"], ["owner", false], ["created_at", 2017-05-13 20:00:48 UTC], ["updated_at", 2017-05-13 20:00:48 UTC]]
+  [1m[35m (86.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "products" ("sku", "description", "category", "owner", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["sku", "46"], ["description", "Chocolate"], ["category", "Producto procesado"], ["owner", false], ["created_at", 2017-05-13 20:00:48 UTC], ["updated_at", 2017-05-13 20:00:48 UTC]]
+  [1m[35m (64.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "products" ("sku", "description", "category", "owner", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["sku", "47"], ["description", "Vino"], ["category", "Producto procesado"], ["owner", false], ["created_at", 2017-05-13 20:00:48 UTC], ["updated_at", 2017-05-13 20:00:48 UTC]]
+  [1m[35m (66.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "products" ("sku", "description", "category", "owner", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["sku", "48"], ["description", "Pasta de Sémola"], ["category", "Producto procesado"], ["owner", false], ["created_at", 2017-05-13 20:00:48 UTC], ["updated_at", 2017-05-13 20:00:48 UTC]]
+  [1m[35m (117.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "products" ("sku", "description", "category", "owner", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["sku", "49"], ["description", "Leche Descremada"], ["category", "Producto procesado"], ["owner", true], ["created_at", 2017-05-13 20:00:48 UTC], ["updated_at", 2017-05-13 20:00:48 UTC]]
+  [1m[35m (66.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "products" ("sku", "description", "category", "owner", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["sku", "50"], ["description", "Arroz con Leche"], ["category", "Producto procesado"], ["owner", false], ["created_at", 2017-05-13 20:00:48 UTC], ["updated_at", 2017-05-13 20:00:48 UTC]]
+  [1m[35m (98.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "products" ("sku", "description", "category", "owner", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["sku", "51"], ["description", "Pan Hallulla"], ["category", "Producto procesado"], ["owner", false], ["created_at", 2017-05-13 20:00:48 UTC], ["updated_at", 2017-05-13 20:00:48 UTC]]
+  [1m[35m (87.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "products" ("sku", "description", "category", "owner", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["sku", "52"], ["description", "Harina Integral"], ["category", "Producto procesado"], ["owner", false], ["created_at", 2017-05-13 20:00:48 UTC], ["updated_at", 2017-05-13 20:00:48 UTC]]
+  [1m[35m (87.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "products" ("sku", "description", "category", "owner", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["sku", "53"], ["description", "Pan Integral"], ["category", "Producto procesado"], ["owner", false], ["created_at", 2017-05-13 20:00:48 UTC], ["updated_at", 2017-05-13 20:00:48 UTC]]
+  [1m[35m (87.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "products" ("sku", "description", "category", "owner", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["sku", "54"], ["description", "Hamburguesas"], ["category", "Producto procesado"], ["owner", false], ["created_at", 2017-05-13 20:00:48 UTC], ["updated_at", 2017-05-13 20:00:48 UTC]]
+  [1m[35m (86.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "products" ("sku", "description", "category", "owner", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["sku", "55"], ["description", "Galletas Integrales"], ["category", "Producto procesado"], ["owner", false], ["created_at", 2017-05-13 20:00:49 UTC], ["updated_at", 2017-05-13 20:00:49 UTC]]
+  [1m[35m (89.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "products" ("sku", "description", "category", "owner", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["sku", "56"], ["description", "Hamburguesas de Pollo"], ["category", "Producto procesado"], ["owner", false], ["created_at", 2017-05-13 20:00:49 UTC], ["updated_at", 2017-05-13 20:00:49 UTC]]
+  [1m[35m (96.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35mSQL (84.8ms)[0m  [1m[31mDELETE FROM "contacts"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "1"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.1ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 1], ["supplier_id", 1], ["expected_production_time", #<BigDecimal:55f947a11828,'0.2176E1',18(36)>], ["production_unit_cost", 290], ["min_production_batch", 300], ["created_at", 2017-05-13 20:00:49 UTC], ["updated_at", 2017-05-13 20:00:49 UTC]]
+  [1m[35m (75.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "1"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 1], ["supplier_id", 3], ["expected_production_time", #<BigDecimal:55f9479c9168,'0.3605E1',18(36)>], ["production_unit_cost", 290], ["min_production_batch", 300], ["created_at", 2017-05-13 20:00:49 UTC], ["updated_at", 2017-05-13 20:00:49 UTC]]
+  [1m[35m (96.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "2"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 2], ["supplier_id", 2], ["expected_production_time", #<BigDecimal:55f946fcbd50,'0.2551E1',18(36)>], ["production_unit_cost", 102], ["min_production_batch", 150], ["created_at", 2017-05-13 20:00:49 UTC], ["updated_at", 2017-05-13 20:00:49 UTC]]
+  [1m[35m (95.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "2"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 2], ["supplier_id", 4], ["expected_production_time", #<BigDecimal:55f946f32e98,'0.2011E1',18(36)>], ["production_unit_cost", 102], ["min_production_batch", 150], ["created_at", 2017-05-13 20:00:49 UTC], ["updated_at", 2017-05-13 20:00:49 UTC]]
+  [1m[35m (96.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "2"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 2], ["supplier_id", 6], ["expected_production_time", #<BigDecimal:55f946e03590,'0.2375E1',18(36)>], ["production_unit_cost", 102], ["min_production_batch", 150], ["created_at", 2017-05-13 20:00:49 UTC], ["updated_at", 2017-05-13 20:00:49 UTC]]
+  [1m[35m (84.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "3"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.1ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 3], ["supplier_id", 3], ["expected_production_time", #<BigDecimal:55f946d3e308,'0.2172E1',18(36)>], ["production_unit_cost", 117], ["min_production_batch", 30], ["created_at", 2017-05-13 20:00:49 UTC], ["updated_at", 2017-05-13 20:00:49 UTC]]
+  [1m[35m (84.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "3"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 3], ["supplier_id", 5], ["expected_production_time", #<BigDecimal:55f946c8b230,'0.1726E1',18(36)>], ["production_unit_cost", 117], ["min_production_batch", 30], ["created_at", 2017-05-13 20:00:49 UTC], ["updated_at", 2017-05-13 20:00:49 UTC]]
+  [1m[35m (85.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "4"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 4], ["supplier_id", 4], ["expected_production_time", #<BigDecimal:55f946bc6688,'0.2713E1',18(36)>], ["production_unit_cost", 412], ["min_production_batch", 200], ["created_at", 2017-05-13 20:00:49 UTC], ["updated_at", 2017-05-13 20:00:49 UTC]]
+  [1m[35m (84.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "4"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.1ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 4], ["supplier_id", 6], ["expected_production_time", #<BigDecimal:55f946b35188,'0.2615E1',18(36)>], ["production_unit_cost", 412], ["min_production_batch", 200], ["created_at", 2017-05-13 20:00:50 UTC], ["updated_at", 2017-05-13 20:00:50 UTC]]
+  [1m[35m (84.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "4"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 4], ["supplier_id", 8], ["expected_production_time", #<BigDecimal:55f946a8bd68,'0.1205E1',18(36)>], ["production_unit_cost", 412], ["min_production_batch", 200], ["created_at", 2017-05-13 20:00:50 UTC], ["updated_at", 2017-05-13 20:00:50 UTC]]
+  [1m[35m (62.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "5"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 5], ["supplier_id", 5], ["expected_production_time", #<BigDecimal:55f946a00bc8,'0.3191E1',18(36)>], ["production_unit_cost", 428], ["min_production_batch", 600], ["created_at", 2017-05-13 20:00:50 UTC], ["updated_at", 2017-05-13 20:00:50 UTC]]
+  [1m[35m (64.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "6"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 6], ["supplier_id", 6], ["expected_production_time", #<BigDecimal:55f9468cf600,'0.2916E1',18(36)>], ["production_unit_cost", 514], ["min_production_batch", 30], ["created_at", 2017-05-13 20:00:50 UTC], ["updated_at", 2017-05-13 20:00:50 UTC]]
+  [1m[35m (84.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "6"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.1ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 6], ["supplier_id", 8], ["expected_production_time", #<BigDecimal:55f9467ee6f0,'0.2481E1',18(36)>], ["production_unit_cost", 514], ["min_production_batch", 30], ["created_at", 2017-05-13 20:00:50 UTC], ["updated_at", 2017-05-13 20:00:50 UTC]]
+  [1m[35m (115.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "6"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.1ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 6], ["supplier_id", 2], ["expected_production_time", #<BigDecimal:55f945e6bdf8,'0.2123E1',18(36)>], ["production_unit_cost", 514], ["min_production_batch", 30], ["created_at", 2017-05-13 20:00:50 UTC], ["updated_at", 2017-05-13 20:00:50 UTC]]
+  [1m[35m (98.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "7"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 7], ["supplier_id", 1], ["expected_production_time", #<BigDecimal:55f945c6aba8,'0.1593E1',18(36)>], ["production_unit_cost", 290], ["min_production_batch", 1000], ["created_at", 2017-05-13 20:00:50 UTC], ["updated_at", 2017-05-13 20:00:50 UTC]]
+  [1m[35m (96.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "7"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.1ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 7], ["supplier_id", 3], ["expected_production_time", #<BigDecimal:55f9456ba8e8,'0.2215E1',18(36)>], ["production_unit_cost", 290], ["min_production_batch", 1000], ["created_at", 2017-05-13 20:00:50 UTC], ["updated_at", 2017-05-13 20:00:50 UTC]]
+  [1m[35m (96.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (5.7ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "7"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.1ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 7], ["supplier_id", 5], ["expected_production_time", #<BigDecimal:55f947ed49f0,'0.1441E1',18(36)>], ["production_unit_cost", 290], ["min_production_batch", 1000], ["created_at", 2017-05-13 20:00:50 UTC], ["updated_at", 2017-05-13 20:00:50 UTC]]
+  [1m[35m (166.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "7"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.1ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 7], ["supplier_id", 7], ["expected_production_time", #<BigDecimal:55f947bd8210,'0.3261E1',18(36)>], ["production_unit_cost", 290], ["min_production_batch", 1000], ["created_at", 2017-05-13 20:00:50 UTC], ["updated_at", 2017-05-13 20:00:50 UTC]]
+  [1m[35m (84.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "8"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.1ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 8], ["supplier_id", 2], ["expected_production_time", #<BigDecimal:55f947b0a2e8,'0.1516E1',18(36)>], ["production_unit_cost", 252], ["min_production_batch", 100], ["created_at", 2017-05-13 20:00:51 UTC], ["updated_at", 2017-05-13 20:00:51 UTC]]
+  [1m[35m (84.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "8"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 8], ["supplier_id", 4], ["expected_production_time", #<BigDecimal:55f9483f60f0,'0.2531E1',18(36)>], ["production_unit_cost", 252], ["min_production_batch", 100], ["created_at", 2017-05-13 20:00:51 UTC], ["updated_at", 2017-05-13 20:00:51 UTC]]
+  [1m[35m (86.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "8"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 8], ["supplier_id", 6], ["expected_production_time", #<BigDecimal:55f9483b19a0,'0.3773E1',18(36)>], ["production_unit_cost", 252], ["min_production_batch", 100], ["created_at", 2017-05-13 20:00:51 UTC], ["updated_at", 2017-05-13 20:00:51 UTC]]
+  [1m[35m (82.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "9"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.1ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 9], ["supplier_id", 3], ["expected_production_time", #<BigDecimal:55f948355718,'0.171E1',18(36)>], ["production_unit_cost", 350], ["min_production_batch", 620], ["created_at", 2017-05-13 20:00:51 UTC], ["updated_at", 2017-05-13 20:00:51 UTC]]
+  [1m[35m (85.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "9"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 9], ["supplier_id", 5], ["expected_production_time", #<BigDecimal:55f9482d6120,'0.2846E1',18(36)>], ["production_unit_cost", 350], ["min_production_batch", 620], ["created_at", 2017-05-13 20:00:51 UTC], ["updated_at", 2017-05-13 20:00:51 UTC]]
+  [1m[35m (96.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "10"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 10], ["supplier_id", 4], ["expected_production_time", #<BigDecimal:55f94827f938,'0.2771E1',18(36)>], ["production_unit_cost", 1084], ["min_production_batch", 900], ["created_at", 2017-05-13 20:00:51 UTC], ["updated_at", 2017-05-13 20:00:51 UTC]]
+  [1m[35m (85.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "11"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 11], ["supplier_id", 5], ["expected_production_time", #<BigDecimal:55f9482094e0,'0.3074E1',18(36)>], ["production_unit_cost", 247], ["min_production_batch", 900], ["created_at", 2017-05-13 20:00:51 UTC], ["updated_at", 2017-05-13 20:00:51 UTC]]
+  [1m[35m (106.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "12"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 12], ["supplier_id", 6], ["expected_production_time", #<BigDecimal:55f9481cdf30,'0.3623E1',18(36)>], ["production_unit_cost", 624], ["min_production_batch", 400], ["created_at", 2017-05-13 20:00:51 UTC], ["updated_at", 2017-05-13 20:00:51 UTC]]
+  [1m[35m (63.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "13"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 13], ["supplier_id", 7], ["expected_production_time", #<BigDecimal:55f94816cd98,'0.1304E1',18(36)>], ["production_unit_cost", 358], ["min_production_batch", 1000], ["created_at", 2017-05-13 20:00:51 UTC], ["updated_at", 2017-05-13 20:00:51 UTC]]
+  [1m[35m (97.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "13"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 13], ["supplier_id", 1], ["expected_production_time", #<BigDecimal:55f9480e90b0,'0.3256E1',18(36)>], ["production_unit_cost", 358], ["min_production_batch", 1000], ["created_at", 2017-05-13 20:00:51 UTC], ["updated_at", 2017-05-13 20:00:51 UTC]]
+  [1m[35m (251.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "13"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 13], ["supplier_id", 3], ["expected_production_time", #<BigDecimal:55f9480b9220,'0.3164E1',18(36)>], ["production_unit_cost", 358], ["min_production_batch", 1000], ["created_at", 2017-05-13 20:00:52 UTC], ["updated_at", 2017-05-13 20:00:52 UTC]]
+  [1m[35m (84.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "14"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.1ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 14], ["supplier_id", 2], ["expected_production_time", #<BigDecimal:55f94807ed00,'0.1816E1',18(36)>], ["production_unit_cost", 296], ["min_production_batch", 1750], ["created_at", 2017-05-13 20:00:52 UTC], ["updated_at", 2017-05-13 20:00:52 UTC]]
+  [1m[35m (84.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "14"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 14], ["supplier_id", 4], ["expected_production_time", #<BigDecimal:55f947ffce68,'0.122E1',18(36)>], ["production_unit_cost", 296], ["min_production_batch", 1750], ["created_at", 2017-05-13 20:00:52 UTC], ["updated_at", 2017-05-13 20:00:52 UTC]]
+  [1m[35m (85.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "15"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 15], ["supplier_id", 3], ["expected_production_time", #<BigDecimal:55f947fae1a0,'0.2669E1',18(36)>], ["production_unit_cost", 276], ["min_production_batch", 480], ["created_at", 2017-05-13 20:00:52 UTC], ["updated_at", 2017-05-13 20:00:52 UTC]]
+  [1m[35m (84.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "15"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.1ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 15], ["supplier_id", 5], ["expected_production_time", #<BigDecimal:55f947f46910,'0.143E1',18(36)>], ["production_unit_cost", 276], ["min_production_batch", 480], ["created_at", 2017-05-13 20:00:52 UTC], ["updated_at", 2017-05-13 20:00:52 UTC]]
+  [1m[35m (84.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "16"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 16], ["supplier_id", 4], ["expected_production_time", #<BigDecimal:55f947efc4a0,'0.2493E1',18(36)>], ["production_unit_cost", 612], ["min_production_batch", 1000], ["created_at", 2017-05-13 20:00:52 UTC], ["updated_at", 2017-05-13 20:00:52 UTC]]
+  [1m[35m (62.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "17"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 17], ["supplier_id", 5], ["expected_production_time", #<BigDecimal:55f947e747f8,'0.1158E1',18(36)>], ["production_unit_cost", 821], ["min_production_batch", 1000], ["created_at", 2017-05-13 20:00:52 UTC], ["updated_at", 2017-05-13 20:00:52 UTC]]
+  [1m[35m (85.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "18"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.1ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 18], ["supplier_id", 6], ["expected_production_time", #<BigDecimal:55f947e51af0,'0.248E1',18(36)>], ["production_unit_cost", 331], ["min_production_batch", 200], ["created_at", 2017-05-13 20:00:52 UTC], ["updated_at", 2017-05-13 20:00:52 UTC]]
+  [1m[35m (103.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "19"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 19], ["supplier_id", 6], ["expected_production_time", #<BigDecimal:55f947e28380,'0.1285E1',18(36)>], ["production_unit_cost", 116], ["min_production_batch", 1420], ["created_at", 2017-05-13 20:00:52 UTC], ["updated_at", 2017-05-13 20:00:52 UTC]]
+  [1m[35m (107.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "19"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 19], ["supplier_id", 8], ["expected_production_time", #<BigDecimal:55f947d3cb60,'0.1881E1',18(36)>], ["production_unit_cost", 116], ["min_production_batch", 1420], ["created_at", 2017-05-13 20:00:52 UTC], ["updated_at", 2017-05-13 20:00:52 UTC]]
+  [1m[35m (263.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "20"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 20], ["supplier_id", 2], ["expected_production_time", #<BigDecimal:55f947bd34e0,'0.3475E1',18(36)>], ["production_unit_cost", 172], ["min_production_batch", 60], ["created_at", 2017-05-13 20:00:53 UTC], ["updated_at", 2017-05-13 20:00:53 UTC]]
+  [1m[35m (96.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "20"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 20], ["supplier_id", 4], ["expected_production_time", #<BigDecimal:55f947b9fca8,'0.1955E1',18(36)>], ["production_unit_cost", 172], ["min_production_batch", 60], ["created_at", 2017-05-13 20:00:53 UTC], ["updated_at", 2017-05-13 20:00:53 UTC]]
+  [1m[35m (229.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "20"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.1ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 20], ["supplier_id", 6], ["expected_production_time", #<BigDecimal:55f947b73298,'0.3356E1',18(36)>], ["production_unit_cost", 172], ["min_production_batch", 60], ["created_at", 2017-05-13 20:00:53 UTC], ["updated_at", 2017-05-13 20:00:53 UTC]]
+  [1m[35m (96.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "20"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 20], ["supplier_id", 8], ["expected_production_time", #<BigDecimal:55f947b46450,'0.2258E1',18(36)>], ["production_unit_cost", 172], ["min_production_batch", 60], ["created_at", 2017-05-13 20:00:53 UTC], ["updated_at", 2017-05-13 20:00:53 UTC]]
+  [1m[35m (243.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "22"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.1ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 22], ["supplier_id", 1], ["expected_production_time", #<BigDecimal:55f947b22cf8,'0.1283E1',18(36)>], ["production_unit_cost", 336], ["min_production_batch", 400], ["created_at", 2017-05-13 20:00:53 UTC], ["updated_at", 2017-05-13 20:00:53 UTC]]
+  [1m[35m (91.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "22"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 22], ["supplier_id", 3], ["expected_production_time", #<BigDecimal:55f947af04b0,'0.2456E1',18(36)>], ["production_unit_cost", 336], ["min_production_batch", 400], ["created_at", 2017-05-13 20:00:53 UTC], ["updated_at", 2017-05-13 20:00:53 UTC]]
+  [1m[35m (240.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "22"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 22], ["supplier_id", 5], ["expected_production_time", #<BigDecimal:55f947aa1ec8,'0.1832E1',18(36)>], ["production_unit_cost", 336], ["min_production_batch", 400], ["created_at", 2017-05-13 20:00:54 UTC], ["updated_at", 2017-05-13 20:00:54 UTC]]
+  [1m[35m (261.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "23"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.1ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 23], ["supplier_id", 6], ["expected_production_time", #<BigDecimal:55f947a71228,'0.1555E1',18(36)>], ["production_unit_cost", 364], ["min_production_batch", 300], ["created_at", 2017-05-13 20:00:54 UTC], ["updated_at", 2017-05-13 20:00:54 UTC]]
+  [1m[35m (90.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "23"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 23], ["supplier_id", 7], ["expected_production_time", #<BigDecimal:55f947a383d8,'0.1196E1',18(36)>], ["production_unit_cost", 364], ["min_production_batch", 300], ["created_at", 2017-05-13 20:00:54 UTC], ["updated_at", 2017-05-13 20:00:54 UTC]]
+  [1m[35m (262.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "23"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 23], ["supplier_id", 8], ["expected_production_time", #<BigDecimal:55f947a0c800,'0.91E0',9(36)>], ["production_unit_cost", 364], ["min_production_batch", 300], ["created_at", 2017-05-13 20:00:54 UTC], ["updated_at", 2017-05-13 20:00:54 UTC]]
+  [1m[35m (264.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "23"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 23], ["supplier_id", 1], ["expected_production_time", #<BigDecimal:55f9479b4bc8,'0.2912E1',18(36)>], ["production_unit_cost", 364], ["min_production_batch", 300], ["created_at", 2017-05-13 20:00:55 UTC], ["updated_at", 2017-05-13 20:00:55 UTC]]
+  [1m[35m (107.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "25"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 25], ["supplier_id", 1], ["expected_production_time", #<BigDecimal:55f946fa6280,'0.821E0',9(36)>], ["production_unit_cost", 93], ["min_production_batch", 560], ["created_at", 2017-05-13 20:00:55 UTC], ["updated_at", 2017-05-13 20:00:55 UTC]]
+  [1m[35m (250.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "25"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 25], ["supplier_id", 3], ["expected_production_time", #<BigDecimal:55f946f18548,'0.3254E1',18(36)>], ["production_unit_cost", 93], ["min_production_batch", 560], ["created_at", 2017-05-13 20:00:55 UTC], ["updated_at", 2017-05-13 20:00:55 UTC]]
+  [1m[35m (252.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "25"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 25], ["supplier_id", 5], ["expected_production_time", #<BigDecimal:55f946dba0e8,'0.2785E1',18(36)>], ["production_unit_cost", 93], ["min_production_batch", 560], ["created_at", 2017-05-13 20:00:55 UTC], ["updated_at", 2017-05-13 20:00:55 UTC]]
+  [1m[35m (84.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "25"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.1ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 25], ["supplier_id", 7], ["expected_production_time", #<BigDecimal:55f946cf9690,'0.945E0',9(36)>], ["production_unit_cost", 93], ["min_production_batch", 560], ["created_at", 2017-05-13 20:00:55 UTC], ["updated_at", 2017-05-13 20:00:55 UTC]]
+  [1m[35m (240.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "26"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 26], ["supplier_id", 2], ["expected_production_time", #<BigDecimal:55f946c387d8,'0.2609E1',18(36)>], ["production_unit_cost", 99], ["min_production_batch", 144], ["created_at", 2017-05-13 20:00:56 UTC], ["updated_at", 2017-05-13 20:00:56 UTC]]
+  [1m[35m (240.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "26"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.1ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 26], ["supplier_id", 4], ["expected_production_time", #<BigDecimal:55f946b88c20,'0.1242E1',18(36)>], ["production_unit_cost", 99], ["min_production_batch", 144], ["created_at", 2017-05-13 20:00:56 UTC], ["updated_at", 2017-05-13 20:00:56 UTC]]
+  [1m[35m (236.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "26"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 26], ["supplier_id", 6], ["expected_production_time", #<BigDecimal:55f946aed180,'0.1092E1',18(36)>], ["production_unit_cost", 99], ["min_production_batch", 144], ["created_at", 2017-05-13 20:00:56 UTC], ["updated_at", 2017-05-13 20:00:56 UTC]]
+  [1m[35m (74.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "26"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.1ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 26], ["supplier_id", 8], ["expected_production_time", #<BigDecimal:55f946a0daf8,'0.3059E1',18(36)>], ["production_unit_cost", 99], ["min_production_batch", 144], ["created_at", 2017-05-13 20:00:56 UTC], ["updated_at", 2017-05-13 20:00:56 UTC]]
+  [1m[35m (239.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "27"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 27], ["supplier_id", 6], ["expected_production_time", #<BigDecimal:55f9469174f0,'0.3209E1',18(36)>], ["production_unit_cost", 232], ["min_production_batch", 620], ["created_at", 2017-05-13 20:00:56 UTC], ["updated_at", 2017-05-13 20:00:56 UTC]]
+  [1m[35m (163.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "27"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.1ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 27], ["supplier_id", 7], ["expected_production_time", #<BigDecimal:55f94681a7f0,'0.3439E1',18(36)>], ["production_unit_cost", 232], ["min_production_batch", 620], ["created_at", 2017-05-13 20:00:57 UTC], ["updated_at", 2017-05-13 20:00:57 UTC]]
+  [1m[35m (250.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "27"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 27], ["supplier_id", 8], ["expected_production_time", #<BigDecimal:55f945ec3f30,'0.1566E1',18(36)>], ["production_unit_cost", 232], ["min_production_batch", 620], ["created_at", 2017-05-13 20:00:57 UTC], ["updated_at", 2017-05-13 20:00:57 UTC]]
+  [1m[35m (240.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "34"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.1ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 34], ["supplier_id", 1], ["expected_production_time", #<BigDecimal:55f945cd2730,'0.1626E1',18(36)>], ["production_unit_cost", 557], ["min_production_batch", 700], ["created_at", 2017-05-13 20:00:57 UTC], ["updated_at", 2017-05-13 20:00:57 UTC]]
+  [1m[35m (276.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "38"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 38], ["supplier_id", 7], ["expected_production_time", #<BigDecimal:55f94574d288,'0.3128E1',18(36)>], ["production_unit_cost", 379], ["min_production_batch", 30], ["created_at", 2017-05-13 20:00:57 UTC], ["updated_at", 2017-05-13 20:00:57 UTC]]
+  [1m[35m (216.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "38"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.1ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 38], ["supplier_id", 8], ["expected_production_time", #<BigDecimal:55f947ed6340,'0.3462E1',18(36)>], ["production_unit_cost", 379], ["min_production_batch", 30], ["created_at", 2017-05-13 20:00:58 UTC], ["updated_at", 2017-05-13 20:00:58 UTC]]
+  [1m[35m (244.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "39"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 39], ["supplier_id", 1], ["expected_production_time", #<BigDecimal:55f947bd6870,'0.3159E1',18(36)>], ["production_unit_cost", 233], ["min_production_batch", 250], ["created_at", 2017-05-13 20:00:58 UTC], ["updated_at", 2017-05-13 20:00:58 UTC]]
+  [1m[35m (395.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "39"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 39], ["supplier_id", 2], ["expected_production_time", #<BigDecimal:55f947a62250,'0.3331E1',18(36)>], ["production_unit_cost", 233], ["min_production_batch", 250], ["created_at", 2017-05-13 20:00:58 UTC], ["updated_at", 2017-05-13 20:00:58 UTC]]
+  [1m[35m (913.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "40"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.1ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 40], ["supplier_id", 2], ["expected_production_time", #<BigDecimal:55f9483e96c0,'0.865E0',9(36)>], ["production_unit_cost", 596], ["min_production_batch", 900], ["created_at", 2017-05-13 20:00:59 UTC], ["updated_at", 2017-05-13 20:00:59 UTC]]
+  [1m[35m (401.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "41"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 41], ["supplier_id", 2], ["expected_production_time", #<BigDecimal:55f948389450,'0.1687E1',18(36)>], ["production_unit_cost", 256], ["min_production_batch", 200], ["created_at", 2017-05-13 20:01:00 UTC], ["updated_at", 2017-05-13 20:01:00 UTC]]
+  [1m[35m (327.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "41"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.1ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 41], ["supplier_id", 3], ["expected_production_time", #<BigDecimal:55f94831ee48,'0.146E1',18(36)>], ["production_unit_cost", 256], ["min_production_batch", 200], ["created_at", 2017-05-13 20:01:00 UTC], ["updated_at", 2017-05-13 20:01:00 UTC]]
+  [1m[35m (81.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "41"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 41], ["supplier_id", 7], ["expected_production_time", #<BigDecimal:55f9482aba10,'0.2091E1',18(36)>], ["production_unit_cost", 256], ["min_production_batch", 200], ["created_at", 2017-05-13 20:01:00 UTC], ["updated_at", 2017-05-13 20:01:00 UTC]]
+  [1m[35m (74.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "42"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 42], ["supplier_id", 8], ["expected_production_time", #<BigDecimal:55f9482530b8,'0.2743E1',18(36)>], ["production_unit_cost", 812], ["min_production_batch", 200], ["created_at", 2017-05-13 20:01:00 UTC], ["updated_at", 2017-05-13 20:01:00 UTC]]
+  [1m[35m (84.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "46"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 46], ["supplier_id", 1], ["expected_production_time", #<BigDecimal:55f9481e7818,'0.1848E1',18(36)>], ["production_unit_cost", 424], ["min_production_batch", 800], ["created_at", 2017-05-13 20:01:00 UTC], ["updated_at", 2017-05-13 20:01:00 UTC]]
+  [1m[35m (85.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "47"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 47], ["supplier_id", 7], ["expected_production_time", #<BigDecimal:55f94819e578,'0.1236E1',18(36)>], ["production_unit_cost", 550], ["min_production_batch", 1000], ["created_at", 2017-05-13 20:01:00 UTC], ["updated_at", 2017-05-13 20:01:00 UTC]]
+  [1m[35m (84.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "48"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.1ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 48], ["supplier_id", 3], ["expected_production_time", #<BigDecimal:55f948154b80,'0.1665E1',18(36)>], ["production_unit_cost", 786], ["min_production_batch", 500], ["created_at", 2017-05-13 20:01:00 UTC], ["updated_at", 2017-05-13 20:01:00 UTC]]
+  [1m[35m (111.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "49"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.1ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 49], ["supplier_id", 1], ["expected_production_time", #<BigDecimal:55f9480d0ab0,'0.2046E1',18(36)>], ["production_unit_cost", 268], ["min_production_batch", 200], ["created_at", 2017-05-13 20:01:00 UTC], ["updated_at", 2017-05-13 20:01:00 UTC]]
+  [1m[35m (78.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "49"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 49], ["supplier_id", 2], ["expected_production_time", #<BigDecimal:55f94807df18,'0.2368E1',18(36)>], ["production_unit_cost", 268], ["min_production_batch", 200], ["created_at", 2017-05-13 20:01:01 UTC], ["updated_at", 2017-05-13 20:01:01 UTC]]
+  [1m[35m (74.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "49"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.1ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 49], ["supplier_id", 3], ["expected_production_time", #<BigDecimal:55f94800c778,'0.1846E1',18(36)>], ["production_unit_cost", 268], ["min_production_batch", 200], ["created_at", 2017-05-13 20:01:01 UTC], ["updated_at", 2017-05-13 20:01:01 UTC]]
+  [1m[35m (73.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "50"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.1ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 50], ["supplier_id", 4], ["expected_production_time", #<BigDecimal:55f947fb6c88,'0.2832E1',18(36)>], ["production_unit_cost", 773], ["min_production_batch", 350], ["created_at", 2017-05-13 20:01:01 UTC], ["updated_at", 2017-05-13 20:01:01 UTC]]
+  [1m[35m (74.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "51"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.1ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 51], ["supplier_id", 7], ["expected_production_time", #<BigDecimal:55f947f52738,'0.3061E1',18(36)>], ["production_unit_cost", 948], ["min_production_batch", 600], ["created_at", 2017-05-13 20:01:01 UTC], ["updated_at", 2017-05-13 20:01:01 UTC]]
+  [1m[35m (82.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "52"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.1ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 52], ["supplier_id", 3], ["expected_production_time", #<BigDecimal:55f947ef9f98,'0.1443E1',18(36)>], ["production_unit_cost", 410], ["min_production_batch", 890], ["created_at", 2017-05-13 20:01:01 UTC], ["updated_at", 2017-05-13 20:01:01 UTC]]
+  [1m[35m (75.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "52"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 52], ["supplier_id", 5], ["expected_production_time", #<BigDecimal:55f947e7a6a8,'0.1506E1',18(36)>], ["production_unit_cost", 410], ["min_production_batch", 890], ["created_at", 2017-05-13 20:01:01 UTC], ["updated_at", 2017-05-13 20:01:01 UTC]]
+  [1m[35m (105.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "52"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 52], ["supplier_id", 7], ["expected_production_time", #<BigDecimal:55f947e4ea80,'0.1897E1',18(36)>], ["production_unit_cost", 410], ["min_production_batch", 890], ["created_at", 2017-05-13 20:01:01 UTC], ["updated_at", 2017-05-13 20:01:01 UTC]]
+  [1m[35m (140.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "53"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 53], ["supplier_id", 8], ["expected_production_time", #<BigDecimal:55f947e26738,'0.24E1',18(36)>], ["production_unit_cost", 934], ["min_production_batch", 620], ["created_at", 2017-05-13 20:01:01 UTC], ["updated_at", 2017-05-13 20:01:01 UTC]]
+  [1m[35m (85.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "54"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 54], ["supplier_id", 4], ["expected_production_time", #<BigDecimal:55f947d3d448,'0.86E0',9(36)>], ["production_unit_cost", 606], ["min_production_batch", 1800], ["created_at", 2017-05-13 20:01:01 UTC], ["updated_at", 2017-05-13 20:01:01 UTC]]
+  [1m[35m (96.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "55"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 55], ["supplier_id", 4], ["expected_production_time", #<BigDecimal:55f947bcfa48,'0.3283E1',18(36)>], ["production_unit_cost", 925], ["min_production_batch", 950], ["created_at", 2017-05-13 20:01:01 UTC], ["updated_at", 2017-05-13 20:01:01 UTC]]
+  [1m[35m (84.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "56"], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.1ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "contacts" ("product_id", "supplier_id", "expected_production_time", "production_unit_cost", "min_production_batch", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["product_id", 56], ["supplier_id", 5], ["expected_production_time", #<BigDecimal:55f947b9c9e0,'0.1533E1',18(36)>], ["production_unit_cost", 479], ["min_production_batch", 620], ["created_at", 2017-05-13 20:01:01 UTC], ["updated_at", 2017-05-13 20:01:01 UTC]]
+  [1m[35m (109.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35mSQL (105.8ms)[0m  [1m[31mDELETE FROM "recipes"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "4"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "38"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "4"], ["needed_product_sku", "38"], ["final_product_unit", "Kg"], ["requirement", 190], ["requirement_unit", "Lts"], ["created_at", 2017-05-13 20:01:02 UTC], ["updated_at", 2017-05-13 20:01:02 UTC]]
+  [1m[35m (91.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "5"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "49"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "5"], ["needed_product_sku", "49"], ["final_product_unit", "Lts"], ["requirement", 228], ["requirement_unit", "Lts"], ["created_at", 2017-05-13 20:01:02 UTC], ["updated_at", 2017-05-13 20:01:02 UTC]]
+  [1m[35m (96.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "5"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "6"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "5"], ["needed_product_sku", "6"], ["final_product_unit", "Lts"], ["requirement", 228], ["requirement_unit", "Lts"], ["created_at", 2017-05-13 20:01:02 UTC], ["updated_at", 2017-05-13 20:01:02 UTC]]
+  [1m[35m (97.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "5"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "41"], ["LIMIT", 1]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "5"], ["needed_product_sku", "41"], ["final_product_unit", "Lts"], ["requirement", 194], ["requirement_unit", "Lts"], ["created_at", 2017-05-13 20:01:02 UTC], ["updated_at", 2017-05-13 20:01:02 UTC]]
+  [1m[35m (97.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "6"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "49"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "6"], ["needed_product_sku", "49"], ["final_product_unit", "Lts"], ["requirement", 100], ["requirement_unit", "Lts"], ["created_at", 2017-05-13 20:01:02 UTC], ["updated_at", 2017-05-13 20:01:02 UTC]]
+  [1m[35m (275.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "6"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "7"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "6"], ["needed_product_sku", "7"], ["final_product_unit", "Lts"], ["requirement", 300], ["requirement_unit", "Lts"], ["created_at", 2017-05-13 20:01:02 UTC], ["updated_at", 2017-05-13 20:01:02 UTC]]
+  [1m[35m (94.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "10"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "23"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "10"], ["needed_product_sku", "23"], ["final_product_unit", "Kg"], ["requirement", 342], ["requirement_unit", "Kg"], ["created_at", 2017-05-13 20:01:02 UTC], ["updated_at", 2017-05-13 20:01:02 UTC]]
+  [1m[35m (95.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "10"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "26"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "10"], ["needed_product_sku", "26"], ["final_product_unit", "Kg"], ["requirement", 309], ["requirement_unit", "Kg"], ["created_at", 2017-05-13 20:01:03 UTC], ["updated_at", 2017-05-13 20:01:03 UTC]]
+  [1m[35m (107.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "10"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "4"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "10"], ["needed_product_sku", "4"], ["final_product_unit", "Lts"], ["requirement", 100], ["requirement_unit", "Kg"], ["created_at", 2017-05-13 20:01:03 UTC], ["updated_at", 2017-05-13 20:01:03 UTC]]
+  [1m[35m (107.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "10"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "27"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "10"], ["needed_product_sku", "27"], ["final_product_unit", "Kg"], ["requirement", 279], ["requirement_unit", "Kg"], ["created_at", 2017-05-13 20:01:03 UTC], ["updated_at", 2017-05-13 20:01:03 UTC]]
+  [1m[35m (98.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "11"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "4"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "11"], ["needed_product_sku", "4"], ["final_product_unit", "Lts"], ["requirement", 828], ["requirement_unit", "Kg"], ["created_at", 2017-05-13 20:01:03 UTC], ["updated_at", 2017-05-13 20:01:03 UTC]]
+  [1m[35m (107.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "12"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "25"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "12"], ["needed_product_sku", "25"], ["final_product_unit", "Kg"], ["requirement", 133], ["requirement_unit", "Kg"], ["created_at", 2017-05-13 20:01:03 UTC], ["updated_at", 2017-05-13 20:01:03 UTC]]
+  [1m[35m (107.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "12"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "20"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "12"], ["needed_product_sku", "20"], ["final_product_unit", "Kg"], ["requirement", 147], ["requirement_unit", "Kg"], ["created_at", 2017-05-13 20:01:03 UTC], ["updated_at", 2017-05-13 20:01:03 UTC]]
+  [1m[35m (118.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "12"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "15"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "12"], ["needed_product_sku", "15"], ["final_product_unit", "Kg"], ["requirement", 113], ["requirement_unit", "Kg"], ["created_at", 2017-05-13 20:01:03 UTC], ["updated_at", 2017-05-13 20:01:03 UTC]]
+  [1m[35m (326.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "16"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "23"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "16"], ["needed_product_sku", "23"], ["final_product_unit", "Kg"], ["requirement", 330], ["requirement_unit", "Kg"], ["created_at", 2017-05-13 20:01:04 UTC], ["updated_at", 2017-05-13 20:01:04 UTC]]
+  [1m[35m (86.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "16"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "26"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "16"], ["needed_product_sku", "26"], ["final_product_unit", "Kg"], ["requirement", 313], ["requirement_unit", "Kg"], ["created_at", 2017-05-13 20:01:04 UTC], ["updated_at", 2017-05-13 20:01:04 UTC]]
+  [1m[35m (64.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "16"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "2"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "16"], ["needed_product_sku", "2"], ["final_product_unit", "Un"], ["requirement", 383], ["requirement_unit", "Kg"], ["created_at", 2017-05-13 20:01:04 UTC], ["updated_at", 2017-05-13 20:01:04 UTC]]
+  [1m[35m (84.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "17"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "25"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "17"], ["needed_product_sku", "25"], ["final_product_unit", "Kg"], ["requirement", 360], ["requirement_unit", "Kg"], ["created_at", 2017-05-13 20:01:04 UTC], ["updated_at", 2017-05-13 20:01:04 UTC]]
+  [1m[35m (91.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "17"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "20"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "17"], ["needed_product_sku", "20"], ["final_product_unit", "Kg"], ["requirement", 350], ["requirement_unit", "Kg"], ["created_at", 2017-05-13 20:01:04 UTC], ["updated_at", 2017-05-13 20:01:04 UTC]]
+  [1m[35m (84.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "17"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "13"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "17"], ["needed_product_sku", "13"], ["final_product_unit", "Kg"], ["requirement", 290], ["requirement_unit", "Kg"], ["created_at", 2017-05-13 20:01:04 UTC], ["updated_at", 2017-05-13 20:01:04 UTC]]
+  [1m[35m (85.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "18"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "23"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "18"], ["needed_product_sku", "23"], ["final_product_unit", "Kg"], ["requirement", 72], ["requirement_unit", "Un"], ["created_at", 2017-05-13 20:01:04 UTC], ["updated_at", 2017-05-13 20:01:04 UTC]]
+  [1m[35m (74.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "18"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "2"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "18"], ["needed_product_sku", "2"], ["final_product_unit", "Un"], ["requirement", 71], ["requirement_unit", "Un"], ["created_at", 2017-05-13 20:01:04 UTC], ["updated_at", 2017-05-13 20:01:04 UTC]]
+  [1m[35m (96.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "18"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "7"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "18"], ["needed_product_sku", "7"], ["final_product_unit", "Lts"], ["requirement", 67], ["requirement_unit", "Un"], ["created_at", 2017-05-13 20:01:04 UTC], ["updated_at", 2017-05-13 20:01:04 UTC]]
+  [1m[35m (82.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "22"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "6"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "22"], ["needed_product_sku", "6"], ["final_product_unit", "Lts"], ["requirement", 380], ["requirement_unit", "Kg"], ["created_at", 2017-05-13 20:01:04 UTC], ["updated_at", 2017-05-13 20:01:04 UTC]]
+  [1m[35m (64.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "23"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "8"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "23"], ["needed_product_sku", "8"], ["final_product_unit", "Kg"], ["requirement", 309], ["requirement_unit", "Kg"], ["created_at", 2017-05-13 20:01:04 UTC], ["updated_at", 2017-05-13 20:01:04 UTC]]
+  [1m[35m (219.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "34"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "14"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "34"], ["needed_product_sku", "14"], ["final_product_unit", "Kg"], ["requirement", 333], ["requirement_unit", "Lts"], ["created_at", 2017-05-13 20:01:05 UTC], ["updated_at", 2017-05-13 20:01:05 UTC]]
+  [1m[35m (84.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "34"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "27"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "34"], ["needed_product_sku", "27"], ["final_product_unit", "Kg"], ["requirement", 319], ["requirement_unit", "Lts"], ["created_at", 2017-05-13 20:01:05 UTC], ["updated_at", 2017-05-13 20:01:05 UTC]]
+  [1m[35m (296.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "40"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "7"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "40"], ["needed_product_sku", "7"], ["final_product_unit", "Lts"], ["requirement", 1000], ["requirement_unit", "Kg"], ["created_at", 2017-05-13 20:01:05 UTC], ["updated_at", 2017-05-13 20:01:05 UTC]]
+  [1m[35m (241.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "40"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "41"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "40"], ["needed_product_sku", "41"], ["final_product_unit", "Lts"], ["requirement", 800], ["requirement_unit", "Kg"], ["created_at", 2017-05-13 20:01:05 UTC], ["updated_at", 2017-05-13 20:01:05 UTC]]
+  [1m[35m (84.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "41"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "7"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "41"], ["needed_product_sku", "7"], ["final_product_unit", "Lts"], ["requirement", 2000], ["requirement_unit", "Lts"], ["created_at", 2017-05-13 20:01:05 UTC], ["updated_at", 2017-05-13 20:01:05 UTC]]
+  [1m[35m (229.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "42"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "25"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "42"], ["needed_product_sku", "25"], ["final_product_unit", "Kg"], ["requirement", 67], ["requirement_unit", "Kg"], ["created_at", 2017-05-13 20:01:06 UTC], ["updated_at", 2017-05-13 20:01:06 UTC]]
+  [1m[35m (85.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "42"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "20"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "42"], ["needed_product_sku", "20"], ["final_product_unit", "Kg"], ["requirement", 71], ["requirement_unit", "Kg"], ["created_at", 2017-05-13 20:01:06 UTC], ["updated_at", 2017-05-13 20:01:06 UTC]]
+  [1m[35m (240.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "42"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "3"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "42"], ["needed_product_sku", "3"], ["final_product_unit", "Kg"], ["requirement", 69], ["requirement_unit", "Kg"], ["created_at", 2017-05-13 20:01:06 UTC], ["updated_at", 2017-05-13 20:01:06 UTC]]
+  [1m[35m (263.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "46"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "20"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "46"], ["needed_product_sku", "20"], ["final_product_unit", "Kg"], ["requirement", 296], ["requirement_unit", "Kg"], ["created_at", 2017-05-13 20:01:06 UTC], ["updated_at", 2017-05-13 20:01:06 UTC]]
+  [1m[35m (96.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "46"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "25"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "46"], ["needed_product_sku", "25"], ["final_product_unit", "Kg"], ["requirement", 269], ["requirement_unit", "Kg"], ["created_at", 2017-05-13 20:01:06 UTC], ["updated_at", 2017-05-13 20:01:06 UTC]]
+  [1m[35m (252.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "46"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "7"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "46"], ["needed_product_sku", "7"], ["final_product_unit", "Lts"], ["requirement", 251], ["requirement_unit", "Kg"], ["created_at", 2017-05-13 20:01:07 UTC], ["updated_at", 2017-05-13 20:01:07 UTC]]
+  [1m[35m (252.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "47"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "39"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "47"], ["needed_product_sku", "39"], ["final_product_unit", "Kg"], ["requirement", 495], ["requirement_unit", "Lts"], ["created_at", 2017-05-13 20:01:07 UTC], ["updated_at", 2017-05-13 20:01:07 UTC]]
+  [1m[35m (251.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "47"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "27"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "47"], ["needed_product_sku", "27"], ["final_product_unit", "Kg"], ["requirement", 570], ["requirement_unit", "Lts"], ["created_at", 2017-05-13 20:01:07 UTC], ["updated_at", 2017-05-13 20:01:07 UTC]]
+  [1m[35m (82.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "47"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "25"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "47"], ["needed_product_sku", "25"], ["final_product_unit", "Kg"], ["requirement", 1000], ["requirement_unit", "Lts"], ["created_at", 2017-05-13 20:01:07 UTC], ["updated_at", 2017-05-13 20:01:07 UTC]]
+  [1m[35m (240.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "48"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "19"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "48"], ["needed_product_sku", "19"], ["final_product_unit", "Kg"], ["requirement", 160], ["requirement_unit", "Kg"], ["created_at", 2017-05-13 20:01:07 UTC], ["updated_at", 2017-05-13 20:01:07 UTC]]
+  [1m[35m (274.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "48"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "26"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "48"], ["needed_product_sku", "26"], ["final_product_unit", "Kg"], ["requirement", 172], ["requirement_unit", "Kg"], ["created_at", 2017-05-13 20:01:08 UTC], ["updated_at", 2017-05-13 20:01:08 UTC]]
+  [1m[35m (249.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "48"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "2"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "48"], ["needed_product_sku", "2"], ["final_product_unit", "Un"], ["requirement", 155], ["requirement_unit", "Kg"], ["created_at", 2017-05-13 20:01:08 UTC], ["updated_at", 2017-05-13 20:01:08 UTC]]
+  [1m[35m (161.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "49"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "7"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "49"], ["needed_product_sku", "7"], ["final_product_unit", "Lts"], ["requirement", 222], ["requirement_unit", "Lts"], ["created_at", 2017-05-13 20:01:08 UTC], ["updated_at", 2017-05-13 20:01:08 UTC]]
+  [1m[35m (94.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "50"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "7"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "50"], ["needed_product_sku", "7"], ["final_product_unit", "Lts"], ["requirement", 200], ["requirement_unit", "Kg"], ["created_at", 2017-05-13 20:01:08 UTC], ["updated_at", 2017-05-13 20:01:08 UTC]]
+  [1m[35m (96.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "50"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "25"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "50"], ["needed_product_sku", "25"], ["final_product_unit", "Kg"], ["requirement", 41], ["requirement_unit", "Kg"], ["created_at", 2017-05-13 20:01:08 UTC], ["updated_at", 2017-05-13 20:01:08 UTC]]
+  [1m[35m (172.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "50"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "13"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "50"], ["needed_product_sku", "13"], ["final_product_unit", "Kg"], ["requirement", 100], ["requirement_unit", "Kg"], ["created_at", 2017-05-13 20:01:08 UTC], ["updated_at", 2017-05-13 20:01:08 UTC]]
+  [1m[35m (95.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "51"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "23"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "51"], ["needed_product_sku", "23"], ["final_product_unit", "Kg"], ["requirement", 800], ["requirement_unit", "Kg"], ["created_at", 2017-05-13 20:01:09 UTC], ["updated_at", 2017-05-13 20:01:09 UTC]]
+  [1m[35m (83.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "51"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "26"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "51"], ["needed_product_sku", "26"], ["final_product_unit", "Kg"], ["requirement", 182], ["requirement_unit", "Kg"], ["created_at", 2017-05-13 20:01:09 UTC], ["updated_at", 2017-05-13 20:01:09 UTC]]
+  [1m[35m (84.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "51"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "22"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "51"], ["needed_product_sku", "22"], ["final_product_unit", "Kg"], ["requirement", 200], ["requirement_unit", "Kg"], ["created_at", 2017-05-13 20:01:09 UTC], ["updated_at", 2017-05-13 20:01:09 UTC]]
+  [1m[35m (82.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "51"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "27"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "51"], ["needed_product_sku", "27"], ["final_product_unit", "Kg"], ["requirement", 279], ["requirement_unit", "Kg"], ["created_at", 2017-05-13 20:01:09 UTC], ["updated_at", 2017-05-13 20:01:09 UTC]]
+  [1m[35m (84.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "52"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "8"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "52"], ["needed_product_sku", "8"], ["final_product_unit", "Kg"], ["requirement", 1000], ["requirement_unit", "Kg"], ["created_at", 2017-05-13 20:01:09 UTC], ["updated_at", 2017-05-13 20:01:09 UTC]]
+  [1m[35m (240.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "52"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "38"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "52"], ["needed_product_sku", "38"], ["final_product_unit", "Kg"], ["requirement", 20], ["requirement_unit", "Kg"], ["created_at", 2017-05-13 20:01:09 UTC], ["updated_at", 2017-05-13 20:01:09 UTC]]
+  [1m[35m (103.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "53"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "52"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "53"], ["needed_product_sku", "52"], ["final_product_unit", "Kg"], ["requirement", 500], ["requirement_unit", "Kg"], ["created_at", 2017-05-13 20:01:09 UTC], ["updated_at", 2017-05-13 20:01:09 UTC]]
+  [1m[35m (121.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "53"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "26"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "53"], ["needed_product_sku", "26"], ["final_product_unit", "Kg"], ["requirement", 63], ["requirement_unit", "Kg"], ["created_at", 2017-05-13 20:01:09 UTC], ["updated_at", 2017-05-13 20:01:09 UTC]]
+  [1m[35m (102.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "53"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "38"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "53"], ["needed_product_sku", "38"], ["final_product_unit", "Kg"], ["requirement", 250], ["requirement_unit", "Kg"], ["created_at", 2017-05-13 20:01:10 UTC], ["updated_at", 2017-05-13 20:01:10 UTC]]
+  [1m[35m (95.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "53"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "7"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "53"], ["needed_product_sku", "7"], ["final_product_unit", "Lts"], ["requirement", 651], ["requirement_unit", "Kg"], ["created_at", 2017-05-13 20:01:10 UTC], ["updated_at", 2017-05-13 20:01:10 UTC]]
+  [1m[35m (84.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "53"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "23"], ["LIMIT", 1]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "53"], ["needed_product_sku", "23"], ["final_product_unit", "Kg"], ["requirement", 15], ["requirement_unit", "Kg"], ["created_at", 2017-05-13 20:01:10 UTC], ["updated_at", 2017-05-13 20:01:10 UTC]]
+  [1m[35m (85.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "54"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "9"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "54"], ["needed_product_sku", "9"], ["final_product_unit", "Kg"], ["requirement", 2154], ["requirement_unit", "Kg"], ["created_at", 2017-05-13 20:01:10 UTC], ["updated_at", 2017-05-13 20:01:10 UTC]]
+  [1m[35m (252.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "54"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "26"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "54"], ["needed_product_sku", "26"], ["final_product_unit", "Kg"], ["requirement", 153], ["requirement_unit", "Kg"], ["created_at", 2017-05-13 20:01:10 UTC], ["updated_at", 2017-05-13 20:01:10 UTC]]
+  [1m[35m (59.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "55"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "52"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "55"], ["needed_product_sku", "52"], ["final_product_unit", "Kg"], ["requirement", 1365], ["requirement_unit", "Kg"], ["created_at", 2017-05-13 20:01:10 UTC], ["updated_at", 2017-05-13 20:01:10 UTC]]
+  [1m[35m (240.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "55"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "20"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "55"], ["needed_product_sku", "20"], ["final_product_unit", "Kg"], ["requirement", 96], ["requirement_unit", "Kg"], ["created_at", 2017-05-13 20:01:10 UTC], ["updated_at", 2017-05-13 20:01:10 UTC]]
+  [1m[35m (241.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "55"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "23"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "55"], ["needed_product_sku", "23"], ["final_product_unit", "Kg"], ["requirement", 20], ["requirement_unit", "Kg"], ["created_at", 2017-05-13 20:01:11 UTC], ["updated_at", 2017-05-13 20:01:11 UTC]]
+  [1m[35m (91.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "55"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "2"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "55"], ["needed_product_sku", "2"], ["final_product_unit", "Un"], ["requirement", 560], ["requirement_unit", "Kg"], ["created_at", 2017-05-13 20:01:11 UTC], ["updated_at", 2017-05-13 20:01:11 UTC]]
+  [1m[35m (240.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "56"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "1"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "56"], ["needed_product_sku", "1"], ["final_product_unit", "Kg"], ["requirement", 935], ["requirement_unit", "Kg"], ["created_at", 2017-05-13 20:01:11 UTC], ["updated_at", 2017-05-13 20:01:11 UTC]]
+  [1m[35m (84.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "56"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "26"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "recipes" ("final_product_sku", "needed_product_sku", "final_product_unit", "requirement", "requirement_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["final_product_sku", "56"], ["needed_product_sku", "26"], ["final_product_unit", "Kg"], ["requirement", 65], ["requirement_unit", "Kg"], ["created_at", 2017-05-13 20:01:11 UTC], ["updated_at", 2017-05-13 20:01:11 UTC]]
+  [1m[35m (273.9ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/buy" for 127.0.0.1 at 2017-05-13 17:01:22 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProductsController#buy as HTML
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "2"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.5ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 2, expected 3)):
+  
+app/controllers/concerns/raw_material.rb:5:in `comprar_materia_prima'
+app/controllers/products_controller.rb:59:in `buy'
+Started GET "/buy" for 127.0.0.1 at 2017-05-13 17:01:56 -0300
+Processing by ProductsController#buy as HTML
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "2"], ["LIMIT", 1]]
+Started GET "/buy" for 127.0.0.1 at 2017-05-13 17:02:06 -0300
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "2"], ["LIMIT", 1]]
+  [1m[36mContact Load (0.1ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."product_id" = 2[0m
+  [1m[36mSupplier Load (0.1ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed   in 3345ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/buy" for 127.0.0.1 at 2017-05-13 17:02:14 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProductsController#buy as HTML
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "2"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "2"], ["LIMIT", 1]]
+  [1m[36mContact Load (0.2ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."product_id" = 2[0m
+  [1m[36mSupplier Load (0.1ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Started GET "/products" for 127.0.0.1 at 2017-05-13 17:02:14 -0300
+Processing by ProductsController#available as HTML
+  Parameters: {"product"=>{}}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."owner" = ?[0m  [["owner", true]]
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.4ms)
+
+
+  [1m[36mSupplier Load (0.1ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.1ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.1ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 578ms (ActiveRecord: 2.0ms)
+
+
+  
+NameError (undefined local variable or method `supplier' for #<ProductsController:0x00561d19247ed0>
+Did you mean?  suppress):
+  
+app/controllers/concerns/raw_material.rb:13:in `comprar_materia_prima'
+app/controllers/products_controller.rb:59:in `buy'
+Started GET "/buy" for 127.0.0.1 at 2017-05-13 17:02:55 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProductsController#buy as HTML
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "2"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "2"], ["LIMIT", 1]]
+  [1m[36mContact Load (0.2ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."product_id" = 2[0m
+  [1m[36mSupplier Load (0.1ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Started GET "/products" for 127.0.0.1 at 2017-05-13 17:02:55 -0300
+Processing by ProductsController#available as HTML
+  Parameters: {"product"=>{}}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."owner" = ?[0m  [["owner", true]]
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.4ms)
+
+
+  [1m[36mSupplier Load (0.1ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.1ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.1ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."owner" = ?[0m  [["owner", true]]
+Completed 200 OK in 348ms (Views: 0.4ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/buy" for 127.0.0.1 at 2017-05-13 17:07:08 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProductsController#buy as HTML
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "2"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "2"], ["LIMIT", 1]]
+  [1m[36mContact Load (0.2ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."product_id" = 2[0m
+  [1m[36mSupplier Load (0.1ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Started GET "/products" for 127.0.0.1 at 2017-05-13 17:07:08 -0300
+Processing by ProductsController#available as HTML
+  Parameters: {"product"=>{}}
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."owner" = ?[0m  [["owner", true]]
+Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 0.6ms)
+
+
+  [1m[36mSupplier Load (0.1ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.1ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mContact Load (0.1ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."product_id" = 2[0m
+  [1m[36mSupplier Load (0.0ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Started GET "/products" for 127.0.0.1 at 2017-05-13 17:07:09 -0300
+Processing by ProductsController#available as HTML
+  Parameters: {"product"=>{}}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."owner" = ?[0m  [["owner", true]]
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.2ms)
+
+
+  [1m[36mSupplier Load (0.1ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.1ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 1123ms (ActiveRecord: 2.0ms)
+
+
+  
+NoMethodError (undefined method `id' for {:supplier_id=>2, :priority=>nil, :price=>1590}:Hash):
+  
+app/controllers/concerns/raw_material.rb:15:in `comprar_materia_prima'
+app/controllers/products_controller.rb:59:in `buy'
+Started GET "/buy" for 127.0.0.1 at 2017-05-13 17:07:38 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProductsController#buy as HTML
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "2"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."sku" = ? LIMIT ?[0m  [["sku", "2"], ["LIMIT", 1]]
+  [1m[36mContact Load (0.2ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."product_id" = 2[0m
+  [1m[36mSupplier Load (0.1ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Started GET "/products" for 127.0.0.1 at 2017-05-13 17:07:38 -0300
+Processing by ProductsController#available as HTML
+  Parameters: {"product"=>{}}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."owner" = ?[0m  [["owner", true]]
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.4ms)
+
+
+  [1m[36mSupplier Load (0.1ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.1ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mContact Load (0.1ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."product_id" = 2[0m
+  [1m[36mSupplier Load (0.1ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Started GET "/products" for 127.0.0.1 at 2017-05-13 17:07:44 -0300
+Processing by ProductsController#available as HTML
+  Parameters: {"product"=>{}}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."owner" = ?[0m  [["owner", true]]
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.1ms)
+
+
+  [1m[36mSupplier Load (0.1ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.1ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."owner" = ?[0m  [["owner", true]]
+Completed 200 OK in 11215ms (Views: 0.4ms | ActiveRecord: 2.1ms)
+
+
