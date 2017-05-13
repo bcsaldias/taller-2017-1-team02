@@ -3,4 +3,5 @@ class ApplicationController < ActionController::API
     include ExceptionHandler
     include Production
     include Queries
+		include RawMaterial
 end

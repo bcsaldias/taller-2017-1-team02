@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20170512201152) do
   end
 
   create_table "products", id: false, force: :cascade do |t|
-    t.integer  "sku",         null: false
+    t.string   "sku",         null: false
     t.string   "description"
     t.string   "category"
     t.integer  "price"
@@ -49,22 +49,19 @@ ActiveRecord::Schema.define(version: 20170512201152) do
   create_table "purchase_orders", force: :cascade do |t|
     t.integer  "id_cloud",   null: false
     t.integer  "state"
-    t.integer  "product_id", null: false
+    t.string   "product_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["product_id"], name: "index_purchase_orders_on_product_id"
   end
 
   create_table "recipes", force: :cascade do |t|
-    t.integer  "final_product_id",   null: false
-    t.integer  "needed_product_id",  null: false
+    t.string   "final_product_id",   null: false
+    t.string   "needed_product_id",  null: false
     t.string   "final_product_unit"
     t.integer  "requirement",        null: false
     t.string   "requirement_unit"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
-    t.index ["final_product_id"], name: "index_recipes_on_final_product_id"
-    t.index ["needed_product_id"], name: "index_recipes_on_needed_product_id"
   end
 
   create_table "suppliers", id: false, force: :cascade do |t|
