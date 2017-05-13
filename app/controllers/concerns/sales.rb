@@ -5,7 +5,7 @@ module Sales
 
 	def self.create_purchase_order(cliente, proveedor, sku, 
 									fechaEntrega, cantidad, precioUnitario, 
-									canal, notas)
+									canal, notas="default-note")
 
 		@body = {'cliente' => cliente, 'proveedor' => proveedor, 'sku' => sku, 
 				'fechaEntrega' =>fechaEntrega, 'cantidad' => cantidad, 
