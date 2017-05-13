@@ -27,7 +27,7 @@ class PurchaseOrdersController < ApplicationController
       else
         if ['contra_factura', 'contra_despacho'].include?(params[:payment_method])
           order = Sales.get_purchase_order(params[:id])
-          @purchase_order = PurchaseOrder.create!(id_cloud: order['_id'],
+          @purchase_order = PurchaseOrder.create!(id_cloud: order['_id'], state: 0,
                                               product_sku: order['sku'],
                                               payment_method: params[:payment_method],
                                               id_store_reception:  params[:id_store_reception])
