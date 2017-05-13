@@ -7,13 +7,15 @@ class ApiController < ApplicationController
 
 	def test
 
+
 		ret = Sales.create_purchase_order(cliente = ,
 									proveedor = ,
 									sku = ,
 									fechaEntrega, cantidad, precioUnitario,
 									canal, notas)
 
-		json_response({response: ret})
+
+		#json_response({response: ret})
 	end
 
 end
