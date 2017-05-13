@@ -14,7 +14,7 @@ class PurchaseOrdersController < ApplicationController
   error 400, "Falta bodega de recepción"
   error 404, "Orden de compra inexistente"
   error 500, "El envío ha fallado"
-  # PUT purchase_orders/:id realizar_pedido
+  # PUT purchase_orders/:id
   def realizar_pedido
     begin
       @body = JSON.parse request.body.read
@@ -50,7 +50,10 @@ class PurchaseOrdersController < ApplicationController
 
   # PATCH purchase_orders/:id/accepted
   def confirmar_orden_compra
-
+      puts params[:id]
+      oc = PurchaseOrder.where(id_cloud: params[:id]).first
+      oc.state = 1
+      oc.save
       begin
         json_response(
             {
@@ -75,7 +78,9 @@ class PurchaseOrdersController < ApplicationController
 
   # PATCH purchase_orders/:id/rejected
   def rechazar_orden_compra
-
+      oc = PurchaseOrder.find(params[:id])
+      oc.state = 2
+      oc.save
       begin
         @body =  JSON.parse request.body.read
         @keys = @body.keys
