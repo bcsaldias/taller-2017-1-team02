@@ -47,11 +47,13 @@ ActiveRecord::Schema.define(version: 20170512201152) do
   end
 
   create_table "purchase_orders", force: :cascade do |t|
-    t.integer  "id_cloud",    null: false
+    t.integer  "id_cloud",           null: false
     t.integer  "state"
-    t.string   "product_sku", null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "product_sku",        null: false
+    t.string   "id_store_reception"
+    t.string   "payment_method"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   create_table "recipes", force: :cascade do |t|

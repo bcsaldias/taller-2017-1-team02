@@ -8,7 +8,7 @@ class ApiController < ApplicationController
 
 	def test
 		#ret = Factory.fabricate_without_paying("2dwwd", 150)
-		#ret = Factory.get_account
+		ret = Factory.get_account
 		#ret = Production.move_stock_external("590baa76d6b4ec000490255d",
 		#									"590baa76d6b4ec000490262a",
 		#									 "32", 1)
