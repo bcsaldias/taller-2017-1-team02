@@ -52,7 +52,6 @@ module Queries
 		                        :query => params)
 	end
 
-
 	def self.get_to_groups_api(next_path, supplier, access_token=false, params={})
 
 		domain = supplier.get_url
@@ -63,4 +62,14 @@ module Queries
 
 		@result = HTTParty.get(path, headers: header, query: params )
 	end
+
+	def self.patch_to_groups_api(next_path, supplier, access_token=false, params={})
+		domain = supplier.get_url
+		path = domain + next_path
+		header = {	'Content-Type' => 'application/json'}
+		header["Token"] = access_token if access_token
+		puts domain
+		@result = HTTParty.patch(path, headers: header, query: params )
+	end
+
 end

@@ -30,7 +30,7 @@ suppliers = Supplier.create([
 		{id: 2, api_prod: "http://localhost:3000/", api_dev: "http://localhost:3000/"} ,
 		{id: 3, api_prod: "http://integra17-3.ing.puc.cl/", api_dev: "http://dev.integra17-3.ing.puc.cl/"} ,
 		{id: 4, api_prod: "http://integra17-4.ing.puc.cl/", api_dev: "http://dev.integra17-4.ing.puc.cl/"} ,
-		{id: 5, api_prod: "http://integra17-5.ing.puc.cl/", api_dev: "http://dev.integra17-5.ing.puc.cl/"} ,
+		{id: 5, api_prod: "http://integra17-5.ing.puc.cl/", api_dev: "http://dev.integra17-5.ing.puc.cl/", id_cloud:"590baa00d6b4ec0004902463"} ,
 		{id: 6, api_prod: "http://integra17-6.ing.puc.cl/", api_dev: "http://dev.integra17-6.ing.puc.cl/"} ,
 		{id: 7, api_prod: "http://integra17-7.ing.puc.cl/", api_dev: "http://dev.integra17-7.ing.puc.cl/"} ,
 		{id: 8, api_prod: "http://integra17-8.ing.puc.cl/", api_dev: "http://dev.integra17-8.ing.puc.cl/"}
