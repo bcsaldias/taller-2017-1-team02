@@ -63,4 +63,8 @@ module Queries
 
 		@result = HTTParty.get(path, headers: header, query: params )
 	end
+
+	# def self.realizar_pedido(supplier) (supplier, sku, quantity)
+	# 	#(metodo de pago, id OC
+	# end
 end
