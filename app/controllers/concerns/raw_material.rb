@@ -33,7 +33,7 @@ module RawMaterial
     else
       return false
     end
-
+   end
   end
 
   # Retorna el mejor supplier de un producto
@@ -85,9 +85,5 @@ module RawMaterial
       return false
     end
   end
-
-
-
-
 
 end
