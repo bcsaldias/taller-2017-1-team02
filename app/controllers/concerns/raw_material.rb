@@ -10,7 +10,9 @@ module RawMaterial
 
     if product.suppliers
       supplier = get_best_supplier(product)
-      puts "This is the best supplier: #{supplier.id}"
+      if supplier
+        puts "This is the best supplier: #{supplier.id}"
+      end
     else
       return false
     end
@@ -27,7 +29,6 @@ module RawMaterial
 
       # La linea de abajo es la que deberia quedar!
       response = Queries.get_to_groups_api("products", supplier, false, {})
-      #response = Queries.get("products", false, {})
 
       puts "For supplier #{supplier.id}: "
       #puts response.body
@@ -52,19 +53,16 @@ module RawMaterial
     end
     #Algoritmo que escoge el mejor supplier_id
     puts "Largo: #{suppliers_products.length}"
-    if suppliers_products.lenth
+    if suppliers_products.length
       best_current_supplier = suppliers_products[0]
       suppliers_products.each do |sp|
          best_current_supplier = sp if sp[:price] < best_current_supplier[:price]
       end
+      puts "supplier id: #{best_current_supplier[:supplier_id]}"
       Supplier.find(best_current_supplier[:supplier_id])
     else
-      "No se pudo acceder a ninguna api valida de los demas grupos"
+      return false
     end
-
-
-    Supplier.find(1)
-
   end
 
 
