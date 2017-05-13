@@ -50,16 +50,21 @@ class PurchaseOrdersController < ApplicationController
 
   # PATCH purchase_orders/:id/accepted
   def confirmar_orden_compra
-      puts params[:id]
       oc = PurchaseOrder.where(id_cloud: params[:id]).first
-      oc.state = 1
-      oc.save
       begin
+      if oc.state == "aceptada" or oc.state == "rechazada"
+        json_response ({ error: "Ya se confirmó/rechazó entrega de esta orden de compra" }), 403
+      elsif oc.state == "finalizada"
+        json_response ({ error: "Ya se finalizó esta orden de compra" }), 403
+      else 
+        oc.state = 1
+        oc.save
         json_response(
             {
               id_purchase_order: params[:id],
-              accepted: oc.state
+              state: oc.state
             }, 200)
+      end
       rescue
         json_response({ :error => "Formato de Body incorrecto" }, 400)
       end
@@ -79,8 +84,6 @@ class PurchaseOrdersController < ApplicationController
   # PATCH purchase_orders/:id/rejected
   def rechazar_orden_compra
       oc = PurchaseOrder.where(id_cloud: params[:id]).first
-      oc.state = 2
-      oc.save
       begin
         @body =  JSON.parse request.body.read
         @keys = @body.keys
@@ -89,12 +92,18 @@ class PurchaseOrdersController < ApplicationController
           json_response ({ error: "Debe entregar una razón de rechazo" }), 400
         elsif params[:cause].length == 0
           json_response ({ error: "La razón debe ser distinta de nula" }), 400
-        else
-        json_response(
-            {
-              id_purchase_order: params[:id],
-              accepted: oc.state
-            }, 200)
+        elsif oc.state == "aceptada" or oc.state == "rechazada"
+          json_response ({ error: "Ya se confirmó/rechazó entrega de esta orden de compra" }), 403
+        elsif oc.state == "finalizada"
+          json_response ({ error: "Ya se finalizó esta orden de compra" }), 403
+        else 
+          oc.state = 2
+          oc.save
+          json_response(
+              {
+                id_purchase_order: params[:id],
+                state: oc.state
+              }, 200)
         end
       rescue
         json_response({ :error => "Formato de Body incorrecto" }, 400)

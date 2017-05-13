@@ -1,16 +1,17 @@
 
 module Sales
 	include Queries
+
 	require 'json'
 
 	def self.create_purchase_order(cliente, proveedor, sku, 
-									fechaEntrega, cantidad, precioUnitario, 
+									fechaEntrega, cantidad, precioUnitario,
 									canal, notas="default-note")
 
-		@body = {'cliente' => cliente, 'proveedor' => proveedor, 'sku' => sku, 
-				'fechaEntrega' =>fechaEntrega, 'cantidad' => cantidad, 
+		@body = {'cliente' => cliente, 'proveedor' => proveedor, 'sku' => sku,
+				'fechaEntrega' =>fechaEntrega, 'cantidad' => cantidad,
 				'precioUnitario' => precioUnitario, 'canal' => canal, 'notas' => notas}
-		
+
 	    @result = Queries.put('oc/crear',
 	              				body=@body)
 	    return @result.body.force_encoding("UTF-8")
@@ -68,7 +69,6 @@ module Sales
 		ret = Queries.patch_to_groups_api('purchase_orders/'+order['_id']+'/rejected', sup)
 		return ret
 	end
-
 
 
 end
