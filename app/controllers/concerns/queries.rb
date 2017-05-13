@@ -38,7 +38,7 @@ module Queries
 		                        :query => params)
 	end
 
-	def self.post(next_path, authorization=false, body={}, params={})
+	def self.post(next_path, body={}, params={}, authorization=false)
 		path = Rails.configuration.environment_ids['environment_path']+next_path
 		header = {	'Content-Type' => 'application/json'}
 		if authorization
