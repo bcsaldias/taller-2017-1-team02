@@ -25,7 +25,7 @@ module Queries
 		@result = HTTParty.get(path, :headers => header, :query => params )
 	end
 
-	def self.put(next_path, body={}, params={}, authorization=false)
+	def self.put(next_path, authorization=false, body={}, params={})
 		path = Rails.configuration.environment_ids['environment_path']+next_path
 		header = {	'Content-Type' => 'application/json'}
 		if authorization
@@ -68,7 +68,6 @@ module Queries
 		path = domain + next_path
 		header = {	'Content-Type' => 'application/json'}
 		header["Token"] = access_token if access_token
-		puts domain
 		@result = HTTParty.patch(path, headers: header, query: params )
 	end
 
@@ -77,7 +76,6 @@ module Queries
 		path = domain + next_path
 		header = {	'Content-Type' => 'application/json'}
 		header["Token"] = access_token if access_token
-		puts domain
 		@result = HTTParty.put(path, headers: header, query: params )
 	end
 
