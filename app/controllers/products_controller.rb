@@ -49,17 +49,14 @@ class ProductsController < ApplicationController
   end
 
   def buy
-    # sku = Product.first.sku
     sku = "2" #"Huevo"
     p = Product.find(sku)
     puts "Producto: #{p}"
-
-
     quantity = 100
     comprar_materia_prima(sku, quantity, 1593214596281)
+    #json_response(Product.catalogue)
 
-    json_response(Product.catalogue)
-
+    #calculate_order_quantity(quantity, min_batch, whouse_space)
   end
 
 
