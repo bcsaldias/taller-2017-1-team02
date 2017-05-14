@@ -7,13 +7,13 @@ Rails.application.routes.draw do
   #resources :recipes
   #resources :products
   #resources :suppliers
-
+  apipie
   get 'test' => 'api#test'
 
   get 'products' => 'products#available'
 
   put 'purchase_orders/:id' => 'purchase_orders#realizar_pedido'
-  
+
   patch 'purchase_orders/:id/accepted' => 'purchase_orders#confirmar_orden_compra'
   patch 'purchase_orders/:id/rejected' => 'purchase_orders#rechazar_orden_compra'
   #patch 'purchase_orders/:id' => 'purchase_order#responder_orden_compra'
