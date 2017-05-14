@@ -1,11 +1,12 @@
 module Factory
 	include Queries
+	require 'json'
   	
 	def self.get_account
 	    auth = Queries.generate_authorization
         @result = Queries.get("bodega/fabrica/getCuenta", 
 	    						authorization=auth)
-	    return @result.body
+	    return JSON.parse @result.body
 	end
 
 	def self.fabricate_without_paying(sku, cantidad)
@@ -16,7 +17,8 @@ module Factory
 	    @result = Queries.put('bodega/fabrica/fabricarSinPago', 
 	              authorization=auth,
 	              body=body)
-	    return @result.body
+	    puts @result
+	    return JSON.parse @result.body
 	end
 
 end

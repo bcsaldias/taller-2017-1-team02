@@ -25,7 +25,7 @@ module Queries
 		@result = HTTParty.get(path, :headers => header, :query => params )
 	end
 
-	def self.put(next_path, body={}, params={}, authorization=false)
+	def self.put(next_path, authorization=false, body={}, params={})
 		path = Rails.configuration.environment_ids['environment_path']+next_path
 		header = {	'Content-Type' => 'application/json'}
 		if authorization
