@@ -11,6 +11,8 @@ class CreatePurchaseOrders < ActiveRecord::Migration[5.0]
       # t.references :product, foreign_key: true, null: false
 
       t.timestamps
+      t.index ["id_cloud"], name: "index_purchase_orders_on_id_cloud", unique: true
+      
     end
   end
 end

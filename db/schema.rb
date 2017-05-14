@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20170512201152) do
     t.integer  "purchase_order_id", null: false
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.index ["id_cloud"], name: "index_invoices_on_id_cloud", unique: true
     t.index ["purchase_order_id"], name: "index_invoices_on_purchase_order_id"
   end
 
@@ -55,6 +56,7 @@ ActiveRecord::Schema.define(version: 20170512201152) do
     t.boolean  "owner"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.index ["id_cloud"], name: "index_purchase_orders_on_id_cloud", unique: true
   end
 
   create_table "recipes", force: :cascade do |t|
@@ -76,12 +78,14 @@ ActiveRecord::Schema.define(version: 20170512201152) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.index ["id"], name: "index_products_on_id", unique: true
+    t.index ["id_cloud"], name: "index_products_on_id_cloud", unique: true
   end
 
   create_table "warehouses", force: :cascade do |t|
     t.string   "id_cloud",   null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["id_cloud"], name: "index_warehouses_on_id_cloud", unique: true
   end
 
 end
