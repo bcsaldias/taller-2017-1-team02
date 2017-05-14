@@ -56,7 +56,7 @@ class ProductsController < ApplicationController
 
 
     quantity = 100
-    comprar_materia_prima(sku, quantity, 12039123)
+    comprar_materia_prima(sku, quantity, 1593214596281)
 
     json_response(Product.catalogue)
 
