@@ -4,25 +4,6 @@ module Sales
 
 	require 'json'
 
-	def self.create_purchase_order(cliente, proveedor, sku, 
-									fechaEntrega, cantidad, precioUnitario,
-									canal, notas="default-note")
-
-		@body = {'cliente' => cliente, 'proveedor' => proveedor, 'sku' => sku,
-				'fechaEntrega' =>fechaEntrega, 'cantidad' => cantidad,
-				'precioUnitario' => precioUnitario, 'canal' => canal, 'notas' => notas}
-
-	    @result = Queries.put('oc/crear',
-	              				body=@body)
-	    
-	    order =  JSON.parse @result.body.force_encoding("UTF-8")
-        @purchase_order = PurchaseOrder.create!(id_cloud: order['_id'], state: 0,
-                                          product_sku: order['sku'],
-                                          owner: true)
-
-	    return @purchase_order
-	end
-
 	def self.get_purchase_order(purchase_order_id)
 		@result = Queries.get(next_path= "oc/obtener/" + purchase_order_id)
 		return (JSON.parse @result.body)[0]
@@ -31,7 +12,7 @@ module Sales
 	###
 	def self.recepcionar_purchase_order(purchase_order_id)
 		body = {'id' => purchase_order_id}
-		@result = Queries.post(next_path= "oc/recepcionar/" + purchase_order_id, 
+		@result = Queries.post(next_path= "oc/recepcionar/" + purchase_order_id,
 						  body=body)
 		return @result.body
 	end
@@ -39,7 +20,7 @@ module Sales
 	###
 	def self.rechazar_purchase_order(purchase_order_id, motivo_rechazo)
 		body = {'rechazo' => motivo_rechazo}
-		@result = Queries.post(next_path= "oc/rechazar/" + purchase_order_id, 
+		@result = Queries.post(next_path= "oc/rechazar/" + purchase_order_id,
 						  body=body)
 		return (JSON.parse @result.body)[0]
 	end
@@ -47,10 +28,10 @@ module Sales
 	###
 	def self.anular_purchase_order(purchase_order_id, motivo_anulacion)
 		body = {'anulacion' => motivo_anulacion}
-		@result = Queries.post(next_path= "oc/anular/" + purchase_order_id, 
+		@result = Queries.post(next_path= "oc/anular/" + purchase_order_id,
 						  body=body)
 		return @result.body
-	end 
+	end
 
 	#def self.accept_purchase_order(purchase_order_id)
 	#	order = self.get_purchase_order(purchase_order_id)
