@@ -52,19 +52,25 @@ class PurchaseOrdersController < ApplicationController
   def confirmar_orden_compra
       oc = PurchaseOrder.where(id_cloud: params[:id]).first
       begin
-      if oc.state == "aceptada" or oc.state == "rechazada"
-        json_response ({ error: "Ya se confirmó/rechazó entrega de esta orden de compra" }), 403
-      elsif oc.state == "finalizada"
-        json_response ({ error: "Ya se finalizó esta orden de compra" }), 403
-      else 
-        oc.state = 1
-        oc.save
-        json_response(
-            {
-              id_purchase_order: params[:id],
-              state: oc.state
-            }, 200)
-      end
+        if oc
+          if oc.state == "aceptada" or oc.state == "rechazada"
+            json_response ({ error: "Ya se confirmó/rechazó entrega de esta orden de compra" }), 403
+          elsif oc.state == "finalizada"
+            json_response ({ error: "Ya se finalizó esta orden de compra" }), 403
+          else 
+            oc.state = 1
+            oc.save
+            json_response(
+                {
+                  id_purchase_order: params[:id],
+                  state: oc.state
+                }, 200)
+          end
+        else
+            json_response(
+                { error: 'oc no encontrada'
+                }, 404)
+        end 
       rescue
         json_response({ :error => "Formato de Body incorrecto" }, 400)
       end
