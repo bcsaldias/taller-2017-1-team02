@@ -26,8 +26,8 @@ Supplier.all.delete_all
 
 suppliers = Supplier.create([
 		{id: 1, api_prod: "http://integra17-1.ing.puc.cl/", api_dev: "http://dev.integra17-1.ing.puc.cl/"} ,
-		# {id: 2, api_prod: "http://integra17-2.ing.puc.cl/", api_dev: "http://dev.integra17-2.ing.puc.cl/"} ,
-		{id: 2, api_prod: "http://localhost:3000/", api_dev: "http://localhost:3000/"} ,
+		{id: 2, api_prod: "http://integra17-2.ing.puc.cl/", api_dev: "http://dev.integra17-2.ing.puc.cl/"} ,
+		#{id: 2, api_prod: "http://localhost:3000/", api_dev: "http://localhost:3000/"} ,
 		{id: 3, api_prod: "http://integra17-3.ing.puc.cl/", api_dev: "http://dev.integra17-3.ing.puc.cl/"} ,
 		{id: 4, api_prod: "http://integra17-4.ing.puc.cl/", api_dev: "http://dev.integra17-4.ing.puc.cl/"} ,
 		{id: 5, api_prod: "http://integra17-5.ing.puc.cl/", api_dev: "http://dev.integra17-5.ing.puc.cl/", id_cloud:"590baa00d6b4ec0004902463"} ,
