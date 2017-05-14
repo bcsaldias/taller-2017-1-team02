@@ -7,10 +7,9 @@ module Purchases
 									fechaEntrega, cantidad, precioUnitario,
 									canal, notas="default-note1")
 
-			# @body = {'cliente' => cliente, 'proveedor' => proveedor, 'sku' => sku,
-		  @body = {'cliente' => '590baa00d6b4ec0004902463',
+			#@body = {'cliente' => '590baa00d6b4ec0004902463',
+			@body = {'cliente' => cliente, 'proveedor' => proveedor, 'sku' => sku,
 				'proveedor' => '590baa00d6b4ec0004902464', 'sku' => sku,
-			##fix me: CLIENTE Y PROVEEDOR ESTAN HARCODEADOS, ARREGLAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 				'fechaEntrega' =>fechaEntrega, 'cantidad' => cantidad,
 				'precioUnitario' => precioUnitario, 'canal' => canal, 'notas' => "notas"}
 
