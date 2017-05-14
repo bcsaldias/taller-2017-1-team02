@@ -9,6 +9,7 @@ class CreateSuppliers < ActiveRecord::Migration[5.0]
 
       t.timestamps
       t.index ["id"], name: "index_products_on_id", unique: true
+      t.index ["id_cloud"], name: "index_products_on_id_cloud", unique: true
 
     end
   end
