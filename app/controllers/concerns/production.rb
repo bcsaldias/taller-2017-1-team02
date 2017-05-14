@@ -7,7 +7,7 @@ module Production
 		auth = Queries.generate_authorization
 		@result = Queries.get("bodega/almacenes", 
 						  authorization=auth)
-		return @result.body
+		return JSON.parse @result.body
 	end
 
 	def self.get_stock(warehouse_id, sku)
@@ -16,7 +16,7 @@ module Production
 		@result = Queries.get(next_path="bodega/stock", 
 						  authorization=auth, 
 						  params = {almacenId:warehouse_id, sku:sku})
-		return @result.body
+		return JSON.parse @result.body
 	end
 
 	def self.get_all_stock_warehouse(warehouse_id)
@@ -26,7 +26,7 @@ module Production
 		@result = Queries.get("bodega/skusWithStock", 
 						  authorization=auth, 
 						  params = {almacenId: warehouse_id})
-		return @result.body
+		return JSON.parse @result.body
 	end
 
 	def self.move_stock(warehouse_id, product_id)
@@ -39,7 +39,7 @@ module Production
 							authorization=auth,
 							body=body)
 
-		return @result.body.force_encoding("UTF-8")
+		return JSON.parse @result.body.force_encoding("UTF-8")
 	end
 
 	def self.move_stock_external(warehouse_id, product_id, purchase_order, price)
@@ -56,7 +56,7 @@ module Production
 							authorization=auth,
 							body=body)
 
-		return @result.body.force_encoding("UTF-8")
+		return JSON.parse @result.body.force_encoding("UTF-8")
 	end
 
 end
