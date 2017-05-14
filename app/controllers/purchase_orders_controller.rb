@@ -104,7 +104,9 @@ class PurchaseOrdersController < ApplicationController
           json_response ({ error: "Ya se finalizó esta orden de compra" }), 403
         else 
           oc.state = 2
+          oc.cause = params[:cause]
           oc.save
+
           json_response(
               {
                 id_purchase_order: params[:id],

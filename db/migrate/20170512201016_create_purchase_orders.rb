@@ -7,6 +7,7 @@ class CreatePurchaseOrders < ActiveRecord::Migration[5.0]
       t.string :product_sku, foreign_key: true, null: false
       t.string :id_store_reception
       t.string :payment_method
+      t.string :cause
       t.boolean :owner
       # t.references :product, foreign_key: true, null: false
 
