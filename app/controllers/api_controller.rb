@@ -7,8 +7,8 @@ class ApiController < ApplicationController
 
 
 	def test
-		#ret = Factory.fabricate_without_paying("2dwwd", 150)
-		#ret = Factory.get_account
+		#ret = Factory.fabricate_without_paying("41", 200)
+		ret = Factory.get_account
 		#ret = Production.move_stock_external("590baa76d6b4ec000490255d",
 		#									"590baa76d6b4ec000490262a",
 		#									 "32", 1)
@@ -24,15 +24,20 @@ class ApiController < ApplicationController
 		#ret = Sales.recepcionar_purchase_order
 		#ret = Sales.get_purchase_order("59177e251f734200049c0fab")
 		
-		ret = Sales.create_purchase_order(  cliente = "5910c0910e42840004f6e684",
-										    proveedor = "590baa00d6b4ec0004902463",
-										    sku = "2",
-										    fechaEntrega = 2493314596281,
-										    cantidad = "100",
-										    precioUnitario = "100",
-										    canal = "b2b", notas = "hola"
-										)
+		#ret = Sales.create_purchase_order(  cliente = "5910c0910e42840004f6e684",
+		#								    proveedor = "590baa00d6b4ec0004902463",
+		#								    sku = "2",
+		#								    fechaEntrega = 2493314596281,
+		#								    cantidad = "100",
+		#								    precioUnitario = "100",
+		#								    canal = "b2b", notas = "hola"
+		#								)
 
+		# 590baa76d6b4ec000490255d
+		# 590baa76d6b4ec000490255f
+		# 590baa76d6b4ec000490265e
+
+		#ret = Production.get_all_stock_warehouse("590baa76d6b4ec000490255d")
 		json_response({response: ret})
 	end
 
