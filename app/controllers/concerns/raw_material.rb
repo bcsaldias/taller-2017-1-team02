@@ -2,7 +2,7 @@ module RawMaterial
   # def json_response(object, status = :ok)
   #   render json: object, status: status
   # end
-  def comprar_materia_prima(sku, quantity, needed_date)
+  def proceso_comprar_materia_prima(sku, quantity, needed_date)
     product = Product.find(sku)
 
     # suppliers = product.suppliers
@@ -15,25 +15,25 @@ module RawMaterial
 
         supplier_id = supplier_informations[:supplier_id]
         price = supplier_informations[:price]
-        puts "This is the best supplier: #{supplier_informations[:supplier_id]}, PRICE: #{supplier_informations[:price]}"
+        puts "This is the best supplier: #{supplier_informations[:supplier_id]},
+                                          PRICE: #{supplier_informations[:price]}"
 
-        Sales.create_purchase_order(2, supplier_id, sku, needed_date, quantity, price, "b2b", "Esta es una nota")
+        response = Sales.create_purchase_order(2, supplier_id, sku, needed_date,
+                                              quantity, price, "b2b", "Esta es una nota")
 
-        #Implementar
+        id_oc = response[:id]
+
         supplier = Supplier.find(supplier_informations[:supplier_id])
         status = Purchases.realizar_pedido(supplier, "contra_factura", id_oc)
         if status == 201
           return true #Orden de compra recibida correctamente
         else
           return false #Orden de compra no la recibio bien
-
-
-
+        end
+      else
+        return false
       end
-    else
-      return false
     end
-   end
   end
 
   # Retorna el mejor supplier de un producto
@@ -48,7 +48,7 @@ module RawMaterial
       response = Queries.get_to_groups_api("products", supplier, false, {})
 
       puts "For supplier #{supplier.id}: "
-      #puts response.body
+      # puts response.body
       # puts response.code
       # puts response.message
       # puts response.headers.inspect
@@ -58,10 +58,7 @@ module RawMaterial
         #h["incidents"].find {|h1| h1['key']=='xyz098'}['number']
 
         puts "This is the price:"
-        # puts hash_response[0]["price"]#.class
         puts api_product_price
-        # puts "Behind me is the sku"
-        #price = hash_response[0]["price"]
         suppliers_products << {supplier_id: supplier.id, priority: contact.priority, price: api_product_price}
       rescue
         puts "No pudimos sacar info de supplier #{supplier.id}"
@@ -85,5 +82,4 @@ module RawMaterial
       return false
     end
   end
-
 end

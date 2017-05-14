@@ -72,6 +72,17 @@ module Queries
 		@result = HTTParty.patch(path, headers: header, query: params )
 	end
 
+	def self.put_to_groups_api(next_path, supplier, access_token=false, params={})
+		domain = supplier.get_url
+		path = domain + next_path
+		header = {	'Content-Type' => 'application/json'}
+		header["Token"] = access_token if access_token
+		puts domain
+		@result = HTTParty.put(path, headers: header, query: params )
+	end
+
+
+
 	# def self.realizar_pedido(supplier) (supplier, sku, quantity)
 	# 	#(metodo de pago, id OC
 	# end
