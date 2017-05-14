@@ -13,5 +13,5 @@ class Supplier < ApplicationRecord
       self.api_dev
     end
   end
-
+  
 end
