@@ -2,38 +2,32 @@ module RawMaterial
   # def json_response(object, status = :ok)
   #   render json: object, status: status
   # end
-  def proceso_comprar_materia_prima(sku, quantity, needed_date)
+
+  #proceso de comprar_materia_prima
+  def comprar_materia_prima(sku, quantity, needed_date)
     product = Product.find(sku)
 
-    # suppliers = product.suppliers
-    # puts suppliers
+    return false unless product.suppliers #FALSE si no hay proveedores del producto
 
-    if product.suppliers
-      supplier = get_best_supplier(product)
-      supplier_informations = get_best_supplier(product)
-      if supplier_informations
+    supplier_informations = get_best_supplier(product)
 
-        supplier_id = supplier_informations[:supplier_id]
-        price = supplier_informations[:price]
-        puts "This is the best supplier: #{supplier_informations[:supplier_id]},
-                                          PRICE: #{supplier_informations[:price]}"
+    return false unless supplier_informations #FALSE si preciosdeproveedores son inaccesibles
 
-        response = Sales.create_purchase_order(2, supplier_id, sku, needed_date,
-                                              quantity, price, "b2b", "Esta es una nota")
+    supplier_id = supplier_informations[:supplier_id]
+    supplier = Supplier.find(supplier_informations[:supplier_id])
+    price = supplier_informations[:price]
+    puts "This is the best supplier: #{supplier_informations[:supplier_id]},
+                                      PRICE: #{supplier_informations[:price]}"
 
-        id_oc = response[:id]
+    status = Purchases.create_purchase_order(2, supplier.id_cloud, sku, needed_date,
+                                          quantity, price, "b2b", "Esta es una nota")
 
-        supplier = Supplier.find(supplier_informations[:supplier_id])
-        status = Purchases.realizar_pedido(supplier, "contra_factura", id_oc)
-        if status == 201
-          return true #Orden de compra recibida correctamente
-        else
-          return false #Orden de compra no la recibio bien
-        end
-      else
-        return false
-      end
+    if status == 200 or status == 201
+      return true #OC creada y recibida correctamente por el supplier
+    else #OC fallo en algun punto del proceso
+      return false
     end
+
   end
 
   # Retorna el mejor supplier de un producto
@@ -42,9 +36,6 @@ module RawMaterial
     suppliers_products = []
     Contact.where(product: product).each do |contact|
       supplier = contact.supplier
-      # Get precio de los productos## para el proveedor
-
-      # La linea de abajo es la que deberia quedar!
       response = Queries.get_to_groups_api("products", supplier, false, {})
 
       puts "For supplier #{supplier.id}: "
@@ -55,16 +46,13 @@ module RawMaterial
       begin
         hash_response = JSON.parse(response.body)
         api_product_price = hash_response.find {|prod| prod['sku']== product.sku}['price']
-        #h["incidents"].find {|h1| h1['key']=='xyz098'}['number']
-
-        puts "This is the price:"
-        puts api_product_price
+        puts "This is a price: #{api_product_price}"
         suppliers_products << {supplier_id: supplier.id, priority: contact.priority, price: api_product_price}
       rescue
-        puts "No pudimos sacar info de supplier #{supplier.id}"
+        puts "No pudimos obtener info de supplier #{supplier.id}"
       end
-
     end
+
     #Algoritmo que escoge el mejor supplier_id
     puts "Largo: #{suppliers_products.length}"
     if suppliers_products.length
@@ -78,7 +66,7 @@ module RawMaterial
       #Supplier.find(best_current_supplier[:supplier_id])
       return best_current_supplier
 
-    else
+    else # No se pudo acceder a precios de ningun proveedor
       return false
     end
   end
