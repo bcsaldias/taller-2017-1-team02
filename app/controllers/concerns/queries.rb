@@ -68,7 +68,6 @@ module Queries
 		path = domain + next_path
 		header = {	'Content-Type' => 'application/json'}
 		header["Token"] = access_token if access_token
-		puts domain
 		@result = HTTParty.patch(path, headers: header, query: params )
 	end
 
@@ -77,7 +76,6 @@ module Queries
 		path = domain + next_path
 		header = {	'Content-Type' => 'application/json'}
 		header["Token"] = access_token if access_token
-		puts domain
 		@result = HTTParty.put(path, headers: header, query: params )
 	end
 
