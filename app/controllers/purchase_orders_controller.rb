@@ -38,12 +38,13 @@ class PurchaseOrdersController < ApplicationController
             puts "error"
           ensure
             puts "evaluando solicitud recibida", params[:id]
-            we_can = Warehouses.able_to_sale(order['sku'], order['cantidad'])
+            #we_can = Warehouses.able_to_sale(order['sku'], order['cantidad'])
+            we_can = false
             if we_can
               puts 'oc aceptada'
               Sales.accept_purchase_order(params[:id])
               puts 'despachando oc'
-              Warehouses.despachar_oc(params[:id])
+              #Warehouses.despachar_oc(params[:id])
             else 
               puts 'oc rechazada'
               Sales.reject_purchase_order(params[:id], "no podemos abastecerte")
