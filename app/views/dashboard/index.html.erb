@@ -1,0 +1,121 @@
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" type="text/css" href="/assets/stylesheets/bootstrap.css">
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="page-header">
+        <h1>Grupo 2 </h1>
+      </div>
+    </div>
+  </div>
+    
+    <div class="container">
+      
+      <!-- Marketing Icons Section -->
+      <div class="row">
+          
+        
+          <div class="panel panel-primary">
+            <!-- Default panel contents -->
+            <div class="panel-heading">Ordenes de Compra</div>
+            
+
+            <!-- Table -->
+            <table  class="table table-bordered" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                      <th>Sku</th>
+                      <th>Status</th>
+                      <th>Método de pago</th>
+                    </tr>
+                </thead>
+
+                <tbody id="news-table">
+                    <% @purchase_orders.each do |purchase_order| %>
+                      <tr>
+                        <td><%= purchase_order.product_sku %></td>
+                        <td><%= purchase_order.state %></td>
+                        <td><%= purchase_order.payment_method %></td>
+                      </tr>
+                    <% end %>
+                </tbody>
+            </table>
+          </div>
+
+
+      
+  
+      <div class="panel panel-primary">
+            <!-- Default panel contents -->
+            <div class="panel-heading">Productos</div>
+            
+
+            <!-- Table -->
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>SKU</th>
+                  <th>Nombre</th>
+                  <th>Stock</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <% @products.each do |p| %>
+                  <tr>
+                    <td><%= p.sku %></td>
+                    <td><%= p.description %></td>
+                    <td><%= p.stock %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+      </div>
+
+
+      <div class="panel panel-primary">
+            <!-- Default panel contents -->
+            <div class="panel-heading">Almacenes</div>
+            
+
+            <!-- Table -->
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Capacidad</th>
+                  <th>Utilizado</th>
+                  <th>Disponible</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <% @warehouses.each do |w| %>
+                  <tr>
+                    <td><%= w["_id"] %></td>
+                    <td><%= w["totalSpace"] %></td>
+                    <td><%= w["usedSpace"] %></td>
+                    <td><%= w["totalSpace"] - w["usedSpace"] %></td>
+                  </tr> 
+                <% end %>
+              </tbody>
+            </table>
+      </div>
+          
+
+  <script type="text/javascript" src="/assets/js/jquery.js"></script>
+  <script type="text/javascript" src="/assets/js/bootstrap.js"></script>
+
+
+</body>
+</html>
+
+
+
+
+
