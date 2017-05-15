@@ -45,6 +45,7 @@ class PurchaseOrdersController < ApplicationController
               Sales.accept_purchase_order(params[:id])
               puts 'despachando oc'
               #Warehouses.despachar_oc(params[:id])
+              Sales.deliver_purchase_order(params[:id])
             else 
               puts 'oc rechazada'
               Sales.reject_purchase_order(params[:id], "no podemos abastecerte")
