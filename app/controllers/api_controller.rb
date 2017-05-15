@@ -6,7 +6,8 @@ class ApiController < ApplicationController
 	include Queries
 
 	def test
-		#ret = Factory.fabricate_without_paying("41", 200)
+		ret = PurchaseOrder.all#Factory.hacer_pedido_interno("2", 300)
+		#ret = Factory.hacer_pedido_interno("49", 300)
 		#ret = Factory.get_account
 		#ret = Production.move_stock_external("590baa76d6b4ec000490255d",
 		#									"590baa76d6b4ec000490262a",
@@ -35,7 +36,7 @@ class ApiController < ApplicationController
 		# 590baa76d6b4ec000490255f
 		# 590baa76d6b4ec000490265e
 
-		ret = PurchaseOrder.all#.accept_purchase_order("5917d8581f734200049c0fc4")
+		#ret = PurchaseOrder.all#.accept_purchase_order("5917d8581f734200049c0fc4")
 		#ret = Production.get_all_stock_warehouse("590baa76d6b4ec000490255d")
 		json_response({response: ret})
 	end

@@ -31,7 +31,26 @@ class PurchaseOrdersController < ApplicationController
                                               product_sku: order['sku'],
                                               payment_method: params[:payment_method],
                                               id_store_reception:  params[:id_store_reception])
+          
           json_response(@purchase_order, 201)
+
+          begin 
+            json_response(@purchase_order, 201)
+          rescue
+            puts "error"
+          ensure
+            puts "evaluando solicitud recibida", params[:id]
+            we_can = Warehouses.able_to_sale(order['sku'], order['cantidad'])
+            if we_can
+              puts 'oc aceptada'
+              Sales.accept_purchase_order(params[:id])
+              puts 'despachando oc'
+              Warehouses.despachar_oc(params[:id])
+            else 
+              puts 'oc rechazada'
+              Sales.reject_purchase_order(params[:id], "no podemos abastecerte")
+            end
+          end
         else
           json_response ({error: "payment_method: contra_factura/contra_despacho"}), 400
         end

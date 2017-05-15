@@ -42,6 +42,9 @@ module Sales
 
 	def self.accept_purchase_order(purchase_order_id)
 		order = self.get_purchase_order(purchase_order_id)
+		our_order = PurchaseOrder.where(id_cloud: purchase_order_id).first
+		our_order.state = 1
+		our_order.save
 		ret = self.recepcionar_purchase_order(purchase_order_id)
 		sup = Supplier.where(id_cloud: order['proveedor']).first
 		ret = Queries.patch_to_groups_api('purchase_orders/'+order['_id']+'/accepted', sup)
@@ -50,6 +53,9 @@ module Sales
 
 	def self.reject_purchase_order(purchase_order_id, cause)
 		order = self.get_purchase_order(purchase_order_id)
+		our_order = PurchaseOrder.where(id_cloud: purchase_order_id).first
+		our_order.state = 2
+		our_order.save
 		ret = self.rechazar_purchase_order( purchase_order_id=purchase_order_id,
 											motivo_rechazo=cause)
 		sup = Supplier.where(id_cloud: order['proveedor']).first
