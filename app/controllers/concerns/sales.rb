@@ -30,6 +30,15 @@ module Sales
 		return @result.body
 	end
 
+	## FIXME IN SPRINT 3
+	def self.deliver_purchase_order(purchase_order_id)
+		order = self.get_purchase_order(purchase_order_id)
+		sup = Supplier.where(id_cloud: order['proveedor']).first
+		ret = Queries.patch_to_groups_api('invoices/'+order['_id']+'/delivered', sup)
+		return ret
+
+	end 
+
 	def self.accept_purchase_order(purchase_order_id)
 		order = self.get_purchase_order(purchase_order_id)
 		our_order = PurchaseOrder.where(id_cloud: purchase_order_id).first
