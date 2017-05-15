@@ -124,11 +124,21 @@ class PurchaseOrdersController < ApplicationController
           oc.cause = params[:cause]
           oc.save
 
-          json_response(
-              {
-                id_purchase_order: params[:id],
-                state: oc.state
-              }, 200)
+          begin 
+            return json_response(
+                {
+                  id_purchase_order: params[:id],
+                  state: oc.state
+                }, 200)
+          rescue
+            print "error rechazar_orden_compra"
+          ensure
+            #rejected_order = Sales.get_purchase_order(params[:id])
+            #new_production_order =  RawMaterial.restore_stock(rejected_order[sku:], 
+            #                          rejected_order[cantidad:])
+            puts "mandar a producir por rechazo"
+          end
+
         end
       rescue
         json_response({ :error => "Formato de Body incorrecto" }, 400)

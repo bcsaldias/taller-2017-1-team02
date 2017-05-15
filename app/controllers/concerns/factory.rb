@@ -23,6 +23,8 @@ module Factory
 
 	def self.hacer_pedido_interno(sku, cantidad)
 
+		return false
+		
 		product = Product.find(sku)
 		puts product
 		if product.category == 'Materia prima'
