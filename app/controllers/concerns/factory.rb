@@ -43,14 +43,23 @@ module Factory
 
 			puts 'evaluando mover a despacho'
 			needed_products.each do |recipe|
-				#eval_despacho = Warehouses.get_despacho_ready(recipe.needed_product_sku,
-				#											  recipe.requirement)
+            	can_sale = Warehouses.able_to_sale(recipe.needed_product_sku, 
+            										recipe.requirement)
 
-				eval_despacho = true
+				if not can_sale
+					return false
+				end
+			end
+
+			needed_products.each do |recipe|
+				eval_despacho = Warehouses.get_despacho_ready(recipe.needed_product_sku,
+															  recipe.requirement)
 				if not eval_despacho
 					return false
 				end
 			end
+
+
 
 			puts 'materia prima disponible para producir producto procesado'
 			result = self.fabricate_without_paying(sku, cantidad)
