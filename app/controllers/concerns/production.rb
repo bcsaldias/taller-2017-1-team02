@@ -5,7 +5,7 @@ module Production
 
 	def self.get_warehouses
 		auth = Queries.generate_authorization
-		puts auth
+		#puts auth
 		@result = Queries.get("bodega/almacenes",
 						  authorization=auth)
 		return JSON.parse @result.body
@@ -14,7 +14,7 @@ module Production
 	def self.get_stock(warehouse_id, sku)
 		auth = Queries.generate_authorization(_method = 'GET',
 											  params = [warehouse_id,sku.to_s])
-		puts auth
+		#puts auth
 		@result = Queries.get(next_path="bodega/stock",
 						  authorization=auth,
 						  params = {almacenId:warehouse_id, sku:sku})
