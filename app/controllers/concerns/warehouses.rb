@@ -149,21 +149,24 @@ module Warehouses
 
 #despachar_OC despacha las ordenes de compra
   def self.despachar_OC(id_cloud_OC)
-   warehouses_id = self.get_warehouses_id
-   purchase_order = Sales.get_purchase_order(id_cloud_OC)
-   sku = purchase_order['sku']
-   cantidad = purchase_order['cantidad'] ######################################
-   stock_a_despachar = Production.get_stock(warehouses_id)
+    self.get_despacho_ready
 
-   get_despacho_ready
+    purchase_order = Sales.get_purchase_order(id_cloud_OC)
+    price = purchase_order['precioUnitario']
+    q_to_send = purchase_order['cantidad']
+    purchase_order_from_table = PurchaseOrder.where(id_cloud: id_cloud_OC).first
+    client_warehouse = purchase_order_from_table['id_store_reception']
 
-   for product in stock_a_despachar
-     Production.move_stock_external(warehouse_id, product_id, purchase_order, price) ###############parametrizar####
-     cantidad -= 1
-     if cantidad == 0
-       break
-     end
-   end
+    warehouses_id = self.get_warehouses_id
+    stock_a_despachar = Production.get_stock(warehouses_id['despacho'])
+
+    for product in stock_a_despachar
+      Production.move_stock_external(client_warehouse, produ=ct['_id'], purchase_order, price)
+      q_to_send -= 1
+      if q_to_send == 0
+        break
+      end
+    end
   end
 
 #retorna true si el almacen esta lleno, y false si aun tiene espacio libre
