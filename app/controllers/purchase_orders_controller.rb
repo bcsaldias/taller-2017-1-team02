@@ -32,10 +32,8 @@ class PurchaseOrdersController < ApplicationController
                                               payment_method: params[:payment_method],
                                               id_store_reception:  params[:id_store_reception])
           
-          json_response(@purchase_order, 201)
-
           begin 
-            json_response(@purchase_order, 201)
+            return json_response(@purchase_order, 201)
           rescue
             puts "error"
           ensure
