@@ -5,8 +5,9 @@ module RawMaterial
 
   # Proceso que permite obtener una materia prima, retorna true si la logra comprar
   # o producir
-  def proceso_comprar_materia_prima(sku, quantity, needed_date)
-
+  def self.restore_stock(sku, quantity, needed_date = Tiempo(12, 30, 23, 59))
+    #DAR PRIORIDAD A NOSOTROS PARA LA PRODUCCION
+    
     product = Product.find(sku)
 
     return false unless product.suppliers #FALSE si no hay proveedores del producto
