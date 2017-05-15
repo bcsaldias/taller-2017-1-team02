@@ -80,8 +80,4 @@ module Queries
 	end
 
 
-
-	# def self.realizar_pedido(supplier) (supplier, sku, quantity)
-	# 	#(metodo de pago, id OC
-	# end
 end
