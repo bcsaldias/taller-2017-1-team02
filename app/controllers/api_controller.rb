@@ -23,7 +23,7 @@ class ApiController < ApplicationController
 		# #ret = Sales.get_purchase_order("59177e251f734200049c0fab")
 		# warehouses = Warehouses.get_warehouses_id
 
-		ret = Warehouses.sort_warehouses
+		ret = Warehouses.check_and_restore_stock()
 		#ret = Sales.create_purchase_order(  cliente = "5910c0910e42840004f6e684",
 		#								    proveedor = "590baa00d6b4ec0004902463",
 		#								    sku = "2",
