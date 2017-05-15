@@ -3,10 +3,9 @@ module RawMaterial
   #   render json: object, status: status
   # end
 
-  #Copiado del de abajo, pero completo
+  # Proceso que permite obtener una materia prima, retorna true si la logra comprar
+  # o producir
   def proceso_comprar_materia_prima(sku, quantity, needed_date)
-    # Por programar
-    # Encargar un min_production_batch
 
     product = Product.find(sku)
 
@@ -24,24 +23,22 @@ module RawMaterial
       supplier = Supplier.find(supplier_info[:supplier_id])
       price = supplier_info[:price]
 
-      #fix me
-      #whouse_space = Espacio en fecha de llegada
-      whouse_space = 1000
+      #whouse_space = Espacio en fecha de llegada (No implementado)
       order_quantity = calculate_order_quantity(quantity,
-                            supplier_info[:min_production_batch], whouse_space)
+                            supplier_info[:min_production_batch])#, whouse_space)
       return false unless order_quantity # False si no hay espacio en bodega
       puts "This is the best supplier: #{supplier_info[:supplier_id]},
                                         PRICE: #{supplier_info[:price]}"
 
       if supplier.id == 2 # Proveedor somos nosotros
         ## Mandar a producir a nosotros mismos
-        puts 'Desarrollar metodo para producir materias'
-        status = producir_materia_prima(sku, order_quantity)
-        # if status
-        #   compra_realizada = true
-        #   break
-        # end
-        ###
+        puts 'LLAMANDO A METODO QUE PRODUCE MP (hacer_pedido_interno)'
+        status = hacer_pedido_interno(sku, order_quantity)
+        if status
+           compra_realizada = true
+           break
+        end
+
       else
         our_id = Rails.configuration.environment_ids['team_id']
         status = Purchases.create_purchase_order(our_id, supplier.id_cloud, sku, needed_date,
@@ -54,7 +51,7 @@ module RawMaterial
       end
     end
 
-    if compra_realizada # Retorna true cuando se creo satisfactoriamente la OC
+    if compra_realizada # Retorna true si se creo satisfactoriamente la OC o se mando la OC
       return true
     else
       return false
@@ -189,9 +186,8 @@ module RawMaterial
 
 
 
-
-
-  def calculate_order_quantity(quantity, min_batch, whouse_space)
+  #Devuelve la cantidad a producir, si no hay espacio
+  def calculate_order_quantity(quantity, min_batch, whouse_space = 2000000)
     if min_batch > quantity
       producir = min_batch
     else
@@ -200,11 +196,8 @@ module RawMaterial
       producir = n_min_batches * min_batch
       puts "producir: #{producir}, wh: #{whouse_space}"
     end
-    return producir unless producir > whouse_space
+    #return producir unless producir > whouse_space
+    return producir
   end
-
-  # def producir_materia_prima(sku, order_quantity)
-  #   ###Escribir metodo!!
-  # end
 
 end
