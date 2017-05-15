@@ -134,9 +134,9 @@ class PurchaseOrdersController < ApplicationController
           rescue
             print "error rechazar_orden_compra"
           ensure
-            #rejected_order = Sales.get_purchase_order(params[:id])
-            #new_production_order =  RawMaterial.restore_stock(rejected_order[sku:], 
-            #                          rejected_order[cantidad:])
+            rejected_order = Sales.get_purchase_order(params[:id])
+            new_production_order =  RawMaterial.restore_stock(rejected_order[sku:], 
+                                      rejected_order[cantidad:])
             puts "mandar a producir por rechazo"
           end
 
