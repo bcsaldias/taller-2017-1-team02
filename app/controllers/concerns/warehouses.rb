@@ -149,21 +149,24 @@ module Warehouses
 
 #despachar_OC despacha las ordenes de compra
   def self.despachar_OC(id_cloud_OC)
-   warehouses_id = self.get_warehouses_id
-   purchase_order = Sales.get_purchase_order(id_cloud_OC)
-   sku = purchase_order['sku']
-   cantidad = purchase_order['cantidad'] ######################################
-   stock_a_despachar = Production.get_stock(warehouses_id)
+    self.get_despacho_ready
 
-   get_despacho_ready
+    purchase_order = Sales.get_purchase_order(id_cloud_OC)
+    price = purchase_order['precioUnitario']
+    q_to_send = purchase_order['cantidad']
+    purchase_order_from_table = PurchaseOrder.where(id_cloud: id_cloud_OC).first
+    client_warehouse = purchase_order_from_table['id_store_reception']
 
-   for product in stock_a_despachar
-     Production.move_stock_external(warehouse_id, product_id, purchase_order, price) ###############parametrizar####
-     cantidad -= 1
-     if cantidad == 0
-       break
-     end
-   end
+    warehouses_id = self.get_warehouses_id
+    stock_a_despachar = Production.get_stock(warehouses_id['despacho'])
+
+    for product in stock_a_despachar
+      Production.move_stock_external(client_warehouse, produ=ct['_id'], purchase_order, price)
+      q_to_send -= 1
+      if q_to_send == 0
+        break
+      end
+    end
   end
 
 #retorna true si el almacen esta lleno, y false si aun tiene espacio libre
@@ -271,31 +274,49 @@ module Warehouses
     end
     return false
   end
-  ##get all stock, me entrega por sku??? osea los puedo ir a buscar de a uno?
 
 
-#metodo que evalua si podemos vender q_asked de cierto sku
-  def self.able_to_sale(sku, q_asked)
-    # purchase_order = Sales.get_purchase_order(id OC)
-    # needs_production = products(sku).stock - purchase_order.cantidad
-    # producing_on_time = 0
-    # if needs_production >= 0
-    #   return aceptada
-    # else
-    #   for OC in purchase_orders
-    #     if !OC.owner
-    #       i = Sales.get_purchase_order(OC.id_cloud)
-    #       if i.sku = purchase_order.sku and i.fecha_entrega < purchase_order.fecha_entrega and i.accepted and !i.reservado
-    #         producing += i.cantidad
-    #       end
-    #     end
-    #   end
-    # end
-    # if producing_on_time > needs_production
-    #   return aceptada
-    # else
-    #   return rechazada
-    # end
+# metodo que evalua si podemos vender q_asked de cierto sku
+# retorna true si es que tenemos en las bodegas la cantidad pedida de un sku determinado. False en caso contrario
+  def self.product_availability(sku, q_asked)
+    warehouses_id = self.get_warehouses_id
+    stock_general = Production.get_stock(warehouses_id['general'],sku)
+    stock_pregeneral = Production.get_stock(warehouses_id['pregeneral'],sku)
+    stock_recepcion = Production.get_stock(warehouses_id['recepcion'],sku)
+    stock_pulmon = Production.get_stock(warehouses_id['pulmon'],sku)
+
+    stock_actual = stock_general.length + stock_pregeneral.length + stock_recepcion.length + stock_pulmon.length
+
+    if stock_actual >= q_asked
+      return true
+    else
+      return false
+    end
+  end
+
+# chequea si hay que comprar mas de algun producto y manda a comprar el producto en particular
+  def self.check_and_restore_stock
+    warehouses_id = self.get_warehouses_id
+    lista_de_productos = Product.where(owner: true)
+    cantidad_de_productos = lista_de_productos.length
+    cantidad_deseada = 25000/cantidad_de_productos
+    cantidad_minima = 15000/cantidad_de_productos
+
+    for producto in lista_de_productos
+      sku = producto['sku']
+      stock_general = Production.get_stock(warehouses_id['general'],sku)
+      stock_pregeneral = Production.get_stock(warehouses_id['pregeneral'],sku)
+      stock_recepcion = Production.get_stock(warehouses_id['recepcion'],sku)
+      stock_pulmon = Production.get_stock(warehouses_id['pulmon'],sku)
+      stock_actual = stock_general.length + stock_pregeneral.length + stock_recepcion.length + stock_pulmon.length
+
+      if stock_actual < cantidad_minima
+        cantidad_por_comprar = cantidad_deseada - stock_actual
+        # puts sku, "por comprar", cantidad_por_comprar
+        RawMaterial.restore_stock(sku, cantidad_por_comprar)
+      end
+
+    end
   end
 
 end
