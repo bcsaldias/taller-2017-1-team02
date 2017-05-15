@@ -23,6 +23,9 @@ module Factory
 
 	def self.hacer_pedido_interno(sku, cantidad)
 
+		# FIX MEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE !!!!!!!!!!!!!!!!!!!!
+		return false
+		
 		product = Product.find(sku)
 		puts product
 		if product.category == 'Materia prima'
@@ -40,12 +43,23 @@ module Factory
 
 			puts 'evaluando mover a despacho'
 			needed_products.each do |recipe|
-				eval_despacho = Warehouses.get_despacho_ready(recipe.needed_product_sku,
-															  recipe.requirement)
-				if eval_despacho
+            	can_sale = Warehouses.able_to_sale(recipe.needed_product_sku, 
+            										recipe.requirement)
+
+				if not can_sale
 					return false
 				end
 			end
+
+			needed_products.each do |recipe|
+				eval_despacho = Warehouses.get_despacho_ready(recipe.needed_product_sku,
+															  recipe.requirement)
+				if not eval_despacho
+					return false
+				end
+			end
+
+
 
 			puts 'materia prima disponible para producir producto procesado'
 			result = self.fabricate_without_paying(sku, cantidad)
@@ -61,8 +75,9 @@ module Factory
 				ensure
 					needed_products.each do |recipe|
 						puts 'enviando solicitud de reavastecimiento', recipe.needed_product_sku, recipe.requirement
-						pedido = RawMaterial.restore_stock(recipe.needed_product_sku, 
-																			recipe.requirement)
+						#pedido = RawMaterial.restore_stock(recipe.needed_product_sku, 
+						#													recipe.requirement)
+					
 					end
 				end
 			end
