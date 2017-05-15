@@ -74,8 +74,8 @@ module Factory
 				ensure
 					needed_products.each do |recipe|
 						puts 'enviando solicitud de reavastecimiento', recipe.needed_product_sku, recipe.requirement
-						#pedido = RawMaterial.restore_stock(recipe.needed_product_sku, 
-						#													recipe.requirement)
+						pedido = RawMaterial.restore_stock(recipe.needed_product_sku, 
+																			recipe.requirement)
 					
 					end
 				end
