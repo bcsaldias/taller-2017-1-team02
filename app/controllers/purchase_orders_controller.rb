@@ -38,8 +38,7 @@ class PurchaseOrdersController < ApplicationController
             puts "error"
           ensure
             puts "evaluando solicitud recibida", params[:id]
-            #we_can = Warehouses.able_to_sale(order['sku'], order['cantidad'])
-            we_can = false
+            we_can = Warehouses.product_availability(order['sku'], order['cantidad'])
             if we_can
               puts 'oc aceptada'
               Sales.accept_purchase_order(params[:id])

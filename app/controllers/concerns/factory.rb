@@ -43,9 +43,8 @@ module Factory
 
 			puts 'evaluando mover a despacho'
 			needed_products.each do |recipe|
-            	can_sale = Warehouses.able_to_sale(recipe.needed_product_sku, 
+            	can_sale = Warehouses.product_availability(recipe.needed_product_sku, 
             										recipe.requirement)
-
 				if not can_sale
 					return false
 				end
