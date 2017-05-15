@@ -38,12 +38,14 @@ class PurchaseOrdersController < ApplicationController
             puts "error"
           ensure
             puts "evaluando solicitud recibida", params[:id]
-            we_can = Warehouses.able_to_sale(order['sku'], order['cantidad'])
+            #we_can = Warehouses.able_to_sale(order['sku'], order['cantidad'])
+            we_can = false
             if we_can
               puts 'oc aceptada'
               Sales.accept_purchase_order(params[:id])
               puts 'despachando oc'
-              Warehouses.despachar_oc(params[:id])
+              #Warehouses.despachar_oc(params[:id])
+              Sales.deliver_purchase_order(params[:id])
             else 
               puts 'oc rechazada'
               Sales.reject_purchase_order(params[:id], "no podemos abastecerte")
@@ -124,11 +126,21 @@ class PurchaseOrdersController < ApplicationController
           oc.cause = params[:cause]
           oc.save
 
-          json_response(
-              {
-                id_purchase_order: params[:id],
-                state: oc.state
-              }, 200)
+          begin 
+            return json_response(
+                {
+                  id_purchase_order: params[:id],
+                  state: oc.state
+                }, 200)
+          rescue
+            print "error rechazar_orden_compra"
+          ensure
+            #rejected_order = Sales.get_purchase_order(params[:id])
+            #new_production_order =  RawMaterial.restore_stock(rejected_order[sku:], 
+            #                          rejected_order[cantidad:])
+            puts "mandar a producir por rechazo"
+          end
+
         end
       rescue
         json_response({ :error => "Formato de Body incorrecto" }, 400)
