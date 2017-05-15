@@ -4,4 +4,5 @@ class ApplicationController < ActionController::API
     include Production
     include Queries
 		include RawMaterial
+		include Tiempo
 end
