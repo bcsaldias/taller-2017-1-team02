@@ -22,6 +22,7 @@ module Factory
 	end
 
 	def self.hacer_pedido_interno(sku, cantidad)
+		## procesado solo acepta de a un lote
 
 		product = Product.find(sku)
 		if product.category == "Materia prima"
