@@ -33,7 +33,7 @@ module RawMaterial
       if supplier.id == 2 # Proveedor somos nosotros
         ## Mandar a producir a nosotros mismos
         puts 'LLAMANDO A METODO QUE PRODUCE MP (hacer_pedido_interno)'
-        status = Production.hacer_pedido_interno(sku, order_quantity)
+        status = Factory.hacer_pedido_interno(sku, order_quantity)
         if status
            compra_realizada = true
            break
@@ -52,8 +52,10 @@ module RawMaterial
     end
 
     if compra_realizada # Retorna true si se creo satisfactoriamente la OC o se mando la OC
+      puts "restore_stock retorna true"
       return true
     else
+      puts "restore_stock retorna false"
       return false
     end
 
