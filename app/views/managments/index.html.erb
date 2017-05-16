@@ -6,6 +6,9 @@
   <link rel="stylesheet" type="text/css" href="/assets/stylesheets/bootstrap.css">
 </head>
 
+<%= render "layouts/header" %>
+
+
 <body>
     <% if current_user %>
       <%= render "layouts/navbar",  title: '',  login: false, logout: true, home: true %>

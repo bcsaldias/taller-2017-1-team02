@@ -18,7 +18,8 @@ class Product < ApplicationRecord
   def self.our_products
     Product.all.where(owner: true).each do |item|
 
-      if (DateTime.now.to_f * 1000).to_i - (item.updated_at.to_f * 1000).to_i > 1000*60*20
+      #estamos corridos 4 horas.
+      if (DateTime.now.to_f * 1000).to_i - (item.updated_at.to_f * 1000).to_i > 1000*60*60*(5+4)
         item.all_stock
       else
         item.stock
@@ -29,6 +30,7 @@ class Product < ApplicationRecord
 
 
   def all_stock
+    puts (DateTime.now.to_f * 1000).to_i - (self.updated_at.to_f * 1000).to_i
     cte = 0
     Warehouse.all.each do |wh|
         cte = cte + Production.get_stock(wh.id_cloud,self.sku).length
