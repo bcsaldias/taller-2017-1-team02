@@ -63,6 +63,11 @@ class ManagmentsController < ApplicationController
   	puts params[:oc_cloud_id]
   	puts params[:factura_cloud_id]
   	puts params[:proveedor]
+
+    out = Warehouses.despachar_OC(params[:oc_cloud_id])
+
+    puts "OOOOOOOOOORDEN", out
+    
   	redirect_to :managment
   end
 
