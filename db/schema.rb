@@ -82,15 +82,17 @@ ActiveRecord::Schema.define(version: 20170514231534) do
   end
 
   create_table "suppliers", id: false, force: :cascade do |t|
-    t.integer  "id",           null: false
-    t.string   "id_cloud"
+    t.integer  "id",            null: false
+    t.string   "id_cloud_dev"
+    t.string   "id_cloud_prod"
     t.string   "warehouse_id"
     t.string   "api_prod"
     t.string   "api_dev"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.index ["id"], name: "index_products_on_id", unique: true
-    t.index ["id_cloud"], name: "index_products_on_id_cloud", unique: true
+    t.index ["id_cloud_dev"], name: "index_products_on_id_cloud_dev", unique: true
+    t.index ["id_cloud_prod"], name: "index_products_on_id_cloud_prod", unique: true
   end
 
   create_table "warehouses", force: :cascade do |t|
