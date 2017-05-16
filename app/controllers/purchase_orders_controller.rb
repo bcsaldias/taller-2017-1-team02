@@ -31,8 +31,8 @@ class PurchaseOrdersController < ApplicationController
                                               product_sku: order['sku'],
                                               payment_method: params[:payment_method],
                                               id_store_reception:  params[:id_store_reception])
-          
-          begin 
+
+          begin
             return json_response(@purchase_order, 201)
           rescue
             puts "error"
@@ -51,7 +51,7 @@ class PurchaseOrdersController < ApplicationController
                 puts 'despachando oc'
                 Warehouses.despachar_oc(params[:id])
                 Sales.deliver_purchase_order(params[:id])
-              else 
+              else
                 puts 'oc rechazada'
                 Sales.reject_purchase_order(params[:id], "no tenemos stock para cumplir plazo")
               end
@@ -82,7 +82,7 @@ class PurchaseOrdersController < ApplicationController
             json_response ({ error: "Ya se confirmó/rechazó entrega de esta orden de compra" }), 403
           elsif oc.state == "finalizada"
             json_response ({ error: "Ya se finalizó esta orden de compra" }), 403
-          else 
+          else
             oc.state = 1
             oc.save
             json_response(
@@ -95,7 +95,7 @@ class PurchaseOrdersController < ApplicationController
             json_response(
                 { error: 'oc no encontrada'
                 }, 404)
-        end 
+        end
       rescue
         json_response({ :error => "Formato de Body incorrecto" }, 400)
       end
@@ -127,12 +127,12 @@ class PurchaseOrdersController < ApplicationController
           json_response ({ error: "Ya se confirmó/rechazó entrega de esta orden de compra" }), 403
         elsif oc.state == "finalizada"
           json_response ({ error: "Ya se finalizó esta orden de compra" }), 403
-        else 
+        else
           oc.state = 2
           oc.cause = params[:cause]
           oc.save
 
-          begin 
+          begin
             return json_response(
                 {
                   id_purchase_order: params[:id],
