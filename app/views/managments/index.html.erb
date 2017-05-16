@@ -40,35 +40,61 @@
 
                 <tbody id="news-table">
                       <tr>
+                        <td>Generar producción</td>
+                        <%= form_tag(:sent_production, method: "post") do %>
+                          <td><%= label_tag :oc_sku %> <%= text_field_tag :oc_sku %></td>
+                          <td><%= label_tag :cantidad %> <%= text_field_tag :cantidad %></td>
+                          <td> <%= submit_tag('Producir') %></td>
+                        <% end %>
+
+                      </tr>
+                      <tr>
                         <td>Generar OC directa</td>
-                        <td><input type="" name="sku" value="SKU"></td>
-                        <td><input type="" name="cantidad" value="Cantidad"></td>
-                        <td><input type="" name="proveedor_id" value="N° Proveedor"></td>
-                        <td><button>Generar solicitud</button></td>
+
+                        <%= form_tag(:create_oc, method: "post") do %>
+                          <td><%= label_tag :producto_sku %> <%= text_field_tag :oc_sku %></td>
+                          <td><%= label_tag :cantidad %> <%= text_field_tag :cantidad %></td>
+                          <td><%= label_tag :proveedor_id %> <%= text_field_tag :proveedor %></td>
+                          <td> <%= submit_tag('Generar solicitud') %></td>
+                        <% end %>
+
                       </tr>
                       <tr>
                         <td>Reordenar bodegas</td>
-                        <td><button>Reordenar</button></td>
+
+                        <td><%= button_to 'Reordenar', :sort_warehouses %></td>
+
                       </tr>
                       <tr>
                         <td>Checkear disponibilidad</td>
-                        <td><input type="" name="sku" value="SKU"></td>
-                        <td><input type="" name="cantidad" value="Cantidad"></td>
-                        <td><button>Checkear</button></td>
+                        <%= form_tag(:check_for_availablility, method: "post") do %>
+                        <td><%= label_tag :producto_sku %> <%= text_field_tag :oc_sku %></td>
+                        <td><%= label_tag :cantidad %> <%= text_field_tag :cantidad %></td>
+                        <td> <%= submit_tag('Checkear') %></td>
+                        <% end %>
+
                       </tr>
                       <tr>
+
                         <td>Despachar OC</td>
-                        <td><input type="" name="factura_cloud_id" value="factura_cloud_id"></td>
-                        <td><input type="" name="oc_cloud_id" value="oc_cloud_id"></td>
-                        <td><input type="" name="proveedor_id" value="N° Proveedor"></td>
-                        <td><button>Despachar</button></td>
+                        <%= form_tag(:deliver, method: "post") do %>
+                        <td><%= label_tag :factura_cloud_id %> <%= text_field_tag :factura_cloud_id %></td>
+                        <td><%= label_tag :oc_cloud_id %> <%= text_field_tag :oc_cloud_id %></td>
+                        <td><%= label_tag :proveedor_id %> <%= text_field_tag :proveedor %></td>
+                        <td> <%= submit_tag('Despachar') %></td>
+                        <% end %>
+
                       </tr>
                       <tr>
+
                         <td>Notificar despacho OC</td>
-                        <td><input type="" name="factura_cloud_id" value="factura_cloud_id"></td>
-                        <td><input type="" name="oc_cloud_id" value="oc_cloud_id"></td>
-                        <td><input type="" name="proveedor_id" value="N° Proveedor"></td>
-                        <td><button>Notificar</button></td>
+                        <%= form_tag(:notify_deliver, method: "post") do %>
+                        <td><%= label_tag :factura_cloud_id %> <%= text_field_tag :factura_cloud_id %></td>
+                        <td><%= label_tag :oc_cloud_id %> <%= text_field_tag :oc_cloud_id %></td>
+                        <td><%= label_tag :proveedor_id %> <%= text_field_tag :proveedor %></td>
+                        <td> <%= submit_tag('Notificar') %></td>
+                        <% end %>
+
                       </tr>
                 </tbody>
             </table>

@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
     include Queries
 	include RawMaterial
 	include Tiempo
+	include Warehouses
 
 	private
 	def not_authenticated

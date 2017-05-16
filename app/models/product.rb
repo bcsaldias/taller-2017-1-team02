@@ -18,8 +18,6 @@ class Product < ApplicationRecord
   def self.our_products
     Product.all.where(owner: true).each do |item|
 
-      puts (DateTime.now.to_f * 1000).to_i - (item.updated_at.to_f * 1000).to_i
-      puts  1000*60*20
       if (DateTime.now.to_f * 1000).to_i - (item.updated_at.to_f * 1000).to_i > 1000*60*20
         item.all_stock
       else

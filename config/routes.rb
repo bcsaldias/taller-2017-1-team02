@@ -13,6 +13,13 @@ Rails.application.routes.draw do
   get 'login' => 'user_sessions#new', :as => :login
   get 'logout' => 'user_sessions#destroy', :as => :logout
   
+  post 'sort_wh' => 'managments#sort_wh', as: :sort_warehouses
+  post 'notify_deliver' => 'managments#notify_deliver', as: :notify_deliver
+  post 'deliver' => 'managments#deliver', as: :deliver
+  post 'create_oc' => 'managments#create_oc', as: :create_oc
+  post 'sent_production' => 'managments#sent_production', as: :sent_production
+  post 'check_for_availablility' => 'managments#check_for_availablility', as: :check_for_availablility
+
   get 'dashboard/index'
 
   #resources :warehouses

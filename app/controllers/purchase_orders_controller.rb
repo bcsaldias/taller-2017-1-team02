@@ -38,12 +38,9 @@ class PurchaseOrdersController < ApplicationController
             puts "error"
           ensure
             puts "evaluando solicitud recibida", params[:id]
-            ##
-            ## if plazo menor a 2 horas:
-            ##
-            ##
-            deadline_in = 900000000000000
-            if deadline_in < 1000*60*60*1 #1 horas
+
+            deadline_in = order['fechaEntrega'] - (DateTime.now.to_f * 1000).to_i
+            if deadline_in < 1000*60*60*2 #2 horas
               we_can = Warehouses.product_availability(order['sku'], order['cantidad'])
               if we_can
                 puts 'oc aceptada'

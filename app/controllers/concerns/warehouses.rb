@@ -202,6 +202,7 @@ module Warehouses
 
 #ordena los almacenes, dejando la mayoria en general
   def self.sort_warehouses
+    puts "starting reorder"
     warehouses_id = self.get_warehouses_id
     # puts warehouses_id['general']
     stock_general = Production.get_all_stock_warehouse(warehouses_id['general'])
