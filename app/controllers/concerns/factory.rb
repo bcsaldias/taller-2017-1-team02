@@ -24,8 +24,7 @@ module Factory
 	def self.hacer_pedido_interno(sku, cantidad)
 
 		product = Product.find(sku)
-		puts product
-		if product.category == 'Materia prima'
+		if product.category == "Materia prima"
 			result = self.fabricate_without_paying(sku, cantidad)
 			if result.keys.include?("error")
 				return false
