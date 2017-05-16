@@ -31,7 +31,12 @@ module Factory
 				return false
 			else 
       			purchase_order = ProductionOrder.create!(id_cloud: result['_id'], 
+                                        				 product_sku: result['sku'],
+                                        				 cantidad: result['cantidad'],
+                                        				 despachado: result['despachado'],
+                                        				 disponible: result['disponible'],
                                         				 product_sku: result['sku'])
+
 				return true
 			end
 
