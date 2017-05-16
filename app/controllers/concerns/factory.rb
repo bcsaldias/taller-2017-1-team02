@@ -23,9 +23,6 @@ module Factory
 
 	def self.hacer_pedido_interno(sku, cantidad)
 
-		# FIX MEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE !!!!!!!!!!!!!!!!!!!!
-		return false
-		
 		product = Product.find(sku)
 		puts product
 		if product.category == 'Materia prima'
@@ -57,8 +54,6 @@ module Factory
 					return false
 				end
 			end
-
-
 
 			puts 'materia prima disponible para producir producto procesado'
 			result = self.fabricate_without_paying(sku, cantidad)
