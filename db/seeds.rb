@@ -8,22 +8,6 @@
 
 #Warehouse.all.delete_all
 
-#warehouses_dev = Warehouse.create([
-#		{id_cloud: "590baa76d6b4ec000490255d"} , #recepcion
-#		{id_cloud: "590baa76d6b4ec000490255e"} , #despacho
-#		{id_cloud: "590baa76d6b4ec000490255f"} , #general
-#		{id_cloud: "590baa76d6b4ec000490265d"} , #general
-#		{id_cloud: "590baa76d6b4ec000490265e"} 	 #pulmon
-#	])
-
-warehouses_prod = Warehouse.create([
-		{id_cloud: "5910c0b90e42840004f6e74a"} , #recepcion
-		{id_cloud: "5910c0b90e42840004f6e74b"} , #despacho
-		{id_cloud: "5910c0b90e42840004f6e770"} , #general
-		{id_cloud: "5910c0b90e42840004f6e74c"} , #general
-		{id_cloud: "5910c0b90e42840004f6e771"} 	 #pulmon
-	])
-
 Supplier.all.delete_all
 
 suppliers = Supplier.create([
@@ -46,52 +30,52 @@ suppliers = Supplier.create([
 					id_cloud_prod: nil, id_cloud_dev: nil}
 	])
 
-Product.all.delete_all
-products = Product.create!([
-	{category:'Materia prima',description:'Pollo',owner:false,sku:'1'} ,
-	{category:'Materia prima',owner:true,price: 306,sku:'2',description:'Huevo'} ,
-	{category:'Materia prima',description:'Maíz',owner:false,sku:'3'} ,
-	{category:'Producto procesado',description:'Aceite de Maravilla',owner:false,sku:'4'} ,
-	{category:'Producto procesado',description:'Yogur',owner:false,sku:'5'} ,
-	{category:'Producto procesado',owner:true,price: 1542,sku:'6',description:'Crema'} ,
-	{category:'Materia prima',description:'Leche',owner:false,sku:'7'} ,
-	{category:'Materia prima',owner:true,price: 756,sku:'8',description:'Trigo'} ,
-	{category:'Materia prima',description:'Carne',owner:false,sku:'9'} ,
-	{category:'Producto procesado',description:'Pan Marraqueta',owner:false,sku:'10'} ,
-	{category:'Producto procesado',description:'Margarina',owner:false,sku:'11'} ,
-	{category:'Producto procesado',description:'Cereal Avena',owner:false,sku:'12'} ,
-	{category:'Materia prima',description:'Arroz',owner:false,sku:'13'} ,
-	{category:'Materia prima',owner:true,price: 888,sku:'14',description:'Cebada'} ,
-	{category:'Materia prima',description:'Avena',owner:false,sku:'15'} ,
-	{category:'Producto procesado',description:'Pasta de Trigo',owner:false,sku:'16'} ,
-	{category:'Producto procesado',description:'Cereal Arroz',owner:false,sku:'17'} ,
-	{category:'Producto procesado',description:'Pastel',owner:false,sku:'18'} ,
-	{category:'Materia prima',description:'Sémola',owner:false,sku:'19'} ,
-	{category:'Materia prima',owner:true,price: 516,sku:'20',description:'Cacao'} ,
-	{category:'Producto procesado',description:'Mantequilla',owner:false,sku:'22'} ,
-	{category:'Producto procesado',description:'Harina',owner:false,sku:'23'} ,
-	{category:'Materia prima',description:'Azúcar',owner:false,sku:'25'} ,
-	{category:'Materia prima',owner:true,price: 297,sku:'26',description:'Sal'} ,
-	{category:'Materia prima',description:'Levadura',owner:false,sku:'27'} ,
-	{category:'Producto procesado',description:'Cerveza',owner:false,sku:'34'} ,
-	{category:'Materia prima',description:'Semillas Maravilla',owner:false,sku:'38'} ,
-	{category:'Materia prima',owner:true,price: 699,sku:'39',description:'Uva'} ,
-	{category:'Producto procesado',owner:true,price: 1788,sku:'40',description:'Queso'} ,
-	{category:'Producto procesado',owner:true,price: 768,sku:'41',description:'Suero de Leche'} ,
-	{category:'Producto procesado',description:'Cereal Maíz',owner:false,sku:'42'} ,
-	{category:'Producto procesado',description:'Chocolate',owner:false,sku:'46'} ,
-	{category:'Producto procesado',description:'Vino',owner:false,sku:'47'} ,
-	{category:'Producto procesado',description:'Pasta de Sémola',owner:false,sku:'48'} ,
-	{category:'Producto procesado',owner:true,price: 804,sku:'49',description:'Leche Descremada'} ,
-	{category:'Producto procesado',description:'Arroz con Leche',owner:false,sku:'50'} ,
-	{category:'Producto procesado',description:'Pan Hallulla',owner:false,sku:'51'} ,
-	{category:'Producto procesado',description:'Harina Integral',owner:false,sku:'52'} ,
-	{category:'Producto procesado',description:'Pan Integral',owner:false,sku:'53'} ,
-	{category:'Producto procesado',description:'Hamburguesas',owner:false,sku:'54'} ,
-	{category:'Producto procesado',description:'Galletas Integrales',owner:false,sku:'55'} ,
-	{category:'Producto procesado',description:'Hamburguesas de Pollo',owner:false,sku:'56'}
-
-]	)
+#Product.all.delete_all
+#products = Product.create!([
+#	{category:'Materia prima',description:'Pollo',owner:false,sku:'1'} ,
+#	{category:'Materia prima',owner:true,price: 306,sku:'2',description:'Huevo'} ,
+#	{category:'Materia prima',description:'Maíz',owner:false,sku:'3'} ,
+#	{category:'Producto procesado',description:'Aceite de Maravilla',owner:false,sku:'4'} ,
+#	{category:'Producto procesado',description:'Yogur',owner:false,sku:'5'} ,
+#	{category:'Producto procesado',owner:true,price: 1542,sku:'6',description:'Crema'} ,
+#	{category:'Materia prima',description:'Leche',owner:false,sku:'7'} ,
+#	{category:'Materia prima',owner:true,price: 756,sku:'8',description:'Trigo'} ,
+#	{category:'Materia prima',description:'Carne',owner:false,sku:'9'} ,
+#	{category:'Producto procesado',description:'Pan Marraqueta',owner:false,sku:'10'} ,
+#	{category:'Producto procesado',description:'Margarina',owner:false,sku:'11'} ,
+#	{category:'Producto procesado',description:'Cereal Avena',owner:false,sku:'12'} ,
+#	{category:'Materia prima',description:'Arroz',owner:false,sku:'13'} ,
+#	{category:'Materia prima',owner:true,price: 888,sku:'14',description:'Cebada'} ,
+#	{category:'Materia prima',description:'Avena',owner:false,sku:'15'} ,
+#	{category:'Producto procesado',description:'Pasta de Trigo',owner:false,sku:'16'} ,
+#	{category:'Producto procesado',description:'Cereal Arroz',owner:false,sku:'17'} ,
+#	{category:'Producto procesado',description:'Pastel',owner:false,sku:'18'} ,
+#	{category:'Materia prima',description:'Sémola',owner:false,sku:'19'} ,
+#	{category:'Materia prima',owner:true,price: 516,sku:'20',description:'Cacao'} ,
+#	{category:'Producto procesado',description:'Mantequilla',owner:false,sku:'22'} ,
+#	{category:'Producto procesado',description:'Harina',owner:false,sku:'23'} ,
+#	{category:'Materia prima',description:'Azúcar',owner:false,sku:'25'} ,
+#	{category:'Materia prima',owner:true,price: 297,sku:'26',description:'Sal'} ,
+#	{category:'Materia prima',description:'Levadura',owner:false,sku:'27'} ,
+#	{category:'Producto procesado',description:'Cerveza',owner:false,sku:'34'} ,
+#	{category:'Materia prima',description:'Semillas Maravilla',owner:false,sku:'38'} ,
+#	{category:'Materia prima',owner:true,price: 699,sku:'39',description:'Uva'} ,
+#	{category:'Producto procesado',owner:true,price: 1788,sku:'40',description:'Queso'} ,
+#	{category:'Producto procesado',owner:true,price: 768,sku:'41',description:'Suero de Leche'} ,
+#	{category:'Producto procesado',description:'Cereal Maíz',owner:false,sku:'42'} ,
+#	{category:'Producto procesado',description:'Chocolate',owner:false,sku:'46'} ,
+#	{category:'Producto procesado',description:'Vino',owner:false,sku:'47'} ,
+#	{category:'Producto procesado',description:'Pasta de Sémola',owner:false,sku:'48'} ,
+#	{category:'Producto procesado',owner:true,price: 804,sku:'49',description:'Leche Descremada'} ,
+#	{category:'Producto procesado',description:'Arroz con Leche',owner:false,sku:'50'} ,
+#	{category:'Producto procesado',description:'Pan Hallulla',owner:false,sku:'51'} ,
+#	{category:'Producto procesado',description:'Harina Integral',owner:false,sku:'52'} ,
+#	{category:'Producto procesado',description:'Pan Integral',owner:false,sku:'53'} ,
+#	{category:'Producto procesado',description:'Hamburguesas',owner:false,sku:'54'} ,
+#	{category:'Producto procesado',description:'Galletas Integrales',owner:false,sku:'55'} ,
+#	{category:'Producto procesado',description:'Hamburguesas de Pollo',owner:false,sku:'56'}
+#
+#]	)
 
 Contact.all.delete_all
 contacts = Contact.create([
