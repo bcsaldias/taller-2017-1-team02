@@ -6,76 +6,137 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-#Warehouse.all.delete_all
+Warehouse.all.delete_all
+
+#warehouses_dev = Warehouse.create([
+#		{id_cloud: "590baa76d6b4ec000490255d"} , #recepcion
+#		{id_cloud: "590baa76d6b4ec000490255e"} , #despacho
+#		{id_cloud: "590baa76d6b4ec000490255f"} , #general
+#		{id_cloud: "590baa76d6b4ec000490265d"} , #general
+#		{id_cloud: "590baa76d6b4ec000490265e"} 	 #pulmon
+#	])
+
+warehouses_prod = Warehouse.create([
+		{id_cloud: "590baa76d6b4ec000490255d"} , #recepcion
+		{id_cloud: "590baa76d6b4ec000490255e"} , #despacho
+		{id_cloud: "590baa76d6b4ec000490255f"} , #general
+		{id_cloud: "590baa76d6b4ec000490265d"} , #general
+		{id_cloud: "590baa76d6b4ec000490265e"} 	 #pulmon
+	])
+
+ProductionOrder.create([
+  {
+    product_sku: "2",
+    cantidad: 2100,
+    id_cloud: "5919bfe40e8dc600044a2d31",
+    disponible: "2017-05-15T17:07:51.948Z",
+    despachado: false
+  },
+
+  { product_sku: "8",
+    cantidad: 2000,
+    id_cloud: "5919bf170e8dc600044a2d32",
+    disponible: "2017-05-15T16:49:53.015Z",
+    despachado: false
+  },
+  {
+    product_sku: "2",
+    cantidad: 2100,
+    id_cloud: "5919bfe40e8dc600044a2d33",
+    disponible: "2017-05-15T17:07:51.948Z",
+    despachado: false
+  },
+  {
+    product_sku: "14",
+    cantidad: 3500,
+    id_cloud: "5919c02d0e8dc600044a2d34",
+    disponible: "2017-05-15T15:40:01.075Z",
+    despachado: false
+  },
+  {
+    product_sku: "20",
+    cantidad: 2040,
+    id_cloud: "5919c0600e8dc600044a2d35",
+    disponible: "2017-05-15T18:38:49.719Z",
+    despachado: false
+  },
+  {
+    product_sku: "26",
+    cantidad: 2016,
+    id_cloud: "5919c08d0e8dc600044a2d36",
+    disponible: "2017-05-15T16:49:50.571Z",
+    despachado: false
+  },
+  {
+    product_sku: "39",
+    cantidad: 2000,
+    id_cloud: "5919c0c50e8dc600044a2d37",
+    disponible: "2017-05-15T18:28:44.224Z",
+    despachado: false
+  }
+	])
+
 
 Supplier.all.delete_all
 
 suppliers = Supplier.create([
-		{id: 1, api_prod: "http://integra17-1.ing.puc.cl/", api_dev: "http://dev.integra17-1.ing.puc.cl/", 
-											id_cloud_prod: "5910c0910e42840004f6e680", id_cloud_dev: nil} ,
-		{id: 2, api_prod: "http://integra17-2.ing.puc.cl/", api_dev: "http://dev.integra17-2.ing.puc.cl/", 
-					id_cloud_prod: "5910c0910e42840004f6e681", id_cloud_dev: "590baa00d6b4ec0004902463"} ,
+		{id: 1, api_prod: "http://integra17-1.ing.puc.cl/", api_dev: "http://dev.integra17-1.ing.puc.cl/", id_cloud_prod: "5910c0910e42840004f6e680", id_cloud_dev: nil} ,
+		{id: 2, api_prod: "http://integra17-2.ing.puc.cl/", api_dev: "http://dev.integra17-2.ing.puc.cl/", id_cloud_prod: "5910c0910e42840004f6e681", id_cloud_dev: "590baa00d6b4ec0004902463"} ,
 		#{id: 2, api_prod: "http://localhost:3000/", api_dev: "http://localhost:3000/"} ,
-		{id: 3, api_prod: "http://integra17-3.ing.puc.cl/", api_dev: "http://dev.integra17-3.ing.puc.cl/", 
-					id_cloud_prod: nil, id_cloud_dev: nil} ,
-		{id: 4, api_prod: "http://integra17-4.ing.puc.cl/", api_dev: "http://dev.integra17-4.ing.puc.cl/", 
-					id_cloud_prod: nil, id_cloud_dev: nil} ,
-		{id: 5, api_prod: "http://integra17-5.ing.puc.cl/", api_dev: "http://dev.integra17-5.ing.puc.cl/", 
-					id_cloud_prod: "55910c0910e42840004f6e684", id_cloud_dev: "590baa00d6b4ec0004902466"} ,
-		{id: 6, api_prod: "http://integra17-6.ing.puc.cl/", api_dev: "http://dev.integra17-6.ing.puc.cl/", 
-					id_cloud_prod: nil, id_cloud_dev: nil} ,
-		{id: 7, api_prod: "http://integra17-7.ing.puc.cl/", api_dev: "http://dev.integra17-7.ing.puc.cl/", 
-					id_cloud_prod: "5910c0910e42840004f6e686", id_cloud_dev: "590baa00d6b4ec0004902468"} ,
-		{id: 8, api_prod: "http://integra17-8.ing.puc.cl/", api_dev: "http://dev.integra17-8.ing.puc.cl/", 
-					id_cloud_prod: nil, id_cloud_dev: nil}
+		{id: 3, api_prod: "http://integra17-3.ing.puc.cl/", api_dev: "http://dev.integra17-3.ing.puc.cl/", id_cloud_prod: nil, id_cloud_dev: nil} ,
+		{id: 4, api_prod: "http://integra17-4.ing.puc.cl/", api_dev: "http://dev.integra17-4.ing.puc.cl/", id_cloud_prod: nil, id_cloud_dev: nil} ,
+		{id: 5, api_prod: "http://integra17-5.ing.puc.cl/", api_dev: "http://dev.integra17-5.ing.puc.cl/", id_cloud_prod: "55910c0910e42840004f6e684", id_cloud_dev: "590baa00d6b4ec0004902466"} ,
+		{id: 6, api_prod: "http://integra17-6.ing.puc.cl/", api_dev: "http://dev.integra17-6.ing.puc.cl/", id_cloud_prod: nil, id_cloud_dev: nil} ,
+		{id: 7, api_prod: "http://integra17-7.ing.puc.cl/", api_dev: "http://dev.integra17-7.ing.puc.cl/", id_cloud_prod: "5910c0910e42840004f6e686", id_cloud_dev: "590baa00d6b4ec0004902468"} ,
+		{id: 8, api_prod: "http://integra17-8.ing.puc.cl/", api_dev: "http://dev.integra17-8.ing.puc.cl/", id_cloud_prod: nil, id_cloud_dev: nil}
 	])
 
-#Product.all.delete_all
-#products = Product.create!([
-#	{category:'Materia prima',description:'Pollo',owner:false,sku:'1'} ,
-#	{category:'Materia prima',owner:true,price: 306,sku:'2',description:'Huevo'} ,
-#	{category:'Materia prima',description:'Maíz',owner:false,sku:'3'} ,
-#	{category:'Producto procesado',description:'Aceite de Maravilla',owner:false,sku:'4'} ,
-#	{category:'Producto procesado',description:'Yogur',owner:false,sku:'5'} ,
-#	{category:'Producto procesado',owner:true,price: 1542,sku:'6',description:'Crema'} ,
-#	{category:'Materia prima',description:'Leche',owner:false,sku:'7'} ,
-#	{category:'Materia prima',owner:true,price: 756,sku:'8',description:'Trigo'} ,
-#	{category:'Materia prima',description:'Carne',owner:false,sku:'9'} ,
-#	{category:'Producto procesado',description:'Pan Marraqueta',owner:false,sku:'10'} ,
-#	{category:'Producto procesado',description:'Margarina',owner:false,sku:'11'} ,
-#	{category:'Producto procesado',description:'Cereal Avena',owner:false,sku:'12'} ,
-#	{category:'Materia prima',description:'Arroz',owner:false,sku:'13'} ,
-#	{category:'Materia prima',owner:true,price: 888,sku:'14',description:'Cebada'} ,
-#	{category:'Materia prima',description:'Avena',owner:false,sku:'15'} ,
-#	{category:'Producto procesado',description:'Pasta de Trigo',owner:false,sku:'16'} ,
-#	{category:'Producto procesado',description:'Cereal Arroz',owner:false,sku:'17'} ,
-#	{category:'Producto procesado',description:'Pastel',owner:false,sku:'18'} ,
-#	{category:'Materia prima',description:'Sémola',owner:false,sku:'19'} ,
-#	{category:'Materia prima',owner:true,price: 516,sku:'20',description:'Cacao'} ,
-#	{category:'Producto procesado',description:'Mantequilla',owner:false,sku:'22'} ,
-#	{category:'Producto procesado',description:'Harina',owner:false,sku:'23'} ,
-#	{category:'Materia prima',description:'Azúcar',owner:false,sku:'25'} ,
-#	{category:'Materia prima',owner:true,price: 297,sku:'26',description:'Sal'} ,
-#	{category:'Materia prima',description:'Levadura',owner:false,sku:'27'} ,
-#	{category:'Producto procesado',description:'Cerveza',owner:false,sku:'34'} ,
-#	{category:'Materia prima',description:'Semillas Maravilla',owner:false,sku:'38'} ,
-#	{category:'Materia prima',owner:true,price: 699,sku:'39',description:'Uva'} ,
-#	{category:'Producto procesado',owner:true,price: 1788,sku:'40',description:'Queso'} ,
-#	{category:'Producto procesado',owner:true,price: 768,sku:'41',description:'Suero de Leche'} ,
-#	{category:'Producto procesado',description:'Cereal Maíz',owner:false,sku:'42'} ,
-#	{category:'Producto procesado',description:'Chocolate',owner:false,sku:'46'} ,
-#	{category:'Producto procesado',description:'Vino',owner:false,sku:'47'} ,
-#	{category:'Producto procesado',description:'Pasta de Sémola',owner:false,sku:'48'} ,
-#	{category:'Producto procesado',owner:true,price: 804,sku:'49',description:'Leche Descremada'} ,
-#	{category:'Producto procesado',description:'Arroz con Leche',owner:false,sku:'50'} ,
-#	{category:'Producto procesado',description:'Pan Hallulla',owner:false,sku:'51'} ,
-#	{category:'Producto procesado',description:'Harina Integral',owner:false,sku:'52'} ,
-#	{category:'Producto procesado',description:'Pan Integral',owner:false,sku:'53'} ,
-#	{category:'Producto procesado',description:'Hamburguesas',owner:false,sku:'54'} ,
-#	{category:'Producto procesado',description:'Galletas Integrales',owner:false,sku:'55'} ,
-#	{category:'Producto procesado',description:'Hamburguesas de Pollo',owner:false,sku:'56'}
-#
-#]	)
+Product.all.delete_all
+products = Product.create!([
+	{category:'Materia prima',description:'Pollo',owner:false,sku:'1'} ,
+	{category:'Materia prima',owner:true,price: 306,sku:'2',description:'Huevo'} ,
+	{category:'Materia prima',description:'Maíz',owner:false,sku:'3'} ,
+	{category:'Producto procesado',description:'Aceite de Maravilla',owner:false,sku:'4'} ,
+	{category:'Producto procesado',description:'Yogur',owner:false,sku:'5'} ,
+	{category:'Producto procesado',owner:true,price: 1542,sku:'6',description:'Crema'} ,
+	{category:'Materia prima',description:'Leche',owner:false,sku:'7'} ,
+	{category:'Materia prima',owner:true,price: 756,sku:'8',description:'Trigo'} ,
+	{category:'Materia prima',description:'Carne',owner:false,sku:'9'} ,
+	{category:'Producto procesado',description:'Pan Marraqueta',owner:false,sku:'10'} ,
+	{category:'Producto procesado',description:'Margarina',owner:false,sku:'11'} ,
+	{category:'Producto procesado',description:'Cereal Avena',owner:false,sku:'12'} ,
+	{category:'Materia prima',description:'Arroz',owner:false,sku:'13'} ,
+	{category:'Materia prima',owner:true,price: 888,sku:'14',description:'Cebada'} ,
+	{category:'Materia prima',description:'Avena',owner:false,sku:'15'} ,
+	{category:'Producto procesado',description:'Pasta de Trigo',owner:false,sku:'16'} ,
+	{category:'Producto procesado',description:'Cereal Arroz',owner:false,sku:'17'} ,
+	{category:'Producto procesado',description:'Pastel',owner:false,sku:'18'} ,
+	{category:'Materia prima',description:'Sémola',owner:false,sku:'19'} ,
+	{category:'Materia prima',owner:true,price: 516,sku:'20',description:'Cacao'} ,
+	{category:'Producto procesado',description:'Mantequilla',owner:false,sku:'22'} ,
+	{category:'Producto procesado',description:'Harina',owner:false,sku:'23'} ,
+	{category:'Materia prima',description:'Azúcar',owner:false,sku:'25'} ,
+	{category:'Materia prima',owner:true,price: 297,sku:'26',description:'Sal'} ,
+	{category:'Materia prima',description:'Levadura',owner:false,sku:'27'} ,
+	{category:'Producto procesado',description:'Cerveza',owner:false,sku:'34'} ,
+	{category:'Materia prima',description:'Semillas Maravilla',owner:false,sku:'38'} ,
+	{category:'Materia prima',owner:true,price: 699,sku:'39',description:'Uva'} ,
+	{category:'Producto procesado',owner:true,price: 1788,sku:'40',description:'Queso'} ,
+	{category:'Producto procesado',owner:true,price: 768,sku:'41',description:'Suero de Leche'} ,
+	{category:'Producto procesado',description:'Cereal Maíz',owner:false,sku:'42'} ,
+	{category:'Producto procesado',description:'Chocolate',owner:false,sku:'46'} ,
+	{category:'Producto procesado',description:'Vino',owner:false,sku:'47'} ,
+	{category:'Producto procesado',description:'Pasta de Sémola',owner:false,sku:'48'} ,
+	{category:'Producto procesado',owner:true,price: 804,sku:'49',description:'Leche Descremada'} ,
+	{category:'Producto procesado',description:'Arroz con Leche',owner:false,sku:'50'} ,
+	{category:'Producto procesado',description:'Pan Hallulla',owner:false,sku:'51'} ,
+	{category:'Producto procesado',description:'Harina Integral',owner:false,sku:'52'} ,
+	{category:'Producto procesado',description:'Pan Integral',owner:false,sku:'53'} ,
+	{category:'Producto procesado',description:'Hamburguesas',owner:false,sku:'54'} ,
+	{category:'Producto procesado',description:'Galletas Integrales',owner:false,sku:'55'} ,
+	{category:'Producto procesado',description:'Hamburguesas de Pollo',owner:false,sku:'56'}
+
+]	)
 
 Contact.all.delete_all
 contacts = Contact.create([

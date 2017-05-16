@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20170516011420) do
     t.string   "product_sku",                 null: false
     t.integer  "cantidad"
     t.boolean  "despachado",  default: false
+    t.datetime "disponible"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.index ["id_cloud"], name: "index_production_orders_on_id_cloud", unique: true
