@@ -51,11 +51,11 @@ class ProductsController < ApplicationController
   def buy
     sku = "2" #"Huevo"
     p = Product.find(sku)
-    puts "Producto: #{p}"
+    #puts "Producto: #{p}"
     quantity = 100
     # comprar_materia_prima(sku, quantity, 1593214596281)
-    proceso_comprar_materia_prima(sku, quantity, 1593214596281)
-    #json_response(Product.catalogue)
+    RawMaterial.restore_stock(sku, quantity, 1593214596281)
+    json_response(Product.catalogue)
 
     #calculate_order_quantity(quantity, min_batch, whouse_space)
   end
