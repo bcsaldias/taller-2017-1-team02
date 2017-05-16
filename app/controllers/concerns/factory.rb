@@ -34,7 +34,6 @@ module Factory
                                         				 cantidad: result['cantidad'],
                                         				 despachado: result['despachado'],
                                         				 disponible: result['disponible'])
-
 				return true
 			end
 

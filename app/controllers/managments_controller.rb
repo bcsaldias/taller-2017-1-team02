@@ -12,22 +12,18 @@ class ManagmentsController < ApplicationController
     @purchase_orders = PurchaseOrder.requested
     @production_orders = ProductionOrder.all
     @factory = ProductionOrder.all
-    @ok = false
 
   end
 
   def sent_production
   	puts params[:oc_sku]
   	puts params[:cantidad]
-
     Factory.hacer_pedido_interno(params[:oc_sku], params[:cantidad].to_i)
-
   	redirect_to :managment
   end
 
   def accept_oc
     @end =  nil
-
     if params[:status] == "Aceptar"
       @end = Sales.accept_purchase_order(params[:cloud_id])
     elsif params[:status] == "Rechazar"
@@ -49,7 +45,6 @@ class ManagmentsController < ApplicationController
     minutos = params[:fecha_minutos]
     comprar = RawMaterial.buy_product_from_supplier(params[:oc_sku], params[:cantidad].to_i, params[:proveedor].to_i, 
                           needed_date = Tiempo.tiempo_a_milisegundos(5, 16, 21, 00)) #mes, dia, hora, minuto
-
   	redirect_to :managment
   end
 
@@ -66,11 +61,8 @@ class ManagmentsController < ApplicationController
   	puts params[:oc_cloud_id]
   	puts params[:factura_cloud_id]
   	puts params[:proveedor]
-
     out = Warehouses.despachar_OC(params[:oc_cloud_id])
-
     puts "OOOOOOOOOORDEN", out
-    
   	redirect_to :managment
   end
 
