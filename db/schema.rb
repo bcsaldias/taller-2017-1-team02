@@ -59,13 +59,16 @@ ActiveRecord::Schema.define(version: 20170514231534) do
     t.string   "id_cloud",           null: false
     t.integer  "state"
     t.string   "product_sku",        null: false
+    t.integer  "quantity"
     t.string   "id_store_reception"
     t.string   "payment_method"
     t.string   "cause"
     t.boolean  "owner"
+    t.integer  "supplier_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.index ["id_cloud"], name: "index_purchase_orders_on_id_cloud", unique: true
+    t.index ["supplier_id"], name: "index_purchase_orders_on_supplier_id"
   end
 
   create_table "recipes", force: :cascade do |t|

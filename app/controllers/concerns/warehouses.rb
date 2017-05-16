@@ -318,5 +318,4 @@ module Warehouses
 
     end
   end
-
 end
