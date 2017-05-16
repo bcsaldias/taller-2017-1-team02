@@ -149,21 +149,28 @@ module Warehouses
 
 #despachar_OC despacha las ordenes de compra
   def self.despachar_OC(id_cloud_OC)
-    self.get_despacho_ready
-
     purchase_order = Sales.get_purchase_order(id_cloud_OC)
+
+    puts purchase_order
+    puts purchase_order["sku"], purchase_order["cantidad"]
+
+    self.get_despacho_ready(purchase_order[:sku], purchase_order[:cantidad].to_i)
+
     price = purchase_order['precioUnitario']
     q_to_send = purchase_order['cantidad']
     purchase_order_from_table = PurchaseOrder.where(id_cloud: id_cloud_OC).first
     client_warehouse = purchase_order_from_table['id_store_reception']
 
     warehouses_id = self.get_warehouses_id
-    stock_a_despachar = Production.get_stock(warehouses_id['despacho'])
+    stock_a_despachar = Production.get_stock(warehouses_id['despacho'], purchase_order["sku"])
 
     for product in stock_a_despachar
-      Production.move_stock_external(client_warehouse, produ=ct['_id'], purchase_order, price)
+      Production.move_stock_external(client_warehouse, produ=ct['_id'], id_cloud_OC, price)
       q_to_send -= 1
       if q_to_send == 0
+        purchase_order_from_table.state = 2
+        purchase_order.save
+        return true
         break
       end
     end

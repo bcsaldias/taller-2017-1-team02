@@ -142,6 +142,39 @@
           </div>
 
 
+          <div class="panel panel-primary">
+            <!-- Default panel contents -->
+            <div class="panel-heading">Ordenes de compras enviadas</div>
+            
+            <!-- Table -->
+            <table  class="table table-bordered" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                      <th>Sku</th>
+                      <th>Status</th>
+                      <th>Método de pago</th>
+                      <th>id cloud</th>
+                      <th>Cantidad</th>
+                      <th>Deadline</th>
+                    </tr>
+                </thead>
+
+                <tbody id="news-table">
+                    <% @our_purchase_orders.each do |purchase_order| %>
+                      <tr>
+                        <td><%= purchase_order.product_sku %></td>
+                        <td><%= purchase_order.state %></td>
+                        <td><%= purchase_order.payment_method %></td>
+                        <td><%= purchase_order.id_cloud %></td>
+                        <td><%= purchase_order.cantidad %></td>
+                        <td><%= purchase_order.deadline %></td>
+                      </tr>
+                    <% end %>
+                </tbody>
+            </table>
+          </div>
+      
+
       
           <div class="panel panel-primary">
             <!-- Default panel contents -->
