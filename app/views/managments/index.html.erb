@@ -185,6 +185,9 @@
                       <th>Sku</th>
                       <th>Status</th>
                       <th>Método de pago</th>
+                      <th>id cloud</th>
+                      <th>Cantidad</th>
+                      <th>Deadline</th>
                       <th>Acción</th>
                     </tr>
                 </thead>
@@ -195,6 +198,9 @@
                         <td><%= purchase_order.product_sku %></td>
                         <td><%= purchase_order.state %></td>
                         <td><%= purchase_order.payment_method %></td>
+                        <td><%= purchase_order.id_cloud %></td>
+                        <td><%= purchase_order.cantidad %></td>
+                        <td><%= purchase_order.deadline %></td>
                         <td><button>Aceptar</button><button>Rechazar</button></td>
                       </tr>
                     <% end %>
