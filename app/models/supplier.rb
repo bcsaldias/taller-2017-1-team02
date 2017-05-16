@@ -15,4 +15,17 @@ class Supplier < ApplicationRecord
     end
   end
 
+  def id_cloud
+    env = Rails.configuration.environment_ids['environment']
+    if env == "production"
+      self.id_cloud_prod
+    else
+      self.id_cloud_dev
+    end
+  end
+
+  def api
+    self.get_url()
+  end
+
 end
