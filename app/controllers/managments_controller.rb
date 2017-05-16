@@ -7,7 +7,7 @@ class ManagmentsController < ApplicationController
 
 
   def index
-    @our_purchase_orders = PurchaseOrder.all.where(owner: true)
+    @our_purchase_orders = PurchaseOrder.our_oc
     @purchase_orders = PurchaseOrder.all.where(owner: nil)
     @production_orders = ProductionOrder.all
     @factory = ProductionOrder.all
@@ -27,7 +27,7 @@ class ManagmentsController < ApplicationController
     hora = params[:fecha_hora]
     minutos = params[:fecha_minutos]
     comprar = RawMaterial.buy_product_from_supplier(params[:oc_sku], params[:cantidad].to_i, params[:proveedor].to_i, 
-                          needed_date = Tiempo.tiempo_a_milisegundos(5, 16, 18, 00)) #mes, dia, hora, minuto
+                          needed_date = Tiempo.tiempo_a_milisegundos(5, 16, 24, 00)) #mes, dia, hora, minuto
 
   	redirect_to :managment
   end
