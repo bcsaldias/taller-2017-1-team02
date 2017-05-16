@@ -39,7 +39,8 @@ class ApiController < ApplicationController
 		#ret = Production.get_all_stock_warehouse("590baa76d6b4ec000490255d")
 		#ret = Production.get_stock("590baa76d6b4ec000490255d","41").length
 
-		ret = Warehouses.product_stock("2")
+		ret =     comprar = RawMaterial.buy_product_from_supplier("7", 100, "7", 
+                          needed_date = Tiempo.tiempo_a_milisegundos(5, 16, 22, 00)) #mes, dia, hora, minuto
 		json_response({response: ret})
 	end
 
