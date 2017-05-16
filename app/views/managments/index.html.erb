@@ -114,15 +114,17 @@
                 <thead>
                     <tr>
                       <th>Sku</th>
-                      <th>Status</th>
+                      <th>Cantidad</th>
+                      <th>Disponible</th>
                     </tr>
                 </thead>
 
                 <tbody id="news-table">
-                    <% @production_orders.each do |purchase_order| %>
+                    <% @production_orders.each do |production_order| %>
                       <tr>
-                        <td><%= purchase_order.product_sku %></td>
-                        <td><%= purchase_order.state %></td>
+                        <td><%= production_order.product_sku %></td>
+                        <td><%= production_order.cantidad %></td>
+                        <td><%= production_order.disponible %></td>
                       </tr>
                     <% end %>
                 </tbody>
