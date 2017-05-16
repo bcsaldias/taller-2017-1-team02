@@ -42,15 +42,7 @@
                 </thead>
 
                 <tbody id="news-table">
-                      <tr>
-                        <td>Generar producción</td>
-                        <%= form_tag(:sent_production, method: "post") do %>
-                          <td><%= label_tag :producto_sku %> <%= text_field_tag :oc_sku %></td>
-                          <td><%= label_tag :cantidad %> <%= text_field_tag :cantidad %></td>
-                          <td> <%= submit_tag('Producir') %></td>
-                        <% end %>
 
-                      </tr>
                       <tr>
                         <td>Generar OC directa</td>
 
@@ -59,6 +51,24 @@
                           <td><%= label_tag :cantidad %> <%= text_field_tag :cantidad %></td>
                           <td><%= label_tag :proveedor_id %> <%= text_field_tag :proveedor %></td>
                           <td> <%= submit_tag('Generar solicitud') %></td>
+                      <tr>
+                          <td></td>
+                          <td><%= label_tag :fecha_mes %> <%= text_field_tag :fecha_mes %></td>
+                          <td><%= label_tag :fecha_dia %> <%= text_field_tag :fecha_dia %></td>
+                          <td><%= label_tag :fecha_hora %> <%= text_field_tag :fecha_hora %></td>
+                          <td><%= label_tag :fecha_minutos %> <%= text_field_tag :fecha_minutos %></td>
+                      </tr>
+
+                        <% end %>
+
+                      </tr>
+
+                      <tr>
+                        <td>Generar producción</td>
+                        <%= form_tag(:sent_production, method: "post") do %>
+                          <td><%= label_tag :producto_sku %> <%= text_field_tag :oc_sku %></td>
+                          <td><%= label_tag :cantidad %> <%= text_field_tag :cantidad %></td>
+                          <td> <%= submit_tag('Producir') %></td>
                         <% end %>
 
                       </tr>
