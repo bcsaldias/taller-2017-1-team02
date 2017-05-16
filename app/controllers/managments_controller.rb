@@ -22,13 +22,8 @@ class ManagmentsController < ApplicationController
   end
 
   def create_oc
-  	puts params[:proveedor]
-  	puts params[:oc_sku]
-  	puts params[:cantidad]
-    #supplier = Supplier.where(id: params[:Proveedor].to_i).first
-  	#RawMaterial.buy_product_from_supplier(params[:oc_sku], 
-  	#								params[:Cantidad], 
-  	#								supplier)
+    comprar = RawMaterial.buy_product_from_supplier(params[:oc_sku], params[:cantidad].to_i, params[:proveedor].to_i, 
+                          needed_date = Tiempo.tiempo_a_milisegundos(5, 16, 18, 00))
 
   	redirect_to :managment
   end
