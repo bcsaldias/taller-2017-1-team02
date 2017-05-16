@@ -15,6 +15,7 @@ gem 'sass-rails', '~> 5.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 gem 'bootstrap-sass', '~> 3.2.0'
+gem 'bootstrap_progressbar'
 
 group :development, :test do
   gem 'byebug', platform: :mri

@@ -40,18 +40,19 @@
             <table class="table table-bordered">
               <thead>
                 <tr>
-                  <th>Id cloud</th>
+                  <!--th>Id cloud</th-->
                   <th>Utilizado</th>
                   <th>Capacidad</th>
                   <th>Disponible</th>
                   <th>Tipo</th>
+                  <th>Ocupación</th>
                 </tr>
               </thead>
 
               <tbody>
                 <% @warehouses.each do |w| %>
                   <tr>
-                    <td><%= w["_id"] %></td>
+                    <!--td><%= w["_id"] %></td-->
                     <td><%= w["usedSpace"] %></td>
                     <td><%= w["totalSpace"] %></td>
                     <td><%= w["totalSpace"] - w["usedSpace"] %></td>
@@ -69,6 +70,15 @@
                       <td><%= 'general' %></td>
                     <% end %> 
 
+                    <td>
+                        <div class="progress" style="min-width: 20px">
+                          <div class="progress-bar" role="progressbar" aria-valuenow="60" 
+                            aria-valuemin="0" aria-valuemax="100" 
+                            style="<%= 'width:' +(w["usedSpace"].to_f*100 / w["totalSpace"].to_f).to_s + '%; color: black' %>"> 
+                                <%= (w["usedSpace"].to_f*100 / w["totalSpace"].to_f).round(2).to_s + '%' %>
+                          </div>
+                        </div>
+                    </td>
 
                   </tr> 
                 <% end %>
