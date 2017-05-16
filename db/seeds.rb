@@ -16,7 +16,7 @@ Warehouse.all.delete_all
 #		{id_cloud: "590baa76d6b4ec000490265e"} 	 #pulmon
 #	])
 
-warehouses_prod = Warehouses.create([
+warehouses_prod = Warehouse.create([
 		{id_cloud: "590baa76d6b4ec000490255d"} , #recepcion
 		{id_cloud: "590baa76d6b4ec000490255e"} , #despacho
 		{id_cloud: "590baa76d6b4ec000490255f"} , #general
