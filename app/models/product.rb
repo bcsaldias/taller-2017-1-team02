@@ -19,11 +19,12 @@ class Product < ApplicationRecord
     Product.all.where(owner: true).each do |item|
 
       #estamos corridos 4 horas.
-      if (DateTime.now.to_f * 1000).to_i - (item.updated_at.to_f * 1000).to_i > 1000*60*60*(15+4)
+      #if (DateTime.now.to_f * 1000).to_i - (item.updated_at.to_f * 1000).to_i > 1000*60*60*(15+4)
         item.all_stock
-      else
-        item.stock
-      end
+        puts "Shakira isabel"
+      #else
+      #  item.stock
+      #end
 
     end
   end
