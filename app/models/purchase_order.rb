@@ -12,6 +12,11 @@ class PurchaseOrder < ApplicationRecord
     end
   end
 
+  def self.requested
+		PurchaseOrder.all.where(owner: nil).each do |item|
+        item.cantidad
+    end
+  end
 
   def cantidad
   	order = Sales.get_purchase_order(self.id_cloud)

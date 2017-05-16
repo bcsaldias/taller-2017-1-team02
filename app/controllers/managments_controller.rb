@@ -8,7 +8,7 @@ class ManagmentsController < ApplicationController
 
   def index
     @our_purchase_orders = PurchaseOrder.our_oc
-    @purchase_orders = PurchaseOrder.all.where(owner: nil)
+    @purchase_orders = PurchaseOrder.requested
     @production_orders = ProductionOrder.all
     @factory = ProductionOrder.all
 
