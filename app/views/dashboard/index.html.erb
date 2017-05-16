@@ -12,9 +12,9 @@
 
 <body>
     <% if current_user %>
-      <%= render "layouts/navbar",  title: '',  login: false, logout: true %>
+      <%= render "layouts/navbar",  title: '',  login: false, logout: true, home: false %>
     <% else %>
-      <%= render "layouts/navbar",  title: '',  login: true, logout: false %>
+      <%= render "layouts/navbar",  title: '',  login: true, logout: false, home: false %>
     <% end %>
 
 

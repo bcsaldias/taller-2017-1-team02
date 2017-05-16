@@ -1,18 +1,18 @@
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" type="text/css" href="/assets/stylesheets/bootstrap.css">
-</head>
 
-      <div class="page-header">
+	<head>
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <!-- Latest compiled and minified CSS -->
+	  <link rel="stylesheet" type="text/css" href="/assets/stylesheets/bootstrap.css">
+	<%= render "layouts/navbar",  title: 'Login',  login: false, logout: false, home: true %>
+	</head>
 
-    <%= render "layouts/navbar",  title: 'Login',  login: false, logout: false %>
 
-      </div>
 
-<body>
-	<%= render 'form' %>
-</body>
+	<body>
+          <div class="container">
+          	<%= render 'form' %>
+          </div>
+	</body>
 
 
 <!--%= link_to 'Back', user_sessions_path %-->

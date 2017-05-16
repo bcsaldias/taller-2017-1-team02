@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   #get 'user_sessions/destroy'
   #root :to => 'users#index'
   resources :user_sessions
-  resources :users
+  #resources :users
   #resources :factory_manual_managment
   
   get 'login' => 'user_sessions#new', :as => :login
@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   apipie
   get 'test' => 'api#test'
 
-  get 'products' => 'products#available'
+  get 'products' => 'products#available', :as => :managment
 
   put 'purchase_orders/:id' => 'purchase_orders#realizar_pedido'
 
@@ -43,6 +43,6 @@ Rails.application.routes.draw do
   #patch 'suppliers/:id_supplier' => 'suppliers#informar_cuenta_banco'
   get 'buy' => 'products#buy'
 
-  root 'dashboard#index'
+  root 'dashboard#index', :as => :dashboard
 
 end
