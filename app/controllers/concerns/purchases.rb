@@ -20,7 +20,7 @@ module Purchases
 			order =  JSON.parse @result.body.force_encoding("UTF-8")
       @purchase_order = PurchaseOrder.create!(id_cloud: order['_id'], state: 0,
                                         product_sku: order['sku'],
-                                        owner: true)
+																				quantity: cantidad, owner: true)
 			### Mensaje de creacion de purchase order a Proveedor
 			#fix me
 			params = {

@@ -6,14 +6,13 @@ module RawMaterial
   # Proceso que permite obtener una materia prima, retorna true si la logra comprar
   # o producir
   def self.restore_stock(sku, quantity, needed_date = Tiempo(12, 30, 23, 59))
-    #DAR PRIORIDAD A NOSOTROS PARA LA PRODUCCION
-    
     product = Product.find(sku)
 
     return false unless product.suppliers #FALSE si no hay proveedores del producto
 
-    suppliers_products_info = get_suppliers_ordered_by_priority(product) #Arreglo de Hashes
-    puts "!!!!Suppliers_products_info:"
+    #Arreglo de Hashes
+    suppliers_products_info = RawMaterial.get_suppliers_ordered_by_priority(product, quantity)
+    puts "Suppliers_products_info:"
     puts suppliers_products_info
     return false unless suppliers_products_info #FALSE si preciosdeproveedores son inaccesibles
 
@@ -25,7 +24,7 @@ module RawMaterial
       price = supplier_info[:price]
 
       #whouse_space = Espacio en fecha de llegada (No implementado)
-      order_quantity = calculate_order_quantity(quantity,
+      order_quantity = RawMaterial.calculate_order_quantity(quantity,
                             supplier_info[:min_production_batch])#, whouse_space)
       return false unless order_quantity # False si no hay espacio en bodega
       puts "This is the best supplier: #{supplier_info[:supplier_id]},
@@ -34,7 +33,7 @@ module RawMaterial
       if supplier.id == 2 # Proveedor somos nosotros
         ## Mandar a producir a nosotros mismos
         puts 'LLAMANDO A METODO QUE PRODUCE MP (hacer_pedido_interno)'
-        status = hacer_pedido_interno(sku, order_quantity)
+        status = Production.hacer_pedido_interno(sku, order_quantity)
         if status
            compra_realizada = true
            break
@@ -58,117 +57,36 @@ module RawMaterial
       return false
     end
 
-
   end
 
 
-
-
-  #proceso de comprar_materia_prima
-  # def comprar_materia_prima(sku, quantity, needed_date)
-  #   # Por programar
-  #   # Encargar un min_production_batch
-  #
-  #   product = Product.find(sku)
-  #
-  #   return false unless product.suppliers #FALSE si no hay proveedores del producto
-  #
-  #   supplier_informations = get_best_supplier(product)
-  #
-  #   return false unless supplier_informations #FALSE si preciosdeproveedores son inaccesibles
-  #
-  #   supplier_id = supplier_informations[:supplier_id]
-  #   supplier = Supplier.find(supplier_informations[:supplier_id])
-  #   price = supplier_informations[:price]
-  #   order_quantity = calculate_order_quantity(quantity, supplier_informations[:min_production_batch])
-  #   return false unless order_quantity # False si no hay espacio en bodega
-  #   puts "This is the best supplier: #{supplier_informations[:supplier_id]},
-  #                                     PRICE: #{supplier_informations[:price]}"
-  #
-  #   if supplier.id == 2 # El mejor proveedor somos nosotros
-  #     ## Mandar a producir a nosotros mismos
-  #     puts 'Desarrollar metodo para producir materias'
-  #     producir_materia_prima(sku, order_quantity)
-  #     ###
-  #   else
-  #     status = Purchases.create_purchase_order(2, supplier.id_cloud, sku, needed_date,
-  #                                     order_quantity, price, "b2b", "Esta es una nota")
-  #
-  #     if status == 200 or status == 201
-  #       return true #OC creada y recibida correctamente por el supplier
-  #     else #OC fallo en algun punto del proceso
-  #       return false
-  #     end
-  #
-  #   end
-  # end
-  #
-  # # Retorna el mejor supplier de un producto
-  # def get_best_supplier(product)
-  #   #Almacena Hashes con los datos de los productos
-  #   suppliers_products = []
-  #   Contact.where(product: product).each do |contact|
-  #     supplier = contact.supplier
-  #     response = Queries.get_to_groups_api("products", supplier, false, {})
-  #
-  #     puts "For supplier #{supplier.id}: "
-  #     # puts response.body
-  #     # puts response.code
-  #     # puts response.message
-  #     # puts response.headers.inspect
-  #     begin
-  #       hash_response = JSON.parse(response.body)
-  #       api_product_price = hash_response.find {|prod| prod['sku']== product.sku}['price']
-  #       puts "This is a price: #{api_product_price}"
-  #       suppliers_products << {supplier_id: supplier.id, priority: contact.priority,
-  #         price: api_product_price, min_production_batch: contact.min_production_batch}
-  #     rescue
-  #       puts "No pudimos obtener info de supplier #{supplier.id}"
-  #     end
-  #   end
-  #
-  #   #Algoritmo que escoge el mejor supplier_id
-  #   puts "Largo: #{suppliers_products.length}"
-  #   if suppliers_products.length
-  #     best_current_supplier = suppliers_products[0]
-  #     suppliers_products.each do |sp|
-  #        best_current_supplier = sp if sp[:price] < best_current_supplier[:price]
-  #     end
-  #     # puts "supplier id: #{best_current_supplier[:supplier_id]}"
-  #     # supplier = Supplier.find(best_current_supplier[:supplier_id])
-  #     # price =
-  #     #Supplier.find(best_current_supplier[:supplier_id])
-  #     return best_current_supplier
-  #
-  #   else # No se pudo acceder a precios de ningun proveedor
-  #     return false
-  #   end
-  # end
-
-
-
-
   # Retorna los mejor suppliers de un producto, ordenados
-  def get_suppliers_ordered_by_priority(product)
+  def self.get_suppliers_ordered_by_priority(product, quantity_oc)
+    # Comentario de mejora: Solo el metodo JSON.parse(response.body) deberia estar
+    # en el exception handler. Asi es mas facil debuguear
+
     #Almacena Hashes con los datos de los productos
     suppliers_products = []
     Contact.where(product: product).each do |contact|
       supplier = contact.supplier
+
+      puts "Conectando con supplier #{supplier.id}: "
+
+      if supplier.id != 2 && RawMaterial.supplier_has_rejected_previous_po(supplier, product.sku, quantity_oc)
+        puts "No conectar con supplier pq tiene OC previas rechazadas"
+        next
+      end
+
       response = Queries.get_to_groups_api("products", supplier, false, {})
 
-      puts "For supplier #{supplier.id}: "
-      # puts response.body
-      # puts response.code
-      # puts response.message
-      # puts response.headers.inspect
       begin
         hash_response = JSON.parse(response.body)
         api_product_price = hash_response.find {|prod| prod['sku']== product.sku}['price']
-        puts "This is a price: #{api_product_price}"
+        puts "El precio es: #{api_product_price}"
         suppliers_products << {supplier_id: supplier.id, priority: contact.priority,
-          price: api_product_price, min_production_batch: contact.min_production_batch}
+                price: api_product_price, min_production_batch: contact.min_production_batch}
       rescue
-        puts "No pudimos obtener info de supplier #{supplier.id}"
+        puts "Imposible obtener precios de supplier #{supplier.id}"
       end
     end
 
@@ -177,7 +95,6 @@ module RawMaterial
     largo = suppliers_products.length
     if suppliers_products.length
       ordered_suppliers_products = suppliers_products.sort_by { |hash| hash[:price] }
-      # array_of_hashes.sort_by { |hsh| hsh[:zip] }
     else
       return false
     end
@@ -185,10 +102,43 @@ module RawMaterial
 
 
 
+  # Retorna true si ultima OC del sku de ese supplier fue rechazada, false en caso contrario
+  #fix me (no esta testeado)
+  def self.supplier_has_rejected_previous_po(supplier, sku, quantity)
+    # Comentario de mejora: Se deberia escoger la ultima PO del supplier ordenandolas
+    # por fecha en que se edito su estado, no fecha de creacion.
+
+    # puts "EN supplier_has_not_rejected_previous_po, supplier: #{supplier.id}"
+    # sku = Product.first.sku
+
+    # Si ultima OC del proveedor es de ese producto y esta rechazada, retornar true
+    purchase_orders = PurchaseOrder.where(supplier: supplier, owner: true).order(updated_at: :asc)
+    return false if purchase_orders.count == 0
+    # if purchase_orders.count == 0
+    #   puts "No hay ordenes de compra emitidas a ese supplier => return true"
+    #   return false
+    # end
+
+    po_last = purchase_orders.last
+    how_long_ago = (Time.now() - po_last.created_at).to_i#.abs
+
+    puts "#{Time.now()} MENOS #{po_last.created_at}  = #{how_long_ago} "
+
+    # Revisa q sea mismo sku, misma cant, q este rechazada y que hayan pasado menos de 3600s desde creacion.
+    return false unless po_last.rechazada?
+    return false unless po_last.product_sku == sku
+    return false unless po_last.quantity == quantity
+    return false unless how_long_ago < 3600
+
+    puts "Ultima OC de supplier #{supplier.id}, sku: #{sku} por #{quantity} productos
+                  fue rechazada hace #{how_long_ago}"
+    return true
+  end
+
 
 
   #Devuelve la cantidad a producir, si no hay espacio
-  def calculate_order_quantity(quantity, min_batch, whouse_space = 2000000)
+  def self.calculate_order_quantity(quantity, min_batch, whouse_space = 2000000)
     if min_batch > quantity
       producir = min_batch
     else
