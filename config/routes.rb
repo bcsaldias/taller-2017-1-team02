@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'dashboard/index'
+
   #resources :warehouses
   #resources :invoices
   #resources :purchase_orders
@@ -27,5 +29,7 @@ Rails.application.routes.draw do
 
   #patch 'suppliers/:id_supplier' => 'suppliers#informar_cuenta_banco'
   get 'buy' => 'products#buy'
+
+  root 'dashboard#index'
 
 end
