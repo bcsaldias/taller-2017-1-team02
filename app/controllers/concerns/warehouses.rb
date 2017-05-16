@@ -38,17 +38,6 @@ module Warehouses
     return warehouses_id
   end
 
-#retorna el stock de cierto sku para cada warehouse en forma de diccionario
-  def self.get_warehouses_stock(sku)
-    warehouses_stock = {}
-    warehouses_id = self.get_warehouses_id
-    warehouses_stock['pulmon'] = Production.get_stock(warehouses_id['pulmon'], sku)
-    warehouses_stock['despacho'] = Production.get_stock(warehouses_id['despacho'], sku)
-    warehouses_stock['recepcion'] = Production.get_stock(warehouses_id['recepcion'], sku)
-    warehouses_stock['general'] = Production.get_stock(warehouses_id['general'], sku)
-    return warehouses_stock
-  end
-
 #retorna el espacio libre de cada warehouse en forma de diccionario
   def self.get_warehouses_space
     warehouses_space = {}
@@ -283,18 +272,46 @@ module Warehouses
     return false
   end
 
+ def self.product_stock(sku)
+        warehouses_id = self.get_warehouses_id
+
+        count = 0
+        stock_general = Production.get_all_stock_warehouse(warehouses_id['general'])
+        for _object in stock_general
+          if _object["_id"] == sku
+            count += _object["total"]
+          end
+        end
+
+        stock_pregeneral = Production.get_all_stock_warehouse(warehouses_id['pregeneral'])
+        for _object in stock_pregeneral
+          if _object["_id"] == sku
+            count += _object["total"]
+          end
+        end
+
+        stock_recepcion = Production.get_all_stock_warehouse(warehouses_id['recepcion'])
+        for _object in stock_recepcion
+          if _object["_id"] == sku
+            count += _object["total"]
+          end
+        end
+
+        stock_pulmon = Production.get_all_stock_warehouse(warehouses_id['pulmon'])
+        for _object in stock_pulmon
+          if _object["_id"] == sku
+            count += _object["total"]
+          end
+        end
+
+        return count
+  end
+
 
 # metodo que evalua si podemos vender q_asked de cierto sku
 # retorna true si es que tenemos en las bodegas la cantidad pedida de un sku determinado. False en caso contrario
   def self.product_availability(sku, q_asked)
-    warehouses_id = self.get_warehouses_id
-    stock_general = Production.get_stock(warehouses_id['general'],sku)
-    stock_pregeneral = Production.get_stock(warehouses_id['pregeneral'],sku)
-    stock_recepcion = Production.get_stock(warehouses_id['recepcion'],sku)
-    stock_pulmon = Production.get_stock(warehouses_id['pulmon'],sku)
-
-    stock_actual = stock_general.length + stock_pregeneral.length + stock_recepcion.length + stock_pulmon.length
-
+    stock_actual = self.product_stock(sku)
     if stock_actual >= q_asked
       return true
     else
