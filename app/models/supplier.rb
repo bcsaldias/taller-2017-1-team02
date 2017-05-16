@@ -15,6 +15,10 @@ class Supplier < ApplicationRecord
     end
   end
 
+  def api
+    self.get_url()
+  end
+
   def id_cloud
     env = Rails.configuration.environment_ids['environment']
     if env == "production"
@@ -24,8 +28,17 @@ class Supplier < ApplicationRecord
     end
   end
 
-  def api
-    self.get_url()
+  def self.get_by_id_cloud(id_cloud)
+    env = Rails.configuration.environment_ids['environment']
+    if env == "production"
+      where({ id_cloud_prod: id_cloud }).first
+    else
+      where({ id_cloud_dev: id_cloud }).first
+      # where({ id_cloud_dev: id_cloud })
+    end
   end
+
+
+
 
 end
