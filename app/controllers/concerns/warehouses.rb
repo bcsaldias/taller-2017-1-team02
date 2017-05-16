@@ -203,7 +203,7 @@ module Warehouses
 #ordena los almacenes, dejando la mayoria en general
   def self.sort_warehouses
     warehouses_id = self.get_warehouses_id
-    puts warehouses_id['general']
+    # puts warehouses_id['general']
     stock_general = Production.get_all_stock_warehouse(warehouses_id['general'])
     stock_pregeneral = Production.get_all_stock_warehouse(warehouses_id['pregeneral'])
     stock_recepcion = Production.get_all_stock_warehouse(warehouses_id['recepcion'])
@@ -219,10 +219,10 @@ module Warehouses
         if !self.full_warehouse(warehouses_id['general']) and !self.empty_warehouse(warehouses_id['despacho'])
           for product_type in stock_despacho
             stock_despacho_sku = Production.get_stock(warehouses_id['despacho'], product_type['_id'])
-            puts stock_despacho_sku[0]
+            # puts stock_despacho_sku[0]
             product_id = stock_despacho_sku[0]['_id']
             Production.move_stock(warehouses_id['general'], product_id)
-            puts "smthg moved"
+            # puts "smthg moved"
           end
           contador_de_requests += stock_despacho.length
           stock_despacho = Production.get_all_stock_warehouse(warehouses_id['despacho'])
