@@ -1,0 +1,76 @@
+<html>
+
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" type="text/css" href="/assets/stylesheets/bootstrap.css">
+</head>
+
+
+<body>
+    <% if current_user %>
+      <%= render "layouts/navbar",  title: '',  login: false, logout: true, home: false %>
+    <% else %>
+      <%= render "layouts/navbar",  title: '',  login: true, logout: false, home: false %>
+    <% end %>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="page-header">
+        <h1>Administración interna</h1>
+      </div>
+    </div>
+  </div>
+    
+    <div class="container">
+      
+      <!-- Marketing Icons Section -->
+      <div class="row">
+          
+        
+          <div class="panel panel-primary">
+            <!-- Default panel contents -->
+            <div class="panel-heading">Ordenes de Compra</div>
+            
+
+            <!-- Table -->
+            <table  class="table table-bordered" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                      <th>Sku</th>
+                      <th>Status</th>
+                      <th>Método de pago</th>
+                    </tr>
+                </thead>
+
+                <tbody id="news-table">
+                    <% @purchase_orders.each do |purchase_order| %>
+                      <tr>
+                        <td><%= purchase_order.product_sku %></td>
+                        <td><%= purchase_order.state %></td>
+                        <td><%= purchase_order.payment_method %></td>
+                      </tr>
+                    <% end %>
+                </tbody>
+            </table>
+          </div>
+
+
+      
+  
+
+          
+
+  <script type="text/javascript" src="/assets/js/jquery.js"></script>
+  <script type="text/javascript" src="/assets/js/bootstrap.js"></script>
+
+
+</body>
+</html>
+
+
+
+
+

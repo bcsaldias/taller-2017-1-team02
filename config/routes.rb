@@ -25,7 +25,8 @@ Rails.application.routes.draw do
   apipie
   get 'test' => 'api#test'
 
-  get 'products' => 'products#available', :as => :managment
+  get 'products' => 'products#available'
+  get 'factory_managment' => 'managments#index', :as => :managment
 
   put 'purchase_orders/:id' => 'purchase_orders#realizar_pedido'
 
