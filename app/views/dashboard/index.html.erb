@@ -1,11 +1,23 @@
 <html>
 
+
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" type="text/css" href="/assets/stylesheets/bootstrap.css">
 </head>
+
+<%= render "layouts/header" %>
+
+
 <body>
+    <% if current_user %>
+      <%= render "layouts/navbar",  title: '',  login: false, logout: true, home: false %>
+    <% else %>
+      <%= render "layouts/navbar",  title: '',  login: true, logout: false, home: false %>
+    <% end %>
+
+
   <div class="container">
     <div class="row">
       <div class="page-header">

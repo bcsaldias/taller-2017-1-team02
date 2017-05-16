@@ -1,5 +1,18 @@
 Rails.application.routes.draw do
 
+  root 'dashboard#index'
+
+  #get 'user_sessions/new'
+  #get 'user_sessions/create'
+  #get 'user_sessions/destroy'
+  #root :to => 'users#index'
+  resources :user_sessions
+  #resources :users
+  #resources :factory_manual_managment
+  
+  get 'login' => 'user_sessions#new', :as => :login
+  get 'logout' => 'user_sessions#destroy', :as => :logout
+  
   get 'dashboard/index'
 
   #resources :warehouses
@@ -13,6 +26,7 @@ Rails.application.routes.draw do
   get 'test' => 'api#test'
 
   get 'products' => 'products#available'
+  get 'factory_managment' => 'managments#index', :as => :managment
 
   put 'purchase_orders/:id' => 'purchase_orders#realizar_pedido'
 
@@ -30,6 +44,6 @@ Rails.application.routes.draw do
   #patch 'suppliers/:id_supplier' => 'suppliers#informar_cuenta_banco'
   get 'buy' => 'products#buy'
 
-  root 'dashboard#index'
+  root 'dashboard#index', :as => :dashboard
 
 end

@@ -1,0 +1,163 @@
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" type="text/css" href="/assets/stylesheets/bootstrap.css">
+</head>
+
+<body>
+    <% if current_user %>
+      <%= render "layouts/navbar",  title: '',  login: false, logout: true, home: true %>
+    <% end %>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="page-header">
+        <h1>Administración interna</h1>
+      </div>
+    </div>
+  </div>
+    
+    <div class="container">
+      
+      <!-- Marketing Icons Section -->
+      <div class="row">
+
+          <div class="panel panel-primary">
+            <!-- Default panel contents -->
+            <div class="panel-heading">Generar solicitud manual</div>
+            
+            <!-- Table -->
+            <table  class="table table-bordered" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                      <th>Método</th>
+                      <th>Accionar</th>
+                    </tr>
+                </thead>
+
+                <tbody id="news-table">
+                      <tr>
+                        <td>Generar OC directa</td>
+                        <td><input type="" name="sku" value="SKU"></td>
+                        <td><input type="" name="cantidad" value="Cantidad"></td>
+                        <td><input type="" name="proveedor_id" value="N° Proveedor"></td>
+                        <td><button>Generar solicitud</button></td>
+                      </tr>
+                      <tr>
+                        <td>Reordenar bodegas</td>
+                        <td><button>Reordenar</button></td>
+                      </tr>
+                      <tr>
+                        <td>Checkear disponibilidad</td>
+                        <td><input type="" name="sku" value="SKU"></td>
+                        <td><input type="" name="cantidad" value="Cantidad"></td>
+                        <td><button>Checkear</button></td>
+                      </tr>
+                      <tr>
+                        <td>Notificar despacho</td>
+                        <td><input type="" name="factura_cloud_id" value="factura_cloud_id"></td>
+                        <td><input type="" name="oc_cloud_id" value="oc_cloud_id"></td>
+                        <td><input type="" name="proveedor_id" value="N° Proveedor"></td>
+                        <td><button>Notificar</button></td>
+                      </tr>
+                </tbody>
+            </table>
+          </div>
+
+          
+        
+          <div class="panel panel-primary">
+            <!-- Default panel contents -->
+            <div class="panel-heading">Producción solicitada</div>
+            
+            <!-- Table -->
+            <table  class="table table-bordered" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                      <th>Sku</th>
+                      <th>Status</th>
+                    </tr>
+                </thead>
+
+                <tbody id="news-table">
+                    <% @production_orders.each do |purchase_order| %>
+                      <tr>
+                        <td><%= purchase_order.product_sku %></td>
+                        <td><%= purchase_order.state %></td>
+                      </tr>
+                    <% end %>
+                </tbody>
+            </table>
+          </div>
+
+
+          <div class="panel panel-primary">
+            <!-- Default panel contents -->
+            <div class="panel-heading">Ordenes de compras enviadas</div>
+            
+            <!-- Table -->
+            <table  class="table table-bordered" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                      <th>Sku</th>
+                      <th>Status</th>
+                      <th>Método de pago</th>
+                    </tr>
+                </thead>
+
+                <tbody id="news-table">
+                    <% @our_purchase_orders.each do |purchase_order| %>
+                      <tr>
+                        <td><%= purchase_order.product_sku %></td>
+                        <td><%= purchase_order.state %></td>
+                        <td><%= purchase_order.payment_method %></td>
+                      </tr>
+                    <% end %>
+                </tbody>
+            </table>
+          </div>
+      
+          <div class="panel panel-primary">
+            <!-- Default panel contents -->
+            <div class="panel-heading">Ordenes de compras recibida</div>
+            
+            <!-- Table -->
+            <table  class="table table-bordered" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                      <th>Sku</th>
+                      <th>Status</th>
+                      <th>Método de pago</th>
+                      <th>Acción</th>
+                    </tr>
+                </thead>
+
+                <tbody id="news-table">
+                    <% @purchase_orders.each do |purchase_order| %>
+                      <tr>
+                        <td><%= purchase_order.product_sku %></td>
+                        <td><%= purchase_order.state %></td>
+                        <td><%= purchase_order.payment_method %></td>
+                        <td><button>Aceptar</button><button>Rechazar</button></td>
+                      </tr>
+                    <% end %>
+                </tbody>
+            </table>
+          </div>
+
+          
+
+  <script type="text/javascript" src="/assets/js/jquery.js"></script>
+  <script type="text/javascript" src="/assets/js/bootstrap.js"></script>
+
+
+</body>
+</html>
+
+
+
+
+
