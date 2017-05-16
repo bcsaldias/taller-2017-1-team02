@@ -6,7 +6,7 @@ class CreateProductionOrders < ActiveRecord::Migration[5.0]
       t.string :product_sku, foreign_key: true, null: false
       t.integer :cantidad
       t.boolean :despachado, default: false
-      t.timestamps :disponible
+      t.datetime :disponible
 
       t.timestamps
       t.index ["id_cloud"], name: "index_production_orders_on_id_cloud", unique: true
