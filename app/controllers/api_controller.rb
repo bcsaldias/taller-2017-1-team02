@@ -39,7 +39,7 @@ class ApiController < ApplicationController
 		#ret = Production.get_all_stock_warehouse("590baa76d6b4ec000490255d")
 		#ret = Production.get_stock("590baa76d6b4ec000490255d","41").length
 
-		ret = Queries.generate_authorization
+		ret = Warehouses.product_stock("2")
 		json_response({response: ret})
 	end
 
