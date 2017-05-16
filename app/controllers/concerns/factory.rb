@@ -34,8 +34,7 @@ module Factory
                                         				 product_sku: result['sku'],
                                         				 cantidad: result['cantidad'],
                                         				 despachado: result['despachado'],
-                                        				 disponible: result['disponible'],
-                                        				 product_sku: result['sku'])
+                                        				 disponible: result['disponible'])
 
 				return true
 			end
