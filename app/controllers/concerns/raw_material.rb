@@ -5,7 +5,7 @@ module RawMaterial
 
   # Proceso que permite obtener una materia prima, retorna true si la logra comprar
   # o producir
-  def self.restore_stock(sku, quantity, needed_date = Tiempo(12, 30, 23, 59))
+  def self.restore_stock(sku, quantity, needed_date = Tiempo.tiempo_a_milisegundos(12, 30, 23, 59))
     product = Product.find(sku)
 
     return false unless product.suppliers #FALSE si no hay proveedores del producto
@@ -152,5 +152,45 @@ module RawMaterial
     #return producir unless producir > whouse_space
     return producir
   end
+
+
+
+  #fix me
+  #Compra productos  a un supplier especifico. Recibe objeto supplier como parametro
+  def self.buy_product_from_supplier(sku, quantity, supplier, needed_date = Tiempo.tiempo_a_milisegundos(12, 30, 23, 59))
+    Tiempo.tiempo_a_milisegundos(12, 30, 23, 59)
+    puts "FECHA!!! : #{needed_date}"
+    product = Product.find(sku)
+    contacts = product.contacts.where(supplier_id: supplier.id)
+
+    return false if contacts.length < 1
+    contact = contacts.first
+
+    supplier = Supplier.where(id: 2).first
+    response = Queries.get_to_groups_api("products", supplier, false, {})
+    begin
+      hash_response = JSON.parse(response.body)
+      price = hash_response.find {|prod| prod['sku']== product.sku}['price']
+      puts "El precio es: #{price}"
+    rescue
+      puts "Imposible obtener el precio del producto en la api del supplier"
+      return false
+    end
+    order_quantity = RawMaterial.calculate_order_quantity(quantity, contact.min_production_batch)
+    our_id = Rails.configuration.environment_ids['team_id']
+    status = Purchases.create_purchase_order(our_id, supplier.id_cloud, sku, needed_date,
+                                        order_quantity, price, "b2b", "Esta es una nota")
+
+    if status == 200 or status == 201
+      puts "OC generada y enviada"
+      return true
+    end
+    puts "No fue posible notificarle al supplier de la OC"
+    false
+  end
+
+
+
+
 
 end
