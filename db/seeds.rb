@@ -8,72 +8,12 @@
 
 Warehouse.all.delete_all
 
-#warehouses_dev = Warehouse.create([
-#		{id_cloud: "590baa76d6b4ec000490255d"} , #recepcion
-#		{id_cloud: "590baa76d6b4ec000490255e"} , #despacho
-#		{id_cloud: "590baa76d6b4ec000490255f"} , #general
-#		{id_cloud: "590baa76d6b4ec000490265d"} , #general
-#		{id_cloud: "590baa76d6b4ec000490265e"} 	 #pulmon
-#	])
-
-warehouses_prod = Warehouse.create([
+warehouses_dev = Warehouse.create([
 		{id_cloud: "590baa76d6b4ec000490255d"} , #recepcion
 		{id_cloud: "590baa76d6b4ec000490255e"} , #despacho
 		{id_cloud: "590baa76d6b4ec000490255f"} , #general
 		{id_cloud: "590baa76d6b4ec000490265d"} , #general
 		{id_cloud: "590baa76d6b4ec000490265e"} 	 #pulmon
-	])
-
-ProductionOrder.create([
-  {
-    product_sku: "2",
-    cantidad: 2100,
-    id_cloud: "5919bfe40e8dc600044a2d31",
-    disponible: "2017-05-15T17:07:51.948Z",
-    despachado: false
-  },
-
-  { product_sku: "8",
-    cantidad: 2000,
-    id_cloud: "5919bf170e8dc600044a2d32",
-    disponible: "2017-05-15T16:49:53.015Z",
-    despachado: false
-  },
-  {
-    product_sku: "2",
-    cantidad: 2100,
-    id_cloud: "5919bfe40e8dc600044a2d33",
-    disponible: "2017-05-15T17:07:51.948Z",
-    despachado: false
-  },
-  {
-    product_sku: "14",
-    cantidad: 3500,
-    id_cloud: "5919c02d0e8dc600044a2d34",
-    disponible: "2017-05-15T15:40:01.075Z",
-    despachado: false
-  },
-  {
-    product_sku: "20",
-    cantidad: 2040,
-    id_cloud: "5919c0600e8dc600044a2d35",
-    disponible: "2017-05-15T18:38:49.719Z",
-    despachado: false
-  },
-  {
-    product_sku: "26",
-    cantidad: 2016,
-    id_cloud: "5919c08d0e8dc600044a2d36",
-    disponible: "2017-05-15T16:49:50.571Z",
-    despachado: false
-  },
-  {
-    product_sku: "39",
-    cantidad: 2000,
-    id_cloud: "5919c0c50e8dc600044a2d37",
-    disponible: "2017-05-15T18:28:44.224Z",
-    despachado: false
-  }
 	])
 
 
