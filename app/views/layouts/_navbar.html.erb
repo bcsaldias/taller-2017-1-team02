@@ -11,12 +11,20 @@
 
                 <% if login %>
                     <li>
-                        <%= link_to  'Login', user_sessions_path %>
+                        <%= link_to  'Login', :login, method: :get %>
                     </li>
                 <% end %>
                 <% if logout %>
                     <li>
+                        <%= link_to "Administración", :managment, method: :get %>
+                    </li>
+                    <li>
                         <%= link_to "Logout", :logout, method: :get %>
+                    </li>
+                <% end %>  
+                <% if home %>
+                    <li>
+                        <%= link_to "Dashboards", :dashboard, method: :get %>
                     </li>
                 <% end %>                
 
