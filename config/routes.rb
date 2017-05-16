@@ -1,5 +1,18 @@
 Rails.application.routes.draw do
 
+  root 'dashboard#index'
+
+  #get 'user_sessions/new'
+  #get 'user_sessions/create'
+  #get 'user_sessions/destroy'
+  #root :to => 'users#index'
+  resources :user_sessions
+  resources :users
+  #resources :factory_manual_managment
+  
+  get 'login' => 'user_sessions#new', :as => :login
+  get 'logout' => 'user_sessions#destroy', :as => :logout
+  
   get 'dashboard/index'
 
   #resources :warehouses
