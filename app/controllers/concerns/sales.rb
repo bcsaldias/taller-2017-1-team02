@@ -33,7 +33,7 @@ module Sales
 	## FIXME IN SPRINT 3
 	def self.deliver_purchase_order(purchase_order_id)
 		order = self.get_purchase_order(purchase_order_id)
-		sup = Supplier.where(id_cloud: order['proveedor']).first
+		sup = Supplier.get_by_id_cloud(order['proveedor'])
 		ret = Queries.patch_to_groups_api('invoices/'+order['_id']+'/delivered', sup)
 		return ret
 
@@ -45,7 +45,7 @@ module Sales
 		our_order.state = 1
 		our_order.save
 		ret = self.recepcionar_purchase_order(purchase_order_id)
-		sup = Supplier.where(id_cloud: order['proveedor']).first
+		sup = Supplier.get_by_id_cloud(order['proveedor'])
 		ret = Queries.patch_to_groups_api('purchase_orders/'+order['_id']+'/accepted', sup)
 		return ret
 	end
@@ -57,7 +57,7 @@ module Sales
 		our_order.save
 		ret = self.rechazar_purchase_order( purchase_order_id=purchase_order_id,
 											motivo_rechazo=cause)
-		sup = Supplier.where(id_cloud: order['proveedor']).first
+		sup = Supplier.get_by_id_cloud(order['proveedor']) #Supplier.where(id_cloud: order['proveedor']).first
 		ret = Queries.patch_to_groups_api('purchase_orders/'+order['_id']+'/rejected', sup)
 		return ret
 	end
