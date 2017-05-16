@@ -38,16 +38,23 @@ class PurchaseOrdersController < ApplicationController
             puts "error"
           ensure
             puts "evaluando solicitud recibida", params[:id]
-            we_can = Warehouses.product_availability(order['sku'], order['cantidad'])
-            if we_can
-              puts 'oc aceptada'
-              Sales.accept_purchase_order(params[:id])
-              puts 'despachando oc'
-              Warehouses.despachar_oc(params[:id])
-              Sales.deliver_purchase_order(params[:id])
-            else 
-              puts 'oc rechazada'
-              Sales.reject_purchase_order(params[:id], "no podemos abastecerte de forma inmediata")
+            ##
+            ## if plazo menor a 2 horas:
+            ##
+            ##
+            deadline_in = 900000000000000
+            if deadline_in < 1000*60*60*1 #1 horas
+              we_can = Warehouses.product_availability(order['sku'], order['cantidad'])
+              if we_can
+                puts 'oc aceptada'
+                Sales.accept_purchase_order(params[:id])
+                puts 'despachando oc'
+                Warehouses.despachar_oc(params[:id])
+                Sales.deliver_purchase_order(params[:id])
+              else 
+                puts 'oc rechazada'
+                Sales.reject_purchase_order(params[:id], "no tenemos stock para cumplir plazo")
+              end
             end
           end
         else
