@@ -36,10 +36,12 @@ ActiveRecord::Schema.define(version: 20170516011420) do
   end
 
   create_table "production_orders", force: :cascade do |t|
-    t.string   "id_cloud",    null: false
-    t.string   "product_sku", null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "id_cloud",                    null: false
+    t.string   "product_sku",                 null: false
+    t.integer  "cantidad"
+    t.boolean  "despachado",  default: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.index ["id_cloud"], name: "index_production_orders_on_id_cloud", unique: true
   end
 
