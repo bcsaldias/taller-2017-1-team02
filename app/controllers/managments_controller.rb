@@ -1,9 +1,10 @@
 #include HTTParty
 class ManagmentsController < ApplicationController
   before_filter :authorize
-  helper_method :sort_wh, :notify_deliver, :deliver, :check_for_availablility, :create_oc
+  helper_method :sort_wh, :notify_deliver, :deliver, :check_for_availablility, :create_oc, :accept_oc
   include Warehouses
   include RawMaterial
+  require 'json'
 
 
   def index
@@ -11,14 +12,31 @@ class ManagmentsController < ApplicationController
     @purchase_orders = PurchaseOrder.requested
     @production_orders = ProductionOrder.all
     @factory = ProductionOrder.all
+    @ok = false
 
   end
 
   def sent_production
   	puts params[:oc_sku]
   	puts params[:cantidad]
-
   	redirect_to :managment
+  end
+
+  def accept_oc
+    @end =  nil
+
+    if params[:status] == "Aceptar"
+      @end = Sales.accept_purchase_order(params[:cloud_id])
+    elsif params[:status] == "Rechazar"
+      @end = Sales.reject_purchase_order(params[:cloud_id], cause: 'no alcanzamos')
+    end
+    json_response({oc:params[:cloud_id], status:params[:status]})
+    #redirect_to :managment
+  end
+
+  def reject_oc
+    puts params[:id_cloud]
+    redirect_to :managment
   end
 
   def create_oc
@@ -50,10 +68,8 @@ class ManagmentsController < ApplicationController
 
   def check_for_availablility
   	puts "check_for_availablility"
-  	puts params[:oc_sku]
-  	puts params[:cantidad]
-  	redirect_to :managment
-
+    result = Warehouses.product_availability(params[:oc_sku], params[:cantidad].to_i)
+    json_response({ret: result})
   end
 
 
