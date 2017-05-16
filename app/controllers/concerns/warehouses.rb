@@ -84,7 +84,7 @@ module Warehouses
           contador_de_requests +=1
           if contador_de_requests > 19
             contador_de_requests = 0
-            sleep(20)
+            sleep(5)
           end
           cantidad_en_despacho += 1
           #puts "general a despacho"
@@ -97,7 +97,7 @@ module Warehouses
           contador_de_requests +=1
           if contador_de_requests > 19
             contador_de_requests = 0
-            sleep(20)
+            sleep(5)
           end
           #puts "pregeneral a general"
         end
@@ -109,7 +109,7 @@ module Warehouses
           contador_de_requests +=1
           if contador_de_requests > 19
             contador_de_requests = 0
-            sleep(20)
+            sleep(5)
           end
           #puts "recepcion a pregeneral"
         end
@@ -121,7 +121,7 @@ module Warehouses
           contador_de_requests +=1
           if contador_de_requests > 19
             contador_de_requests = 0
-            sleep(20)
+            sleep(5)
           end
         end
       end
@@ -225,7 +225,7 @@ module Warehouses
           stock_despacho = Production.get_all_stock_warehouse(warehouses_id['despacho'])
         end
         if contador_de_requests > 20
-          sleep(20)
+          sleep(5)
           contador_de_requests = 0
         end
         if !self.full_warehouse(warehouses_id['general']) and !self.empty_warehouse(warehouses_id['pregeneral'])
@@ -238,7 +238,7 @@ module Warehouses
           stock_pregeneral = Production.get_all_stock_warehouse(warehouses_id['pregeneral'])
         end
         if contador_de_requests > 20
-          sleep(20)
+          sleep(5)
           contador_de_requests = 0
         end
         if !self.full_warehouse(warehouses_id['pregeneral']) and !self.empty_warehouse(warehouses_id['recepcion'])
@@ -251,7 +251,7 @@ module Warehouses
           stock_recepcion = Production.get_all_stock_warehouse(warehouses_id['recepcion'])
         end
         if contador_de_requests > 20
-          sleep(20)
+          sleep(5)
           contador_de_requests = 0
         end
         if !self.full_warehouse(warehouses_id['recepcion']) and !self.empty_warehouse(warehouses_id['pulmon'])
@@ -264,7 +264,7 @@ module Warehouses
           stock_pulmon = Production.get_all_stock_warehouse(warehouses_id['pulmon'])
         end
         if contador_de_requests > 20
-          sleep(20)
+          sleep(5)
           contador_de_requests = 0
         end
       end
