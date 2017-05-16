@@ -5,7 +5,7 @@ class ApiController < ApplicationController
 
 	include Queries
 	def test
-		ret = PurchaseOrder.all#Factory.hacer_pedido_interno("2", 300)
+		#ret = PurchaseOrder.all#Factory.hacer_pedido_interno("2", 300)
 		#ret = Factory.hacer_pedido_interno("49", 300)
 		#ret = Factory.get_account
 		#ret = Production.move_stock_external("590baa76d6b4ec000490255d",
@@ -23,7 +23,7 @@ class ApiController < ApplicationController
 		# #ret = Sales.get_purchase_order("59177e251f734200049c0fab")
 		# warehouses = Warehouses.get_warehouses_id
 
-		ret = Warehouses.check_and_restore_stock()
+		#ret = Warehouses.check_and_restore_stock()
 		#ret = Sales.create_purchase_order(  cliente = "5910c0910e42840004f6e684",
 		#								    proveedor = "590baa00d6b4ec0004902463",
 		#								    sku = "2",
@@ -37,6 +37,12 @@ class ApiController < ApplicationController
 		# 590baa76d6b4ec000490255f
 		# 590baa76d6b4ec000490265e
 		#ret = Production.get_all_stock_warehouse("590baa76d6b4ec000490255d")
+		#ret = Production.get_stock("590baa76d6b4ec000490255d","41").length
+
+		Warehouse.all.each do |wh|
+	      puts Production.get_stock(wh.id_cloud,"41").length
+		end
+		ret = Warehouse.all
 		json_response({response: ret})
 	end
 

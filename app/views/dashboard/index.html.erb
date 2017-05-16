@@ -31,28 +31,77 @@
       <!-- Marketing Icons Section -->
       <div class="row">
           
+      <div class="panel panel-primary">
+            <!-- Default panel contents -->
+            <div class="panel-heading">Almacenes</div>
+            
+
+            <!-- Table -->
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Id cloud</th>
+                  <th>Utilizado</th>
+                  <th>Capacidad</th>
+                  <th>Disponible</th>
+                  <th>Tipo</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <% @warehouses.each do |w| %>
+                  <tr>
+                    <td><%= w["_id"] %></td>
+                    <td><%= w["usedSpace"] %></td>
+                    <td><%= w["totalSpace"] %></td>
+                    <td><%= w["totalSpace"] - w["usedSpace"] %></td>
+
+                    <% if w["pulmon"] %>
+                      <td><%= 'pulmón' %></td>
+                    <% end %> 
+                    <% if w["recepcion"] %>
+                      <td><%= 'recepción' %></td>
+                    <% end %> 
+                    <% if w["despacho"] %>
+                      <td><%= 'despacho' %></td>
+                    <% end %> 
+                    <% if not w["despacho"] and not w["pulmon"] and not w["recepcion"]%>
+                      <td><%= 'general' %></td>
+                    <% end %> 
+
+
+                  </tr> 
+                <% end %>
+              </tbody>
+            </table>
+      </div>
+          
         
           <div class="panel panel-primary">
             <!-- Default panel contents -->
-            <div class="panel-heading">Ordenes de Compra</div>
+            <div class="panel-heading">Ordenes de Producción</div>
             
 
             <!-- Table -->
             <table  class="table table-bordered" cellspacing="0" width="100%">
                 <thead>
                     <tr>
-                      <th>Sku</th>
-                      <th>Status</th>
-                      <th>Método de pago</th>
+                      <th>Id cloud</th>
+                      <th>SKU</th>
+                      <th>Cantidad</th>
+                      <th>Despachado</th>
+                      <th>Disponible</th>
                     </tr>
                 </thead>
 
                 <tbody id="news-table">
-                    <% @purchase_orders.each do |purchase_order| %>
+                    <% @production_orders.each do |production_order| %>
                       <tr>
-                        <td><%= purchase_order.product_sku %></td>
-                        <td><%= purchase_order.state %></td>
-                        <td><%= purchase_order.payment_method %></td>
+                        <td><%= production_order.id_cloud %></td>
+                        <td><%= production_order.product_sku %></td>
+                        <td><%= production_order.cantidad %></td>
+                        <td><%= production_order.despachado %></td>
+                        <td><%= production_order.disponible %></td>
                       </tr>
                     <% end %>
                 </tbody>
@@ -90,34 +139,7 @@
       </div>
 
 
-      <div class="panel panel-primary">
-            <!-- Default panel contents -->
-            <div class="panel-heading">Almacenes</div>
-            
 
-            <!-- Table -->
-            <table class="table table-bordered">
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Capacidad</th>
-                  <th>Utilizado</th>
-                  <th>Disponible</th>
-                </tr>
-              </thead>
-
-              <tbody>
-                <% @warehouses.each do |w| %>
-                  <tr>
-                    <td><%= w["_id"] %></td>
-                    <td><%= w["totalSpace"] %></td>
-                    <td><%= w["usedSpace"] %></td>
-                    <td><%= w["totalSpace"] - w["usedSpace"] %></td>
-                  </tr> 
-                <% end %>
-              </tbody>
-            </table>
-      </div>
           
 
   <script type="text/javascript" src="/assets/js/jquery.js"></script>
