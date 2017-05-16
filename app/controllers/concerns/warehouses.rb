@@ -85,3 +85,8 @@ module Warehouses
       return stock_despacho.length
     end
   end
+
+def check_stock_and_restore_stock
+  # Revisa el stock de cada sku, si algun sku tiene menos productos que la
+  # cantidad minima, los repone con llamadas a RawMaterial.restore_stock(sku, quantity)
+end
