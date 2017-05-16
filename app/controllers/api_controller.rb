@@ -39,10 +39,7 @@ class ApiController < ApplicationController
 		#ret = Production.get_all_stock_warehouse("590baa76d6b4ec000490255d")
 		#ret = Production.get_stock("590baa76d6b4ec000490255d","41").length
 
-		Warehouse.all.each do |wh|
-	      puts Production.get_stock(wh.id_cloud,"41").length
-		end
-		ret = Warehouse.all
+		ret = Queries.generate_authorization
 		json_response({response: ret})
 	end
 
