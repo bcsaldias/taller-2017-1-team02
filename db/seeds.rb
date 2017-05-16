@@ -8,21 +8,21 @@
 
 Warehouse.all.delete_all
 
-warehouses_dev = Warehouse.create([
-		{id_cloud: "590baa76d6b4ec000490255d"} , #recepcion
-		{id_cloud: "590baa76d6b4ec000490255e"} , #despacho
-		{id_cloud: "590baa76d6b4ec000490255f"} , #general
-		{id_cloud: "590baa76d6b4ec000490265d"} , #general
-		{id_cloud: "590baa76d6b4ec000490265e"} 	 #pulmon
-	])
-
-#warehouses_prod = Warehouses.create([
+#warehouses_dev = Warehouse.create([
 #		{id_cloud: "590baa76d6b4ec000490255d"} , #recepcion
 #		{id_cloud: "590baa76d6b4ec000490255e"} , #despacho
 #		{id_cloud: "590baa76d6b4ec000490255f"} , #general
 #		{id_cloud: "590baa76d6b4ec000490265d"} , #general
 #		{id_cloud: "590baa76d6b4ec000490265e"} 	 #pulmon
 #	])
+
+warehouses_prod = Warehouses.create([
+		{id_cloud: "590baa76d6b4ec000490255d"} , #recepcion
+		{id_cloud: "590baa76d6b4ec000490255e"} , #despacho
+		{id_cloud: "590baa76d6b4ec000490255f"} , #general
+		{id_cloud: "590baa76d6b4ec000490265d"} , #general
+		{id_cloud: "590baa76d6b4ec000490265e"} 	 #pulmon
+	])
 
 Supplier.all.delete_all
 
