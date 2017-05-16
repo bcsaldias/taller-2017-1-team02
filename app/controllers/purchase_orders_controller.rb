@@ -39,20 +39,20 @@ class PurchaseOrdersController < ApplicationController
           ensure
             puts "evaluando solicitud recibida", params[:id]
 
-            deadline_in = order['fechaEntrega'] - (DateTime.now.to_f * 1000).to_i
-            if deadline_in < 1000*60*60*2 #2 horas
-              we_can = Warehouses.product_availability(order['sku'], order['cantidad'])
-              if we_can
-                puts 'oc aceptada'
-                Sales.accept_purchase_order(params[:id])
-                puts 'despachando oc'
-                Warehouses.despachar_oc(params[:id])
-                Sales.deliver_purchase_order(params[:id])
-              else
-                puts 'oc rechazada'
-                Sales.reject_purchase_order(params[:id], "no tenemos stock para cumplir plazo")
-              end
-            end
+            #deadline_in = order['fechaEntrega'] - (DateTime.now.to_f * 1000).to_i
+            #if deadline_in < 1000*60*60*2 #2 horas
+              #we_can = Warehouses.product_availability(order['sku'], order['cantidad'])
+              #if we_can
+                #puts 'oc aceptada'
+                #Sales.accept_purchase_order(params[:id])
+                #puts 'despachando oc'
+                #Warehouses.despachar_oc(params[:id])
+                #Sales.deliver_purchase_order(params[:id])
+              #else
+                #puts 'oc rechazada'
+                #Sales.reject_purchase_order(params[:id], "no tenemos stock para cumplir plazo")
+              #end
+            #end
           end
         else
           json_response ({error: "payment_method: contra_factura/contra_despacho"}), 400
