@@ -57,7 +57,8 @@ module Queries
 		domain = supplier.get_url
 		path = domain + next_path
 
-		header = {	'Content-Type' => 'application/json'}
+		header = {	'Content-Type' => 'application/json', 
+					'X-ACCESS-TOKEN' => Rails.configuration.environment_ids['team_id']}
 		header["Token"] = access_token if access_token
 
 		@result = HTTParty.get(path, headers: header, query: params )
@@ -66,7 +67,8 @@ module Queries
 	def self.patch_to_groups_api(next_path, supplier, access_token=false, params={})
 		domain = supplier.get_url
 		path = domain + next_path
-		header = {	'Content-Type' => 'application/json'}
+		header = {	'Content-Type' => 'application/json', 
+					'X-ACCESS-TOKEN' => Rails.configuration.environment_ids['team_id']}
 		header["Token"] = access_token if access_token
 		@result = HTTParty.patch(path, headers: header, query: params )
 	end
@@ -74,7 +76,8 @@ module Queries
 	def self.put_to_groups_api(next_path, supplier, access_token=false, params={})
 		domain = supplier.get_url
 		path = domain + next_path
-		header = {	'Content-Type' => 'application/json'}
+		header = {	'Content-Type' => 'application/json', 
+					'X-ACCESS-TOKEN' => Rails.configuration.environment_ids['team_id']}
 		header["Token"] = access_token if access_token
 		@result = HTTParty.put(path, headers: header, query: params )
 	end

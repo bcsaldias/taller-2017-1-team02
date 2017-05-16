@@ -41,7 +41,7 @@ module RawMaterial
 
       else
         our_id = Rails.configuration.environment_ids['team_id']
-        status = Purchases.create_purchase_order(our_id, supplier.id_cloud, sku, needed_date,
+        status = Purchases.create_purchase_order(our_id, supplier, sku, needed_date,
                                         order_quantity, price, "b2b", "Esta es una nota")
 
         if status == 200 or status == 201
@@ -157,19 +157,21 @@ module RawMaterial
 
   #fix me
   #Compra productos  a un supplier especifico. Recibe objeto supplier como parametro
-  def self.buy_product_from_supplier(sku, quantity, supplier, needed_date = Tiempo.tiempo_a_milisegundos(12, 30, 23, 59))
+  def self.buy_product_from_supplier(sku, quantity, supplier_num, 
+                          needed_date = Tiempo.tiempo_a_milisegundos(12, 30, 23, 59))
     Tiempo.tiempo_a_milisegundos(12, 30, 23, 59)
     puts "FECHA!!! : #{needed_date}"
     product = Product.find(sku)
-    contacts = product.contacts.where(supplier_id: supplier.id)
+    contacts = product.contacts.where(supplier_id: supplier_num.to_i)
 
     return false if contacts.length < 1
     contact = contacts.first
 
-    supplier = Supplier.where(id: 2).first
+    supplier = Supplier.find(supplier_num)
     response = Queries.get_to_groups_api("products", supplier, false, {})
+    puts response.body.force_encoding("UTF-8")
     begin
-      hash_response = JSON.parse(response.body)
+      hash_response = JSON.parse response.body.force_encoding("UTF-8")
       price = hash_response.find {|prod| prod['sku']== product.sku}['price']
       puts "El precio es: #{price}"
     rescue
@@ -178,7 +180,7 @@ module RawMaterial
     end
     order_quantity = RawMaterial.calculate_order_quantity(quantity, contact.min_production_batch)
     our_id = Rails.configuration.environment_ids['team_id']
-    status = Purchases.create_purchase_order(our_id, supplier.id_cloud, sku, needed_date,
+    status = Purchases.create_purchase_order(our_id, supplier, sku, needed_date,
                                         order_quantity, price, "b2b", "Esta es una nota")
 
     if status == 200 or status == 201
