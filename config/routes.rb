@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   get 'test2' => 'api#test2'
 
   get 'products' => 'products#available'
+  get 'general' => 'general#index', :as => :general
   get 'factory_managment' => 'managments#index', :as => :managment
 
   put 'purchase_orders/:id' => 'purchase_orders#realizar_pedido'

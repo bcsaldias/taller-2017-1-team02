@@ -6,12 +6,7 @@ class ManagmentsController < ApplicationController
   include RawMaterial
   require 'json'
 
-
   def index
-    @our_purchase_orders = PurchaseOrder.our_oc
-    @purchase_orders = PurchaseOrder.requested
-    @production_orders = ProductionOrder.all
-    @factory = ProductionOrder.all
 
   end
 
