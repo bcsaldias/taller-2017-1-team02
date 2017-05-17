@@ -24,8 +24,8 @@ module RawMaterial
       price = supplier_info[:price]
 
       #whouse_space = Espacio en fecha de llegada (No implementado)
-      order_quantity = quantity #RawMaterial.calculate_order_quantity(quantity,
-                            #supplier_info[:min_production_batch])#, whouse_space)
+      order_quantity = RawMaterial.calculate_order_quantity(quantity,
+                            supplier_info[:min_production_batch])#, whouse_space)
       return false unless order_quantity # False si no hay espacio en bodega
       puts "This is the best supplier: #{supplier_info[:supplier_id]},
                                         PRICE: #{supplier_info[:price]}"
@@ -178,7 +178,7 @@ module RawMaterial
       puts "Imposible obtener el precio del producto en la api del supplier"
       return false
     end
-    order_quantity = RawMaterial.calculate_order_quantity(quantity, contact.min_production_batch)
+    order_quantity = quantity # no etRawMaterial.calculate_order_quantity(quantity, contact.min_production_batch)
     our_id = Rails.configuration.environment_ids['team_id']
     status = Purchases.create_purchase_order(our_id, supplier, sku, needed_date,
                                         order_quantity, price, "b2b", "Esta es una nota")
