@@ -40,7 +40,7 @@ class ManagmentsController < ApplicationController
     minutos = params[:fecha_minutos]
     comprar = RawMaterial.buy_product_from_supplier(params[:oc_sku], params[:cantidad].to_i, params[:proveedor].to_i, 
                           needed_date = Tiempo.tiempo_a_milisegundos(5, 16, 22, 00)) #mes, dia, hora, minuto
-  	redirect_to :managment
+  	json_response({ret: comprar})
   end
 
   def notify_deliver
