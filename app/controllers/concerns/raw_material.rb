@@ -24,8 +24,8 @@ module RawMaterial
       price = supplier_info[:price]
 
       #whouse_space = Espacio en fecha de llegada (No implementado)
-      order_quantity = RawMaterial.calculate_order_quantity(quantity,
-                            supplier_info[:min_production_batch])#, whouse_space)
+      order_quantity = quantity #RawMaterial.calculate_order_quantity(quantity,
+                            #supplier_info[:min_production_batch])#, whouse_space)
       return false unless order_quantity # False si no hay espacio en bodega
       puts "This is the best supplier: #{supplier_info[:supplier_id]},
                                         PRICE: #{supplier_info[:price]}"

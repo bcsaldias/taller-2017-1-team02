@@ -32,6 +32,7 @@ Rails.application.routes.draw do
   #resources :suppliers
   apipie
   get 'test' => 'api#test'
+  get 'test2' => 'api#test2'
 
   get 'products' => 'products#available'
   get 'factory_managment' => 'managments#index', :as => :managment
