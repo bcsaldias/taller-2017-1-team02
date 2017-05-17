@@ -67,11 +67,6 @@ module Queries
 	def self.patch_to_groups_api(next_path, supplier, access_token=false, params={})
 		domain = supplier.get_url
 		path = domain + next_path
-		puts "SHAKIRA"
-		puts "SHAKIRA"
-		puts path
-		puts "SHAKIRA"
-		puts "SHAKIRA"
 		header = {	'Content-Type' => 'application/json', 
 					'X-ACCESS-TOKEN' => Rails.configuration.environment_ids['team_id']}
 		header["Token"] = access_token if access_token

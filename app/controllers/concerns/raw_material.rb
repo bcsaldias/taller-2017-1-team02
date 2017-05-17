@@ -162,7 +162,7 @@ module RawMaterial
     Tiempo.tiempo_a_milisegundos(12, 30, 23, 59)
     puts "FECHA!!! : #{needed_date}"
     product = Product.find(sku)
-    contacts = product.contacts.where(supplier_id: supplier_num.to_i)
+    contacts = product.contacts.where(supplier_id: supplier_num)
 
     return false if contacts.length < 1
     contact = contacts.first
