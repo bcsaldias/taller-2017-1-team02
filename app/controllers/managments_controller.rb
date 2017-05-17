@@ -28,11 +28,6 @@ class ManagmentsController < ApplicationController
     #redirect_to :managment
   end
 
-  def reject_oc
-    puts params[:id_cloud]
-    redirect_to :managment
-  end
-
   def create_oc
     mes = params[:fecha_mes]
     dia = params[:fecha_dia]
@@ -49,6 +44,8 @@ class ManagmentsController < ApplicationController
   	puts params[:factura_cloud_id]
   	puts params[:proveedor]
   	redirect_to :managment
+    ## FIXMEE
+    ## esto va contra factura!
   end
 
   def deliver
@@ -57,7 +54,6 @@ class ManagmentsController < ApplicationController
   	puts params[:factura_cloud_id]
   	puts params[:proveedor]
     out = Warehouses.despachar_OC(params[:oc_cloud_id])
-    puts "OOOOOOOOOORDEN", out
   	redirect_to :managment
   end
 
