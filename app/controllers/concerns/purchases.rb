@@ -16,6 +16,7 @@ module Purchases
 
 			### Creacion OC en base de datos
 			order =  JSON.parse @result.body.force_encoding("UTF-8")
+			puts order
       		@purchase_order = PurchaseOrder.create!(id_cloud: order['_id'], state: 0,
                                         product_sku: order['sku'], payment_method: "contra_factura",
 										quantity: cantidad, owner: true)
@@ -29,7 +30,7 @@ module Purchases
 			}
 
 
-			result = Queries.put_to_groups_api("realizar_pedido", proveedor, false, params)
+			result = Queries.put_to_groups_api("purchase_orders/"+order['_id'], proveedor, false, params)
 	    return result.code #Status code de el mensaje enviado al proveedor
 	end
 
