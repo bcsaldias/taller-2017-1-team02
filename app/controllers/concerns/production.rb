@@ -45,7 +45,7 @@ module Production
 	def self.move_stock_external(warehouse_id, product_id, purchase_order, price)
 		puts "QUE WA"
 		puts warehouse_id, product_id, purchase_order, price.to_i
-		auth = Queries.generate_authorization(_method = 'GET',
+		auth = Queries.generate_authorization(_method = 'POST',
 											  params = [product_id, warehouse_id])
 
 		body = {"productoId" => product_id,
