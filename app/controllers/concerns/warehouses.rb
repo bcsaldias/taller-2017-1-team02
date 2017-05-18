@@ -180,12 +180,16 @@ module Warehouses
                                             id_cloud_OC, price)
       puts "ret2"
       puts ret
-      q_to_send -= 1
-      if q_to_send == 0
-        our_purchase_order.state = 3
-        our_purchase_order.save
-        return true
-        break
+      if ret.code == 200 or ret.code == 201
+        q_to_send -= 1
+        if q_to_send == 0
+          our_purchase_order.state = 3
+          our_purchase_order.save
+          return true
+          break
+        end
+      else
+        return false
       end
     end
   end
