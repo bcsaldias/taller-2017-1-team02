@@ -148,6 +148,7 @@ module Warehouses
 #despachar_OC despacha las ordenes de compra
   def self.despachar_OC(id_cloud_OC)
     purchase_order = Sales.get_purchase_order(id_cloud_OC)
+    our_purchase_order = PurchaseOrder.where(id_cloud: id_cloud_OC).first
 
     puts purchase_order
     puts purchase_order["sku"], purchase_order["cantidad"]
@@ -181,8 +182,8 @@ module Warehouses
       puts ret
       q_to_send -= 1
       if q_to_send == 0
-        purchase_order_from_table.state = 2
-        purchase_order.save
+        our_purchase_order.state = 3
+        our_purchase_order.save
         return true
         break
       end
