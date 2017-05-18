@@ -14,11 +14,11 @@ module Production
 	def self.get_stock(warehouse_id, sku)
 		auth = Queries.generate_authorization(_method = 'GET',
 											  params = [warehouse_id,sku.to_s])
-		#puts auth
+		puts auth
 		@result = Queries.get(next_path="bodega/stock",
 						  authorization=auth,
 						  params = {almacenId:warehouse_id, sku:sku})
-		return JSON.parse @result.body
+		return JSON.parse @result.body.force_encoding("UTF-8")
 	end
 
 	def self.get_all_stock_warehouse(warehouse_id)
@@ -35,27 +35,29 @@ module Production
 		auth = Queries.generate_authorization(_method = 'POST',
 											  params = [product_id, warehouse_id])
 
-		body = {'productoId' => product_id , 'almacenId' => warehouse_id}
-		@result = Queries.post('bodega/moveStock',
+		body = {"productoId" => product_id , "almacenId" => warehouse_id}
+		@result = Queries.post("bodega/moveStock",
 							body=body, params={},
 							authorization=auth)
 		return JSON.parse @result.body.force_encoding("UTF-8")
 	end
 
 	def self.move_stock_external(warehouse_id, product_id, purchase_order, price)
-
-		auth = Queries.generate_authorization(_method = 'POST',
+		puts "QUE WA"
+		puts warehouse_id, product_id, purchase_order, price.to_i
+		auth = Queries.generate_authorization(_method = 'GET',
 											  params = [product_id, warehouse_id])
 
-		body = {'productoId' => product_id ,
-				'almacenId' => warehouse_id,
-			    'oc' => purchase_order,
-				'precio' => price}
+		body = {"productoId" => product_id,
+				"almacenId" => warehouse_id,
+			    "oc" => purchase_order,
+				"precio" => price.to_i}
 
-		@result = Queries.post('bodega/moveStockBodega',
+		@result = Queries.post("bodega/moveStockBodega",
 							authorization=auth,
 							body=body)
 
+		puts @result.code
 		return JSON.parse @result.body.force_encoding("UTF-8")
 	end
 
