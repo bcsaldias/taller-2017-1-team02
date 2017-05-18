@@ -1,4 +1,3 @@
-'_id'
 module Warehouses
   include Production
   include Factory
