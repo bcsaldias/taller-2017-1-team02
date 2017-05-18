@@ -67,7 +67,13 @@ module Warehouses
     a = [1,2,4]
     contador_de_requests = 0
 
+    puts "q_a_d"
+    puts q_a_despachar
+    puts "c_en_d"
+    puts cantidad_en_despacho
     while q_a_despachar > cantidad_en_despacho
+      puts "cantidad_en_despacho"
+      puts cantidad_en_despacho
       stock_general = Production.get_stock(warehouses_id['general'], sku)
       stock_pregeneral = Production.get_stock(warehouses_id['pregeneral'],sku)
       stock_recepcion = Production.get_stock(warehouses_id['recepcion'], sku)
@@ -128,7 +134,10 @@ module Warehouses
     end
 
     puts "termina while"
+    puts sku
     stock_despacho = Production.get_stock(warehouses_id['despacho'], sku)
+    puts stock_despacho
+    puts "return"
     if  q_a_despachar <= stock_despacho.length
       return true
     else
@@ -143,18 +152,33 @@ module Warehouses
     puts purchase_order
     puts purchase_order["sku"], purchase_order["cantidad"]
 
-    self.get_despacho_ready(purchase_order[:sku], purchase_order[:cantidad].to_i)
-
+    ret = self.get_despacho_ready(purchase_order["sku"], purchase_order["cantidad"].to_i)
+    puts "ret", ret
     price = purchase_order['precioUnitario']
+    puts("price",price)
     q_to_send = purchase_order['cantidad']
+    puts("q_to_send",q_to_send)
+
     purchase_order_from_table = PurchaseOrder.where(id_cloud: id_cloud_OC).first
+    puts "purchase_order_from_table", purchase_order_from_table
     client_warehouse = purchase_order_from_table['id_store_reception']
+    puts "client_warehouse", client_warehouse
 
     warehouses_id = self.get_warehouses_id
     stock_a_despachar = Production.get_stock(warehouses_id['despacho'], purchase_order["sku"])
 
+
+    puts "stock_a_despachar"
+    puts stock_a_despachar
+    puts "stock_a_despachar"
+
     for product in stock_a_despachar
-      Production.move_stock_external(client_warehouse, produ=ct['_id'], id_cloud_OC, price)
+      puts "DESPACHAR"
+      puts product
+      ret = Production.move_stock_external(client_warehouse, produ=product['_id'], 
+                                            id_cloud_OC, price)
+      puts "ret2"
+      puts ret
       q_to_send -= 1
       if q_to_send == 0
         purchase_order_from_table.state = 2
