@@ -54,10 +54,9 @@ module Production
 				"precio" => price.to_i}
 
 		@result = Queries.post("bodega/moveStockBodega",
-							authorization=auth,
-							body=body)
-
-		puts @result.code
+							body=body, 
+							params={},
+							authorization=auth)
 		return JSON.parse @result.body.force_encoding("UTF-8")
 	end
 
