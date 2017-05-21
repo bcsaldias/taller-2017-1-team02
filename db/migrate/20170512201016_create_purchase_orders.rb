@@ -10,6 +10,7 @@ class CreatePurchaseOrders < ActiveRecord::Migration
       t.string :payment_method
       t.string :cause
       t.boolean :owner
+      t.datetime :deadline
       t.references :supplier
       # t.references :product, foreign_key: true, null: false
 

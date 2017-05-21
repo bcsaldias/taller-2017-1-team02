@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(version: 20170521142471) do
     t.string   "payment_method"
     t.string   "cause"
     t.boolean  "owner"
+    t.datetime "deadline"
     t.integer  "supplier_id"
     t.datetime "created_at"
     t.datetime "updated_at"
