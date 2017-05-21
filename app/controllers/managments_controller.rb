@@ -1,6 +1,6 @@
 #include HTTParty
 class ManagmentsController < ApplicationController
-  before_filter :authorize
+  before_action :authorize
   helper_method :sort_wh, :notify_deliver, :deliver, :check_for_availablility, :create_oc, :accept_oc
   include Warehouses
   include RawMaterial
