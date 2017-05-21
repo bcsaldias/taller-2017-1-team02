@@ -11,6 +11,10 @@ class ProductsController < ApplicationController
     json_response(Product.catalogue)
   end
 
+  def public_prices
+    json_response(Product.public_catalogue)
+  end
+
   # GET /products
   def index
     @products = Product.all

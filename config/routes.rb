@@ -35,6 +35,8 @@ Rails.application.routes.draw do
   get 'test2' => 'api#test2'
 
   get 'products' => 'products#available'
+  get 'api/publico/precios' => 'products#public_prices'
+
   get 'general' => 'general#index', :as => :general
   get 'factory_managment' => 'managments#index', :as => :managment
 

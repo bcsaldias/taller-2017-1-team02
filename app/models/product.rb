@@ -15,6 +15,12 @@ class Product < ApplicationRecord
   												:stock => p.stock} }
   end
 
+  def self.public_catalogue
+    Product.all.where(owner: true).map { |p| {:sku => p.sku,
+                          :price => p.price,
+                          :stock => p.stock} }
+  end
+
   def self.our_products
     Product.all.where(owner: true).each do |item|
 
