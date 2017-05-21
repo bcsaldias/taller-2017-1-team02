@@ -258,3 +258,6 @@ recipies = Recipe.create([
 	{needed_product_sku:'2',requirement: 560,final_product_sku:'55',final_product_unit:'Un',requirement_unit:'Kg'} ,
 	{needed_product_sku:'1',requirement: 935,final_product_sku:'56',final_product_unit:'Kg',requirement_unit:'Kg'} ,
 {needed_product_sku:'26',requirement: 65,final_product_sku:'56',final_product_unit:'Kg',requirement_unit:'Kg'}]	)
+
+Spree::Core::Engine.load_seed if defined?(Spree::Core)
+Spree::Auth::Engine.load_seed if defined?(Spree::Auth)
