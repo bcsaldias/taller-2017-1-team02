@@ -1,4 +1,4 @@
-class CreateWarehouses < ActiveRecord::Migration[5.0]
+class CreateWarehouses < ActiveRecord::Migration
   def change
     create_table :warehouses do |t|
       t.string :id_cloud, null: false, unique: true

@@ -1,4 +1,4 @@
-class CreateProductionOrders < ActiveRecord::Migration[5.0]
+class CreateProductionOrders < ActiveRecord::Migration
   def change
     create_table :production_orders do |t|
 
