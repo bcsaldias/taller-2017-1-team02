@@ -1,4 +1,4 @@
-class CreateContacts < ActiveRecord::Migration[5.0]
+class CreateContacts < ActiveRecord::Migration
   def change
     create_table :contacts do |t|
       t.references :product, foreign_key: true

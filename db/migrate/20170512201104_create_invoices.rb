@@ -1,4 +1,4 @@
-class CreateInvoices < ActiveRecord::Migration[5.0]
+class CreateInvoices < ActiveRecord::Migration
   def change
     create_table :invoices do |t|
       t.integer :id_cloud, null: false, unique: true

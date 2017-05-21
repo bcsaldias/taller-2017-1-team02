@@ -1,4 +1,4 @@
-class CreateSuppliers < ActiveRecord::Migration[5.0]
+class CreateSuppliers < ActiveRecord::Migration
   def change
     create_table :suppliers, id: false  do |t|
       t.integer :id, null:false
