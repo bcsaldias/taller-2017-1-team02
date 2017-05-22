@@ -51,6 +51,8 @@ suppliers = Supplier.create([
 		{id: 8, api_prod: "http://integra17-8.ing.puc.cl/", api_dev: "http://dev.integra17-8.ing.puc.cl/"}
 	])
 
+
+
 Product.all.delete_all
 products = Product.create!([
 	{category:'Materia prima',description:'Pollo',owner:false,sku:'1'} ,
@@ -257,7 +259,36 @@ recipies = Recipe.create([
 	{needed_product_sku:'23',requirement: 20,final_product_sku:'55',final_product_unit:'Kg',requirement_unit:'Kg'} ,
 	{needed_product_sku:'2',requirement: 560,final_product_sku:'55',final_product_unit:'Un',requirement_unit:'Kg'} ,
 	{needed_product_sku:'1',requirement: 935,final_product_sku:'56',final_product_unit:'Kg',requirement_unit:'Kg'} ,
-{needed_product_sku:'26',requirement: 65,final_product_sku:'56',final_product_unit:'Kg',requirement_unit:'Kg'}]	)
+    {needed_product_sku:'26',requirement: 65,final_product_sku:'56',final_product_unit:'Kg',requirement_unit:'Kg'}]	)
 
 Spree::Core::Engine.load_seed if defined?(Spree::Core)
 Spree::Auth::Engine.load_seed if defined?(Spree::Auth)
+
+Spree::StockLocation.all.delete_all
+locations = Spree::StockLocation.create!([
+	{name: "Santiago", active: true}
+])
+
+Spree::ShippingCategory.all.delete_all
+categories = Spree::ShippingCategory.create!([
+	{name: 'test'}
+])
+
+Spree::Product.all.delete_all
+products = Spree::Product.create!([
+	{available_on: '2017/05/17' ,description:'Materia prima',shipping_category_id: 1, price: 306,sku:'2',name:'Huevo'} ,
+	{available_on: '2017/05/17' ,description:'Producto procesado',shipping_category_id: 1, price: 1542,sku:'6',name:'Crema'} ,
+	{available_on: '2017/05/17' ,description:'Materia prima',shipping_category_id: 1, price: 756,sku:'8',name:'Trigo'} ,
+	{available_on: '2017/05/17' ,description:'Materia prima',shipping_category_id: 1, price: 888,sku:'14',name:'Cebada'} ,
+	{available_on: '2017/05/17' ,description:'Materia prima',shipping_category_id: 1, price: 516,sku:'20',name:'Cacao'} ,
+	{available_on: '2017/05/17' ,description:'Materia prima',shipping_category_id: 1, price: 297,sku:'26',name:'Sal'} ,
+	{available_on: '2017/05/17' ,description:'Materia prima',shipping_category_id: 1, price: 699,sku:'39',name:'Uva'} ,
+	{available_on: '2017/05/17' ,description:'Producto procesado',shipping_category_id: 1, price: 1788,sku:'40',name:'Queso'} ,
+	{available_on: '2017/05/17' ,description:'Producto procesado',shipping_category_id: 1, price: 768,sku:'41',name:'Suero de Leche'} ,
+	{available_on: '2017/05/17' ,description:'Producto procesado',shipping_category_id: 1, price: 804,sku:'49',name:'Leche Descremada'} ,
+]	)
+
+Spree::StockItem.all.delete_all
+stocks = Spree::StockItem.create!([
+	stock_location_id: 1, count_on_hand: 30, variant_id: 1
+	])
