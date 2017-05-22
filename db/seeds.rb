@@ -292,3 +292,25 @@ Spree::StockItem.all.delete_all
 stocks = Spree::StockItem.create!([
 	stock_location_id: 1, count_on_hand: 30, variant_id: 1
 	])
+
+sku_image = {
+		'2' => 'Huevo.jpg',
+		'6' => 'Crema.jpg',
+		'8' => 'Trigo.jpg',
+		'14' => 'Cebada.jpeg',
+		'20' => 'Cacao.jpeg',
+		'26' => 'Sal.jpeg',
+		'39' => 'Uva.jpeg',
+		'40' => 'Queso.jpeg',
+		'41' => 'Suero.jpeg',
+		'49' => 'Leche.jpeg'
+		}
+
+Spree::Image.all.delete_all
+Spree::Product.all.each do |product|
+	path = Rails.root + 'public/assets/images/products/' + sku_image[product.sku]
+	i = Spree::Image.create!(:attachment => File.open(path), :viewable => product.master)
+	i = Spree::Image.find(i.id)
+	product.images << i
+	product.save!
+end
