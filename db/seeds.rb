@@ -314,8 +314,3 @@ Spree::Product.all.each do |product|
 	product.images << i
 	product.save!
 end
-
-Deface::Override.new(virtual_path: "spree/checkout/registration",
-                     insert_before: "div#registration",
-                     text: "<p>Shakira!</p>",
-                     name: "registration_future")
