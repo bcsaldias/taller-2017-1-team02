@@ -20,7 +20,7 @@ module Sales
 		body = {'rechazo' => motivo_rechazo}
 		@result = Queries.post(next_path= "oc/rechazar/" + purchase_order_id,
 						  body=body)
-		return (JSON.parse @result.body)[0]
+		return (JSON.parse @result.body)
 	end
 
 	def self.anular_purchase_order(purchase_order_id, motivo_anulacion)
@@ -33,7 +33,7 @@ module Sales
 	## FIXME IN SPRINT 3
 	def self.deliver_purchase_order(purchase_order_id)
 		order = self.get_purchase_order(purchase_order_id)
-		sup = Supplier.get_by_id_cloud(order['cliente']) # FIXME
+		sup = Supplier.get_by_id_cloud(order['cliente']) # FIXME No testeado
 		ret = Queries.patch_to_groups_api('invoices/'+order['_id']+'/delivered', sup)
 		return ret
 
