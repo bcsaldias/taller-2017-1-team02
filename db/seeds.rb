@@ -289,9 +289,9 @@ products = Spree::Product.create!([
 ]	)
 
 Spree::StockItem.all.delete_all
-stocks = Spree::StockItem.create!([
-	stock_location_id: 1, count_on_hand: 30, variant_id: 1
-	])
+#stocks = Spree::StockItem.create!([
+#	stock_location_id: 1, count_on_hand: 30, variant_id: 1,  force: true
+#	])
 
 sku_image = {
 		'2' => 'Huevo.jpg',
@@ -314,3 +314,8 @@ Spree::Product.all.each do |product|
 	product.images << i
 	product.save!
 end
+
+Deface::Override.new(virtual_path: "spree/checkout/registration",
+                     insert_before: "div#registration",
+                     text: "<p>Shakira!</p>",
+                     name: "registration_future")
