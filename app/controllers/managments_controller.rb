@@ -22,7 +22,7 @@ class ManagmentsController < ApplicationController
     if params[:status] == "Aceptar"
       @end = Sales.accept_purchase_order(params[:cloud_id])
     elsif params[:status] == "Rechazar"
-      @end = Sales.reject_purchase_order(params[:cloud_id], cause: 'no alcanzamos')
+      @end = Sales.reject_purchase_order(params[:cloud_id], cause='no alcanzamos')
     end
     json_response({oc:params[:cloud_id], status:params[:status]})
     #redirect_to :managment
@@ -33,8 +33,9 @@ class ManagmentsController < ApplicationController
     dia = params[:fecha_dia]
     hora = params[:fecha_hora]
     minutos = params[:fecha_minutos]
-    comprar = RawMaterial.buy_product_from_supplier(params[:oc_sku], params[:cantidad].to_i, params[:proveedor].to_i, 
-                          needed_date = Tiempo.tiempo_a_milisegundos(5, 16, 22, 00)) #mes, dia, hora, minuto
+    needed_date =  Tiempo.tiempo_a_milisegundos(mes, dia, hora, minutos)
+    comprar = RawMaterial.buy_product_from_supplier(params[:oc_sku], params[:cantidad].to_i, params[:proveedor].to_i,
+                          needed_date) #mes, dia, hora, minuto
   	json_response({ret: comprar})
   end
 
