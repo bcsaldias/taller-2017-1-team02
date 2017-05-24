@@ -5,15 +5,14 @@ class ApiController < ApplicationController
 
 	include Queries
 	def test
-		ret =     comprar = RawMaterial.buy_product_from_supplier("7", 50, 7, 
-                          needed_date = Tiempo.tiempo_a_milisegundos(5, 16, 22, 00)) #mes, dia, hora, minuto
+		acc = Rails.configuration.environment_ids['bank_id']
+		puts acc
+		t0 = Tiempo.tiempo_a_milisegundos(05, 15, 23, 00)
+		t1 = Tiempo.tiempo_a_milisegundos(05, 26, 23, 00)
+		ret = Bank.get_card(t0, t1, acc, 10 )
 		json_response({response: ret})
 	end
 
-	def test2
-		ret =     comprar = RawMaterial.buy_product_from_supplier("7", 50, 2, 
-                          needed_date = Tiempo.tiempo_a_milisegundos(5, 16, 22, 00)) #mes, dia, hora, minuto
-		json_response({response: ret})
-	end
 
 end
+ 
