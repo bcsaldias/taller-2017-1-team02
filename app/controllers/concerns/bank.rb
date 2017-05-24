@@ -15,8 +15,10 @@ module Bank
     return JSON.parse @result.body
   end
 
-  def self.get_card(fechaInicio, fechaFin, id_cuenta, limit)
-    body = {'fechaInicio' => fechaInicio, 'fechaFin' => fechaFin, 'id' => id_cuenta}
+  def self.get_card(fechaInicio, fechaFin, id_cuenta, limit=10)
+    # t0 = Tiempo.tiempo_a_milisegundos(05, 15, 23, 00)
+    body = {'fechaInicio' => fechaInicio, 'fechaFin' => fechaFin, 
+            'id' => id_cuenta, 'limit'=> limit}
     @result = Queries.post("banco/cartola", body = body)
     return JSON.parse @result.body
   end
