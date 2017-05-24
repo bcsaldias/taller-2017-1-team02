@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   #get 'user_sessions/destroy'
   #root :to => 'users#index'
   resources :user_sessions
-  #resources :users
+  resources :users
   #resources :factory_manual_managment
   
   get 'login' => 'user_sessions#new', :as => :login

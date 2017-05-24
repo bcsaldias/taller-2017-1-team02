@@ -13,8 +13,8 @@ class ManagmentsController < ApplicationController
   def sent_production
   	puts params[:oc_sku]
   	puts params[:cantidad]
-    Factory.hacer_pedido_interno(params[:oc_sku], params[:cantidad].to_i)
-  	redirect_to :managment
+    req = Factory.hacer_pedido_interno(params[:oc_sku], params[:cantidad].to_i)
+    json_response({req: req})
   end
 
   def accept_oc

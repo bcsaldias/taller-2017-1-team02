@@ -6,9 +6,11 @@ module Factory
 	    auth = Queries.generate_authorization
         @result = Queries.get("bodega/fabrica/getCuenta", 
 	    						authorization=auth)
-	    return JSON.parse @result.body
+	    return (JSON.parse @result.body)["cuentaId"]
 	end
 
+
+	## DEPRECATED
 	def self.fabricate_without_paying(sku, cantidad)
 	    auth = Queries.generate_authorization(_method = 'PUT', 
 	                    params = [sku, cantidad])
@@ -21,12 +23,31 @@ module Factory
 	    return JSON.parse @result.body
 	end
 
+
+	def self.fabricate(sku, cantidad)
+		account_id = Factory.get_account
+		origen = Rails.configuration.environment_ids['bank_id']
+		unit_cost = Contact.all.where(supplier_id: 2, product_id: sku).first['production_unit_cost']
+		monto = unit_cost * cantidad
+		trxId = Bank.transfer(monto, origen, account_id)['_id']
+
+	    auth = Queries.generate_authorization(_method = 'PUT', 
+	                    params = [sku, cantidad, trxId])
+	    body = {'sku' => sku , 'cantidad' => cantidad, 'trxId' => trxId}
+
+	    @result = Queries.put('bodega/fabrica/fabricar', 
+	              authorization=auth,
+	              body=body)
+	    puts @result
+	    return JSON.parse @result.body
+	end
+
 	def self.hacer_pedido_interno(sku, cantidad)
 		## procesado solo acepta de a un lote
 
 		product = Product.find(sku)
 		if product.category == "Materia prima"
-			result = self.fabricate_without_paying(sku, cantidad)
+			result = self.fabricate(sku, cantidad)
 			if result.keys.include?("error")
 				return false
 			else 
@@ -59,7 +80,7 @@ module Factory
 			end
 
 			puts 'materia prima disponible para producir producto procesado'
-			result = self.fabricate_without_paying(sku, cantidad)
+			result = self.fabricate(sku, cantidad)
 			if result.keys.include?("error")
 				return false
 			else 
