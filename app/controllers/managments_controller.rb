@@ -25,7 +25,6 @@ class ManagmentsController < ApplicationController
       @end = Sales.reject_purchase_order(params[:cloud_id], cause='no alcanzamos')
     end
     json_response({oc:params[:cloud_id], status:params[:status]})
-    #redirect_to :managment
   end
 
   def create_oc
@@ -55,7 +54,7 @@ class ManagmentsController < ApplicationController
   	puts params[:factura_cloud_id]
   	puts params[:proveedor]
     out = Warehouses.despachar_OC(params[:oc_cloud_id])
-  	redirect_to :managment
+    json_response({ret: out})
   end
 
   def check_for_availablility
