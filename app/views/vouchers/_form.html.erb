@@ -1,0 +1,41 @@
+<%= form_for(@voucher) do |f| %>
+  <% if @voucher.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@voucher.errors.count, "error") %> prohibited this voucher from being saved:</h2>
+
+      <ul>
+      <% @voucher.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :id_cloud %><br>
+    <%= f.text_field :id_cloud %>
+  </div>
+  <div class="field">
+    <%= f.label :client %><br>
+    <%= f.text_field :client %>
+  </div>
+  <div class="field">
+    <%= f.label :bruto %><br>
+    <%= f.number_field :bruto %>
+  </div>
+  <div class="field">
+    <%= f.label :iva %><br>
+    <%= f.number_field :iva %>
+  </div>
+  <div class="field">
+    <%= f.label :oc_id_cloud %><br>
+    <%= f.text_field :oc_id_cloud %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br>
+    <%= f.text_field :status %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

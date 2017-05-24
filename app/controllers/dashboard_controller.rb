@@ -4,5 +4,6 @@ class DashboardController < ActionController::Base
     @production_orders = ProductionOrder.all#.where(owner: true)
     @products = Product.our_products
     @warehouses = Production.get_warehouses
+    @vouchers = Voucher.all
   end
 end

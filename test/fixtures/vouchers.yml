@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id_cloud: MyString
+  client: MyString
+  bruto: 1
+  iva: 1
+  oc_id_cloud: MyString
+  status: MyString
+
+two:
+  id_cloud: MyString
+  client: MyString
+  bruto: 1
+  iva: 1
+  oc_id_cloud: MyString
+  status: MyString

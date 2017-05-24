@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170521142471) do
+ActiveRecord::Schema.define(version: 20170524153415) do
 
   create_table "contacts", force: :cascade do |t|
     t.integer  "product_id"
@@ -1173,6 +1173,17 @@ ActiveRecord::Schema.define(version: 20170521142471) do
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+
+  create_table "vouchers", force: :cascade do |t|
+    t.string   "id_cloud"
+    t.string   "client"
+    t.integer  "bruto"
+    t.integer  "iva"
+    t.string   "oc_id_cloud"
+    t.string   "status"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "warehouses", force: :cascade do |t|
     t.string   "id_cloud",   null: false

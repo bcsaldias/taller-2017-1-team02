@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id cloud:</strong>
+  <%= @voucher.id_cloud %>
+</p>
+
+<p>
+  <strong>Client:</strong>
+  <%= @voucher.client %>
+</p>
+
+<p>
+  <strong>Bruto:</strong>
+  <%= @voucher.bruto %>
+</p>
+
+<p>
+  <strong>Iva:</strong>
+  <%= @voucher.iva %>
+</p>
+
+<p>
+  <strong>Oc id cloud:</strong>
+  <%= @voucher.oc_id_cloud %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @voucher.status %>
+</p>
+
+<%= link_to 'Edit', edit_voucher_path(@voucher) %> |
+<%= link_to 'Back', vouchers_path %>

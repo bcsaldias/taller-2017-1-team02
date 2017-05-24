@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Vouchers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id cloud</th>
+      <th>Client</th>
+      <th>Bruto</th>
+      <th>Iva</th>
+      <th>Oc id cloud</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @vouchers.each do |voucher| %>
+      <tr>
+        <td><%= voucher.id_cloud %></td>
+        <td><%= voucher.client %></td>
+        <td><%= voucher.bruto %></td>
+        <td><%= voucher.iva %></td>
+        <td><%= voucher.oc_id_cloud %></td>
+        <td><%= voucher.status %></td>
+        <td><%= link_to 'Show', voucher %></td>
+        <td><%= link_to 'Edit', edit_voucher_path(voucher) %></td>
+        <td><%= link_to 'Destroy', voucher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Voucher', new_voucher_path %>

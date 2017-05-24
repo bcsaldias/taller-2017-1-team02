@@ -150,8 +150,40 @@
       </div>
 
 
+      <div class="panel panel-primary">
+            <!-- Default panel contents -->
+            <div class="panel-heading">Boletas generadas</div>
 
 
+            <!-- Table -->
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Id cloud</th>
+                  <th>OC id clodu</th>
+                  <th>Estado</th>
+                  <th>Cliente</th>
+                  <th>Bruto</th>
+                  <th>Iva</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <% @vouchers.each do |p| %>
+                  <tr>
+                    <td><%= p.id_cloud %></td>
+                    <td><%= p.oc_id_cloud %></td>
+                    <td><%= p.status %></td>
+                    <td><%= p.client %></td>
+                    <td><%= p.bruto %></td>
+                    <td><%= p.iva %></td>
+                    <td><%= p.bruto + p.iva %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+      </div>
 
   <script type="text/javascript" src="/assets/js/jquery.js"></script>
   <script type="text/javascript" src="/assets/js/bootstrap.js"></script>
