@@ -22,7 +22,6 @@ class ApiController < ApplicationController
 	end
 
 	def test
-		
 		json_response({response: Factory.get_account})
 	end
 
