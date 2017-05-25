@@ -11,8 +11,8 @@ class ManagmentsController < ApplicationController
   end
 
   def sent_production
-  	puts params[:oc_sku]
-  	puts params[:cantidad]
+    puts params[:oc_sku]
+    puts params[:cantidad]
     req = Factory.hacer_pedido_interno(params[:oc_sku], params[:cantidad].to_i)
     json_response({req: req})
   end
@@ -35,30 +35,30 @@ class ManagmentsController < ApplicationController
     needed_date =  Tiempo.tiempo_a_milisegundos(mes, dia, hora, minutos)
     comprar = RawMaterial.buy_product_from_supplier(params[:oc_sku], params[:cantidad].to_i, params[:proveedor].to_i,
                           needed_date) #mes, dia, hora, minuto
-  	json_response({ret: comprar})
+    json_response({ret: comprar})
   end
 
   def notify_deliver
-  	puts "notify_deliver"
-  	puts params[:oc_cloud_id]
-  	puts params[:factura_cloud_id]
-  	puts params[:proveedor]
-  	redirect_to :managment
+    puts "notify_deliver"
+    puts params[:oc_cloud_id]
+    puts params[:factura_cloud_id]
+    puts params[:proveedor]
+    redirect_to :managment
     ## FIXMEE
     ## esto va contra factura!
   end
 
   def deliver
-  	puts "deliver"
-  	puts params[:oc_cloud_id]
-  	puts params[:factura_cloud_id]
-  	puts params[:proveedor]
+    puts "deliver"
+    puts params[:oc_cloud_id]
+    puts params[:factura_cloud_id]
+    puts params[:proveedor]
     out = Warehouses.despachar_OC(params[:oc_cloud_id])
     json_response({ret: out})
   end
 
   def check_for_availablility
-  	puts "check_for_availablility"
+    puts "check_for_availablility"
     result = Warehouses.product_availability(params[:oc_sku], params[:cantidad].to_i)
     json_response({ret: result})
   end

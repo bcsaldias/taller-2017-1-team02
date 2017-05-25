@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+<<<<<<< HEAD
   #resources :vouchers
   # This line mounts Spree's routes at the root of your application.
   # This means, any requests to URLs such as /products, will go to Spree::ProductsController.
@@ -8,6 +9,8 @@ Rails.application.routes.draw do
   # We ask that you don't use the :as option here, as Spree relies on it being the default of "spree"
   mount Spree::Core::Engine, at: '/ecommerce'
         
+=======
+>>>>>>> cc0785b1a11273f70e6b12241e33b6f3f2b9c4d1
   root 'dashboard#index'
 
   #get 'user_sessions/new'
@@ -15,7 +18,11 @@ Rails.application.routes.draw do
   #get 'user_sessions/destroy'
   #root :to => 'users#index'
   resources :user_sessions
+<<<<<<< HEAD
   resources :users
+=======
+  #resources :users
+>>>>>>> cc0785b1a11273f70e6b12241e33b6f3f2b9c4d1
   #resources :factory_manual_managment
   
   get 'login' => 'user_sessions#new', :as => :login
@@ -43,8 +50,11 @@ Rails.application.routes.draw do
   get 'test2' => 'api#test2'
 
   get 'products' => 'products#available'
+<<<<<<< HEAD
   get 'api/publico/precios' => 'products#public_prices'
 
+=======
+>>>>>>> cc0785b1a11273f70e6b12241e33b6f3f2b9c4d1
   get 'general' => 'general#index', :as => :general
   get 'factory_managment' => 'managments#index', :as => :managment
 
