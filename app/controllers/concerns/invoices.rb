@@ -20,7 +20,7 @@ module Invoices
   				)
   		end
 
-  		return @result.code
+  		return @result#.code
   	end
 
 end
