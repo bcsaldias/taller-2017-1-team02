@@ -65,7 +65,8 @@ class ManagmentsController < ApplicationController
 
 
   def sort_wh
-    Warehouses.sort_warehouses
+    ret = Warehouses.sort_warehouses
+    json_response({ret: ret})
   end
 
   def authorize
