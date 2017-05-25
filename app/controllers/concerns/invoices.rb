@@ -2,7 +2,8 @@ module Invoices
 	include Queries
   	require 'json'
 
-  	def self.crear_boleta(origin_group_id, private_client_id, amount)
+  	def self.crear_boleta(private_client_id, amount)
+      origin_group_id = Rails.configuration.environment_ids['team_id']
     	body = {'proveedor' => origin_group_id, 
     			'cliente' => private_client_id, 
     			'total' => amount}
@@ -20,7 +21,7 @@ module Invoices
   				)
   		end
 
-  		return @result#.code
+  		return @body#.code
   	end
 
 end

@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   # We ask that you don't use the :as option here, as Spree relies on it being the default of "spree"
   mount Spree::Core::Engine, at: '/ecommerce'
         
+  get 'ecommerce/order/paid' => 'spree/checkout#paid'
+
   root 'dashboard#index'
 
   #get 'user_sessions/new'
