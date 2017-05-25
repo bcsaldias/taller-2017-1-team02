@@ -9,10 +9,10 @@ class Product < ApplicationRecord
   has_many :needed_product, :class_name => 'Recipe', :foreign_key => 'needed_product_sku'
 
   def self.catalogue
-  	Product.all.where(owner: true).map { |p| {:sku => p.sku,
-  												:name => p.description,
-  												:price => p.price,
-  												:stock => p.stock} }
+    Product.all.where(owner: true).map { |p| {:sku => p.sku,
+                          :name => p.description,
+                          :price => p.price,
+                          :stock => p.stock} }
   end
 
   def self.public_catalogue

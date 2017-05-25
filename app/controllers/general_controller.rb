@@ -12,7 +12,6 @@ class GeneralController < ApplicationController
     @purchase_orders = PurchaseOrder.requested
     @production_orders = ProductionOrder.all
     @factory = ProductionOrder.all
-
   end
 
 
