@@ -13,6 +13,7 @@ Spree.config do |config|
   # Example:
   # Uncomment to stop tracking inventory levels in the application
   # config.track_inventory_levels = false
+  Rails.application.config.spree.payment_methods << Spree::Gateway::Integrapay
 end
 
 Spree.user_class = "Spree::User"
