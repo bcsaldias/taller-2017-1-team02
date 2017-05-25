@@ -26,6 +26,8 @@ module Warehouses
         # puts "general 2 ", general_2_cap
       end
     end
+
+    # La bodega general sera la mas grande, la otra es la pregeneral
     if general_1_cap > general_2_cap
       warehouses_id['general'] = general_1
       warehouses_id['pregeneral'] = general_2
@@ -57,6 +59,7 @@ module Warehouses
     return warehouses_id
   end
 
+
     #preparar bodega para despachar
     #retorna true si queda lista, un int indicando cuantos productos del sku deja en la bodega de despacho
   def self.get_despacho_ready(sku, q_a_despachar)
@@ -66,13 +69,12 @@ module Warehouses
     a = [1,2,4]
     contador_de_requests = 0
 
-    puts "q_a_d"
+    puts "q_a_despachar"
     puts q_a_despachar
-    puts "c_en_d"
+    puts "q_en_despacho"
     puts cantidad_en_despacho
     while q_a_despachar > cantidad_en_despacho
-      puts "cantidad_en_despacho"
-      puts cantidad_en_despacho
+      puts "cantidad_en_despacho: #{cantidad_en_despacho}"
       stock_general = Production.get_stock(warehouses_id['general'], sku)
       stock_pregeneral = Production.get_stock(warehouses_id['pregeneral'],sku)
       stock_recepcion = Production.get_stock(warehouses_id['recepcion'], sku)
@@ -138,8 +140,10 @@ module Warehouses
     puts stock_despacho
     puts "return"
     if  q_a_despachar <= stock_despacho.length
+      puts "get_despacho_ready: Productos listos en despacho!"
       return true
     else
+      puts "get_despacho_ready: No fue posible poner todos los productos necesarios en bodega"
       return false
     end
   end
@@ -175,7 +179,7 @@ module Warehouses
     for product in stock_a_despachar
       puts "DESPACHAR"
       puts product
-      ret = Production.move_stock_external(client_warehouse, produ=product['_id'], 
+      ret = Production.move_stock_external(client_warehouse, produ=product['_id'],
                                             id_cloud_OC, price)
       puts "ret2"
       puts ret
@@ -224,8 +228,9 @@ module Warehouses
     end
   end
 
-#ordena los almacenes, dejando la mayoria en general
+  #ordena los almacenes, dejando la mayoria en general
   def self.sort_warehouses
+    sleep_time = 20
     puts "starting reorder"
     warehouses_id = self.get_warehouses_id
     # puts warehouses_id['general']
@@ -236,69 +241,144 @@ module Warehouses
     stock_despacho = Production.get_all_stock_warehouse(warehouses_id['despacho'])
     contador_de_requests = 0
 
-    while stock_general.length > 0
+    while true
+      puts "\n \nIteracion:"
+      puts "General: #{stock_general}"
+      puts "Pregeneral: #{stock_pregeneral}"
+      puts "Recepcion: #{stock_recepcion}"
+      puts "Pulmon: #{stock_pulmon}"
+      puts "Despacho: #{stock_despacho}"
+
       if stock_despacho.length == 0 and stock_pregeneral.length == 0 and stock_recepcion.length == 0 and stock_pulmon.length == 0
+        puts "Todo ordenado!"
         return true
-        break
+      elsif self.full_warehouse(warehouses_id['general']) and self.full_warehouse(warehouses_id['pregeneral'])
+        puts "Se llenaron las bodegas general y pregeneral"
+        return true
       else
+
+        # DESPACHO -> GENERAL
         if !self.full_warehouse(warehouses_id['general']) and !self.empty_warehouse(warehouses_id['despacho'])
+          puts "Entro a Despacho -> General"
           for product_type in stock_despacho
             stock_despacho_sku = Production.get_stock(warehouses_id['despacho'], product_type['_id'])
-            # puts stock_despacho_sku[0]
-            product_id = stock_despacho_sku[0]['_id']
-            Production.move_stock(warehouses_id['general'], product_id)
-            # puts "smthg moved"
+
+            if stock_despacho_sku.length >= 10
+              (1..10).to_a.each do |n|
+                product_id = stock_despacho_sku[n]['_id']
+                Production.move_stock(warehouses_id['general'], product_id)
+                puts "somethg moved"
+                contador_de_requests += 1
+              end
+            else
+              product_id = stock_despacho_sku[0]['_id']
+              Production.move_stock(warehouses_id['general'], product_id)
+              puts "somethg moved"
+              contador_de_requests += 1
+             end
+
           end
-          contador_de_requests += stock_despacho.length
           stock_despacho = Production.get_all_stock_warehouse(warehouses_id['despacho'])
+          stock_general = Production.get_all_stock_warehouse(warehouses_id['general'])
         end
         if contador_de_requests > 20
-          sleep(15)
+          sleep(sleep_time)
           contador_de_requests = 0
         end
+
+        # PREGENERAL -> GENERAL
         if !self.full_warehouse(warehouses_id['general']) and !self.empty_warehouse(warehouses_id['pregeneral'])
+          puts "Entro a PREGENERAL -> GENERAL"
           for product_type in stock_pregeneral
-            stock_despacho_sku = Production.get_stock(warehouses_id['pregeneral'], product_type['_id'])
-            product_id = stock_despacho_sku[0]['_id']
-            Production.move_stock(warehouses_id['general'], product_id)
+            stock_pregeneral_sku = Production.get_stock(warehouses_id['pregeneral'], product_type['_id'])
+
+            if stock_pregeneral_sku.length >= 10
+              (1..10).to_a.each do |n|
+                product_id = stock_pregeneral_sku[n]['_id']
+                Production.move_stock(warehouses_id['general'], product_id)
+                puts "somethg moved"
+                contador_de_requests += 1
+              end
+            else
+              product_id = stock_pregeneral_sku[0]['_id']
+              Production.move_stock(warehouses_id['general'], product_id)
+              puts "somethg moved"
+              contador_de_requests += 1
+             end
+
           end
-          contador_de_requests += stock_pregeneral.length
+          stock_pregeneral = Production.get_all_stock_warehouse(warehouses_id['pregeneral'])
+          stock_general = Production.get_all_stock_warehouse(warehouses_id['general'])
+        end
+        if contador_de_requests > 20
+          sleep(sleep_time)
+          contador_de_requests = 0
+        end
+
+        # RECEPCION -> PREGENERAL
+        if !self.full_warehouse(warehouses_id['pregeneral']) and !self.empty_warehouse(warehouses_id['recepcion'])
+          puts "Entro a RECEPCION -> PREGENERAL"
+          for product_type in stock_recepcion
+            stock_recepcion_sku = Production.get_stock(warehouses_id['recepcion'], product_type['_id'])
+
+            if stock_recepcion_sku.length >= 10
+              (1..10).to_a.each do |n|
+                product_id = stock_recepcion_sku[n]['_id']
+                Production.move_stock(warehouses_id['pregeneral'], product_id)
+                puts "somethg moved"
+                contador_de_requests += 1
+              end
+            else
+              product_id = stock_recepcion_sku[0]['_id']
+              Production.move_stock(warehouses_id['pregeneral'], product_id)
+              puts "somethg moved"
+              contador_de_requests += 1
+             end
+
+          end
+          stock_recepcion = Production.get_all_stock_warehouse(warehouses_id['recepcion'])
           stock_pregeneral = Production.get_all_stock_warehouse(warehouses_id['pregeneral'])
         end
         if contador_de_requests > 20
-          sleep(15)
+          sleep(sleep_time)
           contador_de_requests = 0
         end
-        if !self.full_warehouse(warehouses_id['pregeneral']) and !self.empty_warehouse(warehouses_id['recepcion'])
-          for product_type in stock_recepcion
-            stock_recepcion_sku = Production.get_stock(warehouses_id['recepcion'], product_type['_id'])
-            product_id = stock_recepcion_sku[0]['_id']
-            Production.move_stock(warehouses_id['pregeneral'], product_id)
+
+        # PULMON -> RECEPCION
+        if !self.full_warehouse(warehouses_id['recepcion']) and !self.empty_warehouse(warehouses_id['pulmon'])
+          puts "Entro a PULMON -> RECEPCION"
+          for product_type in stock_pulmon
+            stock_pulmon_sku = Production.get_stock(warehouses_id['pulmon'], product_type['_id'])
+
+            if stock_pulmon_sku.length >= 10
+              (1..10).to_a.each do |n|
+                product_id = stock_pulmon_sku[n]['_id']
+                Production.move_stock(warehouses_id['recepcion'], product_id)
+                puts "somethg moved"
+                contador_de_requests += 1
+              end
+            else
+              product_id = stock_pulmon_sku[0]['_id']
+              Production.move_stock(warehouses_id['recepcion'], product_id)
+              puts "somethg moved"
+              contador_de_requests += 1
+             end
+
           end
-          contador_de_requests += stock_recepcion.length
+          stock_pulmon = Production.get_all_stock_warehouse(warehouses_id['pulmon'])
           stock_recepcion = Production.get_all_stock_warehouse(warehouses_id['recepcion'])
         end
         if contador_de_requests > 20
-          sleep(15)
-          contador_de_requests = 0
-        end
-        if !self.full_warehouse(warehouses_id['recepcion']) and !self.empty_warehouse(warehouses_id['pulmon'])
-          for product_type in stock_pulmon
-            stock_pulmon_sku = Production.get_stock(warehouses_id['pulmon'], product_type['_id'])
-            product_id = stock_pulmon_sku[0]['_id']
-            Production.move_stock(warehouses_id['recepcion'], product_id)
-          end
-          contador_de_requests += stock_pulmon.length
-          stock_pulmon = Production.get_all_stock_warehouse(warehouses_id['pulmon'])
-        end
-        if contador_de_requests > 20
-          sleep(15)
+          sleep(sleep_time)
           contador_de_requests = 0
         end
       end
     end
+
+    puts "No Ordenado, retorno false"
     return false
   end
+
 
  def self.product_stock(sku)
         warehouses_id = self.get_warehouses_id
