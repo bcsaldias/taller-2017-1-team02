@@ -1,5 +1,5 @@
 class PurchaseOrder < ApplicationRecord
-  enum state: [:creada, :aceptada, :rechazada, :finalizada]
+  enum state: [:creada, :aceptada, :rechazada, :finalizada, :anulada]
 
   belongs_to :product, foreign_key: :product_sku
   has_one :invoice
@@ -17,6 +17,7 @@ class PurchaseOrder < ApplicationRecord
         item.cantidad
     end
   end
+
 
   def cantidad
   	order = Sales.get_purchase_order(self.id_cloud)
