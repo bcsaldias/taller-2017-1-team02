@@ -24,20 +24,19 @@ class Product < ApplicationRecord
   def self.our_products
     Product.all.where(owner: true).each do |item|
 
-      #estamos corridos 4 horas.
-      #if (DateTime.now.to_f * 1000).to_i - (item.updated_at.to_f * 1000).to_i > 1000*60*60*(4)
+      if (DateTime.now.to_f * 1000).to_i - (item.updated_at.to_f * 1000).to_i > 1000*60*60*3
         item.all_stock
-      #else
-      #  item.stock
-      #end
+      else
+        item.stock
+      end
 
     end
   end
 
-
   def all_stock
     self.stock = Warehouses.product_stock(self.sku)
-    self.save
+    self.updated_at = DateTime.now
+    self.save!
   end
 
 end
