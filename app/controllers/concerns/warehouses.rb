@@ -264,7 +264,7 @@ module Warehouses
             stock_despacho_sku = Production.get_stock(warehouses_id['despacho'], product_type['_id'])
 
             if stock_despacho_sku.length >= 10
-              (1..10).to_a.each do |n|
+              (0..9).to_a.each do |n|
                 product_id = stock_despacho_sku[n]['_id']
                 Production.move_stock(warehouses_id['general'], product_id)
                 puts "somethg moved"
@@ -294,7 +294,7 @@ module Warehouses
             stock_pregeneral_sku = Production.get_stock(warehouses_id['pregeneral'], product_type['_id'])
 
             if stock_pregeneral_sku.length >= 10
-              (1..10).to_a.each do |n|
+              (0..9).to_a.each do |n|
                 product_id = stock_pregeneral_sku[n]['_id']
                 Production.move_stock(warehouses_id['general'], product_id)
                 puts "somethg moved"
@@ -323,7 +323,7 @@ module Warehouses
             stock_recepcion_sku = Production.get_stock(warehouses_id['recepcion'], product_type['_id'])
 
             if stock_recepcion_sku.length >= 10
-              (1..10).to_a.each do |n|
+              (0..9).to_a.each do |n|
                 product_id = stock_recepcion_sku[n]['_id']
                 Production.move_stock(warehouses_id['pregeneral'], product_id)
                 puts "somethg moved"
@@ -352,7 +352,7 @@ module Warehouses
             stock_pulmon_sku = Production.get_stock(warehouses_id['pulmon'], product_type['_id'])
 
             if stock_pulmon_sku.length >= 10
-              (1..10).to_a.each do |n|
+              (0..9).to_a.each do |n|
                 product_id = stock_pulmon_sku[n]['_id']
                 Production.move_stock(warehouses_id['recepcion'], product_id)
                 puts "somethg moved"
