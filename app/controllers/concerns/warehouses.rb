@@ -282,10 +282,6 @@ module Warehouses
           stock_despacho = Production.get_all_stock_warehouse(warehouses_id['despacho'])
           stock_general = Production.get_all_stock_warehouse(warehouses_id['general'])
         end
-        # if request_counter > 20
-        #   sleep(sleep_time)
-        #   request_counter = 0
-        # end
 
         # PREGENERAL -> GENERAL
         if !self.full_warehouse(warehouses_id['general']) and !self.empty_warehouse(warehouses_id['pregeneral'])
@@ -311,10 +307,6 @@ module Warehouses
           stock_pregeneral = Production.get_all_stock_warehouse(warehouses_id['pregeneral'])
           stock_general = Production.get_all_stock_warehouse(warehouses_id['general'])
         end
-        # if request_counter > 20
-        #   sleep(sleep_time)
-        #   request_counter = 0
-        # end
 
         # RECEPCION -> PREGENERAL
         if !self.full_warehouse(warehouses_id['pregeneral']) and !self.empty_warehouse(warehouses_id['recepcion'])
@@ -340,10 +332,6 @@ module Warehouses
           stock_recepcion = Production.get_all_stock_warehouse(warehouses_id['recepcion'])
           stock_pregeneral = Production.get_all_stock_warehouse(warehouses_id['pregeneral'])
         end
-        # if request_counter > 20
-        #   sleep(sleep_time)
-        #   request_counter = 0
-        # end
 
         # PULMON -> RECEPCION
         if !self.full_warehouse(warehouses_id['recepcion']) and !self.empty_warehouse(warehouses_id['pulmon'])
@@ -369,10 +357,6 @@ module Warehouses
           stock_pulmon = Production.get_all_stock_warehouse(warehouses_id['pulmon'])
           stock_recepcion = Production.get_all_stock_warehouse(warehouses_id['recepcion'])
         end
-        # if request_counter > 20
-        #   sleep(sleep_time)
-        #   request_counter = 0
-        # end
       end
     end
 
