@@ -27,11 +27,11 @@ module Spree
     rescue_from Spree::Core::GatewayError, with: :rescue_from_spree_gateway_error
 
     def create_voucher(order)
+      _id = order.number
       _user_id = order.user_id
-      #_name = order.ship_address.firstname 
-      #_adress = order.ship_address.address1
+      _address = order.ship_address.address1
       _amount = order.total.to_i
-      invoice = Invoices.crear_boleta(_user_id, _amount)
+      invoice = Invoices.crear_boleta(_id, _user_id, _amount, _address)
     end
 
     def escape_uri(string)
@@ -46,6 +46,22 @@ module Spree
 
       flash.notice = Spree.t(:order_processed_successfully)
       flash['order_completed'] = true
+
+      ##
+      ## DESPACHAR
+      ##
+      voucher = Voucher.where(id_cloud: params[:id]).first
+      delivered = Production.deliver_order_to_address(voucher)
+
+      if not delivered
+        puts "ERRORRRR"
+        puts "ERRORRRR"
+        puts "ERRORRRR"
+        puts "ERRORRRR"
+        puts "ERRORRRR"
+        puts "ERRORRRR"
+      end
+
       redirect_to(_current_bp+'orders/'+@order.number.to_s)
     end
 
@@ -57,7 +73,7 @@ module Spree
       _current_bp = _our_env_path+'ecommerce/'
       #_current_bp = 'http://localhost:3000/ecommerce/'
 
-      @URL_OK = escape_uri(_current_bp+"order/paid")
+      @URL_OK = escape_uri(_current_bp+"order/paid/"+_id)
       @URL_FAIL = escape_uri(_current_bp+'checkout/payment')
       
       _post_base = "web/pagoenlinea?callbackUrl="

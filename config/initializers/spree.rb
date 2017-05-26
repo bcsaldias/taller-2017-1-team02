@@ -14,6 +14,12 @@ Spree.config do |config|
   # Uncomment to stop tracking inventory levels in the application
   # config.track_inventory_levels = false
   Rails.application.config.spree.payment_methods << Spree::Gateway::Integrapay
+
+  # Set country name and currency like this (Note: you will need to
+  # run 'rake db:seed' before this. Change country name in
+  # Spree::Country.find_by_name('Germany') replace Germany to your desired one)
+
+
 end
 
 Spree.user_class = "Spree::User"
