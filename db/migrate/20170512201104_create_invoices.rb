@@ -2,7 +2,12 @@ class CreateInvoices < ActiveRecord::Migration
   def change
     create_table :invoices do |t|
       t.integer :id_cloud, null: false, unique: true
-      t.integer :state
+      t.string :cliente
+      t.string :proveedor
+      t.integer :bruto
+      t.integer :iva  
+      t.string :oc_id_cloud
+      t.integer :status
       t.references :purchase_order, foreign_key: true, null: false
 
       t.timestamps
