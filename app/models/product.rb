@@ -24,7 +24,12 @@ class Product < ApplicationRecord
   def self.our_products
     Product.all.where(owner: true).each do |item|
 
-      if (DateTime.now.to_f * 1000).to_i - (item.updated_at.to_f * 1000).to_i > 1000*60*60*3
+      _now = (DateTime.now.to_f * 1000).to_i
+      _then = (item.updated_at.to_f * 1000).to_i
+
+      if _now - _then > 1000*60*60*3 #3 horas
+        item.all_stock
+      elsif item.stock == nil
         item.all_stock
       else
         item.stock
