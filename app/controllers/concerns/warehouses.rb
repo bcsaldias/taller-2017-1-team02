@@ -239,7 +239,7 @@ module Warehouses
     stock_recepcion = Production.get_all_stock_warehouse(warehouses_id['recepcion'])
     stock_pulmon = Production.get_all_stock_warehouse(warehouses_id['pulmon'])
     stock_despacho = Production.get_all_stock_warehouse(warehouses_id['despacho'])
-    contador_de_requests = 0
+    request_counter = 0
 
     while true
       puts "\n \nIteracion:"
@@ -268,23 +268,24 @@ module Warehouses
                 product_id = stock_despacho_sku[n]['_id']
                 Production.move_stock(warehouses_id['general'], product_id)
                 puts "somethg moved"
-                contador_de_requests += 1
+                request_counter += 1
               end
             else
               product_id = stock_despacho_sku[0]['_id']
               Production.move_stock(warehouses_id['general'], product_id)
               puts "somethg moved"
-              contador_de_requests += 1
+              request_counter += 1
              end
+             request_counter = Tiempo.sleep_if_to_many_requests(request_counter, 20, sleep_time)
 
           end
           stock_despacho = Production.get_all_stock_warehouse(warehouses_id['despacho'])
           stock_general = Production.get_all_stock_warehouse(warehouses_id['general'])
         end
-        if contador_de_requests > 20
-          sleep(sleep_time)
-          contador_de_requests = 0
-        end
+        # if request_counter > 20
+        #   sleep(sleep_time)
+        #   request_counter = 0
+        # end
 
         # PREGENERAL -> GENERAL
         if !self.full_warehouse(warehouses_id['general']) and !self.empty_warehouse(warehouses_id['pregeneral'])
@@ -297,23 +298,23 @@ module Warehouses
                 product_id = stock_pregeneral_sku[n]['_id']
                 Production.move_stock(warehouses_id['general'], product_id)
                 puts "somethg moved"
-                contador_de_requests += 1
+                request_counter += 1
               end
             else
               product_id = stock_pregeneral_sku[0]['_id']
               Production.move_stock(warehouses_id['general'], product_id)
               puts "somethg moved"
-              contador_de_requests += 1
-             end
-
+              request_counter += 1
+            end
+            request_counter = Tiempo.sleep_if_to_many_requests(request_counter, 20, sleep_time)
           end
           stock_pregeneral = Production.get_all_stock_warehouse(warehouses_id['pregeneral'])
           stock_general = Production.get_all_stock_warehouse(warehouses_id['general'])
         end
-        if contador_de_requests > 20
-          sleep(sleep_time)
-          contador_de_requests = 0
-        end
+        # if request_counter > 20
+        #   sleep(sleep_time)
+        #   request_counter = 0
+        # end
 
         # RECEPCION -> PREGENERAL
         if !self.full_warehouse(warehouses_id['pregeneral']) and !self.empty_warehouse(warehouses_id['recepcion'])
@@ -326,23 +327,23 @@ module Warehouses
                 product_id = stock_recepcion_sku[n]['_id']
                 Production.move_stock(warehouses_id['pregeneral'], product_id)
                 puts "somethg moved"
-                contador_de_requests += 1
+                request_counter += 1
               end
             else
               product_id = stock_recepcion_sku[0]['_id']
               Production.move_stock(warehouses_id['pregeneral'], product_id)
               puts "somethg moved"
-              contador_de_requests += 1
+              request_counter += 1
              end
-
+             request_counter = Tiempo.sleep_if_to_many_requests(request_counter, 20, sleep_time)
           end
           stock_recepcion = Production.get_all_stock_warehouse(warehouses_id['recepcion'])
           stock_pregeneral = Production.get_all_stock_warehouse(warehouses_id['pregeneral'])
         end
-        if contador_de_requests > 20
-          sleep(sleep_time)
-          contador_de_requests = 0
-        end
+        # if request_counter > 20
+        #   sleep(sleep_time)
+        #   request_counter = 0
+        # end
 
         # PULMON -> RECEPCION
         if !self.full_warehouse(warehouses_id['recepcion']) and !self.empty_warehouse(warehouses_id['pulmon'])
@@ -355,23 +356,23 @@ module Warehouses
                 product_id = stock_pulmon_sku[n]['_id']
                 Production.move_stock(warehouses_id['recepcion'], product_id)
                 puts "somethg moved"
-                contador_de_requests += 1
+                request_counter += 1
               end
             else
               product_id = stock_pulmon_sku[0]['_id']
               Production.move_stock(warehouses_id['recepcion'], product_id)
               puts "somethg moved"
-              contador_de_requests += 1
+              request_counter += 1
              end
-
+             request_counter = Tiempo.sleep_if_to_many_requests(request_counter, 20, sleep_time)
           end
           stock_pulmon = Production.get_all_stock_warehouse(warehouses_id['pulmon'])
           stock_recepcion = Production.get_all_stock_warehouse(warehouses_id['recepcion'])
         end
-        if contador_de_requests > 20
-          sleep(sleep_time)
-          contador_de_requests = 0
-        end
+        # if request_counter > 20
+        #   sleep(sleep_time)
+        #   request_counter = 0
+        # end
       end
     end
 
