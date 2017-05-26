@@ -35,10 +35,12 @@ class Product < ApplicationRecord
         item.stock
       end
 
+
     end
   end
 
   def all_stock
+    puts "getting stock"
     self.stock = Warehouses.product_stock(self.sku)
     self.updated_at = DateTime.now
     self.save!
