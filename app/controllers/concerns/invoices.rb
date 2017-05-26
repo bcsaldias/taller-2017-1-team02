@@ -4,10 +4,11 @@ module Invoices
 
 
   def self.emitir_factura(purchase_order_id)
+    #descripcion: emitir factura a partir de una orden de compra (PROVEEDOR)
     #PUT/
     #parametro: oc (string)
     #retorno: factura o error
-
+    #testeada
     body = {'oc' => purchase_order_id}
     @result = Queries.put("sii/", authorization=false, body)
     return JSON.parse @result.body
@@ -15,19 +16,21 @@ module Invoices
   end
 
   def self.obtener_factura(invoice_id)
+    #descripcion: permite a un proveedor obtener una factura (PROVEEDOR) 
     #GET/:id
     #parametros: id (string)
     #retorno: factura o error
-
+    #testeada
     @result = Queries.get("sii/" + invoice_id)
     return JSON.parse @result.body
   end
 
   def self.pagar_factura(invoice_id)
+    #descripcion: permite a un proveedor marcar una factura como pagada (PROVEEDOR)
     #POST/pay
     #parametros: id(string)
     #retorno: factura o error 
-
+    #testeada
     body = {'id' => invoice_id}
     @result = Queries.post("sii/pay", body = body)
     return JSON.parse @result.body
@@ -37,6 +40,7 @@ module Invoices
     #POST/reject
     #parametros: id(string), motivo
     #retorno: factura o error
+    #testeada
     body = {'id' => invoice_id, 'motivo' => motive}
     @result = Queries.post("sii/reject", body = body)
     return JSON.parse @result.body
@@ -46,19 +50,10 @@ module Invoices
     #POST/cancel
     #parametros: id (string), motivo
     #retorno: factura o error
-
+    #testeada
     body = {'id' => invoice_id, 'motivo' => motive}
     @result = Queries.post("sii/cancel", body = body)
     return JSON.parse @result.body
   end
 
-  def self.crear_boleta(supplier_id, client_id, total)
-    #PUT/boleta
-    #parametros: proveedor (id?) (grupo que genera la boleta), cliente (string), total (int)
-    #retorno: factura o error
-
-    body = {'proveedor' => supplier_id, 'cliente' => client_id, 'total' => total}
-    @result = Queries.put("sii/boleta", authorization=false, body)
-    return JSON.parse @result.body
-  end
 end
