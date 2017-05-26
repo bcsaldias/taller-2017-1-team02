@@ -116,7 +116,8 @@ class InvoicesController < ApplicationController
   error 404, "Factura no encontrada"
   # PATCH /invoices/:id
   def notificar_orden_despachada
-      json_response('Notificación hecha',204)
+    #TODO Joaquin: Cambiar estado de OC local a Finalizada
+    json_response('Notificación hecha',204)
   end
 
 

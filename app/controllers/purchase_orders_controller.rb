@@ -30,7 +30,9 @@ class PurchaseOrdersController < ApplicationController
           @purchase_order = PurchaseOrder.create!(id_cloud: order['_id'], state: 0,
                                               product_sku: order['sku'],
                                               payment_method: params[:payment_method],
-                                              id_store_reception:  params[:id_store_reception])
+                                              id_store_reception:  params[:id_store_reception],
+                                              quantity: order["cantidad"] #FIXME J: no testeado
+                                              )
 
           begin
             return json_response(@purchase_order, 201)
@@ -81,7 +83,7 @@ class PurchaseOrdersController < ApplicationController
             json_response ({ error: "Ya se finalizó esta orden de compra" }), 403
           else
             oc.state = 1
-            oc.save
+            oc.save!
             json_response(
                 {
                   id_purchase_order: params[:id],
