@@ -43,8 +43,6 @@ module Production
 	end
 
 	def self.move_stock_external(warehouse_id, product_id, purchase_order, price)
-		puts "QUE WA"
-		puts warehouse_id, product_id, purchase_order, price.to_i
 		auth = Queries.generate_authorization(_method = 'POST',
 											  params = [product_id, warehouse_id])
 
@@ -58,6 +56,63 @@ module Production
 							params={},
 							authorization=auth)
 		return @result#JSON.parse   .body.force_encoding("UTF-8")
+	end
+
+	def self.deliver_produt(boleta, productoId)
+
+		@direccion = boleta.address
+		@precio = boleta.iva + boleta.bruto
+		@oc = boleta.oc_id_cloud
+
+	    @auth = Queries.generate_authorization(_method = 'DELETE', 
+	                    params = [productoId, @direccion, @precio, @oc])
+
+	    @body = {   'productoId' => productoId, 
+	    			'direccion' => @direccion,
+	    			'precio' => @precio, 
+	    			'oc' => @oc }
+		
+		ret = Queries.delete('bodega/stock', @auth, @body)
+		puts ret
+
+		if ret.code == 200 or ret.code == 201
+			return true
+		end
+		return false
+
+	end
+
+	def self.deliver_order_to_address(boleta)
+		## FIXME poner como despachado
+
+    	warehouses_id = Warehouses.get_warehouses_id
+		@order = Spree::Order.find_by_number(boleta.spree_order_id)
+        @order.shipments.each do |_o|
+          _o.manifest.each do |_m|
+
+          	_sku = _m.variant.sku.to_s
+          	_quant = _m.quantity.to_i
+
+          	ret = Warehouses.get_despacho_ready(_sku, _quant)
+            if not ret
+            	return ret
+            end
+
+            stock_a_despachar = Production.get_stock(warehouses_id['despacho'], 
+    										 		_sku)
+
+    		for product in stock_a_despachar
+	            ret = self.deliver_produt(boleta, product['_id'])
+	            if not ret
+	            	puts product
+	            	return ret
+	            end
+	        end
+
+		  end
+		end
+
+		return true
 	end
 
 end

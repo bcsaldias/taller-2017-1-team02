@@ -52,6 +52,18 @@ module Queries
 		                        :query => params)
 	end
 
+	def self.delete(next_path, authorization=false, body={})
+		path = Rails.configuration.environment_ids['environment_path']+next_path
+		header = {	'Content-Type' => 'application/json'}
+		if authorization
+			header = {	'Content-Type' => 'application/json',
+						'Authorization'=> authorization }
+		end
+		@result = HTTParty.delete(path,
+		                        :body => body.to_json,
+		                        :headers => header)
+	end
+
 	def self.get_to_groups_api(next_path, supplier, access_token=false, params={})
 
 		domain = supplier.get_url
