@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   #
   # We ask that you don't use the :as option here, as Spree relies on it being the default of "spree"
   mount Spree::Core::Engine, at: '/ecommerce'
-        
+
   get 'ecommerce/order/paid' => 'spree/checkout#paid'
 
   root 'dashboard#index'
@@ -19,10 +19,10 @@ Rails.application.routes.draw do
   resources :user_sessions
   resources :users
   #resources :factory_manual_managment
-  
+
   get 'login' => 'user_sessions#new', :as => :login
   get 'logout' => 'user_sessions#destroy', :as => :logout
-  
+
   post 'sort_wh' => 'managments#sort_wh', as: :sort_warehouses
   post 'notify_deliver' => 'managments#notify_deliver', as: :notify_deliver
   post 'deliver' => 'managments#deliver', as: :deliver
@@ -65,6 +65,8 @@ Rails.application.routes.draw do
 
   #patch 'suppliers/:id_supplier' => 'suppliers#informar_cuenta_banco'
   get 'buy' => 'products#buy'
+  get 'validaciones' => 'api#validacion_local_servidor'
+
 
   root 'dashboard#index', :as => :dashboard
 
