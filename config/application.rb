@@ -9,7 +9,7 @@ Bundler.require(*Rails.groups)
 
 module Project
   class Application < Rails::Application
-    
+
     config.to_prepare do
       # Load application's model / class decorators
       Dir.glob(File.join(File.dirname(__FILE__), "../app/**/*_decorator*.rb")) do |c|
@@ -32,5 +32,9 @@ module Project
 
     config.environment_ids = config_for(:app)
     config.api_only = false
+
+    config.time_zone = 'Eastern Time (US & Canada)'
+    config.active_record.default_timezone = :local
+
   end
 end
