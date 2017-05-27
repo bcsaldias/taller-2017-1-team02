@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170524153415) do
+ActiveRecord::Schema.define(version: 20170527162521) do
 
   create_table "ar_internal_metadata", primary_key: "key", force: :cascade do |t|
     t.string   "value"
@@ -98,6 +98,7 @@ ActiveRecord::Schema.define(version: 20170524153415) do
     t.integer  "supplier_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.datetime "deadline"
   end
 
   add_index "purchase_orders", ["id_cloud"], name: "index_purchase_orders_on_id_cloud", unique: true
@@ -1188,15 +1189,13 @@ ActiveRecord::Schema.define(version: 20170524153415) do
 
   create_table "vouchers", force: :cascade do |t|
     t.string   "id_cloud"
-    t.string   "spree_order_id"
     t.string   "client"
-    t.string   "address"
     t.integer  "bruto"
     t.integer  "iva"
     t.string   "oc_id_cloud"
     t.string   "status"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "warehouses", force: :cascade do |t|

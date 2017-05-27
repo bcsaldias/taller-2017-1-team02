@@ -24,9 +24,9 @@ class PurchaseOrder < ApplicationRecord
   	order['cantidad']
   end
 
-  def deadline
-  	order = Sales.get_purchase_order(self.id_cloud)
-  	order['fechaEntrega']
-  end
+  # def deadline
+  #  	order = Sales.get_purchase_order(self.id_cloud)
+  #   order['fechaEntrega']
+  # end
 
 end

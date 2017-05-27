@@ -31,7 +31,8 @@ class PurchaseOrdersController < ApplicationController
                                               product_sku: order['sku'],
                                               payment_method: params[:payment_method],
                                               id_store_reception:  params[:id_store_reception],
-                                              quantity: order["cantidad"] #FIXME J: no testeado
+                                              quantity: order["cantidad"],
+                                              deadline: order['fechaEntrega']
                                               )
 
           begin

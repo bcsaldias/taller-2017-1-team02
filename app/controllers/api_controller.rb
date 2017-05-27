@@ -13,6 +13,7 @@ class ApiController < ApplicationController
 		t0 = Tiempo.tiempo_a_milisegundos(05, 15, 23, 00)
 		t1 = Tiempo.tiempo_a_milisegundos(05, 26, 23, 00)
 		ret = Bank.get_card(t0, t1, acc, 10 )
+	end
 
 	def test
 		tid = Rails.configuration.environment_ids['team_id']
@@ -42,6 +43,35 @@ class ApiController < ApplicationController
 		puts "Aqui imprimo el stock"
 		puts stock_general_sku
   end
+
+	def testj3
+		cliente = Supplier.find_by(id: 2)
+		proveedor = Supplier.find_by(id: 7)
+		sku = "2"
+		fechaEntrega = (Time.now + 10.hours)
+		fechaEntrega = Tiempo.tiempo_a_milisegundos(5, 29, 10, 0)
+		puts "fechaEntrega = #{fechaEntrega}"
+		cantidad = 100
+		precioUnitario = 100
+		canal =  "b2b"
+		ret = Purchases.create_purchase_order(cliente, proveedor, sku,
+										fechaEntrega, cantidad, precioUnitario,
+										canal)
+		json_response({response: ret})
+
+	end
+
+
+	def actualizar_deadlines_purchase_orders
+		PurchaseOrder.all.each do |po|
+			order = Sales.get_purchase_order(po.id_cloud)
+			po.deadline = order['fechaEntrega']
+	    po.save!
+		end
+		json_response({response: "Finalizado"})
+
+	end
+
 
 	# Metodo que permite verificar que la informacion local sea consistente con server
 	def validacion_local_servidor
