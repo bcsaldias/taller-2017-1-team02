@@ -3,10 +3,10 @@ module Invoices
   require 'json'
 
 	def self.crear_boleta(order_id, private_client_id, amount, _address)
-    
+
     origin_group_id = Rails.configuration.environment_ids['team_id']
-  	body = {'proveedor' => origin_group_id, 
-  			'cliente' => private_client_id, 
+  	body = {'proveedor' => origin_group_id,
+  			'cliente' => private_client_id,
   			'total' => amount}
 
 		@result = Queries.put("sii/boleta", authorization=false, body)
@@ -40,7 +40,7 @@ module Invoices
   end
 
   def self.obtener_factura(invoice_id)
-    #descripcion: permite a un proveedor obtener una factura (PROVEEDOR) 
+    #descripcion: permite a un proveedor obtener una factura (PROVEEDOR)
     #GET/:id
     #parametros: id (string)
     #retorno: factura o error
@@ -50,14 +50,14 @@ module Invoices
   end
 
   def self.pagar_factura(invoice_id)
-    #descripcion: permite a un proveedor marcar una factura como pagada (PROVEEDOR)
-    #POST/pay
-    #parametros: id(string)
-    #retorno: factura o error 
-    #testeada
-    body = {'id' => invoice_id}
-    @result = Queries.post("sii/pay", body = body)
-    return JSON.parse @result.body
+		invoice = self.obtener_factura(invoice_id)
+		our_invoice = Invoice.where(id_cloud: invoice_id).first
+		our_invoice.state = 1
+		our_invoice.save!
+		ret = self.recepcionar_purchase_order(purchase_order_id)
+		sup = Supplier.get_by_id_cloud(invoice['cliente'])
+		ret = Queries.patch_to_groups_api('invoices/'+invoice['_id']+'/paid', sup)
+    return ret
   end
 
   def self.rechazar_factura(invoice_id, motive)

@@ -6,6 +6,7 @@ class CreateTransactions < ActiveRecord::Migration
       t.string :destino
       t.string :monto
       t.boolean :owner
+      t.boolean :state
 
       t.timestamps null: false
     end
