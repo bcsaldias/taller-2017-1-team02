@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id_cloud: MyString
+  origen: MyString
+  destino: MyString
+  monto: MyString
+  owner: false
+
+two:
+  id_cloud: MyString
+  origen: MyString
+  destino: MyString
+  monto: MyString
+  owner: false
