@@ -13,14 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20170527162521) do
 
-  create_table "ar_internal_metadata", primary_key: "key", force: :cascade do |t|
-    t.string   "value"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "ar_internal_metadata", ["key"], name: "sqlite_autoindex_ar_internal_metadata_1", unique: true
-
   create_table "contacts", force: :cascade do |t|
     t.integer  "product_id"
     t.integer  "supplier_id"
@@ -28,12 +20,9 @@ ActiveRecord::Schema.define(version: 20170527162521) do
     t.decimal  "expected_production_time"
     t.integer  "production_unit_cost"
     t.integer  "min_production_batch"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
-
-  add_index "contacts", ["product_id"], name: "index_contacts_on_product_id"
-  add_index "contacts", ["supplier_id"], name: "index_contacts_on_supplier_id"
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -52,14 +41,18 @@ ActiveRecord::Schema.define(version: 20170527162521) do
 
   create_table "invoices", force: :cascade do |t|
     t.integer  "id_cloud",          null: false
-    t.integer  "state"
+    t.string   "cliente"
+    t.string   "proveedor"
+    t.integer  "bruto"
+    t.integer  "iva"
+    t.string   "oc_id_cloud"
+    t.integer  "status"
     t.integer  "purchase_order_id", null: false
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "invoices", ["id_cloud"], name: "index_invoices_on_id_cloud", unique: true
-  add_index "invoices", ["purchase_order_id"], name: "index_invoices_on_purchase_order_id"
 
   create_table "production_orders", force: :cascade do |t|
     t.string   "id_cloud",                    null: false
@@ -67,8 +60,8 @@ ActiveRecord::Schema.define(version: 20170527162521) do
     t.integer  "cantidad"
     t.boolean  "despachado",  default: false
     t.datetime "disponible"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "production_orders", ["id_cloud"], name: "index_production_orders_on_id_cloud", unique: true
@@ -80,8 +73,8 @@ ActiveRecord::Schema.define(version: 20170527162521) do
     t.integer  "price"
     t.integer  "stock"
     t.boolean  "owner"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "products", ["sku"], name: "index_products_on_sku", unique: true
@@ -95,14 +88,14 @@ ActiveRecord::Schema.define(version: 20170527162521) do
     t.string   "payment_method"
     t.string   "cause"
     t.boolean  "owner"
-    t.integer  "supplier_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
     t.datetime "deadline"
+    t.integer  "supplier_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "unit_price"
   end
 
   add_index "purchase_orders", ["id_cloud"], name: "index_purchase_orders_on_id_cloud", unique: true
-  add_index "purchase_orders", ["supplier_id"], name: "index_purchase_orders_on_supplier_id"
 
   create_table "recipes", force: :cascade do |t|
     t.string   "final_product_sku",  null: false
@@ -110,8 +103,8 @@ ActiveRecord::Schema.define(version: 20170527162521) do
     t.string   "final_product_unit"
     t.integer  "requirement",        null: false
     t.string   "requirement_unit"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "spree_addresses", force: :cascade do |t|
@@ -1169,8 +1162,8 @@ ActiveRecord::Schema.define(version: 20170527162521) do
     t.string   "warehouse_id"
     t.string   "api_prod"
     t.string   "api_dev"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "suppliers", ["id"], name: "index_products_on_id", unique: true
@@ -1189,19 +1182,21 @@ ActiveRecord::Schema.define(version: 20170527162521) do
 
   create_table "vouchers", force: :cascade do |t|
     t.string   "id_cloud"
+    t.string   "spree_order_id"
     t.string   "client"
+    t.string   "address"
     t.integer  "bruto"
     t.integer  "iva"
     t.string   "oc_id_cloud"
     t.string   "status"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "warehouses", force: :cascade do |t|
     t.string   "id_cloud",   null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "warehouses", ["id_cloud"], name: "index_warehouses_on_id_cloud", unique: true

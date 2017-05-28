@@ -58,7 +58,12 @@ class ApiController < ApplicationController
 										fechaEntrega, cantidad, precioUnitario,
 										canal)
 		json_response({response: ret})
+	end
 
+	def testj4
+		sku = "1"
+		q = 10
+		RawMaterial.restore_stock(sku, q, Tiempo.tiempo_a_milisegundos(12, 30, 23, 59))
 	end
 
 
@@ -72,6 +77,10 @@ class ApiController < ApplicationController
 
 	end
 
+	def tiempo
+		milisecs = Tiempo.tiempo_a_milisegundos(5, 28, 19, 15)
+		json_response({response: milisecs})
+	end
 
 	# Metodo que permite verificar que la informacion local sea consistente con server
 	def validacion_local_servidor
@@ -97,8 +106,6 @@ class ApiController < ApplicationController
 			json_response({resp: "error_sku", in: "rec po"}) if rec_po.product_sku != cloud_po["sku"]
 			json_response({resp: "error_quant", in: "rec po"}) if rec_po.quantity != cloud_po["cantidad"]
 		end
-
-
 		json_response({response: "Todo Ok",
 			our_po_revisadas: counter_our_po, received_po_revisadas: counter_rec_po}) if !performed?
 	end
