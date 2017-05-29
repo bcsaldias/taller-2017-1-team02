@@ -8,6 +8,16 @@ class ApiController < ApplicationController
 	include Purchases
 	include Bank
 
+	def test
+
+		## FIXME
+		transactions = Bank.get_our_card
+		#tomar la última transacción y ver si el monto es igual al de la boleta
+		#además del proveedor
+		json_response({response: transactions})
+
+	end
+
 	def test_coke
 		ret = Bank.get_transaction("592b2d1d8794840004e936cd")
 		json_response({response: ret})
@@ -23,7 +33,7 @@ class ApiController < ApplicationController
 		ret = Bank.get_card(t0, t1, acc, 10 )
 	end
 
-	def test
+	def testx
 		#ret = Invoices.emitir_factura("592c1e278794840004e95ca4")
 		#ret = Invoices.enviar_confirmacion_factura("592c24eb8794840004e95d0e")
 		acc = Rails.configuration.environment_ids['bank_id']

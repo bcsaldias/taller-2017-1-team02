@@ -156,7 +156,9 @@ module Warehouses
     puts purchase_order
     puts purchase_order["sku"], purchase_order["cantidad"]
 
-    q_to_send = purchase_order["cantidad"].to_i - purchase_order["cantidadDespachada"].to_i
+    #q_to_send = purchase_order["cantidad"].to_i - purchase_order["cantidadDespachada"].to_i
+    
+    q_to_send = our_purchase_order.quantity - our_purchase_order.quantity_done
     puts "q_to_send", q_to_send
     ret = self.get_despacho_ready(purchase_order["sku"], q_to_send)
 
@@ -165,14 +167,14 @@ module Warehouses
     price = purchase_order['precioUnitario']
     puts("price",price)
 
-    purchase_order_from_table = PurchaseOrder.where(id_cloud: id_cloud_OC).first
-    purchase_order_from_table.quantity_done = purchase_order["cantidadDespachada"].to_i
-    purchase_order_from_table.save!
+    #our_purchase_order = our_purchase_order
+    #our_purchase_order.quantity_done = purchase_order["cantidadDespachada"].to_i
+    #our_purchase_order.save!
 
     if q_to_send > 0
 
-      puts "purchase_order_from_table", purchase_order_from_table
-      client_warehouse = purchase_order_from_table['id_store_reception']
+      puts "our_purchase_order", our_purchase_order
+      client_warehouse = our_purchase_order['id_store_reception']
       puts "client_warehouse", client_warehouse
 
       warehouses_id = self.get_warehouses_id
@@ -198,9 +200,9 @@ module Warehouses
         if ret.code == 200 or ret.code == 201
           #q_to_send -= 1
           count += 1
-          _value = purchase_order_from_table.quantity_done
-          purchase_order_from_table.quantity_done = _value + 1
-          purchase_order_from_table.save
+          _value = our_purchase_order.quantity_done
+          our_purchase_order.quantity_done = _value + 1
+          our_purchase_order.save
           
           if count.to_i == q_to_send.to_i
             our_purchase_order.state = 3

@@ -46,13 +46,22 @@ module Bank
     return JSON.parse @result.body
   end
 
-  def self.get_our_card(fechaInicio, fechaFin, limit=10)
+  def self.get_our_card(fechaInicio=nil, fechaFin=nil, limit=10)
+    @fechaInicio = fechaInicio
+    @fechaFin = fechaFin
+
+    if @fechaInicio == nil
+      @fechaInicio = (DateTime.now.to_f * 1000).to_i
+    end
+    if @fechaFin == nil
+      @fechaFin = (DateTime.now.to_f * 1000).to_i - 1000*60*5 # 5 minutos
+    end 
+    
     id_cuenta = Rails.configuration.environment_ids['bank_id']
-    # t0 = Tiempo.tiempo_a_milisegundos(05, 15, 23, 00)
-    body = {'fechaInicio' => fechaInicio, 'fechaFin' => fechaFin,
+    body = {'fechaInicio' => @fechaInicio, 'fechaFin' => @fechaFin,
             'id' => id_cuenta, 'limit'=> limit}
     @result = Queries.post("banco/cartola", body = body)
-    return JSON.parse @result.body
+    return @result
   end
 
 
