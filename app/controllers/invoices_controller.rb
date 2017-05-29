@@ -156,6 +156,7 @@ class InvoicesController < ApplicationController
                                                   iva: invoice['iva'],
                                                   oc_id_cloud: invoice['oc'],
                                                   status: 0,
+                                                  bank_account: bank_account,
                                                   purchase_order_id: oc.id,
                                                   created_at: invoice['created_at'],
                                                   updated_at: invoice['updated_at'])

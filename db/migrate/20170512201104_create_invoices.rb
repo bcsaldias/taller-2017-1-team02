@@ -9,8 +9,9 @@ class CreateInvoices < ActiveRecord::Migration
       t.string :oc_id_cloud
       t.integer :status
       t.references :purchase_order, foreign_key: true, null: false
-      t.string :cause #hay que agregarlo?
+      t.string :cause 
       t.boolean :owner
+      t.string :bank_account
 
       t.timestamps
       t.index ["id_cloud"], name: "index_invoices_on_id_cloud", unique: true
