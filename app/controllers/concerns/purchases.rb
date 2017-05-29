@@ -38,6 +38,8 @@ module Purchases
 
 
 			result = Queries.put_to_groups_api("purchase_orders/"+order['_id'], proveedor, false, params)
+
+			#puts result
 			#puts JSON.parse result.body.force_encoding("UTF-8")
 	    return result.code #Status code de el mensaje enviado al proveedor
 	end

@@ -169,7 +169,8 @@ module RawMaterial
     contact = contacts.first
 
     supplier = Supplier.find(supplier_num)
-    response = Queries.get_to_groups_api("products", supplier, false, {})
+    response = Queries.get_to_groups_api("products", supplier)
+
     puts response.body.force_encoding("UTF-8")
     begin
       hash_response = JSON.parse response.body.force_encoding("UTF-8")

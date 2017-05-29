@@ -17,6 +17,17 @@ class ApiController < ApplicationController
 	end
 
 	def test
+		#ret = Invoices.emitir_factura("592c1e278794840004e95ca4")
+		#ret = Invoices.enviar_confirmacion_factura("592c24eb8794840004e95d0e")
+		acc = Rails.configuration.environment_ids['bank_id']
+
+		ret = Invoices.enviar_factura("592c24eb8794840004e95d0e", acc)
+
+		json_response({response: ret})
+
+	end
+
+	def testbb
 		tid = Rails.configuration.environment_ids['team_id']
 
 		sup = Supplier.get_by_id_cloud(tid)

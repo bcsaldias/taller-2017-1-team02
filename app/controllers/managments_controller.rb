@@ -33,8 +33,8 @@ class ManagmentsController < ApplicationController
     hora = params[:fecha_hora]
     minutos = params[:fecha_minutos]
     needed_date =  Tiempo.tiempo_a_milisegundos(mes, dia, hora, minutos)
-    comprar = RawMaterial.buy_product_from_supplier(params[:oc_sku], params[:cantidad].to_i, params[:proveedor].to_i,
-                          needed_date) #mes, dia, hora, minuto
+    comprar = RawMaterial.buy_product_from_supplier(params[:oc_sku], params[:cantidad].to_i, 
+                          params[:proveedor].to_i, needed_date) #mes, dia, hora, minuto
   	json_response({ret: comprar})
   end
 

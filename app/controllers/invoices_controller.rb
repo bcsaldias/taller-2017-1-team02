@@ -4,6 +4,65 @@ class InvoicesController < ApplicationController
 
   require 'json'
 
+
+
+  api! "enviar_factura: Crea una notificación de habernos emitido una factura.
+      Debe tener el id de la factura y la cuenta del banco."
+  param :bank_account, String, :required => true, :desc => "Identificador de la cuenta destino de pago."
+
+  error 400, "Formato de  Body incorrecto"
+  ##error 400, "Factura no corresponde a proveedor" NO CORRESPONDE
+  error 400 ,"Factura no nos corresponde a nosotros"
+  error 400, "Debe proporcionar una cuenta bancaria para recibir el pago"
+  error 403, "Ya se envió esta factura"
+  error 400, "Factura no encontrada"
+
+  # PUT /invoices/:id
+  def enviar_factura
+      begin
+        @body = JSON.parse request.body.read
+        @keys = @body.keys
+        if not @keys.include?("bank_account")
+          json_response({ :error => "Debe proporcionar una cuenta bancaria" }, 400)
+        elsif Invoice.all.where(id_cloud: params[:id]).count != 0
+          json_response({ :error => "Ya se envió esta factura" }, 403)
+        else  
+          invoice = Invoices.obtener_factura(params[:id])
+          if not invoice.keys.include?("error")
+            oc = PurchaseOrder.where(id_cloud: invoice['oc']).first 
+            tid = Rails.configuration.environment_ids['team_id']
+            if invoice['cliente'] == tid
+              @invoice = Invoice.create!(id_cloud: params[:id], 
+                                                  cliente: invoice['cliente'],
+                                                  proveedor: invoice['proveedor'],
+                                                  bruto:  invoice['bruto'],
+                                                  iva: invoice['iva'],
+                                                  oc_id_cloud: invoice['oc'],
+                                                  status: 0,
+                                                  bank_account: bank_account,
+                                                  purchase_order_id: oc.id,
+                                                  created_at: invoice['created_at'],
+                                                  updated_at: invoice['updated_at'])
+              json_response(
+                      {
+                        id_invoice: params[:id],
+                        bank_account: params[:bank_account]
+                      }, 200)
+            else
+              json_response({ :error => "Factura no nos corresponde a nosotros"}, 400)
+            end
+          else 
+            json_response({ :error => "Factura no encontrada" }, 400)
+          end 
+        end
+      rescue
+        json_response({ :error => "Formato de Body incorrecto" }, 400)
+      end
+  end
+
+
+  
+
   api! "enviar_confirmacion_factura: Crea una notificación de que no se rechazará la factura enviada.
       Debe tener el id de la factura"
   error 403, "Ya se rechazó la factura" 
@@ -14,7 +73,7 @@ class InvoicesController < ApplicationController
 
   # PATCH /invoices/:id/accepted
   def enviar_confirmacion_factura
-    invoice = Invoice.where(id_cloud: params[:id]).first
+    invoice = Invoice.all.where(id_cloud: params[:id]).first
     begin
       if invoice
         if invoice.status == "rechazada"
@@ -38,7 +97,7 @@ class InvoicesController < ApplicationController
               }, 404)
       end
     rescue
-      json_response({ :error => "Formato de Body incorrecto" }, 400)
+      json_response({ :error => "Revise proveedor de factura u otros" }, 400)
     end
   end
 
@@ -56,7 +115,7 @@ class InvoicesController < ApplicationController
 
   # PATCH /invoices/:id/rejected
   def enviar_rechazo_factura
-    invoice = Invoice.where(id_cloud: params[:id]).first
+    invoice = Invoice.all.where(id_cloud: params[:id]).first
     begin
       if invoice
         @body = JSON.parse request.body.read
@@ -123,60 +182,6 @@ class InvoicesController < ApplicationController
 
   end
 
-  api! "enviar_factura: Crea una notificación de habernos emitido una factura.
-      Debe tener el id de la factura y la cuenta del banco."
-  param :bank_account, String, :required => true, :desc => "Identificador de la cuenta destino de pago."
-
-  error 400, "Formato de  Body incorrecto"
-  ##error 400, "Factura no corresponde a proveedor" NO CORRESPONDE
-  error 400 ,"Factura no nos corresponde a nosotros"
-  error 400, "Debe proporcionar una cuenta bancaria para recibir el pago"
-  error 403, "Ya se envió esta factura"
-  error 400, "Factura no encontrada"
-
-  # PUT /invoices/:id
-  def enviar_factura
-      begin
-        @body = JSON.parse request.body.read
-        @keys = @body.keys
-        if not @keys.include?("bank_account")
-          json_response({ :error => "Debe proporcionar una cuenta bancaria" }, 400)
-        elsif Invoice.where(id_cloud: params[:id]).count != 0
-          json_response({ :error => "Ya se envió esta factura" }, 403)
-        else  
-          invoice = Invoices.obtener_factura(params[:id])
-          if not invoice.keys.include?("error")
-            oc = PurchaseOrder.where(id_cloud: invoice['oc']).first 
-            tid = Rails.configuration.environment_ids['team_id']
-            if invoice['cliente'] == tid
-              @invoice = Invoice.create!(id_cloud: invoice['_id'], 
-                                                  cliente: invoice['cliente'],
-                                                  proveedor: invoice['proveedor'],
-                                                  bruto:  invoice['bruto'],
-                                                  iva: invoice['iva'],
-                                                  oc_id_cloud: invoice['oc'],
-                                                  status: 0,
-                                                  bank_account: bank_account,
-                                                  purchase_order_id: oc.id,
-                                                  created_at: invoice['created_at'],
-                                                  updated_at: invoice['updated_at'])
-              json_response(
-                      {
-                        id_invoice: params[:id],
-                        bank_account: params[:bank_account]
-                      }, 200)
-            else
-              json_response({ :error => "Factura no nos corresponde a nosotros"}, 400)
-            end
-          else 
-            json_response({ :error => "Factura no encontrada" }, 400)
-          end 
-        end
-      rescue
-        json_response({ :error => "Formato de Body incorrecto" }, 400)
-      end
-  end
-
 
   api! "notificar_orden_despachada: Notificar para cambiar de estado de una factura.
       Debe tener el id de la factura."
@@ -190,7 +195,7 @@ class InvoicesController < ApplicationController
       invoice = Invoices.obtener_factura(invoice_id)
       
       if not invoice.keys.include?("error")
-        invoice = Invoice.where(id_cloud: invoice_id).first
+        invoice = Invoice.all.where(id_cloud: invoice_id).first
         purchase_order = PurchaseOrder.all.where(id_cloud: oc_id)
         
         if invoice.status == 5

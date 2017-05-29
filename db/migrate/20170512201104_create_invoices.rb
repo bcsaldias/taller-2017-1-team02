@@ -1,7 +1,7 @@
 class CreateInvoices < ActiveRecord::Migration
   def change
     create_table :invoices do |t|
-      t.integer :id_cloud, null: false, unique: true
+      t.string :id_cloud, null: false, unique: true
       t.string :cliente
       t.string :proveedor
       t.integer :bruto
