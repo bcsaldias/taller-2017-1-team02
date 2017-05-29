@@ -40,16 +40,16 @@ module Spree
 
     def paid
       #FIXME -> this should be more secure!!
-      _our_env_path = Rails.configuration.environment_ids['our_env_path']
-      _current_bp = _our_env_path+'ecommerce/'
-      #_current_bp = 'http://localhost:3000/ecommerce/'
+      our_env_path = Rails.configuration.environment_ids['our_env_path']
+      current_bp = our_env_path+'ecommerce/'
+      #current_bp = 'http://localhost:3000/ecommerce/'
 
       delivered = false
-      all_ok = false
+      all_ok = true
       #ir a buscar transacción y despachar
 
-
-
+      #Bank.transfer
+      #me manda el id de la transferencia?
 
       if all_ok
         flash.notice = Spree.t(:order_processed_successfully)
@@ -61,11 +61,11 @@ module Spree
       if not delivered
         puts "ERRORRRR"
         puts "ERRORRRR"
-        redirect_to(_current_bp+'checkout/payment')
+        redirect_to(current_bp+'checkout/payment')
       else
         puts "EXITO"
         puts "EXITO"
-        redirect_to(_current_bp+'orders/'+@order.number.to_s)
+        redirect_to(current_bp+'orders/'+@order.number.to_s)
       end
 
     end
@@ -74,12 +74,12 @@ module Spree
       _id = voucher['_id'].to_s
       _base_path = Rails.configuration.environment_ids['environment_path']
 
-      _our_env_path = Rails.configuration.environment_ids['our_env_path']
-      _current_bp = _our_env_path+'ecommerce/'
-      #_current_bp = 'http://localhost:3000/ecommerce/'
+      our_env_path = Rails.configuration.environment_ids['our_env_path']
+      current_bp = our_env_path+'ecommerce/'
+      #current_bp = 'http://localhost:3000/ecommerce/'
 
-      @URL_OK = escape_uri(_current_bp+"order/paid/"+_id)
-      @URL_FAIL = escape_uri(_current_bp+'checkout/payment')
+      @URL_OK = escape_uri(current_bp+"order/paid/"+_id)
+      @URL_FAIL = escape_uri(current_bp+'checkout/payment')
       
       _post_base = "web/pagoenlinea?callbackUrl="
       url = _base_path+ _post_base + @URL_OK + "&cancelUrl="+@URL_FAIL+"&boletaId="+_id

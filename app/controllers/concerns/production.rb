@@ -103,15 +103,12 @@ module Production
 
 
             count = 0
-    		for product in stock_a_despachar
+    		while count < _quant
 	            ret = self.deliver_produt(boleta, product['_id'])
 	            if not ret
 		            	return ret
 	            else
 	            	count += 1
-	            	if count == _quant
-	            		return true
-	            	end
 	            end
 	        end
 
