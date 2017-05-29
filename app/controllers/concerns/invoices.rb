@@ -47,9 +47,7 @@ module Invoices
               oc_id_cloud: @body['oc']["_id"],
               purchase_order_id: @oc.id,
               status: @body['estado'],
-              owner: true,
-              created_at: @body['created_at'],
-              updated_at: @body['updated_at']
+              owner: true
         )
     end
     return @body

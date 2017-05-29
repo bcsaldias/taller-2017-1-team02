@@ -40,9 +40,7 @@ class InvoicesController < ApplicationController
                                                   oc_id_cloud: invoice['oc'],
                                                   status: 0,
                                                   bank_account: bank_account,
-                                                  purchase_order_id: oc.id,
-                                                  created_at: invoice['created_at'],
-                                                  updated_at: invoice['updated_at'])
+                                                  purchase_order_id: oc.id)
               json_response(
                       {
                         id_invoice: params[:id],
