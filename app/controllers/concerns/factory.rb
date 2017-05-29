@@ -16,21 +16,26 @@ module Factory
 		unit_cost = Contact.all.where(supplier_id: 2, product_id: sku).first['production_unit_cost']
 		monto = unit_cost * cantidad
 
+		local_trx = Bank.transfer(monto, origen, account_id)
+
+		if local_trx.id_cloud != nil
+			trx = Bank.get_transaction(local_trx.id_cloud)
+			trxId = (JSON.parse trx.body)[0]["_id"]
+
+		    auth = Queries.generate_authorization(_method = 'PUT', 
+		                    params = [sku, cantidad, trxId])
+		    body = {'sku' => sku , 'cantidad' => cantidad, 'trxId' => trxId}
+
+		    @result = Queries.put('bodega/fabrica/fabricar', 
+		              authorization=auth,
+		              body=body)
+		    return JSON.parse @result.body
+
+		else
+			return {"error" => "transacción fallida"}
+		end
 
 
-		trxId = Bank.transfer(monto, origen, account_id)['_id']
-
-
-
-	    auth = Queries.generate_authorization(_method = 'PUT', 
-	                    params = [sku, cantidad, trxId])
-	    body = {'sku' => sku , 'cantidad' => cantidad, 'trxId' => trxId}
-
-	    @result = Queries.put('bodega/fabrica/fabricar', 
-	              authorization=auth,
-	              body=body)
-	    puts @result
-	    return JSON.parse @result.body
 	end
 
 	def self.hacer_pedido_interno(sku, cantidad)

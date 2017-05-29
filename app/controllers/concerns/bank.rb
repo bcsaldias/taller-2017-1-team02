@@ -16,7 +16,7 @@ module Bank
   		# puts "la transferencia que acabo de hacer"
   		# puts transfered
     end
-    
+
 		@transaction = Transaction.create!(id_cloud: id, 
                                   origen: origen,
 																	destino: destino, 

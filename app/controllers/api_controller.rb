@@ -30,7 +30,7 @@ class ApiController < ApplicationController
 
 		#ret = Invoices.enviar_factura("592c24eb8794840004e95d0e", acc)
 
-		ret = Bank.transfer(1000000000000000000000000, acc, acc)
+		ret = Bank.transfer(10000000000, acc, acc)
 
 		json_response({response: ret})
 
@@ -41,13 +41,6 @@ class ApiController < ApplicationController
 
 		sup = Supplier.get_by_id_cloud(tid)
 
-		puts "BELEN"
-		puts "BELEN"
-		puts "BELEN"
-		puts sup
-		puts "BELEN"
-		puts "BELEN"
-		puts "BELEN"
 		ret = Purchases.create_purchase_order("590baa00d6b4ec0004902468", sup, "2",
 		 							3493314596281, 10, 100,
 		 							"b2b", "default-note1")
