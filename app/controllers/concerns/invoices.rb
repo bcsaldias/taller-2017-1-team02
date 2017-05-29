@@ -124,7 +124,11 @@ module Invoices
   def enviar_factura(invoice_id, bank_account)
     invoice = self.obtener_factura(invoice_id)
     sup = Supplier.get_by_id_cloud(invoice['cliente'])
-    ret = Queries.put_to_groups_api('invoices/'+invoice['_id'], sup)
+    our_account = Rails.configuration.environment_ids['bank_id']
+
+    @body = { 'bank_account' => our_account }
+    ret = Queries.put_to_groups_api('invoices/'+invoice['_id'], 
+                                    access_token=false, params={}, body=@body)
     return ret
   end
 
