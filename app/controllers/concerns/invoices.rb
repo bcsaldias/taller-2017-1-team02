@@ -83,15 +83,17 @@ module Invoices
 
 	def self.pay_invoice(invoice_id)
 		invoice = self.obtener_factura(invoice_id)
-		transaction = Bank.transfer(invoice['valor_total'], invoice['cliente'], invoice['proveedor'])
+		origen = Rails.configuration.environment_ids['bank_id']
 		our_invoice = Invoice.where(id_cloud: invoice_id).first
 		our_invoice.state = 1
 		our_invoice.save!
-		id_transaction = transacion['_id']
+		transaction = Bank.transfer(invoice['valor_total'], origen, our_invoice.bank_account)
+		id_transaction = transaction['_id']
 		ret = self.pagar_factura(invoice_id)
 		body = {'id_transaction' => id_transaction}
 		sup = Supplier.get_by_id_cloud(invoice['proveedor'])
 		ret = Queries.patch_to_groups_api('invoices/'+invoice['_id']+'/paid', sup, body=body)
     return ret
   end
+
 end

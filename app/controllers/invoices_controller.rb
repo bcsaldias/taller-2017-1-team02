@@ -64,7 +64,39 @@ class InvoicesController < ApplicationController
       if not @keys.include?("id_transaction")
         json_response ({ error: "Debe entregar el id de una transacción"}), 400
       else
-        json_response "", 204
+        invoice_id = params[:id]
+        invoice = Invoice.where(id_cloud: invoice_id).first
+        purchase_order = PurchaseOrder.where(id_cloud: invoice.oc_id_cloud).first
+        #llamar la transaccion a la nube
+        transaction_id = @body['id_transaction']
+        transaction = Bank.get_transaction(transaction_id)
+        #revisar si la transaccion existe
+        if transaction['msg']=="Id inválido"
+          json_response ({ error: "Transaccion no existente"}), 404
+        end
+        #revisar que no exista localmente
+        our_transaction = Transaction.find_by(id_cloud: @body['id_transaction'])
+        if our_transaction == nil
+          #comparo valor desde purchase order y transferencia
+          total_a_pagar = invoice.bruto + invoice.iva
+          total_pagado = transaction['monto']
+          if total_pagado == total_a_pagar
+            #guardar transaccion localmente
+            #se guarda como una transaccion no exitosa
+            @transaction = Transaction.create!(id_cloud: transaction['_id'], origen: transaction['origen'],
+        																	destino: transaction['destino'], monto: transaction['monto'], owner: false, state: true)
+          else
+            #se guarda como una transaccion NO exitosa
+            @transaction = Transaction.create!(id_cloud: transfered['_id'], origen: transfered['origen'],
+        																	destino: transfered['destino'], monto: transfered['monto'], owner: false, state: false)
+          end
+
+          json_response (@transaction, 204)
+
+        #si ya estaba en mi tabla local
+        else
+          json_response ({ error: "Ya se envió confirmación de pago"}), 403
+        end
       end
 
     rescue
