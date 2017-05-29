@@ -10,6 +10,10 @@ class GeneralController < ApplicationController
   def index
     #@our_purchase_orders = PurchaseOrder.our_oc
     #@purchase_orders = PurchaseOrder.requested
+
+    @personal_account = ProductionOrder.all
+
+
     @production_orders = ProductionOrder.all
     @factory = ProductionOrder.all
 

@@ -201,10 +201,11 @@ class InvoicesController < ApplicationController
             @transaction = Transaction.create!(id_cloud: transfered['_id'], origen: transfered['origen'],
                                           destino: transfered['destino'], monto: transfered['monto'],
                                           owner: false, state: status)
-            json_response (@transaction, 204)
+
+            json_response(@transaction, 204)
             #si ya estaba en mi tabla local
           else
-            json_response ({ error: "Ya se envió confirmación de pago"}), 403
+            json_response({ :error => "Ya se envió confirmación de pago"}, 403)
           end
         end
       end
