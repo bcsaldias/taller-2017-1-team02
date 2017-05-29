@@ -44,34 +44,30 @@ module Spree
       _current_bp = _our_env_path+'ecommerce/'
       #_current_bp = 'http://localhost:3000/ecommerce/'
 
-      flash.notice = Spree.t(:order_processed_successfully)
-      flash['order_completed'] = true
+      delivered = false
+      all_ok = false
+      #ir a buscar transacción y despachar
 
-      ##
-      ## DESPACHAR
-      ##
-      voucher = Voucher.where(id_cloud: params[:id]).first
-      delivered = Production.deliver_order_to_address(voucher)
+
+
+
+      if all_ok
+        flash.notice = Spree.t(:order_processed_successfully)
+        flash['order_completed'] = true
+        voucher = Voucher.where(id_cloud: params[:id]).first
+        delivered = Production.deliver_order_to_address(voucher)
+      end
 
       if not delivered
         puts "ERRORRRR"
         puts "ERRORRRR"
-        puts "ERRORRRR"
-        puts "ERRORRRR"
-        puts "ERRORRRR"
-        puts "ERRORRRR"
+        redirect_to(_current_bp+'checkout/payment')
       else
         puts "EXITO"
         puts "EXITO"
-        puts "EXITO"
-        puts "EXITO"
-        puts "EXITO"
-        puts "EXITO"
-        puts "EXITO"
-        puts "EXITO"
+        redirect_to(_current_bp+'orders/'+@order.number.to_s)
       end
 
-      redirect_to(_current_bp+'orders/'+@order.number.to_s)
     end
 
     def go_to_paid(order, voucher)

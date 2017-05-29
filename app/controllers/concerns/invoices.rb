@@ -106,18 +106,27 @@ module Invoices
 		our_invoice.state = 1
 		our_invoice.save!
 
+		transaction = Bank.transfer(invoice['valor_total'].to_i, origen, our_invoice.bank_account)
 
+    if transaction.id_cloud != nil
 
-		transaction = Bank.transfer(invoice['valor_total'], origen, our_invoice.bank_account)
+      trx = Bank.get_transaction(transaction.id_cloud)
+      id_transaction = (JSON.parse trx.body)[0]["_id"]
 
+      factura_pagada = self.pagar_factura(invoice_id)
 
+      body = {'id_transaction' => id_transaction}
+      sup = Supplier.get_by_id_cloud(invoice['proveedor'])
+      ret = Queries.patch_to_groups_api('invoices/'+invoice['_id']+'/paid', sup, body=body)
 
-		id_transaction = transaction['_id']
-		ret = self.pagar_factura(invoice_id)
-		body = {'id_transaction' => id_transaction}
-		sup = Supplier.get_by_id_cloud(invoice['proveedor'])
-		ret = Queries.patch_to_groups_api('invoices/'+invoice['_id']+'/paid', sup, body=body)
-    return ret
+      return true
+
+    else
+      puts "imposible hace transferencia"
+      return false
+
+    end
+
   end
 
   #eviar a otros grupos
