@@ -7,18 +7,27 @@ module Bank
     body = {'monto' => monto, 'origen' => origen, 'destino' => destino}
     @result = Queries.put("banco/trx", authorization=false, body)
 
-		transfered = JSON.parse @result.body
-		# puts "la transferencia que acabo de hacer"
-		# puts transfered
+    status = (@result.code == 200)
+    id = nil
 
-		@transaction = Transaction.create!(id_cloud: transfered['_id'], origen: transfered['origen'],
-																	destino: transfered['destino'], monto: transfered['monto'], owner: true, state: true)
+    if status
+  		transfered = JSON.parse @result.body
+      id = transfered['_id']
+  		# puts "la transferencia que acabo de hacer"
+  		# puts transfered
+    end
+    
+		@transaction = Transaction.create!(id_cloud: id, 
+                                  origen: origen,
+																	destino: destino, 
+                                  monto: monto, 
+                                  owner: true, state: status)
 
 		# variable_prueba = Transaction.where(id_cloud: transfered['_id']).first['monto']
 		# puts "esta es el elemento de la tabla que tiene el id de la nueva transferencia"
 		# puts variable_prueba
 		# puts Transaction.where(id_cloud: transfered['_id']).first['id_cloud']
-		return JSON.parse @result.body
+		return @transaction
 
 
   end

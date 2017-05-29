@@ -10,26 +10,17 @@ module Factory
 	end
 
 
-	## DEPRECATED
-	def self.fabricate_without_paying(sku, cantidad)
-	    auth = Queries.generate_authorization(_method = 'PUT', 
-	                    params = [sku, cantidad])
-	    body = {'sku' => sku , 'cantidad' => cantidad}
-	    
-	    @result = Queries.put('bodega/fabrica/fabricarSinPago', 
-	              authorization=auth,
-	              body=body)
-	    puts @result
-	    return JSON.parse @result.body
-	end
-
-
 	def self.fabricate(sku, cantidad)
 		account_id = Factory.get_account
 		origen = Rails.configuration.environment_ids['bank_id']
 		unit_cost = Contact.all.where(supplier_id: 2, product_id: sku).first['production_unit_cost']
 		monto = unit_cost * cantidad
+
+
+
 		trxId = Bank.transfer(monto, origen, account_id)['_id']
+
+
 
 	    auth = Queries.generate_authorization(_method = 'PUT', 
 	                    params = [sku, cantidad, trxId])

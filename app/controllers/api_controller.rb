@@ -11,6 +11,7 @@ class ApiController < ApplicationController
 	def test_coke
 		ret = Bank.get_transaction("592b2d1d8794840004e936cd")
 		json_response({response: ret})
+	end
 
 	include Sales
 
@@ -27,7 +28,9 @@ class ApiController < ApplicationController
 		#ret = Invoices.enviar_confirmacion_factura("592c24eb8794840004e95d0e")
 		acc = Rails.configuration.environment_ids['bank_id']
 
-		ret = Invoices.enviar_factura("592c24eb8794840004e95d0e", acc)
+		#ret = Invoices.enviar_factura("592c24eb8794840004e95d0e", acc)
+
+		ret = Bank.transfer(1000000000000000000000000, acc, acc)
 
 		json_response({response: ret})
 

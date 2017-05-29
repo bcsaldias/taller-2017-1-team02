@@ -106,8 +106,7 @@ module Production
     		for product in stock_a_despachar
 	            ret = self.deliver_produt(boleta, product['_id'])
 	            if not ret
-	            	puts product
-	            	return ret
+		            	return ret
 	            else
 	            	count += 1
 	            	if count == _quant

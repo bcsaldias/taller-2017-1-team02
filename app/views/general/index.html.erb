@@ -122,7 +122,6 @@
                     <tr>
                       <th>id_cloud</th>
                       <th>origen</th>
-                      <th>proveedor</th>
                       <th>destino</th>
                       <th>monto</th>
                       <th>owner</th>
@@ -134,8 +133,7 @@
                     <% @transactions_fail.each do |trx| %>
                       <tr>
                         <td><%= trx.id_cloud %></td>
-                        <td><%= trx.cliente %></td>
-                        <td><%= trx.proveedor %></td>
+                        <td><%= trx.origen %></td>
                         <td><%= trx.destino %></td>
                         <td><%= trx.monto %></td>
                         <td><%= trx.owner %></td>
@@ -157,7 +155,6 @@
                     <tr>
                       <th>id_cloud</th>
                       <th>origen</th>
-                      <th>proveedor</th>
                       <th>destino</th>
                       <th>monto</th>
                       <th>owner</th>
@@ -169,8 +166,7 @@
                     <% @transactions_ok.each do |trx| %>
                       <tr>
                         <td><%= trx.id_cloud %></td>
-                        <td><%= trx.cliente %></td>
-                        <td><%= trx.proveedor %></td>
+                        <td><%= trx.origen %></td>
                         <td><%= trx.destino %></td>
                         <td><%= trx.monto %></td>
                         <td><%= trx.owner %></td>
