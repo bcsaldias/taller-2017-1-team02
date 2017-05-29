@@ -41,10 +41,17 @@ ActiveRecord::Schema.define(version: 20170524153415) do
 
   create_table "invoices", force: :cascade do |t|
     t.integer  "id_cloud",          null: false
-    t.integer  "state"
+    t.string   "cliente"
+    t.string   "proveedor"
+    t.integer  "bruto"
+    t.integer  "iva"
+    t.string   "oc_id_cloud"
+    t.integer  "status"
     t.integer  "purchase_order_id", null: false
+    t.string   "cause"
     t.datetime "created_at"
     t.datetime "updated_at"
+    
   end
 
   add_index "invoices", ["id_cloud"], name: "index_invoices_on_id_cloud", unique: true
