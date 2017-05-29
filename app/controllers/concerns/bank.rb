@@ -26,8 +26,7 @@ module Bank
   def self.get_transaction(transaction_id)
     #ej: dev 592507784df28100043e6cb6
     @result = Queries.get("banco/trx/" + transaction_id)
-		ret = JSON.parse @result.body
-		return JSON.parse @result.body
+		return @result
   end
 
   def self.get_card(fechaInicio, fechaFin, id_cuenta, limit=10)
