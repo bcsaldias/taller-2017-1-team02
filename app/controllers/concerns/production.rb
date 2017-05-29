@@ -104,6 +104,7 @@ module Production
 
             count = 0
     		while count < _quant
+    			product  = stock_a_despachar[count]
 	            ret = self.deliver_produt(boleta, product['_id'])
 	            if not ret
 		            	return ret
