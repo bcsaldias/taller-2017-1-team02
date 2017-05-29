@@ -183,7 +183,12 @@ module Warehouses
       puts stock_a_despachar
       puts "stock_a_despachar"
 
-      for product in stock_a_despachar
+      count = 0
+      #for product in stock_a_despachar
+
+      while count < q_to_send
+
+        product = stock_a_despachar[count]
         puts "DESPACHAR"
         puts product
         ret = Production.move_stock_external(client_warehouse, produ=product['_id'],
@@ -191,15 +196,15 @@ module Warehouses
         puts "ret2"
         puts ret
         if ret.code == 200 or ret.code == 201
-          q_to_send -= 1
+          #q_to_send -= 1
+          count += 1
           _value = purchase_order_from_table.quantity_done
           purchase_order_from_table.quantity_done = _value + 1
           purchase_order_from_table.save
-          if q_to_send == 0
+          
+          if count.to_i == q_to_send.to_i
             our_purchase_order.state = 3
             our_purchase_order.save
-            return true
-            break
           end
         else
           return false
