@@ -156,43 +156,54 @@ module Warehouses
     puts purchase_order
     puts purchase_order["sku"], purchase_order["cantidad"]
 
-    ret = self.get_despacho_ready(purchase_order["sku"], purchase_order["cantidad"].to_i)
+    q_to_send = purchase_order["cantidad"].to_i - purchase_order["cantidadDespachada"].to_i
+    puts "q_to_send", q_to_send
+    ret = self.get_despacho_ready(purchase_order["sku"], q_to_send)
+
+
     puts "ret", ret
     price = purchase_order['precioUnitario']
     puts("price",price)
-    q_to_send = purchase_order['cantidad']
-    puts("q_to_send",q_to_send)
 
     purchase_order_from_table = PurchaseOrder.where(id_cloud: id_cloud_OC).first
-    puts "purchase_order_from_table", purchase_order_from_table
-    client_warehouse = purchase_order_from_table['id_store_reception']
-    puts "client_warehouse", client_warehouse
+    purchase_order_from_table.quantity_done = purchase_order["cantidadDespachada"].to_i
+    purchase_order_from_table.save!
 
-    warehouses_id = self.get_warehouses_id
-    stock_a_despachar = Production.get_stock(warehouses_id['despacho'], purchase_order["sku"])
+    if q_to_send > 0
+
+      puts "purchase_order_from_table", purchase_order_from_table
+      client_warehouse = purchase_order_from_table['id_store_reception']
+      puts "client_warehouse", client_warehouse
+
+      warehouses_id = self.get_warehouses_id
+      stock_a_despachar = Production.get_stock(warehouses_id['despacho'], purchase_order["sku"])
 
 
-    puts "stock_a_despachar"
-    puts stock_a_despachar
-    puts "stock_a_despachar"
+      puts "stock_a_despachar"
+      puts stock_a_despachar
+      puts "stock_a_despachar"
 
-    for product in stock_a_despachar
-      puts "DESPACHAR"
-      puts product
-      ret = Production.move_stock_external(client_warehouse, produ=product['_id'],
-                                            id_cloud_OC, price)
-      puts "ret2"
-      puts ret
-      if ret.code == 200 or ret.code == 201
-        q_to_send -= 1
-        if q_to_send == 0
-          our_purchase_order.state = 3
-          our_purchase_order.save
-          return true
-          break
+      for product in stock_a_despachar
+        puts "DESPACHAR"
+        puts product
+        ret = Production.move_stock_external(client_warehouse, produ=product['_id'],
+                                              id_cloud_OC, price)
+        puts "ret2"
+        puts ret
+        if ret.code == 200 or ret.code == 201
+          q_to_send -= 1
+          _value = purchase_order_from_table.quantity_done
+          purchase_order_from_table.quantity_done = _value + 1
+          purchase_order_from_table.save
+          if q_to_send == 0
+            our_purchase_order.state = 3
+            our_purchase_order.save
+            return true
+            break
+          end
+        else
+          return false
         end
-      else
-        return false
       end
     end
   end

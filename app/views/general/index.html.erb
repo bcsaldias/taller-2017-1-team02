@@ -22,16 +22,16 @@
       </div>
     </div>
   </div>
-    
+
     <div class="container">
-      
+
       <!-- Marketing Icons Section -->
       <div class="row">
 
           <div class="panel panel-primary">
             <!-- Default panel contents -->
             <div class="panel-heading">Generar solicitud manual</div>
-            
+
             <!-- Table -->
             <table  class="table table-bordered" cellspacing="0" width="100%">
                 <thead>
@@ -103,8 +103,6 @@
                         <td>Notificar despacho OC</td>
                         <%= form_tag(:notify_deliver, method: "post") do %>
                         <td><%= label_tag :factura_cloud_id %> <%= text_field_tag :factura_cloud_id %></td>
-                        <td><%= label_tag :oc_cloud_id %> <%= text_field_tag :oc_cloud_id %></td>
-                        <td><%= label_tag :proveedor_id %> <%= text_field_tag :proveedor %></td>
                         <td> <%= submit_tag('Notificar') %></td>
                         <% end %>
 
@@ -113,12 +111,12 @@
             </table>
           </div>
 
-          
-        
+
+
           <div class="panel panel-primary">
             <!-- Default panel contents -->
             <div class="panel-heading">Producción solicitada</div>
-            
+
             <!-- Table -->
             <table  class="table table-bordered" cellspacing="0" width="100%">
                 <thead>
@@ -145,7 +143,7 @@
           <div class="panel panel-primary">
             <!-- Default panel contents -->
             <div class="panel-heading">Ordenes de compras enviadas</div>
-            
+
             <!-- Table -->
             <table  class="table table-bordered" cellspacing="0" width="100%">
                 <thead>
@@ -154,6 +152,7 @@
                       <th>Status</th>
                       <th>Método de pago</th>
                       <th>id cloud</th>
+                      <th>Despachado</th>
                       <th>Cantidad</th>
                       <th>Deadline</th>
                     </tr>
@@ -166,20 +165,21 @@
                         <td><%= purchase_order.state %></td>
                         <td><%= purchase_order.payment_method %></td>
                         <td><%= purchase_order.id_cloud %></td>
-                        <td><%= purchase_order.cantidad %></td>
+                        <td><%= purchase_order.quantity_done %></td>
+                        <td><%= purchase_order.quantity %></td>
                         <td><%= purchase_order.deadline %></td>
                       </tr>
                     <% end %>
                 </tbody>
             </table>
           </div>
-      
 
-      
+
+
           <div class="panel panel-primary">
             <!-- Default panel contents -->
             <div class="panel-heading">Ordenes de compras recibida</div>
-            
+
             <!-- Table -->
             <table  class="table table-bordered" cellspacing="0" width="100%">
                 <thead>
@@ -189,6 +189,7 @@
                       <th>Método de pago</th>
                       <th>id cloud</th>
                       <th>id warehouse</th>
+                      <th>Despachado</th>
                       <th>Cantidad</th>
                       <th>Deadline</th>
                       <th>Acción</th>
@@ -206,7 +207,8 @@
                         <td><%= purchase_order.payment_method %></td>
                         <td><%= purchase_order.id_cloud %></td>
                         <td><%= purchase_order.id_store_reception %></td>
-                        <td><%= purchase_order.cantidad %></td>
+                        <td><%= purchase_order.quantity_done %></td>
+                        <td><%= purchase_order.quantity %></td>
                         <td><%= purchase_order.deadline %></td>
                         <td> <%= submit_tag 'Aceptar', :name => "status"  %></td>
                         <td> <%= submit_tag 'Rechazar', :name => "status"  %></td>
@@ -219,7 +221,83 @@
             </table>
           </div>
 
-          
+
+          <div class="panel panel-primary">
+            <!-- Default panel contents -->
+            <div class="panel-heading">Facturas enviadas</div>
+
+            <!-- Table -->
+            <table  class="table table-bordered" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                      <th>id_cloud</th>
+                      <th>cliente</th>
+                      <th>proveedor</th>
+                      <th>total</th>
+                      <th>oc_id_cloud</th>
+                      <th>estado</th>
+                      <th>cuenta</th>
+                      <th>nuestra</th>
+                    </tr>
+                </thead>
+
+                <tbody id="news-table">
+                    <% @our_invoices.each do |invoice| %>
+                      <tr>
+
+                        <td><%= invoice.id_cloud %></td>
+                        <td><%= invoice.cliente %></td>
+                        <td><%= invoice.proveedor %></td>
+                        <td><%= invoice.bruto + invoice.iva %></td>
+                        <td><%= invoice.oc_id_cloud %></td>
+                        <td><%= invoice.status %></td>
+                        <td><%= invoice.bank_account %></td>
+                        <td><%= invoice.owner %></td>
+                      </tr>
+                    <% end %>
+                </tbody>
+            </table>
+          </div>
+
+          <div class="panel panel-primary">
+            <!-- Default panel contents -->
+            <div class="panel-heading">Facturas recibida</div>
+
+            <!-- Table -->
+            <table  class="table table-bordered" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                      <th>id_cloud</th>
+                      <th>cliente</th>
+                      <th>proveedor</th>
+                      <th>total</th>
+                      <th>oc_id_cloud</th>
+                      <th>estado</th>
+                      <th>cuenta</th>
+                      <th>nuestra</th>
+                    </tr>
+                </thead>
+
+                <tbody id="news-table">
+                    <% @invoices.each do |invoice| %>
+                      <tr>
+
+                        <td><%= invoice.id_cloud %></td>
+                        <td><%= invoice.cliente %></td>
+                        <td><%= invoice.proveedor %></td>
+                        <td><%= invoice.bruto + invoice.iva %></td>
+                        <td><%= invoice.oc_id_cloud %></td>
+                        <td><%= invoice.status %></td>
+                        <td><%= invoice.bank_account %></td>
+                        <td><%= invoice.owner %></td>
+                      </tr>
+                    <% end %>
+                </tbody>
+            </table>
+          </div>
+
+
+
 
   <script type="text/javascript" src="/assets/js/jquery.js"></script>
   <script type="text/javascript" src="/assets/js/bootstrap.js"></script>
@@ -227,8 +305,3 @@
 
 </body>
 </html>
-
-
-
-
-

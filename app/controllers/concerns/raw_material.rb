@@ -80,9 +80,9 @@ module RawMaterial
       end
 
       # TODO almacenar precios de grupos c/vez y consultar prices de ahi a menos que tengan mas de 12 hrs sin update
-      response = Queries.get_to_groups_api("products", supplier, false, {})
 
       begin
+        response = Queries.get_to_groups_api("products", supplier, false, {})
         hash_response = JSON.parse(response.body)
         api_product_price = hash_response.find {|prod| prod['sku']== product.sku}['price']
         puts "El precio es: #{api_product_price}"
@@ -169,7 +169,8 @@ module RawMaterial
     contact = contacts.first
 
     supplier = Supplier.find(supplier_num)
-    response = Queries.get_to_groups_api("products", supplier, false, {})
+    response = Queries.get_to_groups_api("products", supplier)
+
     puts response.body.force_encoding("UTF-8")
     begin
       hash_response = JSON.parse response.body.force_encoding("UTF-8")

@@ -85,13 +85,13 @@ module Queries
 		@result = HTTParty.patch(path, headers: header, query: params )
 	end
 
-	def self.put_to_groups_api(next_path, supplier, access_token=false, params={})
+	def self.put_to_groups_api(next_path, supplier, access_token=false, params={}, body={})
 		domain = supplier.get_url
 		path = domain + next_path
 		header = {	'Content-Type' => 'application/json', 
 					'X-ACCESS-TOKEN' => Rails.configuration.environment_ids['team_id']}
 		header["Token"] = access_token if access_token
-		@result = HTTParty.put(path, headers: header, query: params )
+		@result = HTTParty.put(path, headers: header, query: params, body: body )
 	end
 
 

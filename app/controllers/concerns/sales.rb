@@ -29,15 +29,7 @@ module Sales
 						  body=body)
 		return @result.body
 	end
-
-	## FIXME IN SPRINT 3
-	def self.deliver_purchase_order(purchase_order_id)
-		order = self.get_purchase_order(purchase_order_id)
-		sup = Supplier.get_by_id_cloud(order['cliente']) # FIXME No testeado
-		ret = Queries.patch_to_groups_api('invoices/'+order['_id']+'/delivered', sup)
-		return ret
-
-	end
+	
 
 	def self.accept_purchase_order(purchase_order_id)
 		order = self.get_purchase_order(purchase_order_id)

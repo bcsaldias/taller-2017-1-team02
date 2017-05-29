@@ -1,4 +1,4 @@
 class Invoice < ApplicationRecord
-  enum state: [:pendiente, :pagada, :anulada, :rechazada]
+  enum status: [:pendiente, :pagada, :anulada, :rechazada, :aceptada, :despachada]
   belongs_to :purchase_order
 end

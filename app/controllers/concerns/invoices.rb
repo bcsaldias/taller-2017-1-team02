@@ -9,6 +9,8 @@ module Invoices
   			'cliente' => private_client_id,
   			'total' => amount}
 
+
+    # FIXEME !!!! aquí yo debería llamar a un método que llama a esto.
 		@result = Queries.put("sii/boleta", authorization=false, body)
 		@body = JSON.parse @result.body
 
@@ -33,9 +35,25 @@ module Invoices
     #parametro: oc (string)
     #retorno: factura o error
     #testeada
+    @oc = PurchaseOrder.where(id_cloud: purchase_order_id).first
     body = {'oc' => purchase_order_id}
     @result = Queries.put("sii/", authorization=false, body)
-    return JSON.parse @result.body
+    @body = JSON.parse @result.body
+
+    if @result.code == 200 or @result.code == 201
+      Invoice.create!(id_cloud: @body['_id'],
+              proveedor: @body['proveedor'],
+              cliente: @body['cliente'],
+              bruto: @body['bruto'].to_i,
+              iva: @body['iva'].to_i,
+              oc_id_cloud: @body['oc']["_id"],
+              purchase_order_id: @oc.id,
+              status: @body['estado'],
+              owner: trues
+        )
+    end
+    return @body
+    
 
   end
 
@@ -46,7 +64,7 @@ module Invoices
     #retorno: factura o error
     #testeada
     @result = Queries.get("sii/" + invoice_id)
-    return JSON.parse @result.body
+    return (JSON.parse @result.body)[0]
   end
 
 	def self.pagar_factura(invoice_id)
@@ -94,6 +112,66 @@ module Invoices
 		sup = Supplier.get_by_id_cloud(invoice['proveedor'])
 		ret = Queries.patch_to_groups_api('invoices/'+invoice['_id']+'/paid', sup, body=body)
     return ret
+  end
+
+  #eviar a otros grupos
+
+  #PATCH /invoices/:id/accepted
+  def self.enviar_confirmacion_factura(invoice_id)
+    #enum status: [:pendiente, :pagada, :anulada, :rechazada, :aceptada]
+    invoice = self.obtener_factura(invoice_id)
+    our_invoice = Invoice.where(id_cloud: invoice_id).first
+    our_invoice.status = 4
+    our_invoice.save!
+    sup = Supplier.get_by_id_cloud(invoice['proveedor']) 
+    ret = Queries.patch_to_groups_api('invoices/'+invoice['_id']+'/accepted', sup)
+    return ret
+  end
+
+   # PATCH /invoices/:id/rejected
+  def self.enviar_rechazo_factura(invoice_id, cause)
+    invoice = self.obtener_factura(invoice_id)
+    our_invoice = Invoice.where(id_cloud: invoice_id).first
+    our_invoice.status = 3
+    our_invoice.save!
+    ret = self.rechazar_factura( invoice_id=invoice_id,
+                      motive=cause)
+    sup = Supplier.get_by_id_cloud(invoice['proveedor'])
+    ret = Queries.patch_to_groups_api('invoices/'+invoice['_id']+'/rejected', sup)
+    return ret
+  end
+
+  #PUT /invoices/:id
+  def enviar_factura(invoice_id, bank_account)
+    invoice = self.obtener_factura(invoice_id)
+    sup = Supplier.get_by_id_cloud(invoice['cliente'])
+    our_account = Rails.configuration.environment_ids['bank_id']
+
+    @body = { 'bank_account' => our_account }
+    ret = Queries.put_to_groups_api('invoices/'+invoice['_id'], sup,
+                                    access_token=false, params={}, body=@body)
+    return ret
+  end
+
+
+  def self.delivered_invoice(invoice_id)
+    invoice = self.obtener_factura(invoice_id)
+
+    sup = Supplier.get_by_id_cloud(invoice['cliente']) 
+    ret = Queries.patch_to_groups_api('invoices/'+invoice['_id']+'/delivered', sup)
+
+    invoice = Invoice.where(id_cloud: invoice_id).first
+    invoice.status = 5
+    invoice.save!
+
+    oc_id = invoice['oc']
+    purchase_order = PurchaseOrder.all.where(id_cloud: oc_id)
+    purchase_order.state = 3
+    purchase_order.save!
+    # poner finalizada a la OC del profe, asumimos que el profe lo cambia.
+
+    return ret
+
   end
 
 end

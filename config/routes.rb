@@ -33,6 +33,8 @@ Rails.application.routes.draw do
 
   get 'dashboard/index'
 
+  post 'create_oc_with_price' => 'managments#create_oc_with_price', as: :create_oc_with_price
+
   #resources :warehouses
   #resources :invoices
   #resources :purchase_orders
@@ -43,6 +45,10 @@ Rails.application.routes.draw do
   apipie
   get 'test' => 'api#test'
   get 'test2' => 'api#test2'
+  get 'testj3' => 'api#testj3'
+  get 'testj4' => 'api#testj4'
+  get 'tiempo' => 'api#tiempo'
+
 
   get 'products' => 'products#available'
   get 'api/publico/precios' => 'products#public_prices'
@@ -66,7 +72,7 @@ Rails.application.routes.draw do
   #patch 'suppliers/:id_supplier' => 'suppliers#informar_cuenta_banco'
   get 'buy' => 'products#buy'
   get 'validaciones' => 'api#validacion_local_servidor'
-
+  get 'actualizar_deadlines_purchase_orders' => 'api#actualizar_deadlines_purchase_orders'
 
   root 'dashboard#index', :as => :dashboard
 

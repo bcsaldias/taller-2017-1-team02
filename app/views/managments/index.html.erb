@@ -58,7 +58,22 @@
                           <td><%= label_tag :fecha_hora %> <%= text_field_tag :fecha_hora %></td>
                           <td><%= label_tag :fecha_minutos %> <%= text_field_tag :fecha_minutos %></td>
                       </tr>
+                        <% end %>
 
+                        <td>Generar OC CON PRECIO</td>
+
+                        <%= form_tag(:create_oc_with_price, method: "post") do %>
+                          <td><%= label_tag :producto_sku %> <%= text_field_tag :oc_sku %></td>
+                          <td><%= label_tag :cantidad %> <%= text_field_tag :cantidad %></td>
+                          <td><%= label_tag :proveedor_id %> <%= text_field_tag :proveedor %></td>
+                          <td> <%= submit_tag('Solicitar') %></td>
+                      <tr>
+                          <td></td>
+                          <td><%= label_tag :fecha_mes %> <%= text_field_tag :fecha_mes %></td>
+                          <td><%= label_tag :fecha_dia %> <%= text_field_tag :fecha_dia %></td>
+                          <td><%= label_tag :fecha_hora %> <%= text_field_tag :fecha_hora %></td>
+                          <td><%= label_tag :precio_unitario %> <%= text_field_tag :unit_price %></td>
+                      </tr>
                         <% end %>
 
                       </tr>
@@ -103,8 +118,6 @@
                         <td>Notificar despacho OC</td>
                         <%= form_tag(:notify_deliver, method: "post") do %>
                         <td><%= label_tag :factura_cloud_id %> <%= text_field_tag :factura_cloud_id %></td>
-                        <td><%= label_tag :oc_cloud_id %> <%= text_field_tag :oc_cloud_id %></td>
-                        <td><%= label_tag :proveedor_id %> <%= text_field_tag :proveedor %></td>
                         <td> <%= submit_tag('Notificar') %></td>
                         <% end %>
 

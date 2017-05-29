@@ -33,8 +33,28 @@ class ManagmentsController < ApplicationController
     hora = params[:fecha_hora]
     minutos = params[:fecha_minutos]
     needed_date =  Tiempo.tiempo_a_milisegundos(mes, dia, hora, minutos)
-    comprar = RawMaterial.buy_product_from_supplier(params[:oc_sku], params[:cantidad].to_i, params[:proveedor].to_i,
-                          needed_date) #mes, dia, hora, minuto
+    comprar = RawMaterial.buy_product_from_supplier(params[:oc_sku], params[:cantidad].to_i, 
+                          params[:proveedor].to_i, needed_date) #mes, dia, hora, minuto
+  	json_response({ret: comprar})
+  end
+
+  def create_oc_with_price
+    mes = params[:fecha_mes]
+    dia = params[:fecha_dia]
+    hora = params[:fecha_hora]
+    minutos = 0
+    precio_unitario = params[:unit_price].to_i
+    sku = params[:oc_sku]
+    prov = params[:proveedor]
+    cant = params[:cantidad]
+    needed_date =  Tiempo.tiempo_a_milisegundos(mes, dia, hora, minutos)
+    our_id = Rails.configuration.environment_ids['team_id']
+    supplier = Supplier.find(prov)
+    puts "Entre al create_oc_with_price"
+    comprar = Purchases.create_purchase_order(our_id, supplier, sku,
+                    needed_date, cant.to_i, precio_unitario,
+                    "b2b", notas="default-note1")
+
   	json_response({ret: comprar})
   end
 
