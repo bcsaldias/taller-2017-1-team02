@@ -101,11 +101,18 @@ module Production
             stock_a_despachar = Production.get_stock(warehouses_id['despacho'], 
     										 		_sku)
 
+
+            count = 0
     		for product in stock_a_despachar
 	            ret = self.deliver_produt(boleta, product['_id'])
 	            if not ret
 	            	puts product
 	            	return ret
+	            else
+	            	count += 1
+	            	if count == _quant
+	            		return true
+	            	end
 	            end
 	        end
 
