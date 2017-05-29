@@ -9,7 +9,7 @@ class ApiController < ApplicationController
 	include Bank
 
 	def test
-		ret = Bank.get_transaction("hola")
+		ret = Bank.get_transaction("592b2d1d8794840004e936cd")
 		json_response({response: ret})
 
 	end

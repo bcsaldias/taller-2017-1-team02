@@ -71,9 +71,12 @@ class InvoicesController < ApplicationController
         transaction_id = @body['id_transaction']
         transaction = Bank.get_transaction(transaction_id)
         #revisar si la transaccion existe
-        if transaction['msg']=="Id inválido"
-          json_response ({ error: "Transaccion no existente"}), 404
-        end
+
+        #como revisar esto???
+        # if transaction['msg']=="Id inválido"
+        #   json_response ({ error: "Transaccion no existente"}), 404
+        # end
+
         #revisar que no exista localmente
         our_transaction = Transaction.find_by(id_cloud: @body['id_transaction'])
         if our_transaction == nil
