@@ -1175,6 +1175,7 @@ ActiveRecord::Schema.define(version: 20170527235957) do
     t.string   "destino"
     t.string   "monto"
     t.boolean  "owner"
+    t.boolean  "state"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -49,16 +49,17 @@ module Invoices
     return JSON.parse @result.body
   end
 
-  def self.pagar_factura(invoice_id)
-		invoice = self.obtener_factura(invoice_id)
-		our_invoice = Invoice.where(id_cloud: invoice_id).first
-		our_invoice.state = 1
-		our_invoice.save!
-		ret = self.recepcionar_purchase_order(purchase_order_id)
-		sup = Supplier.get_by_id_cloud(invoice['cliente'])
-		ret = Queries.patch_to_groups_api('invoices/'+invoice['_id']+'/paid', sup)
-    return ret
-  end
+	def self.pagar_factura(invoice_id)
+		#descripcion: perite a un proveedor marcar una factura como pagada (PROVEEDOR)
+		#POST/pay
+		#parametros: id(string)
+		#retorno: factura o error
+		#testeada
+		body = {'id' => invoice_id}
+		@result = Queries.post("sii/pay", body = body)
+    return JSON.parse @result.body
+	end
+
 
   def self.rechazar_factura(invoice_id, motive)
     #POST/reject
@@ -80,4 +81,17 @@ module Invoices
     return JSON.parse @result.body
   end
 
+	def self.pay_invoice(invoice_id)
+		invoice = self.obtener_factura(invoice_id)
+		transaction = Bank.transfer(invoice['valor_total'], invoice['cliente'], invoice['proveedor'])
+		our_invoice = Invoice.where(id_cloud: invoice_id).first
+		our_invoice.state = 1
+		our_invoice.save!
+		id_transaction = transacion['_id']
+		ret = self.pagar_factura(invoice_id)
+		body = {'id_transaction' => id_transaction}
+		sup = Supplier.get_by_id_cloud(invoice['proveedor'])
+		ret = Queries.patch_to_groups_api('invoices/'+invoice['_id']+'/paid', sup, body=body)
+    return ret
+  end
 end
