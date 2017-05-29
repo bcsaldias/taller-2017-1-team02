@@ -25,6 +25,7 @@ module Purchases
                                         					product_sku: order['sku'],
 															payment_method: "contra_factura",
 															quantity: cantidad,
+															quantity_done: 0,
 															owner: true,
 															deadline: order['fechaEntrega']
 															)

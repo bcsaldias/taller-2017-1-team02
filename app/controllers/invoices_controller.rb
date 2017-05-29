@@ -193,21 +193,47 @@ class InvoicesController < ApplicationController
       invoice = Invoices.obtener_factura(invoice_id)
       
       if not invoice.keys.include?("error")
-        invoice = Invoice.all.where(id_cloud: invoice_id).first
-        purchase_order = PurchaseOrder.all.where(id_cloud: oc_id)
+
+        our_invoice = Invoice.all.where(id_cloud: invoice_id).first
+        oc_id_cloud = our_invoice.oc_id_cloud
+        our_purchase_order = PurchaseOrder.all.where(id_cloud: oc_id_cloud).first
         
-        if invoice.status == 5
+        if our_invoice.status == 5
           json_response({ :error => "Ya se notificó entrega de esta factura" }, 403)
 
-        elsif purchase_order.state != 'aceptada'
+        elsif our_purchase_order.state != 'aceptada'
           json_response({ :error => "OC asociada no aceptada" }, 400)
 
         else
-          invoice.status = 5
-          invoice.save!
-          oc_id = invoice['oc']
-          purchase_order.state = 3
-          purchase_order.save!
+
+            purchase_order = Sales.get_purchase_order(oc_id_cloud)
+            q_faltante = purchase_order["cantidad"].to_i - purchase_order["cantidadDespachada"].to_i
+
+            our_purchase_order.quantity_done = purchase_order["cantidadDespachada"].to_i
+            our_purchase_order.save!
+
+
+            if q_faltante > 0
+              json_response(
+              {
+                  :error => "No se ha despachado completamente" ,
+              }, 400)
+
+            else
+              our_invoice.status = 5
+              our_invoice.save!
+              our_purchase_order.state = 3
+              our_purchase_order.save!
+
+              json_response(
+                  {
+                    id_invoice: params[:id],
+              }, 200)
+
+            end
+
+
+
         end
       
       else
@@ -215,10 +241,7 @@ class InvoicesController < ApplicationController
      
       end 
       
-      json_response(
-          {
-            id_invoice: params[:id],
-      }, 200)
+
 
   end
 

@@ -60,6 +60,15 @@ module Spree
         puts "ERRORRRR"
         puts "ERRORRRR"
         puts "ERRORRRR"
+      else
+        puts "EXITO"
+        puts "EXITO"
+        puts "EXITO"
+        puts "EXITO"
+        puts "EXITO"
+        puts "EXITO"
+        puts "EXITO"
+        puts "EXITO"
       end
 
       redirect_to(_current_bp+'orders/'+@order.number.to_s)

@@ -16,9 +16,6 @@ class PurchaseOrdersController < ApplicationController
   error 500, "El envío ha fallado"
   # PUT purchase_orders/:id
   def realizar_pedido
-      puts "SHAAAKIRA"
-      puts request.body.read
-      puts "SHAAAKIRA"
       @body = JSON.parse request.body.read
       @keys = @body.keys
       if not @keys.include?("payment_method")
@@ -31,18 +28,13 @@ class PurchaseOrdersController < ApplicationController
       else
         if ['contra_factura', 'contra_despacho'].include?(params[:payment_method])
           order = Sales.get_purchase_order(params[:id])
-          puts "MILAN"
-          puts "MILAN"
-          puts "MILAN"
-          puts order
-          puts "MILAN"
-          puts "MILAN"
           @purchase_order = PurchaseOrder.create!(id_cloud: order['_id'],
                                               state: 0,
                                               product_sku: order['sku'],
                                               payment_method: params[:payment_method],
                                               id_store_reception:  params[:id_store_reception],
                                               quantity: order["cantidad"],
+                                              quantity_done: 0,
                                               deadline: order['fechaEntrega'],
                                               unit_price: order['precioUnitario']
                                               )

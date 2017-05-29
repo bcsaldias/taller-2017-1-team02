@@ -152,6 +152,7 @@
                       <th>Status</th>
                       <th>Método de pago</th>
                       <th>id cloud</th>
+                      <th>Despachado</th>
                       <th>Cantidad</th>
                       <th>Deadline</th>
                     </tr>
@@ -164,7 +165,8 @@
                         <td><%= purchase_order.state %></td>
                         <td><%= purchase_order.payment_method %></td>
                         <td><%= purchase_order.id_cloud %></td>
-                        <td><%= purchase_order.cantidad %></td>
+                        <td><%= purchase_order.quantity_done %></td>
+                        <td><%= purchase_order.quantity %></td>
                         <td><%= purchase_order.deadline %></td>
                       </tr>
                     <% end %>
@@ -187,6 +189,7 @@
                       <th>Método de pago</th>
                       <th>id cloud</th>
                       <th>id warehouse</th>
+                      <th>Despachado</th>
                       <th>Cantidad</th>
                       <th>Deadline</th>
                       <th>Acción</th>
@@ -204,7 +207,8 @@
                         <td><%= purchase_order.payment_method %></td>
                         <td><%= purchase_order.id_cloud %></td>
                         <td><%= purchase_order.id_store_reception %></td>
-                        <td><%= purchase_order.cantidad %></td>
+                        <td><%= purchase_order.quantity_done %></td>
+                        <td><%= purchase_order.quantity %></td>
                         <td><%= purchase_order.deadline %></td>
                         <td> <%= submit_tag 'Aceptar', :name => "status"  %></td>
                         <td> <%= submit_tag 'Rechazar', :name => "status"  %></td>

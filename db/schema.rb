@@ -87,6 +87,7 @@ ActiveRecord::Schema.define(version: 20170527162521) do
     t.integer  "state"
     t.string   "product_sku",        null: false
     t.integer  "quantity"
+    t.integer  "quantity_done"
     t.string   "id_store_reception"
     t.string   "payment_method"
     t.string   "cause"

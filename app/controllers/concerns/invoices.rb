@@ -9,6 +9,8 @@ module Invoices
   			'cliente' => private_client_id, 
   			'total' => amount}
 
+
+    # FIXEME !!!! aquí yo debería llamar a un método que llama a esto.
 		@result = Queries.put("sii/boleta", authorization=false, body)
 		@body = JSON.parse @result.body
 
@@ -47,7 +49,7 @@ module Invoices
               oc_id_cloud: @body['oc']["_id"],
               purchase_order_id: @oc.id,
               status: @body['estado'],
-              owner: true
+              owner: trues
         )
     end
     return @body
