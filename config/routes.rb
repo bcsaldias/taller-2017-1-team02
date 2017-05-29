@@ -33,6 +33,8 @@ Rails.application.routes.draw do
 
   get 'dashboard/index'
 
+  post 'create_oc_with_price' => 'managments#create_oc_with_price', as: :create_oc_with_price
+
   #resources :warehouses
   #resources :invoices
   #resources :purchase_orders
