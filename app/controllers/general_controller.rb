@@ -19,6 +19,9 @@ class GeneralController < ApplicationController
 
     @our_invoices = Invoice.all.where(owner: true)
     @invoices = Invoice.all.where(owner: nil)
+
+    @transactions_ok = Transaction.all.where(state: true)
+    @transactions_fail = Transaction.all.where(state: false)
     
   end
 
