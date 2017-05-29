@@ -213,7 +213,7 @@ class InvoicesController < ApplicationController
       json_response(
           {
             id_invoice: params[:id],
-          }, 200)
+      }, 200)
 
   end
 

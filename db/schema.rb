@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170524153415) do
+ActiveRecord::Schema.define(version: 20170527162521) do
 
   create_table "contacts", force: :cascade do |t|
     t.integer  "product_id"
@@ -94,6 +94,7 @@ ActiveRecord::Schema.define(version: 20170524153415) do
     t.integer  "supplier_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "unit_price"
   end
 
   add_index "purchase_orders", ["id_cloud"], name: "index_purchase_orders_on_id_cloud", unique: true

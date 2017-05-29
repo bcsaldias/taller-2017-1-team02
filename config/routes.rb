@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   #
   # We ask that you don't use the :as option here, as Spree relies on it being the default of "spree"
   mount Spree::Core::Engine, at: '/ecommerce'
-        
+
   get 'ecommerce/order/paid/:id' => 'spree/checkout#paid'
 
   root 'dashboard#index'
@@ -19,10 +19,10 @@ Rails.application.routes.draw do
   resources :user_sessions
   resources :users
   #resources :factory_manual_managment
-  
+
   get 'login' => 'user_sessions#new', :as => :login
   get 'logout' => 'user_sessions#destroy', :as => :logout
-  
+
   post 'sort_wh' => 'managments#sort_wh', as: :sort_warehouses
   post 'notify_deliver' => 'managments#notify_deliver', as: :notify_deliver
   post 'deliver' => 'managments#deliver', as: :deliver
@@ -32,6 +32,8 @@ Rails.application.routes.draw do
   post 'check_for_availablility' => 'managments#check_for_availablility', as: :check_for_availablility
 
   get 'dashboard/index'
+
+  post 'create_oc_with_price' => 'managments#create_oc_with_price', as: :create_oc_with_price
 
   #resources :warehouses
   #resources :invoices
@@ -43,6 +45,10 @@ Rails.application.routes.draw do
   apipie
   get 'test' => 'api#test'
   get 'test2' => 'api#test2'
+  get 'testj3' => 'api#testj3'
+  get 'testj4' => 'api#testj4'
+  get 'tiempo' => 'api#tiempo'
+
 
   get 'products' => 'products#available'
   get 'api/publico/precios' => 'products#public_prices'
@@ -65,6 +71,8 @@ Rails.application.routes.draw do
 
   #patch 'suppliers/:id_supplier' => 'suppliers#informar_cuenta_banco'
   get 'buy' => 'products#buy'
+  get 'validaciones' => 'api#validacion_local_servidor'
+  get 'actualizar_deadlines_purchase_orders' => 'api#actualizar_deadlines_purchase_orders'
 
   root 'dashboard#index', :as => :dashboard
 

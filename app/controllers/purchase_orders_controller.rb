@@ -24,42 +24,53 @@ class PurchaseOrdersController < ApplicationController
 
       elsif not @keys.include?("id_store_reception")
         json_response ({error: "Falta bodega de recepción"}), 400
+      elsif PurchaseOrder.find_by(id_cloud: params[:id])
+        json_response ({error: "Ya nos habias enviado esta Orden de compra"}), 400
       else
         if ['contra_factura', 'contra_despacho'].include?(params[:payment_method])
           order = Sales.get_purchase_order(params[:id])
-          @purchase_order = PurchaseOrder.create!(id_cloud: order['_id'], state: 0,
+          @purchase_order = PurchaseOrder.create!(id_cloud: order['_id'],
+                                              state: 0,
                                               product_sku: order['sku'],
                                               payment_method: params[:payment_method],
-                                              id_store_reception:  params[:id_store_reception])
+                                              id_store_reception:  params[:id_store_reception],
+                                              quantity: order["cantidad"],
+                                              deadline: order['fechaEntrega'],
+                                              unit_price: order['precioUnitario']
+                                              )
 
+          puts "Purchase order creada"
           begin
-            return json_response(@purchase_order, 201)
+            #FIXME J: Se lo envia despues de terminar todo, por que??
+            json_response(@purchase_order, 201)
           rescue
             puts "error"
           ensure
+            puts "Haciendo tiempo"
+            #sleep(10) # Permite que el comprador alcance a almacenar OC en su BD
             puts "evaluando solicitud recibida", params[:id]
+            if @purchase_order.evaluar_si_aceptar
+              puts 'oc aceptada'
+              @purchase_order.aceptada!
+              ret = Sales.accept_purchase_order(params[:id]) # FIXME si no le podemos avisar no deberiamos guardar
+              puts "Accept OC al cliente: #{ret}"
+              # puts 'despachando oc'
+              # ret = Warehouses.despachar_oc(params[:id]) # FIXME j: not tested
+              # ret = Sales.deliver_purchase_order(params[:id]) # FIXME j: not tested
 
-            #deadline_in = order['fechaEntrega'] - (DateTime.now.to_f * 1000).to_i
-            #if deadline_in < 1000*60*60*2 #2 horas
-              #we_can = Warehouses.product_availability(order['sku'], order['cantidad'])
-              #if we_can
-                #puts 'oc aceptada'
-                #Sales.accept_purchase_order(params[:id])
-                #puts 'despachando oc'
-                #Warehouses.despachar_oc(params[:id])
-                #Sales.deliver_purchase_order(params[:id])
-              #else
-                #puts 'oc rechazada'
-                #Sales.reject_purchase_order(params[:id], "no tenemos stock para cumplir plazo")
-              #end
-            #end
+            else
+              puts 'oc rechazada'
+              Sales.reject_purchase_order(params[:id], @purchase_order.cause)
+              @purchase_order.rechazada!
+            end
+
           end
         else
           json_response ({error: "payment_method: contra_factura/contra_despacho"}), 400
         end
       end
-    rescue
-      json_response({ :error => "No se pudo crear" }, 400)
+    #rescue
+    #  json_response({ :error => "No se pudo crear" }, 400)
     end
 
   end
@@ -81,7 +92,7 @@ class PurchaseOrdersController < ApplicationController
             json_response ({ error: "Ya se finalizó esta orden de compra" }), 403
           else
             oc.state = 1
-            oc.save
+            oc.save!
             json_response(
                 {
                   id_purchase_order: params[:id],

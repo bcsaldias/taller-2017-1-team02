@@ -79,9 +79,10 @@ module RawMaterial
         next
       end
 
-      response = Queries.get_to_groups_api("products", supplier, false, {})
+      # TODO almacenar precios de grupos c/vez y consultar prices de ahi a menos que tengan mas de 12 hrs sin update
 
       begin
+        response = Queries.get_to_groups_api("products", supplier, false, {})
         hash_response = JSON.parse(response.body)
         api_product_price = hash_response.find {|prod| prod['sku']== product.sku}['price']
         puts "El precio es: #{api_product_price}"
@@ -157,7 +158,7 @@ module RawMaterial
 
   #fix me
   #Compra productos  a un supplier especifico. Recibe objeto supplier como parametro
-  def self.buy_product_from_supplier(sku, quantity, supplier_num, 
+  def self.buy_product_from_supplier(sku, quantity, supplier_num,
                           needed_date = Tiempo.tiempo_a_milisegundos(12, 30, 23, 59))
     Tiempo.tiempo_a_milisegundos(12, 30, 23, 59)
     puts "FECHA!!! : #{needed_date}"

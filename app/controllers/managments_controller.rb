@@ -38,6 +38,26 @@ class ManagmentsController < ApplicationController
   	json_response({ret: comprar})
   end
 
+  def create_oc_with_price
+    mes = params[:fecha_mes]
+    dia = params[:fecha_dia]
+    hora = params[:fecha_hora]
+    minutos = 0
+    precio_unitario = params[:unit_price].to_i
+    sku = params[:oc_sku]
+    prov = params[:proveedor]
+    cant = params[:cantidad]
+    needed_date =  Tiempo.tiempo_a_milisegundos(mes, dia, hora, minutos)
+    our_id = Rails.configuration.environment_ids['team_id']
+    supplier = Supplier.find(prov)
+    puts "Entre al create_oc_with_price"
+    comprar = Purchases.create_purchase_order(our_id, supplier, sku,
+                    needed_date, cant.to_i, precio_unitario,
+                    "b2b", notas="default-note1")
+
+  	json_response({ret: comprar})
+  end
+
   def notify_deliver
     puts "notify_deliver"
     puts params[:oc_cloud_id]

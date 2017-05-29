@@ -8,13 +8,15 @@ class GeneralController < ApplicationController
 
 
   def index
-    @our_purchase_orders = PurchaseOrder.our_oc
-    @purchase_orders = PurchaseOrder.requested
+    #@our_purchase_orders = PurchaseOrder.our_oc
+    #@purchase_orders = PurchaseOrder.requested
     @production_orders = ProductionOrder.all
     @factory = ProductionOrder.all
+
+    # J: Busca localmente las POrders
+    @our_purchase_orders = PurchaseOrder.all.where(owner: true)
+    @purchase_orders = PurchaseOrder.all.where(owner: nil)
   end
-
-
 
   def authorize
     redirect_to '/login' unless current_user
