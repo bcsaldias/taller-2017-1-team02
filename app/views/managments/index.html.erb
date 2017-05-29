@@ -118,8 +118,6 @@
                         <td>Notificar despacho OC</td>
                         <%= form_tag(:notify_deliver, method: "post") do %>
                         <td><%= label_tag :factura_cloud_id %> <%= text_field_tag :factura_cloud_id %></td>
-                        <td><%= label_tag :oc_cloud_id %> <%= text_field_tag :oc_cloud_id %></td>
-                        <td><%= label_tag :proveedor_id %> <%= text_field_tag :proveedor %></td>
                         <td> <%= submit_tag('Notificar') %></td>
                         <% end %>
 

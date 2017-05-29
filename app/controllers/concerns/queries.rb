@@ -85,7 +85,7 @@ module Queries
 		@result = HTTParty.patch(path, headers: header, query: params )
 	end
 
-	def self.put_to_groups_api(next_path, supplier, access_token=false, params={}, body:{})
+	def self.put_to_groups_api(next_path, supplier, access_token=false, params={}, body={})
 		domain = supplier.get_url
 		path = domain + next_path
 		header = {	'Content-Type' => 'application/json', 

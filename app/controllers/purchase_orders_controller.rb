@@ -16,7 +16,9 @@ class PurchaseOrdersController < ApplicationController
   error 500, "El envío ha fallado"
   # PUT purchase_orders/:id
   def realizar_pedido
-    begin
+      puts "SHAAAKIRA"
+      puts request.body.read
+      puts "SHAAAKIRA"
       @body = JSON.parse request.body.read
       @keys = @body.keys
       if not @keys.include?("payment_method")
@@ -29,6 +31,12 @@ class PurchaseOrdersController < ApplicationController
       else
         if ['contra_factura', 'contra_despacho'].include?(params[:payment_method])
           order = Sales.get_purchase_order(params[:id])
+          puts "MILAN"
+          puts "MILAN"
+          puts "MILAN"
+          puts order
+          puts "MILAN"
+          puts "MILAN"
           @purchase_order = PurchaseOrder.create!(id_cloud: order['_id'],
                                               state: 0,
                                               product_sku: order['sku'],
@@ -54,9 +62,14 @@ class PurchaseOrdersController < ApplicationController
               @purchase_order.aceptada!
               ret = Sales.accept_purchase_order(params[:id]) # FIXME si no le podemos avisar no deberiamos guardar
               puts "Accept OC al cliente: #{ret}"
+
+              puts "HACER PAGO!!" # FIXEME
+              #enviar factura
+              #cuando la acepta/paga despachar
+
               # puts 'despachando oc'
-              # ret = Warehouses.despachar_oc(params[:id]) # FIXME j: not tested
-              # ret = Sales.deliver_purchase_order(params[:id]) # FIXME j: not tested
+              #ret = Warehouses.despachar_OC(params[:id]) # FIXME j: not tested
+              #ret = Invoices.delivered_purchase_order(params[:id]) # FIXME j: not tested
 
             else
               puts 'oc rechazada'
@@ -69,9 +82,6 @@ class PurchaseOrdersController < ApplicationController
           json_response ({error: "payment_method: contra_factura/contra_despacho"}), 400
         end
       end
-    #rescue
-    #  json_response({ :error => "No se pudo crear" }, 400)
-    end
 
   end
 

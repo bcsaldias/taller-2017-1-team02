@@ -156,12 +156,14 @@ module Warehouses
     puts purchase_order
     puts purchase_order["sku"], purchase_order["cantidad"]
 
-    ret = self.get_despacho_ready(purchase_order["sku"], purchase_order["cantidad"].to_i)
+    q_to_send = purchase_order["cantidad"].to_i - purchase_order["cantidadDespachada"].to_i
+    puts "q_to_send", q_to_send
+    ret = self.get_despacho_ready(purchase_order["sku"], q_to_send)
+
+
     puts "ret", ret
     price = purchase_order['precioUnitario']
     puts("price",price)
-    q_to_send = purchase_order['cantidad']
-    puts("q_to_send",q_to_send)
 
     purchase_order_from_table = PurchaseOrder.where(id_cloud: id_cloud_OC).first
     puts "purchase_order_from_table", purchase_order_from_table

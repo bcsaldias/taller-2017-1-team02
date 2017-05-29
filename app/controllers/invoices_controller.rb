@@ -210,6 +210,8 @@ class InvoicesController < ApplicationController
       else
         json_response({ :error => "Factura no encontrada" }, 400)
      
+      end 
+      
       json_response(
           {
             id_invoice: params[:id],

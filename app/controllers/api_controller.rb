@@ -19,14 +19,19 @@ class ApiController < ApplicationController
 	def test
 		tid = Rails.configuration.environment_ids['team_id']
 
-		#ret = Invoices.emitir_factura("59288d75212344000408bdf4")
-		ret = Invoices.obtener_factura("5928ae6a212344000408bf78")
-		#ret = Invoices.anular_factura("59288dce212344000408bdf5", "porque si")
-		# ret = Purchases.create_purchase_order("590baa00d6b4ec0004902468", "590baa00d6b4ec0004902463", "2",
-		# 							"2036-05-01T00:29:56.281Z", 10, 100,
-		# 							"b2b", "default-note1")
-		 #ret = Sales.get_purchase_order("59288d75212344000408bdf4")
-		json_response({response: ret})
+		sup = Supplier.get_by_id_cloud(tid)
+
+		puts "BELEN"
+		puts "BELEN"
+		puts "BELEN"
+		puts sup
+		puts "BELEN"
+		puts "BELEN"
+		puts "BELEN"
+		ret = Purchases.create_purchase_order("590baa00d6b4ec0004902468", sup, "2",
+		 							3493314596281, 10, 100,
+		 							"b2b", "default-note1")
+		json_response({response: ret.code})
 	end
 
 	def test3

@@ -47,6 +47,7 @@ module Invoices
               created_at: @body['created_at'],
               updated_at: @body['updated_at']
         )
+    end
     return @body
     
 
@@ -133,7 +134,7 @@ module Invoices
   end
 
 
-  def self.notificar_orden_despachada(invoice_id)
+  def self.delivered_invoice(invoice_id)
     invoice = self.obtener_factura(invoice_id)
 
     sup = Supplier.get_by_id_cloud(invoice['cliente']) 

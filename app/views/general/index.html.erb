@@ -103,8 +103,6 @@
                         <td>Notificar despacho OC</td>
                         <%= form_tag(:notify_deliver, method: "post") do %>
                         <td><%= label_tag :factura_cloud_id %> <%= text_field_tag :factura_cloud_id %></td>
-                        <td><%= label_tag :oc_cloud_id %> <%= text_field_tag :oc_cloud_id %></td>
-                        <td><%= label_tag :proveedor_id %> <%= text_field_tag :proveedor %></td>
                         <td> <%= submit_tag('Notificar') %></td>
                         <% end %>
 
@@ -218,6 +216,82 @@
                 </tbody>
             </table>
           </div>
+
+
+          <div class="panel panel-primary">
+            <!-- Default panel contents -->
+            <div class="panel-heading">Facturas enviadas</div>
+
+            <!-- Table -->
+            <table  class="table table-bordered" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                      <th>id_cloud</th>
+                      <th>cliente</th>
+                      <th>proveedor</th>
+                      <th>total</th>
+                      <th>oc_id_cloud</th>
+                      <th>estado</th>
+                      <th>cuenta</th>
+                      <th>nuestra</th>
+                    </tr>
+                </thead>
+
+                <tbody id="news-table">
+                    <% @our_invoices.each do |invoice| %>
+                      <tr>
+
+                        <td><%= invoice.id_cloud %></td>
+                        <td><%= invoice.cliente %></td>
+                        <td><%= invoice.proveedor %></td>
+                        <td><%= invoice.bruto + invoice.iva %></td>
+                        <td><%= invoice.oc_id_cloud %></td>
+                        <td><%= invoice.status %></td>
+                        <td><%= invoice.bank_account %></td>
+                        <td><%= invoice.owner %></td>
+                      </tr>
+                    <% end %>
+                </tbody>
+            </table>
+          </div>
+
+          <div class="panel panel-primary">
+            <!-- Default panel contents -->
+            <div class="panel-heading">Facturas recibida</div>
+
+            <!-- Table -->
+            <table  class="table table-bordered" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                      <th>id_cloud</th>
+                      <th>cliente</th>
+                      <th>proveedor</th>
+                      <th>total</th>
+                      <th>oc_id_cloud</th>
+                      <th>estado</th>
+                      <th>cuenta</th>
+                      <th>nuestra</th>
+                    </tr>
+                </thead>
+
+                <tbody id="news-table">
+                    <% @invoices.each do |invoice| %>
+                      <tr>
+
+                        <td><%= invoice.id_cloud %></td>
+                        <td><%= invoice.cliente %></td>
+                        <td><%= invoice.proveedor %></td>
+                        <td><%= invoice.bruto + invoice.iva %></td>
+                        <td><%= invoice.oc_id_cloud %></td>
+                        <td><%= invoice.status %></td>
+                        <td><%= invoice.bank_account %></td>
+                        <td><%= invoice.owner %></td>
+                      </tr>
+                    <% end %>
+                </tbody>
+            </table>
+          </div>
+
 
 
 

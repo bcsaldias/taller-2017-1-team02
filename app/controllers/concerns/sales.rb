@@ -29,7 +29,6 @@ module Sales
 						  body=body)
 		return @result.body
 	end
-
 	
 
 	def self.accept_purchase_order(purchase_order_id)

@@ -49,9 +49,10 @@ ActiveRecord::Schema.define(version: 20170527162521) do
     t.integer  "status"
     t.integer  "purchase_order_id", null: false
     t.string   "cause"
+    t.boolean  "owner"
+    t.string   "bank_account"
     t.datetime "created_at"
     t.datetime "updated_at"
-    
   end
 
   add_index "invoices", ["id_cloud"], name: "index_invoices_on_id_cloud", unique: true
