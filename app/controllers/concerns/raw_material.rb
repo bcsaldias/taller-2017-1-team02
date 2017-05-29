@@ -171,10 +171,18 @@ module RawMaterial
     supplier = Supplier.find(supplier_num)
     response = Queries.get_to_groups_api("products", supplier)
 
-    puts response.body.force_encoding("UTF-8")
     begin
       hash_response = JSON.parse response.body.force_encoding("UTF-8")
-      price = hash_response.find {|prod| prod['sku']== product.sku}['price']
+      if hash_response.keys.include?("product")
+        hash_response = hash_response["product"]
+      elsif hash_response.keys.include?("products")
+        hash_response = hash_response["products"]
+      elsif hash_response.keys.include?("producto")
+        hash_response = hash_response["producto"]
+      elsif hash_response.keys.include?("productos")
+        hash_response = hash_response["productos"]
+      end
+      price = hash_response.find{|prod| prod['sku'] == product.sku}['price']
       puts "El precio es: #{price}"
     rescue
       puts "Imposible obtener el precio del producto en la api del supplier"
