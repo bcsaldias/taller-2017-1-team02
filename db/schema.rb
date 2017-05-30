@@ -127,10 +127,10 @@ ActiveRecord::Schema.define(version: 20170530144957) do
   end
 
   create_table "spree_adjustments", force: :cascade do |t|
-    t.string   "source_type"
     t.integer  "source_id"
-    t.string   "adjustable_type"
+    t.string   "source_type"
     t.integer  "adjustable_id"
+    t.string   "adjustable_type"
     t.decimal  "amount",          precision: 10, scale: 2
     t.string   "label"
     t.boolean  "mandatory"
@@ -147,8 +147,8 @@ ActiveRecord::Schema.define(version: 20170530144957) do
   end
 
   create_table "spree_assets", force: :cascade do |t|
-    t.string   "viewable_type"
     t.integer  "viewable_id"
+    t.string   "viewable_type"
     t.integer  "attachment_width"
     t.integer  "attachment_height"
     t.integer  "attachment_file_size"
@@ -167,8 +167,8 @@ ActiveRecord::Schema.define(version: 20170530144957) do
 
   create_table "spree_calculators", force: :cascade do |t|
     t.string   "type"
-    t.string   "calculable_type"
     t.integer  "calculable_id"
+    t.string   "calculable_type"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.text     "preferences"
@@ -268,8 +268,8 @@ ActiveRecord::Schema.define(version: 20170530144957) do
   end
 
   create_table "spree_log_entries", force: :cascade do |t|
-    t.string   "source_type"
     t.integer  "source_id"
+    t.string   "source_type"
     t.text     "details"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
@@ -396,8 +396,8 @@ ActiveRecord::Schema.define(version: 20170530144957) do
   create_table "spree_payments", force: :cascade do |t|
     t.decimal  "amount",               precision: 10, scale: 2, default: "0.0", null: false
     t.integer  "order_id"
-    t.string   "source_type"
     t.integer  "source_id"
+    t.string   "source_type"
     t.integer  "payment_method_id"
     t.string   "state"
     t.string   "response_code"
@@ -845,8 +845,8 @@ ActiveRecord::Schema.define(version: 20170530144957) do
     t.string   "action"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
-    t.string   "originator_type"
     t.integer  "originator_id"
+    t.string   "originator_type"
     t.index ["stock_item_id"], name: "index_spree_stock_movements_on_stock_item_id"
   end
 
@@ -1092,8 +1092,8 @@ ActiveRecord::Schema.define(version: 20170530144957) do
   end
 
   create_table "spree_zone_members", force: :cascade do |t|
-    t.string   "zoneable_type"
     t.integer  "zoneable_id"
+    t.string   "zoneable_type"
     t.integer  "zone_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
