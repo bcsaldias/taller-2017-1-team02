@@ -99,11 +99,18 @@ class ApiController < ApplicationController
 		json_response({response: ret})
 	end
 
-	def testj4
-		transaction = Bank.transfer(100, "590baa00d6b4ec000490246c", "590baa00d6b4ec000490246c")
-		puts transaction
-		json_response({response: transaction})
+	# def testj4
+	# 	transaction = Bank.transfer(100, "590baa00d6b4ec000490246c", "590baa00d6b4ec000490246c")
+	# 	puts transaction
+	# 	json_response({response: transaction})
+	# end
 
+	def testj4
+		t_inicial = Time.now
+		Product.all.each do |p|
+			puts p.reserved_stock
+		end
+		json_response({response: Time.now - t_inicial})
 	end
 
 	def actualizar_deadlines_purchase_orders
