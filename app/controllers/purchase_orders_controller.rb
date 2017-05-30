@@ -16,6 +16,8 @@ class PurchaseOrdersController < ApplicationController
   error 500, "El envío ha fallado"
   # PUT purchase_orders/:id
   def realizar_pedido
+
+    begin
       @body = JSON.parse request.body.read
       @keys = @body.keys
       if not @keys.include?("payment_method")
@@ -74,6 +76,10 @@ class PurchaseOrdersController < ApplicationController
           json_response ({error: "payment_method: contra_factura/contra_despacho"}), 400
         end
       end
+
+    rescue
+        json_response({ :error => "Formato de Body incorrecto" }, 400)
+    end
 
   end
 
