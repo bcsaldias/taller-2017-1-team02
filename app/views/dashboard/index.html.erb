@@ -90,6 +90,35 @@
       </div>
 
 
+      <div class="panel panel-primary">
+            <!-- Default panel contents -->
+            <div class="panel-heading">Productos</div>
+
+
+            <!-- Table -->
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>SKU</th>
+                  <th>Nombre</th>
+                  <th>Stock disponible</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <% @products.each do |p| %>
+                  <tr>
+                    <td><%= p.sku %></td>
+                    <td><%= p.description %></td>
+                    <td><%= p.stock_disponible %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+      </div>
+
+
+
           <div class="panel panel-primary">
             <!-- Default panel contents -->
             <div class="panel-heading">Ordenes de Producción</div>
@@ -118,36 +147,6 @@
                 </tbody>
             </table>
           </div>
-
-
-
-
-      <div class="panel panel-primary">
-            <!-- Default panel contents -->
-            <div class="panel-heading">Productos</div>
-
-
-            <!-- Table -->
-            <table class="table table-bordered">
-              <thead>
-                <tr>
-                  <th>SKU</th>
-                  <th>Nombre</th>
-                  <th>Stock disponible</th>
-                </tr>
-              </thead>
-
-              <tbody>
-                <% @products.each do |p| %>
-                  <tr>
-                    <td><%= p.sku %></td>
-                    <td><%= p.description %></td>
-                    <td><%= p.stock_disponible %></td>
-                  </tr>
-                <% end %>
-              </tbody>
-            </table>
-      </div>
 
 
       <div class="panel panel-primary">
