@@ -22,11 +22,14 @@ class PurchaseOrdersController < ApplicationController
       @keys = @body.keys
       if not @keys.include?("payment_method")
         json_response ({ error: "Falta método de pago"}), 400
+        return
 
       elsif not @keys.include?("id_store_reception")
         json_response ({error: "Falta bodega de recepción"}), 400
+        return
       elsif PurchaseOrder.find_by(id_cloud: params[:id])
         json_response ({error: "Ya nos habias enviado esta Orden de compra"}), 400
+        return
       else
         if ['contra_factura', 'contra_despacho'].include?(params[:payment_method])
           order = Sales.get_purchase_order(params[:id])
@@ -74,11 +77,13 @@ class PurchaseOrdersController < ApplicationController
           end
         else
           json_response ({error: "payment_method: contra_factura/contra_despacho"}), 400
+        return
         end
       end
 
     rescue
         json_response({ :error => "Formato de Body incorrecto" }, 400)
+        return
     end
 
   end
