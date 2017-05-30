@@ -38,11 +38,19 @@ module Factory
 
 	end
 
-	def self.hacer_pedido_interno(sku, cantidad)
+	def self.hacer_pedido_interno(sku, cantidad=0)
 		## procesado solo acepta de a un lote
 		product = Product.find(sku)
+    	contact = product.contacts.where(supplier_id: 2).first
+
+    	un_lote_cantidad = contact.min_production_batch
+    	
+    	prima_cantidad = un_lote_cantidad
+    	if cantidad > 0
+    		prima_cantidad = cantidad
+
 		if product.category == "Materia prima"
-			result = self.fabricate(sku, cantidad)
+			result = self.fabricate(sku, prima_cantidad)
 			if result.keys.include?("error")
 				return false
 			else 
@@ -55,6 +63,8 @@ module Factory
 			end
 
 		elsif product.category == 'Producto procesado'
+			puts "Intentará mandar a producir solo un lote!"
+
 			needed_products = Recipe.where(final_product_sku: product.sku)
 
 			puts 'evaluando mover a despacho'
@@ -62,7 +72,7 @@ module Factory
             	can_sale = Warehouses.product_availability(recipe.needed_product_sku, 
             										recipe.requirement)
 				if not can_sale
-					return false
+					return "no hay suficiente producto " + (recipe.needed_product_sku).to_s
 				end
 			end
 
@@ -70,14 +80,16 @@ module Factory
 				eval_despacho = Warehouses.get_despacho_ready(recipe.needed_product_sku,
 															  recipe.requirement)
 				if not eval_despacho
-					return false
+					return "no pudo get despachado ready " + (recipe.needed_product_sku).to_s
 				end
 			end
 
 			puts 'materia prima disponible para producir producto procesado'
-			result = self.fabricate(sku, cantidad)
+		
+
+			result = self.fabricate(sku, un_lote_cantidad)
 			if result.keys.include?("error")
-				return false
+				return result["error"]
 			else 
       			purchase_order = ProductionOrder.create!(id_cloud: result['_id'], 
                                         				 product_sku: result['sku'])
