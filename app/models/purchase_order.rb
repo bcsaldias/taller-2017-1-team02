@@ -51,16 +51,12 @@ class PurchaseOrder < ApplicationRecord
       return false
     end
 
-    @product.all_stock
-    stock_actual = @product.stock
-    stock_reservado = 0
-    # pos = PurchaseOrder.where(owner: false, product_sku: sku, state: 1)
-    PurchaseOrder.where(owner: nil, product_sku: sku, state: 1).each do |po|
-      stock_reservado += po.quantity
-    end
-    puts "stock_actual: #{stock_actual}"
-    puts "stock_reservado: #{stock_reservado}"
-    s_disponible = stock_actual - stock_reservado
+
+
+    #puts "stock_actual: #{stock_actual}"
+    #puts "stock_reservado: #{stock_reservado}"
+    s_disponible = @product.stock_disponible 
+
     if s_disponible < self.quantity
       puts "No_stock"
       self.cause = "no tenemos stock para cumplir plazo"

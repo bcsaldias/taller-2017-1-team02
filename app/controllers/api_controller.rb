@@ -9,6 +9,19 @@ class ApiController < ApplicationController
 	include Bank
 
 	def test
+
+		lines = Spree::LineItem.all
+		lines.each do |line|
+			puts "cantidad " + line.quantity.to_s
+			puts "sku " + Spree::Variant.find(line.variant_id).sku.to_s
+		end
+		json_response({orders: lines})
+
+	end
+
+
+
+	def test55
 		## FIXME
 		transactions_query = Bank.get_our_card
 		transactions =  transactions_query['data']

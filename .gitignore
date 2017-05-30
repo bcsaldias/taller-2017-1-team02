@@ -50,6 +50,6 @@ build-iPhoneSimulator/
 .rvmrc
 
 db/*.sqlite3
-log/*.log
+log/
 db/seeds.rb
 config/app.yml

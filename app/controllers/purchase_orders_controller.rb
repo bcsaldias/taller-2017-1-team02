@@ -16,15 +16,23 @@ class PurchaseOrdersController < ApplicationController
   error 500, "El envío ha fallado"
   # PUT purchase_orders/:id
   def realizar_pedido
+
       @body = JSON.parse request.body.read
       @keys = @body.keys
+      puts "SHAK 0"
       if not @keys.include?("payment_method")
         json_response ({ error: "Falta método de pago"}), 400
+         puts "SHAK 1"
+        return
 
       elsif not @keys.include?("id_store_reception")
         json_response ({error: "Falta bodega de recepción"}), 400
+         puts "SHAK 2"
+        return
       elsif PurchaseOrder.find_by(id_cloud: params[:id])
         json_response ({error: "Ya nos habias enviado esta Orden de compra"}), 400
+         puts "SHAK 3"
+        return
       else
         if ['contra_factura', 'contra_despacho'].include?(params[:payment_method])
           order = Sales.get_purchase_order(params[:id])
@@ -72,8 +80,10 @@ class PurchaseOrdersController < ApplicationController
           end
         else
           json_response ({error: "payment_method: contra_factura/contra_despacho"}), 400
+        return
         end
       end
+
 
   end
 
