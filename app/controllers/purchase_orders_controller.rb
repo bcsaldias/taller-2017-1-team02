@@ -17,7 +17,6 @@ class PurchaseOrdersController < ApplicationController
   # PUT purchase_orders/:id
   def realizar_pedido
 
-    begin
       @body = JSON.parse request.body.read
       @keys = @body.keys
       if not @keys.include?("payment_method")
@@ -81,10 +80,6 @@ class PurchaseOrdersController < ApplicationController
         end
       end
 
-    rescue
-        json_response({ :error => "Formato de Body incorrecto" }, 400)
-        return
-    end
 
   end
 
