@@ -63,6 +63,7 @@ module Warehouses
     #preparar bodega para despachar
     #retorna true si queda lista, un int indicando cuantos productos del sku deja en la bodega de despacho
   def self.get_despacho_ready(sku, q_a_despachar)
+    sleep_time = 7
     warehouses_id = self.get_warehouses_id
     stock_despacho = Production.get_stock(warehouses_id['despacho'], sku)
     cantidad_en_despacho = stock_despacho.length
@@ -91,7 +92,7 @@ module Warehouses
           contador_de_requests +=1
           if contador_de_requests > 19
             contador_de_requests = 0
-            sleep(15)
+            sleep(sleep_time)
           end
           cantidad_en_despacho += 1
           #puts "general a despacho"
@@ -104,7 +105,7 @@ module Warehouses
           contador_de_requests +=1
           if contador_de_requests > 19
             contador_de_requests = 0
-            sleep(15)
+            sleep(sleep_time)
           end
           #puts "pregeneral a general"
         end
@@ -116,7 +117,7 @@ module Warehouses
           contador_de_requests +=1
           if contador_de_requests > 19
             contador_de_requests = 0
-            sleep(15)
+            sleep(sleep_time)
           end
           #puts "recepcion a pregeneral"
         end
@@ -128,7 +129,7 @@ module Warehouses
           contador_de_requests +=1
           if contador_de_requests > 19
             contador_de_requests = 0
-            sleep(15)
+            sleep(sleep_time)
           end
         end
       end
@@ -248,7 +249,7 @@ module Warehouses
 
   #ordena los almacenes, dejando la mayoria en general
   def self.sort_warehouses
-    sleep_time = 20
+    sleep_time = 10
     puts "starting reorder"
     warehouses_id = self.get_warehouses_id
     # puts warehouses_id['general']
