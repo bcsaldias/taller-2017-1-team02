@@ -33,7 +33,7 @@ class ManagmentsController < ApplicationController
     hora = params[:fecha_hora]
     minutos = params[:fecha_minutos]
     needed_date =  Tiempo.tiempo_a_milisegundos(mes, dia, hora, minutos)
-    comprar = RawMaterial.buy_product_from_supplier(params[:oc_sku], params[:cantidad].to_i, 
+    comprar = RawMaterial.buy_product_from_supplier(params[:oc_sku], params[:cantidad].to_i,
                           params[:proveedor].to_i, needed_date) #mes, dia, hora, minuto
   	json_response({ret: comprar})
   end
@@ -88,6 +88,60 @@ class ManagmentsController < ApplicationController
     ret = Warehouses.sort_warehouses
     json_response({ret: ret})
   end
+
+# Obtiene todas las transacciones del servidor y almacena localmente
+  def refresh_transactions
+    puts "Entro al metodo"
+
+    #fechaInicio = (Time.now - 1.week).to_f*1000 # 1 semana atras
+    fechaInicio = 1 # Desde 1970
+    transactions_query = Bank.get_our_card(9999999999, fechaInicio)
+    puts transactions_query
+    transactions =  transactions_query['data']
+    counter = 0
+    cant = 0
+    transactions.each do |trx|
+      temp_trx = Transaction.where(id_cloud: trx['_id']).first
+      cant += 1
+
+      puts "#{trx['_id']}: #{temp_trx}"
+      if temp_trx == nil
+        owner = (trx['origen'] == Rails.configuration.environment_ids['bank_id'])
+        counter += 1
+        Transaction.create!(id_cloud: trx['_id'],
+                            origen: trx['origen'],
+                            destino: trx['destino'],
+                            monto: trx['monto'],
+                            owner: owner,
+                            state: true)
+      end
+    end
+
+    json_response({ret: "Actualizado!", cant: cant, trx_descargadas: counter})
+  end
+
+  # Revisa que todas las PO locales esten actualizadas con servidor
+  def refresh_purchase_orders
+    cant =  PurchaseOrder.all.count
+    status_repaired = 0
+    PurchaseOrder.all.each do |po|
+      id_cloud = our_po.id_cloud
+      cloud_po = Sales.get_purchase_order(id_cloud)
+      if po.state != cloud_po["estado"]
+        status_repaired += 1
+        po.state = cloud_po["estado"]
+        po.save!
+      end
+    end
+    json_response({response: "Fixed", estados_reparados: status_repaired}) if status_repaired != 0
+    json_response({resp: "Todo OK", cantidad_oc: cant }) if status_repaired == 0
+  end
+
+
+
+
+
+
 
   def authorize
     redirect_to '/login' unless current_user

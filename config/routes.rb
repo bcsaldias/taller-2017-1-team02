@@ -31,6 +31,9 @@ Rails.application.routes.draw do
   post 'sent_production' => 'managments#sent_production', as: :sent_production
   post 'check_for_availablility' => 'managments#check_for_availablility', as: :check_for_availablility
 
+  post 'refresh_transactions' => 'managments#refresh_transactions', as: :refresh_transactions
+  post 'refresh_purchase_orders' => 'managments#refresh_purchase_orders', as: :refresh_purchase_orders
+
   get 'dashboard/index'
 
   post 'create_oc_with_price' => 'managments#create_oc_with_price', as: :create_oc_with_price
