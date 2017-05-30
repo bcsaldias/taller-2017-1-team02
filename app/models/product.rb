@@ -46,4 +46,13 @@ class Product < ApplicationRecord
     self.save!
   end
 
+  # Retorna el stock del producto que esta comprometido para la venta con OC's
+  def reserved_stock
+    stock_reservado = 0
+    PurchaseOrder.where(owner: nil, product_sku: self.sku, state: 1).each do |po|
+      stock_reservado += po.quantity
+    end
+    stock_reservado
+  end
+
 end
