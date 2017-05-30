@@ -42,7 +42,7 @@ module Spree
       #FIXME -> this should be more secure!!
       our_env_path = Rails.configuration.environment_ids['our_env_path']
       current_bp = our_env_path+'ecommerce/'
-      #current_bp = 'http://localhost:3000/ecommerce/'
+      current_bp = 'http://localhost:3000/ecommerce/'
 
       delivered = false
       all_ok = false
@@ -76,6 +76,8 @@ module Spree
       #Bank.transfer
       #me manda el id de la transferencia?
       if all_ok
+        @order.next
+        @order.completed?
         flash.notice = Spree.t(:order_processed_successfully)
         flash['order_completed'] = true
         delivered = Production.deliver_order_to_address(voucher)
@@ -101,7 +103,7 @@ module Spree
 
       our_env_path = Rails.configuration.environment_ids['our_env_path']
       current_bp = our_env_path+'ecommerce/'
-      #current_bp = 'http://localhost:3000/ecommerce/'
+      current_bp = 'http://localhost:3000/ecommerce/'
 
       @URL_OK = escape_uri(current_bp+"order/paid/"+_id)
       @URL_FAIL = escape_uri(current_bp+'checkout/payment')
