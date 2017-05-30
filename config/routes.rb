@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   get 'ecommerce/order/paid/:id' => 'spree/checkout#paid'
 
-  root 'dashboard#index'
+  #root 'dashboard#index'
 
   #get 'user_sessions/new'
   #get 'user_sessions/create'
