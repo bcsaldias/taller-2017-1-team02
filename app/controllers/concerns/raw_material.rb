@@ -160,7 +160,7 @@ module RawMaterial
   #Compra productos  a un supplier especifico. Recibe objeto supplier como parametro
   def self.buy_product_from_supplier(sku, quantity, supplier_num,
                           needed_date = Tiempo.tiempo_a_milisegundos(12, 30, 23, 59))
-    Tiempo.tiempo_a_milisegundos(12, 30, 23, 59)
+    #Tiempo.tiempo_a_milisegundos(12, 30, 23, 59)
     puts "FECHA!!! : #{needed_date}"
     product = Product.find(sku)
     contacts = product.contacts.where(supplier_id: supplier_num)
@@ -170,6 +170,7 @@ module RawMaterial
 
     supplier = Supplier.find(supplier_num)
     response = Queries.get_to_groups_api("products", supplier)
+    puts "Obtener precios retorna: #{response}"
 
     begin
       hash_response = JSON.parse response.body.force_encoding("UTF-8")
