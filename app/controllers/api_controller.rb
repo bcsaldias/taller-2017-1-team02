@@ -100,11 +100,11 @@ class ApiController < ApplicationController
 	end
 
 	def testj4
-		sku = "1"
-		q = 10
-		RawMaterial.restore_stock(sku, q, Tiempo.tiempo_a_milisegundos(12, 30, 23, 59))
-	end
+		transaction = Bank.transfer(100, "590baa00d6b4ec000490246c", "590baa00d6b4ec000490246c")
+		puts transaction
+		json_response({response: transaction})
 
+	end
 
 	def actualizar_deadlines_purchase_orders
 		PurchaseOrder.all.each do |po|
