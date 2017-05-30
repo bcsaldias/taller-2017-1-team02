@@ -45,16 +45,39 @@ module Spree
       #current_bp = 'http://localhost:3000/ecommerce/'
 
       delivered = false
-      all_ok = true
+      all_ok = false
+
       #ir a buscar transacción y despachar
+      voucher = Voucher.where(id_cloud: params[:id]).first
+      cliente = voucher.client
+      monto_total = voucher.bruto + voucher.iva
+      
+      transactions_query = Bank.get_our_card
+      transactions =  transactions_query['data']
+      total = transactions_query['total'].to_i
+      
+      transactions.each do |trx|
+        temp_trx = Transaction.where(id_cloud: trx['_id']).first
+
+        if temp_trx == nil
+          q0 = (trx['origen'] == cliente)
+          q1 = (trx['monto'].to_i == monto_total.to_i)
+          if true and q1
+            Transaction.create!(id_cloud: trx['_id'], 
+                                origen: trx['origen'],
+                                destino: trx['destino'], 
+                                monto: trx['monto'],
+                                owner: false, state: true)
+            all_ok = true
+          end
+        end
+      end
 
       #Bank.transfer
       #me manda el id de la transferencia?
-
       if all_ok
         flash.notice = Spree.t(:order_processed_successfully)
         flash['order_completed'] = true
-        voucher = Voucher.where(id_cloud: params[:id]).first
         delivered = Production.deliver_order_to_address(voucher)
       end
 
@@ -65,6 +88,8 @@ module Spree
       else
         puts "EXITO"
         puts "EXITO"
+        voucher.status = 'despachada'
+        voucher.save!
         redirect_to(current_bp+'orders/'+@order.number.to_s)
       end
 

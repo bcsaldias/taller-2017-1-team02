@@ -46,15 +46,15 @@ module Bank
     return JSON.parse @result.body
   end
 
-  def self.get_our_card(fechaInicio=nil, fechaFin=nil, limit=10)
+  def self.get_our_card(limit=10, fechaInicio=nil, fechaFin=nil)
     @fechaInicio = fechaInicio
     @fechaFin = fechaFin
 
     if @fechaInicio == nil
-      @fechaInicio = (DateTime.now.to_f * 1000).to_i
+      @fechaInicio = (Time.now - 4.minutes).to_f*1000 # 5 minutos
     end
     if @fechaFin == nil
-      @fechaFin = (DateTime.now.to_f * 1000).to_i - 1000*60*5 # 5 minutos
+      @fechaFin =  Time.now.to_f*1000
     end 
     
     id_cuenta = Rails.configuration.environment_ids['bank_id']

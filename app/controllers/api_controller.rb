@@ -9,13 +9,18 @@ class ApiController < ApplicationController
 	include Bank
 
 	def test
-
 		## FIXME
-		transactions = Bank.get_our_card
+		transactions_query = Bank.get_our_card
+		transactions =  transactions_query['data']
+		total = transactions_query['total'].to_i
+
+		transactions.each do |trx|
+			puts trx['origen']
+			puts trx['monto']
+		end
 		#tomar la última transacción y ver si el monto es igual al de la boleta
 		#además del proveedor
 		json_response({response: transactions})
-
 	end
 
 	def test_coke
