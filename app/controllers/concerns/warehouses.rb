@@ -193,6 +193,7 @@ module Warehouses
 
         product = stock_a_despachar[count]
         puts "DESPACHAR"
+        puts our_purchase_order.quantity_done
         puts product
         ret = Production.move_stock_external(client_warehouse, produ=product['_id'],
                                               id_cloud_OC, price)
@@ -203,11 +204,12 @@ module Warehouses
           count += 1
           _value = our_purchase_order.quantity_done
           our_purchase_order.quantity_done = _value + 1
-          our_purchase_order.save
+          our_purchase_order.save!
           
           if count.to_i == q_to_send.to_i
             our_purchase_order.state = 3
-            our_purchase_order.save
+            our_purchase_order.save!
+            return true
           end
         else
           return false
