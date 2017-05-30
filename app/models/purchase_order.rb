@@ -53,8 +53,8 @@ class PurchaseOrder < ApplicationRecord
 
 
 
-    puts "stock_actual: #{stock_actual}"
-    puts "stock_reservado: #{stock_reservado}"
+    #puts "stock_actual: #{stock_actual}"
+    #puts "stock_reservado: #{stock_reservado}"
     s_disponible = @product.stock_disponible 
 
     if s_disponible < self.quantity
