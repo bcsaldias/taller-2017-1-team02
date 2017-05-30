@@ -7,13 +7,13 @@ class PurchaseOrder < ApplicationRecord
 
 
   def self.our_oc
-    PurchaseOrder.all.where(owner: true).each do |item|
+    PurchaseOrder.where(owner: true).each do |item|
         item.cantidad
     end
   end
 
   def self.requested
-		PurchaseOrder.all.where(owner: nil).each do |item|
+		PurchaseOrder.where(owner: nil).each do |item|
         item.cantidad
     end
   end

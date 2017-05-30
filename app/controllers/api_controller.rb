@@ -146,7 +146,7 @@ class ApiController < ApplicationController
 		counter_our_po = 0
 		counter_rec_po = 0
 
-		@our_purchase_orders = PurchaseOrder.all.where(owner: true)
+		@our_purchase_orders = PurchaseOrder.where(owner: true)
 		@our_purchase_orders.each do |our_po|
 			counter_our_po += 1
 			id_cloud = our_po.id_cloud
@@ -156,7 +156,7 @@ class ApiController < ApplicationController
 			json_response({resp: "error_quant", in: "our po"}) if our_po.quantity != cloud_po["cantidad"]
 		end
 
-		@received_purchase_orders = PurchaseOrder.all.where(owner: nil)
+		@received_purchase_orders = PurchaseOrder.where(owner: nil)
 		@received_purchase_orders.each do |rec_po|
 			counter_rec_po +=1
 			id_cloud = rec_po.id_cloud
@@ -209,7 +209,7 @@ class ApiController < ApplicationController
 	# 	counter_our_po = 0
 	# 	counter_rec_po = 0
 	#
-	# 	@our_purchase_orders = PurchaseOrder.all.where(owner: true)
+	# 	@our_purchase_orders = PurchaseOrder.where(owner: true)
 	# 	@our_purchase_orders.each do |our_po|
 	# 		counter_our_po += 1
 	# 		id_cloud = our_po.id_cloud
@@ -219,7 +219,7 @@ class ApiController < ApplicationController
 	# 		json_response({resp: "error_quant", in: "our po"}) if our_po.quantity != cloud_po["cantidad"]
 	# 	end
 	#
-	# 	@received_purchase_orders = PurchaseOrder.all.where(owner: nil)
+	# 	@received_purchase_orders = PurchaseOrder.where(owner: nil)
 	# 	@received_purchase_orders.each do |rec_po|
 	# 		counter_rec_po +=1
 	# 		id_cloud = rec_po.id_cloud

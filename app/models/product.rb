@@ -9,21 +9,30 @@ class Product < ApplicationRecord
   has_many :needed_product, :class_name => 'Recipe', :foreign_key => 'needed_product_sku'
 
   def self.catalogue
-    Product.all.where(owner: true).map { |p| {:sku => p.sku,
+    Product.where(owner: true).map { |p| {:sku => p.sku,
                           :name => p.description,
                           :price => p.price,
                           :stock => p.stock_disponible} }
   end
 
   def self.public_catalogue
-    Product.all.where(owner: true).map { |p| {:sku => p.sku,
+    Product.where(owner: true).map { |p| {:sku => p.sku,
                           :price => p.price,
                           :stock => p.stock_disponible} }
   end
 
   def self.our_products
-    Product.all.where(owner: true).each do |item|
+    Product.where(owner: true).each do |item|
         item.stock_disponible
+    end
+  end
+
+  def self.force_update
+    Product.where(owner: true).each do |item|
+      item.stock = Warehouses.product_stock(item.sku)
+      item.updated_at = DateTime.now
+      item.save!
+      item.stock_disponible
     end
   end
 

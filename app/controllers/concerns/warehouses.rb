@@ -63,6 +63,7 @@ module Warehouses
     #preparar bodega para despachar
     #retorna true si queda lista, un int indicando cuantos productos del sku deja en la bodega de despacho
   def self.get_despacho_ready(sku, q_a_despachar)
+    sleep_time = 7
     warehouses_id = self.get_warehouses_id
     stock_despacho = Production.get_stock(warehouses_id['despacho'], sku)
     cantidad_en_despacho = stock_despacho.length
@@ -91,7 +92,7 @@ module Warehouses
           contador_de_requests +=1
           if contador_de_requests > 19
             contador_de_requests = 0
-            sleep(15)
+            sleep(sleep_time)
           end
           cantidad_en_despacho += 1
           #puts "general a despacho"
@@ -104,7 +105,7 @@ module Warehouses
           contador_de_requests +=1
           if contador_de_requests > 19
             contador_de_requests = 0
-            sleep(15)
+            sleep(sleep_time)
           end
           #puts "pregeneral a general"
         end
@@ -116,7 +117,7 @@ module Warehouses
           contador_de_requests +=1
           if contador_de_requests > 19
             contador_de_requests = 0
-            sleep(15)
+            sleep(sleep_time)
           end
           #puts "recepcion a pregeneral"
         end
@@ -128,7 +129,7 @@ module Warehouses
           contador_de_requests +=1
           if contador_de_requests > 19
             contador_de_requests = 0
-            sleep(15)
+            sleep(sleep_time)
           end
         end
       end
@@ -192,6 +193,7 @@ module Warehouses
 
         product = stock_a_despachar[count]
         puts "DESPACHAR"
+        puts our_purchase_order.quantity_done
         puts product
         ret = Production.move_stock_external(client_warehouse, produ=product['_id'],
                                               id_cloud_OC, price)
@@ -202,11 +204,12 @@ module Warehouses
           count += 1
           _value = our_purchase_order.quantity_done
           our_purchase_order.quantity_done = _value + 1
-          our_purchase_order.save
+          our_purchase_order.save!
           
           if count.to_i == q_to_send.to_i
             our_purchase_order.state = 3
-            our_purchase_order.save
+            our_purchase_order.save!
+            return true
           end
         else
           return false
@@ -248,7 +251,7 @@ module Warehouses
 
   #ordena los almacenes, dejando la mayoria en general
   def self.sort_warehouses
-    sleep_time = 20
+    sleep_time = 10
     puts "starting reorder"
     warehouses_id = self.get_warehouses_id
     # puts warehouses_id['general']

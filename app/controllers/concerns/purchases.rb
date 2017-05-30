@@ -14,7 +14,7 @@ module Purchases
 
 			### Creacion OC en sistema
 	    	@result = Queries.put('oc/crear', authorization=false, body=@body, params={})
-				puts "Creo oc en sist profe: #{@result.code}"
+				puts "Creo OC en sist profe, code: #{@result.code}"
 
 			puts @result
 			### Creacion OC en base de datos
@@ -29,7 +29,7 @@ module Purchases
 															owner: true,
 															deadline: order['fechaEntrega']
 															)
-			puts "Cree PO"
+			puts "Creo OC local"
 
 			### Mensaje de creacion de purchase order a Proveedor
 			params = {
@@ -39,8 +39,8 @@ module Purchases
 
 
 			result = Queries.put_to_groups_api("purchase_orders/"+order['_id'], proveedor, false, params)
-
-			#puts result
+			puts "Aviso de OC al grupo, code: #{result.code}"
+			puts result
 			#puts JSON.parse result.body.force_encoding("UTF-8")
 	    return result.code #Status code de el mensaje enviado al proveedor
 	end

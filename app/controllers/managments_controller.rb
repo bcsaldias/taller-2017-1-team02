@@ -10,6 +10,11 @@ class ManagmentsController < ApplicationController
 
   end
 
+  def prices_force_update
+    req = Product.force_update
+    json_response({req: req})
+  end
+
   def sent_production
     puts params[:oc_sku]
     puts params[:cantidad_raw_material]
@@ -80,8 +85,10 @@ class ManagmentsController < ApplicationController
 
   def check_for_availablility
     puts "check_for_availablility"
-    result = Warehouses.product_availability(params[:oc_sku], params[:cantidad].to_i)
-    json_response({ret: result})
+    #result = Warehouses.product_availability(params[:oc_sku], params[:cantidad].to_i)
+    cantidad = params[:cantidad].to_i
+    product = Product.find(params[:oc_sku])
+    json_response({ret: product.stock_disponible >= cantidad})
   end
 
 
