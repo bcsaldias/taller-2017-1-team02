@@ -82,7 +82,6 @@
                         <td>Generar producción</td>
                         <%= form_tag(:sent_production, method: "post") do %>
                           <td><%= label_tag :producto_sku %> <%= text_field_tag :oc_sku %></td>
-                          <td><%= label_tag :cantidad %> <%= text_field_tag :cantidad %></td>
                           <td> <%= submit_tag('Producir') %></td>
                         <% end %>
 

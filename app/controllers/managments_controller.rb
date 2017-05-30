@@ -12,7 +12,7 @@ class ManagmentsController < ApplicationController
 
   def sent_production
     puts params[:oc_sku]
-    puts params[:cantidad]
+    #puts params[:cantidad]
     req = Factory.hacer_pedido_interno(params[:oc_sku])
     json_response({req: req})
   end
