@@ -11,6 +11,10 @@ module Spree
 	  def stock
   		_p = DecoProd.original_products.find(sku)
 		Spree::StockItem.where(variant_id: id).delete_all
+
+		###
+		### Actualizar con stock disponible.
+		###
 		Spree::StockItem.create!([
 		 	stock_location_id: 1, count_on_hand: _p.stock.to_i, variant_id: id,
 		])

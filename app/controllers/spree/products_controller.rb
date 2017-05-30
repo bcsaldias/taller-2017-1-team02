@@ -17,6 +17,7 @@ module Spree
 
     def show
       @product.stock
+      
       @variants = @product.variants_including_master.
                            spree_base_scopes.
                            active(current_currency).
