@@ -13,7 +13,7 @@ module Factory
 	def self.fabricate(sku, cantidad)
 		account_id = Factory.get_account
 		origen = Rails.configuration.environment_ids['bank_id']
-		unit_cost = Contact.all.where(supplier_id: 2, product_id: sku).first['production_unit_cost']
+		unit_cost = Contact.where(supplier_id: 2, product_id: sku).first['production_unit_cost']
 		monto = unit_cost * cantidad
 
 		local_trx = Bank.transfer(monto, origen, account_id)

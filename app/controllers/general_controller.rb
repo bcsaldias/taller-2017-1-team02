@@ -18,14 +18,14 @@ class GeneralController < ApplicationController
     @factory = ProductionOrder.all
 
     # J: Busca localmente las POrders
-    @our_purchase_orders = PurchaseOrder.all.where(owner: true)
-    @purchase_orders = PurchaseOrder.all.where(owner: nil)
+    @our_purchase_orders = PurchaseOrder.where(owner: true)
+    @purchase_orders = PurchaseOrder.where(owner: nil)
 
-    @our_invoices = Invoice.all.where(owner: true)
-    @invoices = Invoice.all.where(owner: nil)
+    @our_invoices = Invoice.where(owner: true)
+    @invoices = Invoice.where(owner: nil)
 
-    @transactions_ok = Transaction.all.where(state: true)
-    @transactions_fail = Transaction.all.where(state: false)
+    @transactions_ok = Transaction.where(state: true)
+    @transactions_fail = Transaction.where(state: false)
     
   end
 

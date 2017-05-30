@@ -24,7 +24,7 @@ class InvoicesController < ApplicationController
         @keys = @body.keys
         if not @keys.include?("bank_account")
           json_response({ :error => "Debe proporcionar una cuenta bancaria" }, 400)
-        elsif Invoice.all.where(id_cloud: params[:id]).count != 0
+        elsif Invoice.where(id_cloud: params[:id]).count != 0
           json_response({ :error => "Ya se envió esta factura" }, 403)
         else  
           invoice = Invoices.obtener_factura(params[:id])
@@ -71,7 +71,7 @@ class InvoicesController < ApplicationController
 
   # PATCH /invoices/:id/accepted
   def enviar_confirmacion_factura
-    invoice = Invoice.all.where(id_cloud: params[:id]).first
+    invoice = Invoice.where(id_cloud: params[:id]).first
     begin
       if invoice
         if invoice.status == "rechazada"
@@ -113,7 +113,7 @@ class InvoicesController < ApplicationController
 
   # PATCH /invoices/:id/rejected
   def enviar_rechazo_factura
-    invoice = Invoice.all.where(id_cloud: params[:id]).first
+    invoice = Invoice.where(id_cloud: params[:id]).first
     begin
       if invoice
         @body = JSON.parse request.body.read
@@ -230,9 +230,9 @@ class InvoicesController < ApplicationController
       
       if not invoice.keys.include?("error")
 
-        our_invoice = Invoice.all.where(id_cloud: invoice_id).first
+        our_invoice = Invoice.where(id_cloud: invoice_id).first
         oc_id_cloud = our_invoice.oc_id_cloud
-        our_purchase_order = PurchaseOrder.all.where(id_cloud: oc_id_cloud).first
+        our_purchase_order = PurchaseOrder.where(id_cloud: oc_id_cloud).first
         
         if our_invoice.status == 5
           json_response({ :error => "Ya se notificó entrega de esta factura" }, 403)

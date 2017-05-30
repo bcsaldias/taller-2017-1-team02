@@ -1,6 +1,6 @@
 class DecoProd
  def self.original_products
- 	Product.all.where(owner: true)
+ 	Product.where(owner: true)
  end
 end
 
