@@ -48,7 +48,9 @@ module Factory
     	prima_cantidad = un_lote_cantidad
     	if cantidad > 0
     		prima_cantidad = cantidad
+    	end 
 
+    	
 		if product.category == "Materia prima"
 			result = self.fabricate(sku, prima_cantidad)
 			if result.keys.include?("error")
