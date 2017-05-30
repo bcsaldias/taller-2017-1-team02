@@ -161,7 +161,7 @@ module RawMaterial
   def self.buy_product_from_supplier(sku, quantity, supplier_num,
                           needed_date = Tiempo.tiempo_a_milisegundos(12, 30, 23, 59))
     #Tiempo.tiempo_a_milisegundos(12, 30, 23, 59)
-    puts "FECHA!!! : #{needed_date}"
+    puts "Realizando compra producto a proveedor #{supplier_num}"
     product = Product.find(sku)
     contacts = product.contacts.where(supplier_id: supplier_num)
 
@@ -170,19 +170,13 @@ module RawMaterial
 
     supplier = Supplier.find(supplier_num)
     response = Queries.get_to_groups_api("products", supplier)
-    puts "Obtener precios retorna: #{response}"
+    puts "Obtener precios retorna code: #{response.code}"
+    puts "Response: #{response}"
 
     begin
       hash_response = JSON.parse response.body.force_encoding("UTF-8")
-      if hash_response.keys.include?("product")
-        hash_response = hash_response["product"]
-      elsif hash_response.keys.include?("products")
-        hash_response = hash_response["products"]
-      elsif hash_response.keys.include?("producto")
-        hash_response = hash_response["producto"]
-      elsif hash_response.keys.include?("productos")
-        hash_response = hash_response["productos"]
-      end
+      puts "Json precios parseado"
+      hash_response = hash_response["product"] if supplier_num == 1
       price = hash_response.find{|prod| prod['sku'] == product.sku}['price']
       puts "El precio es: #{price}"
     rescue
