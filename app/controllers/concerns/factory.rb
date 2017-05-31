@@ -74,7 +74,8 @@ module Factory
             	can_sale = Warehouses.product_availability(recipe.needed_product_sku, 
             										recipe.requirement)
 				if not can_sale
-					return "no hay suficiente producto " + (recipe.needed_product_sku).to_s
+					puts "no hay suficiente producto " + (recipe.needed_product_sku).to_s
+					return false
 				end
 			end
 
@@ -82,7 +83,8 @@ module Factory
 				eval_despacho = Warehouses.get_despacho_ready(recipe.needed_product_sku,
 															  recipe.requirement)
 				if not eval_despacho
-					return "no pudo get despachado ready " + (recipe.needed_product_sku).to_s
+					puts "no pudo get despachado ready " + (recipe.needed_product_sku).to_s
+					return false
 				end
 			end
 

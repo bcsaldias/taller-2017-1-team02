@@ -116,7 +116,7 @@ module Warehouses
             sleep(sleep_time)
           end
           cantidad_en_despacho += 1
-          puts "general a despacho"
+          # puts "general a despacho"
         end
 
 
@@ -131,7 +131,7 @@ module Warehouses
             contador_de_requests = 0
             sleep(sleep_time)
           end
-          puts "pregeneral a general"
+          # puts "pregeneral a general"
         end
 
         stock_recepcion = Production.get_stock(warehouses_id['recepcion'], sku)
@@ -145,7 +145,7 @@ module Warehouses
             contador_de_requests = 0
             sleep(sleep_time)
           end
-          puts "recepcion a pregeneral"
+          # puts "recepcion a pregeneral"
         end
 
         stock_pulmon = Production.get_stock(warehouses_id['pulmon'], sku)
