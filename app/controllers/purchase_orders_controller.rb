@@ -62,7 +62,7 @@ class PurchaseOrdersController < ApplicationController
             puts "evaluando solicitud recibida", params[:id]
             if @purchase_order.evaluar_si_aceptar
               puts 'oc aceptada'
-              @purchase_order.aceptada!
+              #@purchase_order.aceptada!
               ret = Sales.accept_purchase_order(params[:id]) # FIXME si no le podemos avisar no deberiamos guardar
               puts "Accept OC al cliente: #{ret}"
 
@@ -77,7 +77,7 @@ class PurchaseOrdersController < ApplicationController
             else
               puts 'oc rechazada'
               Sales.reject_purchase_order(params[:id], @purchase_order.cause)
-              @purchase_order.rechazada!
+              #@purchase_order.rechazada!
             end
 
           end
