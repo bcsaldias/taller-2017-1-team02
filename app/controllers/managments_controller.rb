@@ -135,16 +135,10 @@ class ManagmentsController < ApplicationController
   def refresh_purchase_orders
     cant =  PurchaseOrder.all.count
     refreshed = false
-    PurchaseOrder.where(owner: true).each do |po|
+    PurchaseOrder.all.each do |po| #where(owner: true)
       id_cloud = po.id_cloud
       cloud_po = Sales.get_purchase_order(id_cloud)
-      puts "Local: #{po.state} - Nube: #{cloud_po["estado"]}"
-      if po.state != cloud_po["estado"]
-        po.state = cloud_po["estado"]
-        po.save!
-        refreshed = true
-        puts "Modifico State: #{po.state}"
-      end
+
 
       if po.team_id_cloud != cloud_po["proveedor"]
         po.team_id_cloud = cloud_po["proveedor"]
@@ -157,12 +151,22 @@ class ManagmentsController < ApplicationController
         refreshed = true
       end
 
-      puts "Q local: #{po.quantity_done} -- Q nube: #{cloud_po["cantidadDespachada"]}"
+      if po.owner != true
+        puts "Local: #{po.state} - Nube: #{cloud_po["estado"]}"
+        if po.state != cloud_po["estado"]
+          po.state = cloud_po["estado"]
+          po.save!
+          refreshed = true
+          puts "Modifico State: #{po.state}"
+        end
 
-      if po.quantity_done != cloud_po["cantidadDespachada"]
-        po.quantity_done = cloud_po["cantidadDespachada"]
-        po.save!
-        refreshed = true
+        puts "Q local: #{po.quantity_done} -- Q nube: #{cloud_po["cantidadDespachada"]}"
+
+        if po.quantity_done != cloud_po["cantidadDespachada"]
+          po.quantity_done = cloud_po["cantidadDespachada"]
+          po.save!
+          refreshed = true
+        end
       end
 
     end
