@@ -18,7 +18,7 @@ class ManagmentsController < ApplicationController
   def sent_production
     puts params[:oc_sku]
     puts params[:cantidad_raw_material]
-    req = Factory.hacer_pedido_interno(params[:oc_sku], 
+    req = Factory.hacer_pedido_interno(params[:oc_sku],
                       params[:cantidad_raw_material].to_i)
     json_response({req: req})
   end
@@ -131,18 +131,28 @@ class ManagmentsController < ApplicationController
   # Revisa que todas las PO locales esten actualizadas con servidor
   def refresh_purchase_orders
     cant =  PurchaseOrder.all.count
-    status_repaired = 0
+    refreshed = false
     PurchaseOrder.all.each do |po|
-      id_cloud = our_po.id_cloud
+      id_cloud = po.id_cloud
       cloud_po = Sales.get_purchase_order(id_cloud)
+      puts "Local: #{po.state} - Nube: #{cloud_po["estado"]}"
       if po.state != cloud_po["estado"]
-        status_repaired += 1
         po.state = cloud_po["estado"]
         po.save!
+        refreshed = true
+        puts "Modifico State: #{po.state}"
       end
+      puts "Q local: #{po.quantity_done} -- Q nube: #{cloud_po["cantidadDespachada"]}"
+
+      if po.quantity_done != cloud_po["cantidadDespachada"]
+        po.quantity_done = cloud_po["cantidadDespachada"]
+        po.save!
+        refreshed = true
+      end
+
     end
-    json_response({response: "Fixed", estados_reparados: status_repaired}) if status_repaired != 0
-    json_response({resp: "Todo OK", cantidad_oc: cant }) if status_repaired == 0
+    json_response({resp: "Todo estaba OK", cantidad_oc: cant }) and return if !refreshed
+    json_response({response: "Actualizado"})
   end
 
 
