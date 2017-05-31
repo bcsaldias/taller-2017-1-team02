@@ -96,7 +96,10 @@ module Factory
 				return result["error"]
 			else 
       			purchase_order = ProductionOrder.create!(id_cloud: result['_id'], 
-                                        				 product_sku: result['sku'])
+                                        				 product_sku: result['sku'],
+                                        				 cantidad: result['cantidad'],
+                                        				 despachado: result['despachado'],
+                                        				 disponible: result['disponible'])
       			begin
 					return true
 				rescue
