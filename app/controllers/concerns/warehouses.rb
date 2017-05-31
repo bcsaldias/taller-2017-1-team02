@@ -59,14 +59,27 @@ module Warehouses
     return warehouses_id
   end
 
+  # metodo que evalua si podemos vender q_asked de cierto sku
+  # retorna true si es que tenemos en las bodegas la cantidad pedida de un sku determinado. False en caso contrario
+    def self.product_availability(sku, q_asked)
+      stock_actual = self.product_stock(sku)
+      if stock_actual >= q_asked
+        return true
+      else
+        return false
+      end
+    end
+
 
     #preparar bodega para despachar
     #retorna true si queda lista, un int indicando cuantos productos del sku deja en la bodega de despacho
   def self.get_despacho_ready(sku, q_a_despachar)
     sleep_time = 7
     warehouses_id = self.get_warehouses_id
+
     stock_despacho = Production.get_stock(warehouses_id['despacho'], sku)
     cantidad_en_despacho = stock_despacho.length
+    
     a = [1,2,4]
     contador_de_requests = 0
 
@@ -74,14 +87,19 @@ module Warehouses
     puts q_a_despachar
     puts "q_en_despacho"
     puts cantidad_en_despacho
-    while q_a_despachar > cantidad_en_despacho
+    available = self.product_availability(sku, q_a_despachar)
+    puts "producto disponible?"
+    puts available
+    while (available and q_a_despachar > cantidad_en_despacho)
       puts "cantidad_en_despacho: #{cantidad_en_despacho}"
+
       stock_general = Production.get_stock(warehouses_id['general'], sku)
       stock_pregeneral = Production.get_stock(warehouses_id['pregeneral'],sku)
       stock_recepcion = Production.get_stock(warehouses_id['recepcion'], sku)
       stock_pulmon = Production.get_stock(warehouses_id['pulmon'], sku)
+
       puts "comienza while"
-      if (stock_general.length == 0 and stock_recepcion.length == 0 and stock_pulmon.length == 0 and stock_pregeneral == 0)
+      if (stock_general.length == 0 and stock_recepcion.length == 0 and stock_pulmon.length == 0 and stock_pregeneral.length == 0)
         break
       else
         for product in stock_general
@@ -95,7 +113,7 @@ module Warehouses
             sleep(sleep_time)
           end
           cantidad_en_despacho += 1
-          #puts "general a despacho"
+          puts "general a despacho"
         end
         for product in stock_pregeneral
           if cantidad_en_despacho >= q_a_despachar
@@ -107,7 +125,7 @@ module Warehouses
             contador_de_requests = 0
             sleep(sleep_time)
           end
-          #puts "pregeneral a general"
+          puts "pregeneral a general"
         end
         for product in stock_recepcion
           if cantidad_en_despacho >= q_a_despachar
@@ -119,7 +137,7 @@ module Warehouses
             contador_de_requests = 0
             sleep(sleep_time)
           end
-          #puts "recepcion a pregeneral"
+          puts "recepcion a pregeneral"
         end
         for product in stock_pulmon
           if cantidad_en_despacho >= q_a_despachar
@@ -172,51 +190,65 @@ module Warehouses
     #our_purchase_order.quantity_done = purchase_order["cantidadDespachada"].to_i
     #our_purchase_order.save!
 
-    if q_to_send > 0
+    if not ret
+      our_purchase_order.delivering = false
+      our_purchase_order.save!
+    end
+
+    if ret and  q_to_send > 0
 
       puts "our_purchase_order", our_purchase_order
       client_warehouse = our_purchase_order['id_store_reception']
       puts "client_warehouse", client_warehouse
 
       warehouses_id = self.get_warehouses_id
-      stock_a_despachar = Production.get_stock(warehouses_id['despacho'], purchase_order["sku"])
-
-
-      puts "stock_a_despachar"
-      puts stock_a_despachar
-      puts "stock_a_despachar"
 
       count = 0
-      #for product in stock_a_despachar
+      index_count = 0
 
       while count < q_to_send
+        stock_a_despachar = Production.get_stock(warehouses_id['despacho'], purchase_order["sku"])
 
-        product = stock_a_despachar[count]
-        puts "DESPACHAR"
-        puts our_purchase_order.quantity_done
-        puts product
-        ret = Production.move_stock_external(client_warehouse, produ=product['_id'],
-                                              id_cloud_OC, price)
-        puts "ret2"
-        puts ret
-        if ret.code == 200 or ret.code == 201
-          #q_to_send -= 1
-          count += 1
-          _value = our_purchase_order.quantity_done
-          our_purchase_order.quantity_done = _value + 1
-          our_purchase_order.save!
-          
-          if count.to_i == q_to_send.to_i
-            our_purchase_order.state = 3
+
+        puts "stock_a_despachar"
+        puts stock_a_despachar
+        puts "stock_a_despachar"
+
+        #for product in stock_a_despachar
+        index_count = 0
+        while count < q_to_send
+
+          product = stock_a_despachar[index_count]
+          puts "DESPACHAR"
+          puts our_purchase_order.quantity_done
+          puts product
+          ret = Production.move_stock_external(client_warehouse, produ=product['_id'],
+                                                id_cloud_OC, price)
+          puts "ret2"
+          puts ret
+          if ret.code == 200 or ret.code == 201
+
+            count += 1
+            index_count += 1
+
+            _value = our_purchase_order.quantity_done
+            our_purchase_order.quantity_done = _value + 1
             our_purchase_order.save!
-            our_purchase_order.delivering = false
-            our_purchase_order.save!
-            return true
+            
+            if count.to_i == q_to_send.to_i
+              our_purchase_order.state = 3
+              our_purchase_order.save!
+              our_purchase_order.delivering = false
+              our_purchase_order.save!
+              return true
+            end
+          else
+            return false
           end
-        else
-          return false
         end
       end
+
+
     end
   end
 
@@ -439,17 +471,6 @@ module Warehouses
         return count
   end
 
-
-# metodo que evalua si podemos vender q_asked de cierto sku
-# retorna true si es que tenemos en las bodegas la cantidad pedida de un sku determinado. False en caso contrario
-  def self.product_availability(sku, q_asked)
-    stock_actual = self.product_stock(sku)
-    if stock_actual >= q_asked
-      return true
-    else
-      return false
-    end
-  end
 
 # chequea si hay que comprar mas de algun producto y manda a comprar el producto en particular
   def self.check_and_restore_stock
