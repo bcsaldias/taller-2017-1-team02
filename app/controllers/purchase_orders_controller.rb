@@ -45,7 +45,7 @@ class PurchaseOrdersController < ApplicationController
                                               quantity: order["cantidad"],
                                               quantity_done: 0,
                                               deadline: order['fechaEntrega'],
-                                              unit_price: order['precioUnitario']
+                                              unit_price: order['precioUnitario'],
                                               group_number: supp.id,
                                               team_id_cloud: order['cliente']
                                               )
