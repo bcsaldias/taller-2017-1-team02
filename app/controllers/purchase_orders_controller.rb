@@ -36,6 +36,7 @@ class PurchaseOrdersController < ApplicationController
       else
         if ['contra_factura', 'contra_despacho'].include?(params[:payment_method])
           order = Sales.get_purchase_order(params[:id])
+          supp = Supplier.get_by_id_cloud(order['cliente'])
           @purchase_order = PurchaseOrder.create!(id_cloud: order['_id'],
                                               state: 0,
                                               product_sku: order['sku'],
@@ -45,6 +46,8 @@ class PurchaseOrdersController < ApplicationController
                                               quantity_done: 0,
                                               deadline: order['fechaEntrega'],
                                               unit_price: order['precioUnitario']
+                                              group_number: supp.id,
+                                              team_id_cloud: order['cliente']
                                               )
 
           puts "Purchase order creada"

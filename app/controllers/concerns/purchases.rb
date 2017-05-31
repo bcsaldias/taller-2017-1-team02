@@ -27,7 +27,9 @@ module Purchases
 															quantity: cantidad,
 															quantity_done: 0,
 															owner: true,
-															deadline: order['fechaEntrega']
+															deadline: order['fechaEntrega'],
+															group_number: proveedor.id,
+															team_id_cloud: proveedor.id_cloud
 															)
 			puts "Creo OC local"
 

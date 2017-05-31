@@ -46,8 +46,8 @@ class PurchaseOrder < ApplicationRecord
 
     deadline_in = self.deadline - Time.current
     puts "El deadline es en #{deadline_in} segundos"
-    if deadline_in < 60*60 # 1 horas
-      self.cause = "Muy poco tiempo para procesar"
+    if deadline_in < 4*60*60 # 4 horas
+      self.cause = "Muy poco tiempo para procesar - necesitamos 4 horas."
       return false
     end
 

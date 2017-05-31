@@ -127,7 +127,7 @@ class ManagmentsController < ApplicationController
                             state: true)
       end
     end
-
+ 
     json_response({ret: "Actualizado!", cant: cant, trx_descargadas: counter})
   end
 
