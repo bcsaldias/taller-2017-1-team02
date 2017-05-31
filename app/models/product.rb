@@ -23,6 +23,7 @@ class Product < ApplicationRecord
 
   def self.leche
     product = Product.find("7")
+    puts "getting stock leche"
     product.stock = Warehouses.product_stock("7")
     product.save!
     product

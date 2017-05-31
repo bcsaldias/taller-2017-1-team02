@@ -429,6 +429,13 @@ module Warehouses
           end
         end
 
+        stock_despacho = Production.get_all_stock_warehouse(warehouses_id['despacho'])
+        for _object in stock_despacho
+          if _object["_id"] == sku
+            count += _object["total"]
+          end
+        end
+
         return count
   end
 
