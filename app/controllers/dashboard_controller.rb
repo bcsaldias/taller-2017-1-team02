@@ -5,5 +5,6 @@ class DashboardController < ActionController::Base
     @products = Product.our_products
     @warehouses = Production.get_warehouses
     @vouchers = Voucher.all
+    @leche = Product.leche
   end
 end

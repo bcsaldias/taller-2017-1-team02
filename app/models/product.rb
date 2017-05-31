@@ -21,6 +21,13 @@ class Product < ApplicationRecord
                           :stock => p.stock_disponible} }
   end
 
+  def self.leche
+    product = Product.find(7)
+    product.stock = Warehouses.product_stock(7)
+    product.save!
+    product
+  end
+
   def self.our_products
     Product.where(owner: true).each do |item|
         item.stock_disponible
