@@ -23,6 +23,14 @@ class ManagmentsController < ApplicationController
     json_response({req: req})
   end
 
+  def detener_despacho
+    being_delivered = PurchaseOrder.where(id_cloud: params[:cloud_id]).first
+    being_delivered.delivering = false
+    being_delivered.save!
+    json_response({oc: params[:cloud_id], delivering: being_delivered.delivering})
+  end
+
+
   def accept_oc
     @end =  nil
     if params[:status] == "Aceptar"
