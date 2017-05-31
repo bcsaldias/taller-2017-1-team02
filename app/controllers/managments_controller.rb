@@ -149,10 +149,9 @@ class ManagmentsController < ApplicationController
       if po.team_id_cloud != cloud_po["cliente"]
         po.team_id_cloud = cloud_po["cliente"]
         po.save!
-        supp = Supplier.where(id_cloud: cloud_po["cliete"])
-        if supp.count > 0
-          _ssup = supp.first
-          po.group_number = _ssup.id
+        supp = Supplier.get_by_id_cloud(order['cliente'])
+        if supp
+          po.group_number = ssup.id
           po.save!
         end
       end
