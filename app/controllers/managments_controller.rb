@@ -7,7 +7,7 @@ class ManagmentsController < ApplicationController
   require 'json'
 
   def index
-
+    @being_delivered = PurchaseOrder.where(delivering: true)
   end
 
   def prices_force_update
@@ -79,6 +79,9 @@ class ManagmentsController < ApplicationController
     puts params[:oc_cloud_id]
     puts params[:factura_cloud_id]
     puts params[:proveedor]
+    order = PurchaseOrder.where(id_cloud: params[:oc_cloud_id]).first
+    order.delivering = true
+    order.save!
     out = Warehouses.despachar_OC(params[:oc_cloud_id])
     json_response({ret: out})
   end
@@ -108,7 +111,7 @@ class ManagmentsController < ApplicationController
     transactions =  transactions_query['data']
     counter = 0
     cant = 0
-    transactions.each do |trx|
+    transactions.where(owner: nil).each do |trx|
       temp_trx = Transaction.where(id_cloud: trx['_id']).first
       cant += 1
 

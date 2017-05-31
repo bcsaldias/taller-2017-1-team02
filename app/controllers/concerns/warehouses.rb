@@ -209,6 +209,8 @@ module Warehouses
           if count.to_i == q_to_send.to_i
             our_purchase_order.state = 3
             our_purchase_order.save!
+            our_purchase_order.delivering = false
+            our_purchase_order.save!
             return true
           end
         else
@@ -250,6 +252,11 @@ module Warehouses
   end
 
   #ordena los almacenes, dejando la mayoria en general
+
+  def self.puede_reordenar_ok
+    PurchaseOrder.where(delivering: true).count == 0
+  end
+
   def self.sort_warehouses
     sleep_time = 10
     puts "starting reorder"
@@ -262,7 +269,7 @@ module Warehouses
     stock_despacho = Production.get_all_stock_warehouse(warehouses_id['despacho'])
     request_counter = 0
 
-    while true
+    while self.puede_reordenar_ok
       puts "\n \nIteracion:"
       puts "General: #{stock_general}"
       puts "Pregeneral: #{stock_pregeneral}"
@@ -287,16 +294,20 @@ module Warehouses
             if stock_despacho_sku.length >= 10
               (0..9).to_a.each do |n|
                 product_id = stock_despacho_sku[n]['_id']
+                if self.puede_reordenar_ok
+                  Production.move_stock(warehouses_id['general'], product_id)
+                  puts "somethg moved"
+                  request_counter += 1
+                end
+              end
+            else
+              product_id = stock_despacho_sku[0]['_id']
+              if self.puede_reordenar_ok
                 Production.move_stock(warehouses_id['general'], product_id)
                 puts "somethg moved"
                 request_counter += 1
               end
-            else
-              product_id = stock_despacho_sku[0]['_id']
-              Production.move_stock(warehouses_id['general'], product_id)
-              puts "somethg moved"
-              request_counter += 1
-             end
+            end
              request_counter = Tiempo.sleep_if_to_many_requests(request_counter, 20, sleep_time)
 
           end
@@ -381,7 +392,7 @@ module Warehouses
       end
     end
 
-    puts "No Ordenado, retorno false"
+    puts "No Ordenado, retorno false (puede ser por estar despachando)"
     return false
   end
 

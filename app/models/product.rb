@@ -22,8 +22,8 @@ class Product < ApplicationRecord
   end
 
   def self.leche
-    product = Product.find(7)
-    product.stock = Warehouses.product_stock(7)
+    product = Product.find("7")
+    product.stock = Warehouses.product_stock("7")
     product.save!
     product
   end
