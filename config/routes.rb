@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   post 'deliver' => 'managments#deliver', as: :deliver
   post 'create_oc' => 'managments#create_oc', as: :create_oc
   post 'accept_oc' => 'managments#accept_oc', as: :accept_oc
+  post 'detener_despacho' => 'managments#detener_despacho', as: :detener_despacho
   post 'sent_production' => 'managments#sent_production', as: :sent_production
   post 'check_for_availablility' => 'managments#check_for_availablility', as: :check_for_availablility
 
