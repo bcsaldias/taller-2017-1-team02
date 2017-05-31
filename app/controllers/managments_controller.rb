@@ -146,14 +146,15 @@ class ManagmentsController < ApplicationController
         puts "Modifico State: #{po.state}"
       end
 
-      if po.team_id_cloud != cloud_po["cliente"]
-        po.team_id_cloud = cloud_po["cliente"]
+      if po.team_id_cloud != cloud_po["proveedor"]
+        po.team_id_cloud = cloud_po["proveedor"]
         po.save!
-        supp = Supplier.get_by_id_cloud(order['cliente'])
+        supp = Supplier.get_by_id_cloud(cloud_po['proveedor'])
         if supp
-          po.group_number = ssup.id
+          po.group_number = supp.id
           po.save!
         end
+        refreshed = true
       end
 
       puts "Q local: #{po.quantity_done} -- Q nube: #{cloud_po["cantidadDespachada"]}"
