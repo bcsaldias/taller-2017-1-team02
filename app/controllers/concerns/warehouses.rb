@@ -75,10 +75,11 @@ module Warehouses
     #retorna true si queda lista, un int indicando cuantos productos del sku deja en la bodega de despacho
   def self.get_despacho_ready(sku, q_a_despachar)
     sleep_time = 7
+    max_request = 50
     warehouses_id = self.get_warehouses_id
 
-    stock_despacho = Production.get_stock(warehouses_id['despacho'], sku)
-    cantidad_en_despacho = stock_despacho.length
+    #stock_despacho = Production.get_stock(warehouses_id['despacho'], sku)
+    cantidad_en_despacho = self.product_stock_in(warehouses_id['despacho'], sku)
     
     a = [1,2,4]
     contador_de_requests = 0
@@ -93,59 +94,68 @@ module Warehouses
     while (available and q_a_despachar > cantidad_en_despacho)
       puts "cantidad_en_despacho: #{cantidad_en_despacho}"
 
-      stock_general = Production.get_stock(warehouses_id['general'], sku)
-      stock_pregeneral = Production.get_stock(warehouses_id['pregeneral'],sku)
-      stock_recepcion = Production.get_stock(warehouses_id['recepcion'], sku)
-      stock_pulmon = Production.get_stock(warehouses_id['pulmon'], sku)
+      stock_in_general = self.product_stock_in(warehouses_id['general'], sku)  #Production.get_stock(warehouses_id['general'], sku)
+      stock_in_pregeneral = self.product_stock_in(warehouses_id['pregeneral'], sku)  #Production.get_stock(warehouses_id['pregeneral'],sku)
+      stock_in_recepcion = self.product_stock_in(warehouses_id['recepcion'], sku)  #Production.get_stock(warehouses_id['recepcion'], sku)
+      stock_in_pulmon = self.product_stock_in(warehouses_id['pulmon'], sku)  #Production.get_stock(warehouses_id['pulmon'], sku)
 
       puts "comienza while"
-      if (stock_general.length == 0 and stock_recepcion.length == 0 and stock_pulmon.length == 0 and stock_pregeneral.length == 0)
+      if (stock_in_general == 0 and stock_in_recepcion == 0 and stock_in_pulmon == 0 and stock_in_pregeneral == 0)
         break
       else
+
+        stock_general = Production.get_stock(warehouses_id['general'], sku)
         for product in stock_general
           if cantidad_en_despacho >= q_a_despachar
             break
           end
           Production.move_stock(warehouses_id['despacho'], product['_id'])
           contador_de_requests +=1
-          if contador_de_requests > 19
+          if contador_de_requests > max_request
             contador_de_requests = 0
             sleep(sleep_time)
           end
           cantidad_en_despacho += 1
           puts "general a despacho"
         end
+
+
+        stock_pregeneral = Production.get_stock(warehouses_id['pregeneral'], sku)
         for product in stock_pregeneral
           if cantidad_en_despacho >= q_a_despachar
             break
           end
           Production.move_stock(warehouses_id['general'], product['_id'])
           contador_de_requests +=1
-          if contador_de_requests > 19
+          if contador_de_requests > max_request
             contador_de_requests = 0
             sleep(sleep_time)
           end
           puts "pregeneral a general"
         end
+
+        stock_recepcion = Production.get_stock(warehouses_id['recepcion'], sku)
         for product in stock_recepcion
           if cantidad_en_despacho >= q_a_despachar
             break
           end
           Production.move_stock(warehouses_id['pregeneral'], product['_id'])
           contador_de_requests +=1
-          if contador_de_requests > 19
+          if contador_de_requests > max_request
             contador_de_requests = 0
             sleep(sleep_time)
           end
           puts "recepcion a pregeneral"
         end
+
+        stock_pulmon = Production.get_stock(warehouses_id['pulmon'], sku)
         for product in stock_pulmon
           if cantidad_en_despacho >= q_a_despachar
             break
           end
           Production.move_stock(warehouses_id['recepcion'], product['_id'])
           contador_de_requests +=1
-          if contador_de_requests > 19
+          if contador_de_requests > max_request
             contador_de_requests = 0
             sleep(sleep_time)
           end
@@ -155,10 +165,10 @@ module Warehouses
 
     puts "termina while"
     puts sku
-    stock_despacho = Production.get_stock(warehouses_id['despacho'], sku)
-    puts stock_despacho
+    cantidad_en_despacho = product_stock_in(warehouses_id['despacho'], sku)
+    puts cantidad_en_despacho
     puts "return"
-    if  q_a_despachar <= stock_despacho.length
+    if  q_a_despachar <= cantidad_en_despacho
       puts "get_despacho_ready: Productos listos en despacho!"
       return true
     else
@@ -290,7 +300,8 @@ module Warehouses
   end
 
   def self.sort_warehouses
-    sleep_time = 10
+    sleep_time = 6
+    max_request_counter = 50
     puts "starting reorder"
     warehouses_id = self.get_warehouses_id
     # puts warehouses_id['general']
@@ -340,7 +351,7 @@ module Warehouses
                 request_counter += 1
               end
             end
-             request_counter = Tiempo.sleep_if_to_many_requests(request_counter, 20, sleep_time)
+             request_counter = Tiempo.sleep_if_to_many_requests(request_counter, max_request_counter, sleep_time)
 
           end
           stock_despacho = Production.get_all_stock_warehouse(warehouses_id['despacho'])
@@ -366,7 +377,7 @@ module Warehouses
               puts "somethg moved"
               request_counter += 1
             end
-            request_counter = Tiempo.sleep_if_to_many_requests(request_counter, 20, sleep_time)
+            request_counter = Tiempo.sleep_if_to_many_requests(request_counter, max_request_counter, sleep_time)
           end
           stock_pregeneral = Production.get_all_stock_warehouse(warehouses_id['pregeneral'])
           stock_general = Production.get_all_stock_warehouse(warehouses_id['general'])
@@ -391,7 +402,7 @@ module Warehouses
               puts "somethg moved"
               request_counter += 1
              end
-             request_counter = Tiempo.sleep_if_to_many_requests(request_counter, 20, sleep_time)
+             request_counter = Tiempo.sleep_if_to_many_requests(request_counter, max_request_counter, sleep_time)
           end
           stock_recepcion = Production.get_all_stock_warehouse(warehouses_id['recepcion'])
           stock_pregeneral = Production.get_all_stock_warehouse(warehouses_id['pregeneral'])
@@ -416,7 +427,7 @@ module Warehouses
               puts "somethg moved"
               request_counter += 1
              end
-             request_counter = Tiempo.sleep_if_to_many_requests(request_counter, 20, sleep_time)
+             request_counter = Tiempo.sleep_if_to_many_requests(request_counter, max_request_counter, sleep_time)
           end
           stock_pulmon = Production.get_all_stock_warehouse(warehouses_id['pulmon'])
           stock_recepcion = Production.get_all_stock_warehouse(warehouses_id['recepcion'])
@@ -429,46 +440,35 @@ module Warehouses
   end
 
 
+ def self.product_stock_in(warehouse_id, sku)
+      count = 0
+      stock_general = Production.get_all_stock_warehouse(warehouse_id)
+      for _object in stock_general
+        if _object["_id"] == sku
+          count += _object["total"]
+        end
+      end
+      return count
+ end
+
  def self.product_stock(sku)
-        warehouses_id = self.get_warehouses_id
 
-        count = 0
-        stock_general = Production.get_all_stock_warehouse(warehouses_id['general'])
-        for _object in stock_general
-          if _object["_id"] == sku
-            count += _object["total"]
-          end
-        end
+      warehouses = Production.get_warehouses
+      count = 0
+      warehouses.each do |wh|
+        count += self.product_stock_in(wh["_id"], sku)
+      end
 
-        stock_pregeneral = Production.get_all_stock_warehouse(warehouses_id['pregeneral'])
-        for _object in stock_pregeneral
-          if _object["_id"] == sku
-            count += _object["total"]
-          end
-        end
+      #warehouses_id = self.get_warehouses_id
+      #count = 0
+      #count += self.product_stock_in(warehouses_id, "general")
+      #count += self.product_stock_in(warehouses_id, "pregeneral")
+      #count += self.product_stock_in(warehouses_id, "recepcion")
+      #count += self.product_stock_in(warehouses_id, "general")
+      #count += self.product_stock_in(warehouses_id, "pulmon")
+      #count += self.product_stock_in(warehouses_id, "despacho")
 
-        stock_recepcion = Production.get_all_stock_warehouse(warehouses_id['recepcion'])
-        for _object in stock_recepcion
-          if _object["_id"] == sku
-            count += _object["total"]
-          end
-        end
-
-        stock_pulmon = Production.get_all_stock_warehouse(warehouses_id['pulmon'])
-        for _object in stock_pulmon
-          if _object["_id"] == sku
-            count += _object["total"]
-          end
-        end
-
-        stock_despacho = Production.get_all_stock_warehouse(warehouses_id['despacho'])
-        for _object in stock_despacho
-          if _object["_id"] == sku
-            count += _object["total"]
-          end
-        end
-
-        return count
+      return count
   end
 
 
