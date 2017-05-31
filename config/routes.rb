@@ -33,7 +33,7 @@ Rails.application.routes.draw do
 
   post 'refresh_transactions' => 'managments#refresh_transactions', as: :refresh_transactions
   post 'refresh_purchase_orders' => 'managments#refresh_purchase_orders', as: :refresh_purchase_orders
-  post 'prices_force_update' => 'managments#prices_force_update', as: :prices_force_update
+  post 'stocks_force_update' => 'managments#stocks_force_update', as: :stocks_force_update
 
   get 'dashboard/index'
 

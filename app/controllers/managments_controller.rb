@@ -10,7 +10,7 @@ class ManagmentsController < ApplicationController
     @being_delivered = PurchaseOrder.where(delivering: true)
   end
 
-  def prices_force_update
+  def stocks_force_update
     req = Product.force_update
     json_response({req: req})
   end

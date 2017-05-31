@@ -124,6 +124,7 @@
                 <tr>
                   <th>SKU</th>
                   <th>Nombre</th>
+                  <th>Stock total</th>
                   <th>Stock disponible</th>
                 </tr>
               </thead>
@@ -133,6 +134,7 @@
                   <tr>
                     <td><%= p.sku %></td>
                     <td><%= p.description %></td>
+                    <td><%= p.all_stock %></td>
                     <td><%= p.stock_disponible %></td>
                   </tr>
                 <% end %>
