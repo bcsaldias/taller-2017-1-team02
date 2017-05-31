@@ -176,7 +176,7 @@ module RawMaterial
     begin
       hash_response = JSON.parse response.body.force_encoding("UTF-8")
       puts "Json precios parseado"
-      hash_response = hash_response["product"] if supplier_num == 1
+      #hash_response = hash_response["product"] if supplier_num == 1
       price = hash_response.find{|prod| prod['sku'] == product.sku}['price']
       puts "El precio es: #{price}"
     rescue
