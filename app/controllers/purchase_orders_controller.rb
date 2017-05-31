@@ -153,7 +153,7 @@ class PurchaseOrdersController < ApplicationController
           oc.save
 
           begin
-            return json_response(
+            json_response(
                 {
                   id_purchase_order: params[:id],
                   state: oc.state
@@ -162,9 +162,15 @@ class PurchaseOrdersController < ApplicationController
             print "error rechazar_orden_compra"
           ensure
             rejected_order = Sales.get_purchase_order(params[:id])
-            new_production_order =  RawMaterial.restore_stock(rejected_order[:sku], rejected_order[:cantidad])
-            puts "mandar a producir por rechazo"
+            _sku = rejected_order["sku"]
+            if Product.find(_sku).owner
+                new_production_order =  RawMaterial.restore_stock(_sku, rejected_order["cantidad"])
+                puts "mandar a producir por rechazo"
+            else
+                puts "no es nuestro producto"
+            end
           end
+
 
         end
       rescue
