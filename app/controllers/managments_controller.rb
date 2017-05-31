@@ -151,18 +151,19 @@ class ManagmentsController < ApplicationController
         refreshed = true
       end
 
-      if po.owner == true and po.team_id_cloud != cloud_po["proveedor"]
-        po.team_id_cloud = cloud_po["proveedor"]
-        po.save!
-        supp = Supplier.get_by_id_cloud(cloud_po['proveedor'])
-        if supp
-          po.group_number = supp.id
-          po.save!
-        end
-        refreshed = true
-      end
+      if po.owner == true
 
-      if po.owner != true
+        if po.team_id_cloud != cloud_po["proveedor"]
+          po.team_id_cloud = cloud_po["proveedor"]
+          po.save!
+          supp = Supplier.get_by_id_cloud(cloud_po['proveedor'])
+          if supp
+            po.group_number = supp.id
+            po.save!
+          end
+          refreshed = true
+        end
+
         puts "Local: #{po.state} - Nube: #{cloud_po["estado"]}"
         if po.state != cloud_po["estado"]
           po.state = cloud_po["estado"]
