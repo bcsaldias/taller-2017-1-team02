@@ -140,10 +140,10 @@ class ManagmentsController < ApplicationController
       cloud_po = Sales.get_purchase_order(id_cloud)
 
 
-      if po.owner != true and po.team_id_cloud != cloud_po["proveedor"]
-        po.team_id_cloud = cloud_po["proveedor"]
+      if po.owner != true and po.team_id_cloud != cloud_po["cliente"]
+        po.team_id_cloud = cloud_po["cliente"]
         po.save!
-        supp = Supplier.get_by_id_cloud(cloud_po['proveedor'])
+        supp = Supplier.get_by_id_cloud(cloud_po['cliente'])
         if supp
           po.group_number = supp.id
           po.save!
@@ -151,10 +151,10 @@ class ManagmentsController < ApplicationController
         refreshed = true
       end
 
-      if po.owner == true and po.team_id_cloud != cloud_po["cliente"]
-        po.team_id_cloud = cloud_po["cliente"]
+      if po.owner == true and po.team_id_cloud != cloud_po["proveedor"]
+        po.team_id_cloud = cloud_po["proveedor"]
         po.save!
-        supp = Supplier.get_by_id_cloud(cloud_po['cliente'])
+        supp = Supplier.get_by_id_cloud(cloud_po['proveedor'])
         if supp
           po.group_number = supp.id
           po.save!
