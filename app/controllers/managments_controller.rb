@@ -111,7 +111,7 @@ class ManagmentsController < ApplicationController
     transactions =  transactions_query['data']
     counter = 0
     cant = 0
-    transactions.where(owner: nil).each do |trx|
+    transactions.each do |trx|
       temp_trx = Transaction.where(id_cloud: trx['_id']).first
       cant += 1
 
@@ -135,7 +135,7 @@ class ManagmentsController < ApplicationController
   def refresh_purchase_orders
     cant =  PurchaseOrder.all.count
     refreshed = false
-    PurchaseOrder.all.each do |po|
+    PurchaseOrder.where(owner: true).each do |po|
       id_cloud = po.id_cloud
       cloud_po = Sales.get_purchase_order(id_cloud)
       puts "Local: #{po.state} - Nube: #{cloud_po["estado"]}"
@@ -145,6 +145,18 @@ class ManagmentsController < ApplicationController
         refreshed = true
         puts "Modifico State: #{po.state}"
       end
+
+      if po.team_id_cloud != cloud_po["cliente"]
+        po.team_id_cloud = cloud_po["cliente"]
+        po.save!
+        supp = Supplier.where(id_cloud: cloud_po["cliete"])
+        if supp.count > 0
+          _ssup = supp.first
+          po.group_number = _ssup.id
+          po.save!
+        end
+      end
+
       puts "Q local: #{po.quantity_done} -- Q nube: #{cloud_po["cantidadDespachada"]}"
 
       if po.quantity_done != cloud_po["cantidadDespachada"]
