@@ -71,14 +71,16 @@ class Product < ApplicationRecord
       stock_reservado += po.quantity
     end
 
-    lines = Spree::LineItem.all
-    lines.each do |line|
-      line_sku = Spree::Variant.find(line.variant_id).sku.to_s
-      if self.sku.to_s == line_sku
-        stock_reservado += line.quantity.to_i
+    orders = Spree::Order.where.not(state: "complete")
+    orders.each do |oc|
+      oc.line_items do |line|
+          line_sku = Spree::Variant.find(line.variant_id).sku.to_s
+          if self.sku.to_s == line_sku
+            stock_reservado += line.quantity.to_i
+          end
       end
     end
-
+    
     stock_reservado
   end
 
