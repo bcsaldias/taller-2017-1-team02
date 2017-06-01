@@ -87,7 +87,8 @@ module Spree
       rescue
         puts "ERROR"
       ensure
-        #delivered = Production.save_order_for_delivering(voucher)
+        #delivered = 
+	Production.save_order_for_delivering(voucher)
         #if delivered
         #  voucher.status = 'despachada'
         #  voucher.save!

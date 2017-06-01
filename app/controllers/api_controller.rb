@@ -10,6 +10,13 @@ class ApiController < ApplicationController
 
 	def test
 
+		voucher = Voucher.where(id_cloud: "59302fe5e7efa40004329ecb").first
+		Production.save_order_for_delivering(voucher)
+		json_response({ret: voucher})
+	end
+
+	def testshak
+
 		lines = Spree::LineItem.all
 		lines.each do |line|
 			puts "cantidad " + line.quantity.to_s
