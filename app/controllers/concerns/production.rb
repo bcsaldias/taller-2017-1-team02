@@ -131,21 +131,11 @@ module Production
 
     		stock_a_despachar = self.get_stock(warehouses_id['despacho'], _sku.to_s)
 
-		    puts "LLEGO 3"
-		    puts "LLEGO 3"
 
             count = 0
     		while count < _quant
-		    	puts "LLEGO 5"
-		    	puts "LLEGO 5"
-		    	puts count
-		    	puts _quant
-		    	puts stock_a_despachar
     			product  = stock_a_despachar[count]
-    			puts product
 	            ret = self.deliver_product(boleta, product['_id'])
-		    	puts "LLEGO 4"
-		    	puts "LLEGO 4"
 
 	            if not ret
 		            return ret #FIXME

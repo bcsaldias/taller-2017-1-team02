@@ -80,6 +80,13 @@ class Product < ApplicationRecord
           end
       end
     end
+
+    pending_vouchers = VoucherStock.all
+    pending_vouchers.each do |pv|
+      if pv.quantity != pv.quantity_done and pv.sku.to_s == self.sku.to_s
+            stock_reservado += (pv.quantity - pv.quantity_done)               
+      end
+    end
     
     stock_reservado
   end
