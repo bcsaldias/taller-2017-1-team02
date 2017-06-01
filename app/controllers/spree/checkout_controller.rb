@@ -87,11 +87,12 @@ module Spree
       rescue
         puts "ERROR"
       ensure
-        delivered = Production.deliver_order_to_address(voucher)
-        if delivered
-          voucher.status = 'despachada'
-          voucher.save!
-        end
+        #delivered = Production.deliver_order_to_address(voucher)
+        #if delivered
+        #  voucher.status = 'despachada'
+        #  voucher.save!
+        #end
+        puts "DESPACHENLA!"
       end
 
 
