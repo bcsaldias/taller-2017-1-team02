@@ -16,19 +16,14 @@ class ManagmentsController < ApplicationController
     pending_vouchers.each do |pv|
       if pv.quantity != pv.quantity_done
 
-        if not vouchers.include?(pv.voucher_id)
-          voucher = Voucher.find(pv.voucher_id)
-          vouchers << voucher
-          #show_stocks_vouchers <<
-          
         if not vouchers_id.include?(pv.voucher_id)
           voucher = Voucher.find(pv.voucher_id)
-          
+
 	  if voucher.status != "despachada"
 		vouchers << voucher
 		vouchers_id << pv.voucher_id
 	  end
-          #show_stocks_vouchers << 
+          #show_stocks_vouchers <<
         end
         #pv.voucher_id
       end
@@ -36,7 +31,7 @@ class ManagmentsController < ApplicationController
 
     @show_vouchers = vouchers
 
-  end
+end
 
   def despachar_boleta
     voucher_id = params[:voucher_id]
