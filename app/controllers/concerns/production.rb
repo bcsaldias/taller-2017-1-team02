@@ -101,9 +101,10 @@ module Production
 
 	end
 
-	def self.deliver_order_to_address(boleta)
+	def self.deliver_order_to_address(boleta_id)
 		## FIXME poner como despachado
 
+		boleta = Voucher.find(boleta_id.to_i)
     	warehouses_id = Warehouses.get_warehouses_id
 		@order = Spree::Order.find_by_number(boleta.spree_order_id)
 

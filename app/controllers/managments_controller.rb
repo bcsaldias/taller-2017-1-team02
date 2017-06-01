@@ -10,15 +10,22 @@ class ManagmentsController < ApplicationController
     @being_delivered = PurchaseOrder.where(delivering: true)
     pending_vouchers = VoucherStock.all#where("quantity = ? OR quantity_done = ?", value, value)
 
-    show_stocks_vouchers = []
+    #show_stocks_vouchers = []
+    vouchers = []
 
     pending_vouchers.each do |pv|
       if pv.quantity != pv.quantity_done
-        show_stocks_vouchers << pv
+          
+        if not vouchers.include?(pv.voucher_id)
+          voucher = Voucher.find(pv.voucher_id)
+          vouchers << voucher
+          #show_stocks_vouchers << 
+        end
+        #pv.voucher_id
       end
     end
 
-    @show_sv = show_stocks_vouchers
+    @show_vouchers = vouchers
 
   end
 
