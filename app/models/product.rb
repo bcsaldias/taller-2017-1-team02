@@ -86,7 +86,13 @@ class Product < ApplicationRecord
     minimo_sprint = 100
     stock_actual = self.all_stock
     stock_reservado = self.reserved_stock
-    return stock_actual - stock_reservado - minimo_sprint
+
+    sd = stock_actual - stock_reservado
+    if sd > minimo_sprint
+      return sd -minimo_sprint
+    else
+      return 0
+    end
   end
 
 
