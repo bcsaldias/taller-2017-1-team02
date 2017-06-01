@@ -93,11 +93,15 @@
                 <tbody id="news-table">
                     <% @show_vouchers.each do |sv| %>
                       <tr>
+                        <%= form_tag(:despachar_boleta,  method: "post") do %>
+                        <%= hidden_field_tag :voucher_id, sv.id %>
                         <td><%= sv.id_cloud %></td>
                         <td><%= sv.spree_order_id %></td>
                         <td><%= sv.address %></td>
                         <td><%= sv.status %></td>
                         <td><%= sv.bruto + sv.iva %></td>
+                        <td> <%= submit_tag 'Despachar', :name => "status"  %></td>
+                        <% end %>
                       </tr>
                     <% end %>
                 </tbody>

@@ -61,11 +61,17 @@ module Production
 	def self.deliver_product(boleta, productoId)
 
 		@direccion = boleta.address
+	    puts "LLEGO 0"
+	    puts "LLEGO 0"
+
 		@precio = boleta.iva + boleta.bruto
 		@oc = boleta.oc_id_cloud
 
 	    @auth = Queries.generate_authorization(_method = 'DELETE', 
 	                    params = [productoId, @direccion, @precio, @oc])
+
+	    puts "LLEGO 1"
+	    puts "LLEGO 1"
 
 	    @body = {   'productoId' => productoId, 
 	    			'direccion' => @direccion,
@@ -123,13 +129,24 @@ module Production
             	return ret #FIXME
             end
 
-    		stock_a_despachar = Warehouses.product_stock_in(warehouses_id['despacho'], _sku)
+    		stock_a_despachar = self.get_stock(warehouses_id['despacho'], _sku.to_s)
 
+		    puts "LLEGO 3"
+		    puts "LLEGO 3"
 
             count = 0
     		while count < _quant
+		    	puts "LLEGO 5"
+		    	puts "LLEGO 5"
+		    	puts count
+		    	puts _quant
+		    	puts stock_a_despachar
     			product  = stock_a_despachar[count]
+    			puts product
 	            ret = self.deliver_product(boleta, product['_id'])
+		    	puts "LLEGO 4"
+		    	puts "LLEGO 4"
+
 	            if not ret
 		            return ret #FIXME
 	            else
@@ -141,6 +158,9 @@ module Production
 
 		  end
 		end
+
+        boleta.status = 'despachada'
+        boleta.save!
 
 		return true
 	end

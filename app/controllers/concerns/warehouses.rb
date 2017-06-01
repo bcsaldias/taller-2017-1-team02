@@ -165,7 +165,7 @@ module Warehouses
 
     puts "termina while"
     puts sku
-    cantidad_en_despacho = product_stock_in(warehouses_id['despacho'], sku)
+    cantidad_en_despacho = self.product_stock_in(warehouses_id['despacho'], sku)
     puts cantidad_en_despacho
     puts "return"
     if  q_a_despachar <= cantidad_en_despacho

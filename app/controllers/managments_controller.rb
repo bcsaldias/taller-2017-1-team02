@@ -29,6 +29,12 @@ class ManagmentsController < ApplicationController
 
   end
 
+  def despachar_boleta
+    voucher_id = params[:voucher_id]
+    ret = Production.deliver_order_to_address(voucher_id)
+    json_response({voucher_id: voucher_id, despachada: ret})
+  end
+
   def stocks_force_update
     req = Product.force_update
     json_response({req: req})
