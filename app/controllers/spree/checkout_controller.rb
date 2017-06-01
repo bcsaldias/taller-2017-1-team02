@@ -84,17 +84,17 @@ module Spree
       end
 
       if not delivered
-        puts "ERRORRRR"
-        puts "ERRORRRR"
-        redirect_to(current_bp+'checkout/payment')
+        puts "not delivered"
+        #puts "ERRORRRR"
+        #puts "ERRORRRR"
+        #redirect_to(current_bp+'checkout/payment')
       else
         puts "EXITO"
         puts "EXITO"
         voucher.status = 'despachada'
         voucher.save!
-        redirect_to(current_bp+'orders/'+@order.number.to_s)
       end
-
+        redirect_to(current_bp+'orders/'+@order.number.to_s)
     end
 
     def go_to_paid(order, voucher)
