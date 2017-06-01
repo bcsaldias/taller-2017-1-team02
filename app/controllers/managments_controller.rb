@@ -15,11 +15,11 @@ class ManagmentsController < ApplicationController
 
     pending_vouchers.each do |pv|
       if pv.quantity != pv.quantity_done
-          
+
         if not vouchers.include?(pv.voucher_id)
           voucher = Voucher.find(pv.voucher_id)
           vouchers << voucher
-          #show_stocks_vouchers << 
+          #show_stocks_vouchers <<
         end
         #pv.voucher_id
       end
@@ -160,7 +160,7 @@ class ManagmentsController < ApplicationController
                             state: true)
       end
     end
- 
+
     json_response({ret: "Actualizado!", cant: cant, trx_descargadas: counter})
   end
 
@@ -217,6 +217,17 @@ class ManagmentsController < ApplicationController
     end
     json_response({resp: "Todo estaba OK", cantidad_oc: cant }) and return if !refreshed
     json_response({response: "Actualizado"})
+  end
+
+
+  def move_despacho_general
+    puts "Entre mi metodo desp"
+    Warehouses.move_despacho_general
+  end
+
+  def move_recepcion_general
+    puts "Entre mi metodo gen"
+    Warehouses.move_recepcion_general
   end
 
 
