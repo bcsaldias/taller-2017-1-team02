@@ -111,7 +111,7 @@ module Production
 
           	ret = Warehouses.get_despacho_ready(_sku, _quant)
             if not ret
-            	return ret
+            	return true #FIXME
             end
 
     		stock_a_despachar = Warehouses.product_stock_in(warehouses_id['despacho'], _sku)
@@ -122,7 +122,7 @@ module Production
     			product  = stock_a_despachar[count]
 	            ret = self.deliver_produt(boleta, product['_id'])
 	            if not ret
-		            return ret
+		            return true #FIXME
 	            else
 	            	v_stock = VoucherStock.where(voucher_id: boleta.id, sku: _sku).first
 	            	v_stock.quantity_done = v_stock.quantity_done + 1
