@@ -49,11 +49,11 @@ Rails.application.routes.draw do
   #resources :products
   #resources :suppliers
   apipie
-  get 'test' => 'api#test'
-  get 'test2' => 'api#test2'
-  get 'testj3' => 'api#testj3'
-  get 'testj4' => 'api#testj4'
-  get 'tiempo' => 'api#tiempo'
+  #get 'test' => 'api#test'
+  #get 'test2' => 'api#test2'
+  #get 'testj3' => 'api#testj3'
+  #get 'testj4' => 'api#testj4'
+  #get 'tiempo' => 'api#tiempo'
 
 
   get 'products' => 'products#available'
