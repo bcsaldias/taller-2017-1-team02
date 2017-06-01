@@ -82,12 +82,9 @@ module Production
 
 	end
 
-	def self.deliver_order_to_address(boleta)
-		## FIXME poner como despachado
+	def self.save_order_for_delivering(boleta)
 
-    	warehouses_id = Warehouses.get_warehouses_id
 		@order = Spree::Order.find_by_number(boleta.spree_order_id)
-
         @order.shipments.each do |_o|
           _o.manifest.each do |_m|
 
@@ -102,12 +99,23 @@ module Production
           end
         end
 
+	end
+
+	def self.deliver_order_to_address(boleta)
+		## FIXME poner como despachado
+
+    	warehouses_id = Warehouses.get_warehouses_id
+		@order = Spree::Order.find_by_number(boleta.spree_order_id)
+
+		#self.save_order_for_delivering(boleta, @order)
 
         @order.shipments.each do |_o|
           _o.manifest.each do |_m|
 
           	_sku = _m.variant.sku.to_s
-          	_quant = _m.quantity.to_i
+	        v_stock = VoucherStock.where(voucher_id: boleta.id, sku: _sku).first
+
+          	_quant = v_stock.quantity.to_i - v_stock.quantity_done.to_i #_m.quantity.to_i
 
           	ret = Warehouses.get_despacho_ready(_sku, _quant)
             if not ret
@@ -124,7 +132,6 @@ module Production
 	            if not ret
 		            return ret #FIXME
 	            else
-	            	v_stock = VoucherStock.where(voucher_id: boleta.id, sku: _sku).first
 	            	v_stock.quantity_done = v_stock.quantity_done + 1
 	            	v_stock.save!
 	            	count += 1
