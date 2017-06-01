@@ -12,14 +12,26 @@ class ManagmentsController < ApplicationController
 
     #show_stocks_vouchers = []
     vouchers = []
-
+    vouchers_id = []
     pending_vouchers.each do |pv|
       if pv.quantity != pv.quantity_done
+<<<<<<< HEAD
 
         if not vouchers.include?(pv.voucher_id)
           voucher = Voucher.find(pv.voucher_id)
           vouchers << voucher
           #show_stocks_vouchers <<
+=======
+          
+        if not vouchers_id.include?(pv.voucher_id)
+          voucher = Voucher.find(pv.voucher_id)
+          
+	  if voucher.status != "despachada"
+		vouchers << voucher
+		vouchers_id << pv.voucher_id
+	  end
+          #show_stocks_vouchers << 
+>>>>>>> 2b839d805655ecf6cc37deb6579eecc74b0013dd
         end
         #pv.voucher_id
       end
