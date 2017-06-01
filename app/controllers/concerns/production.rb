@@ -87,6 +87,22 @@ module Production
 
     	warehouses_id = Warehouses.get_warehouses_id
 		@order = Spree::Order.find_by_number(boleta.spree_order_id)
+
+        @order.shipments.each do |_o|
+          _o.manifest.each do |_m|
+
+			    @voucher_stocks = VoucherStock.where(voucher_id: boleta.id).entries
+			    voucher_params = {
+					      sku: _m.variant.sku.to_s,
+					      quantity: _m.quantity.to_i,
+					      quantity_done: 0
+			    		}
+			    @voucher_stock = boleta.voucher_stocks.build(voucher_params)
+			    @voucher_stock.save!
+          end
+        end
+
+
         @order.shipments.each do |_o|
           _o.manifest.each do |_m|
 
@@ -98,23 +114,19 @@ module Production
             	return ret
             end
 
-            stock_a_despachar = Production.get_stock(warehouses_id['despacho'], 
-    										 		_sku)
+    		stock_a_despachar = Warehouses.product_stock_in(warehouses_id['despacho'], _sku)
 
 
             count = 0
     		while count < _quant
-    			puts "SHAKIRA"
-    			puts "SHAKIRA"
-    			puts count
-    			puts _quant
-    			puts "SHAKIRA"
-    			puts "SHAKIRA"
     			product  = stock_a_despachar[count]
 	            ret = self.deliver_produt(boleta, product['_id'])
 	            if not ret
-		            	return ret
+		            return ret
 	            else
+	            	v_stock = VoucherStock.where(voucher_id: boleta.id, sku: _sku).first
+	            	v_stock.quantity_done = v_stock.quantity_done + 1
+	            	v_stock.save!
 	            	count += 1
 	            end
 	        end

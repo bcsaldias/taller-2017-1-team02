@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170530144965) do
+ActiveRecord::Schema.define(version: 20170530144970) do
 
   create_table "contacts", force: :cascade do |t|
     t.integer  "product_id"
@@ -1148,6 +1148,15 @@ ActiveRecord::Schema.define(version: 20170530144965) do
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.index ["email"], name: "index_users_on_email", unique: true
+  end
+
+  create_table "voucher_stocks", force: :cascade do |t|
+    t.string   "sku"
+    t.integer  "quantity"
+    t.integer  "quantity_done"
+    t.integer  "voucher_id",    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "vouchers", force: :cascade do |t|

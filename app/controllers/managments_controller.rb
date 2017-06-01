@@ -8,6 +8,18 @@ class ManagmentsController < ApplicationController
 
   def index
     @being_delivered = PurchaseOrder.where(delivering: true)
+    pending_vouchers = VoucherStock.all#where("quantity = ? OR quantity_done = ?", value, value)
+
+    show_stocks_vouchers = []
+
+    pending_vouchers.each do |pv|
+      if pv.quantity != pv.quantity_done
+        show_stocks_vouchers << pv
+      end
+    end
+
+    @show_sv = show_stocks_vouchers
+
   end
 
   def stocks_force_update

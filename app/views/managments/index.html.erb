@@ -70,6 +70,40 @@
           </div>
           </div>
 
+    <div class="container">
+
+      <!-- Marketing Icons Section -->
+      <div class="row">
+          <div class="panel panel-primary">
+            <!-- Default panel contents -->
+            <div class="panel-heading">Ecommers falta por despachar</div>
+
+            <!-- Table -->
+            <table  class="table table-bordered" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                      <th>Sku</th>
+                      <th>Cantidad</th>
+                      <th>Cantidad despahcada</th>
+                      <th>Boleta id</th>
+                    </tr>
+                </thead>
+
+                <tbody id="news-table">
+                    <% @show_sv.each do |sv| %>
+                      <tr>
+                        <td><%= sv.sku %></td>
+                        <td><%= sv.quantity %></td>
+                        <td><%= sv.quantity_done %></td>
+                        <td><%= sv.voucher_id %></td>
+                      </tr>
+                    <% end %>
+                </tbody>
+            </table>
+          </div>
+          </div>
+          </div>
+
 
 
     <div class="container">
