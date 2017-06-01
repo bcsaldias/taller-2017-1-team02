@@ -15,22 +15,27 @@
                     </li>
                 <% end %>
                 <% if logout %>
-                    <li>
-                        <%= link_to "Info extra", :general, method: :get %>
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Info extra <span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+                        <li><%= link_to "Transacciones", :transaction, method: :get %></li>
+                        <li><%= link_to "Producción", :production, method: :get %></li>
+                        <li><%= link_to "Ordenes Compra", :oc, method: :get %></li>
+                        <li><%= link_to "Facturas", :invoices, method: :get %></li>
+                      </ul>
                     </li>
                     <li>
                         <%= link_to "Administración", :managment, method: :get %>
                     </li>
+                    <% if home %>
+                        <li>
+                            <%= link_to "Dashboards", :dashboard, method: :get %>
+                        </li>
+                    <% end %>         
                     <li>
                         <%= link_to "Logout", :logout, method: :get %>
                     </li>
-                <% end %>  
-                <% if home %>
-                    <li>
-                        <%= link_to "Dashboards", :dashboard, method: :get %>
-                    </li>
                 <% end %>                
-
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
