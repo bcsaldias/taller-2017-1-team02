@@ -80,21 +80,33 @@ module Spree
         @order.completed?
         flash.notice = Spree.t(:order_processed_successfully)
         flash['order_completed'] = true
-        delivered = Production.deliver_order_to_address(voucher)
       end
 
-      if not delivered
-        puts "not delivered"
+      begin
+        redirect_to(current_bp+'orders/'+@order.number.to_s)
+      rescue
+        puts "ERROR"
+      ensure
+        delivered = Production.deliver_order_to_address(voucher)
+        if delivered
+          voucher.status = 'despachada'
+          voucher.save!
+        end
+      end
+
+
+      #if not delivered
+      #  puts "not delivered"
         #puts "ERRORRRR"
         #puts "ERRORRRR"
         #redirect_to(current_bp+'checkout/payment')
-      else
-        puts "EXITO"
-        puts "EXITO"
-        voucher.status = 'despachada'
-        voucher.save!
-      end
-        redirect_to(current_bp+'orders/'+@order.number.to_s)
+      #else
+      #  puts "EXITO"
+      #  puts "EXITO"
+      #  voucher.status = 'despachada'
+      #  voucher.save!
+      #end
+      #  redirect_to(current_bp+'orders/'+@order.number.to_s)
     end
 
     def go_to_paid(order, voucher)

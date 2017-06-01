@@ -58,7 +58,7 @@ module Production
 		return @result#JSON.parse   .body.force_encoding("UTF-8")
 	end
 
-	def self.deliver_produt(boleta, productoId)
+	def self.deliver_product(boleta, productoId)
 
 		@direccion = boleta.address
 		@precio = boleta.iva + boleta.bruto
@@ -120,7 +120,7 @@ module Production
             count = 0
     		while count < _quant
     			product  = stock_a_despachar[count]
-	            ret = self.deliver_produt(boleta, product['_id'])
+	            ret = self.deliver_product(boleta, product['_id'])
 	            if not ret
 		            return ret #FIXME
 	            else
