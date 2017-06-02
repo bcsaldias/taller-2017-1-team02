@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   #get 'user_sessions/destroy'
   #root :to => 'users#index'
   resources :user_sessions
-  resources :users
+  #resources :users
   #resources :factory_manual_managment
 
   get 'login' => 'user_sessions#new', :as => :login
@@ -54,8 +54,8 @@ Rails.application.routes.draw do
   apipie
   #get 'test' => 'api#test'
   #get 'test2' => 'api#test2'
-  get 'testj3' => 'api#testj3'
-  get 'testj4' => 'api#testj4'
+  #get 'testj3' => 'api#testj3'
+  #get 'testj4' => 'api#testj4'
   #get 'tiempo' => 'api#tiempo'
 
 
