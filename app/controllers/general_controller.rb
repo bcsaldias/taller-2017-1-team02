@@ -1,7 +1,7 @@
 #include HTTParty
 class GeneralController < ApplicationController
   before_action :authorize
-  helper_method :sort_wh, :notify_deliver, :deliver, :check_for_availablility, :create_oc, :accept_oc
+  helper_method :sort_wh, :notify_deliver, :deliver, :check_for_availablility, :create_oc, :accept_oc, :sort_column, :sort_direction
   include Warehouses
   include RawMaterial
   require 'json'
@@ -37,8 +37,8 @@ class GeneralController < ApplicationController
 
   def oc
     # J: Busca localmente las POrders
-    @our_purchase_orders = PurchaseOrder.where(owner: true)
-    @purchase_orders = PurchaseOrder.where(owner: nil)
+    @our_purchase_orders = PurchaseOrder.where(owner: true).order(sort_column + " " + sort_direction)
+    @purchase_orders = PurchaseOrder.where(owner: nil).order(sort_column + " " + sort_direction)
 
   end
 
@@ -60,6 +60,16 @@ class GeneralController < ApplicationController
 
   def authorize
     redirect_to '/login' unless current_user
+  end
+
+  private
+  
+  def sort_column
+    PurchaseOrder.column_names.include?(params[:sort]) ? params[:sort] : "product_sku"
+  end
+  
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
 
 end
