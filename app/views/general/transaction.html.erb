@@ -1,0 +1,109 @@
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" type="text/css" href="/assets/stylesheets/bootstrap.css">
+</head>
+
+<%= render "layouts/header" %>
+
+
+<body>
+    <% if current_user %>
+      <%= render "layouts/navbar",  title: '',  login: false, logout: true, home: true %>
+    <% end %>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="page-header">
+        <h1>Transacciones</h1>
+      </div>
+    </div>
+  </div>
+
+    <div class="container">
+
+      <!-- Marketing Icons Section -->
+      <div class="row">
+
+
+          <div class="panel panel-primary">
+            <!-- Default panel contents -->
+            <div class="panel-heading">Transacciones fallidas</div>
+
+            <!-- Table -->
+            <table  class="table table-bordered" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                      <th>id_cloud</th>
+                      <th>origen</th>
+                      <th>destino</th>
+                      <th>monto</th>
+                      <th>owner</th>
+                      <th>status</th>
+                    </tr>
+                </thead>
+
+                <tbody id="news-table">
+                    <% @transactions_fail.each do |trx| %>
+                      <tr>
+                        <td><%= trx.id_cloud %></td>
+                        <td><%= trx.origen %></td>
+                        <td><%= trx.destino %></td>
+                        <td><%= trx.monto %></td>
+                        <td><%= trx.owner %></td>
+                        <td><%= trx.state %></td>
+                      </tr>
+                    <% end %>
+                </tbody>
+            </table>
+          </div>
+
+
+          <div class="panel panel-primary">
+            <!-- Default panel contents -->
+            <div class="panel-heading">Transacciones exitosas</div>
+
+            <!-- Table -->
+            <table  class="table table-bordered" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                      <th>id_cloud</th>
+                      <th>origen</th>
+                      <th>destino</th>
+                      <th>monto</th>
+                      <th>owner</th>
+                      <th>status</th>
+                    </tr>
+                </thead>
+
+                <tbody id="news-table">
+                    <% @transactions_ok.each do |trx| %>
+                      <tr>
+                        <td><%= trx.id_cloud %></td>
+                        <td><%= trx.origen %></td>
+                        <td><%= trx.destino %></td>
+                        <td><%= trx.monto %></td>
+                        <td><%= trx.owner %></td>
+                        <td><%= trx.state %></td>
+                      </tr>
+                    <% end %>
+                </tbody>
+            </table>
+          </div>
+
+
+
+
+
+
+
+
+  <script type="text/javascript" src="/assets/js/jquery.js"></script>
+  <script type="text/javascript" src="/assets/js/bootstrap.js"></script>
+
+
+</body>
+</html>

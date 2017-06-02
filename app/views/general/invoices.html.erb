@@ -1,0 +1,118 @@
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" type="text/css" href="/assets/stylesheets/bootstrap.css">
+</head>
+
+<%= render "layouts/header" %>
+
+
+<body>
+    <% if current_user %>
+      <%= render "layouts/navbar",  title: '',  login: false, logout: true, home: true %>
+    <% end %>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="page-header">
+        <h1>Facturas</h1>
+      </div>
+    </div>
+  </div>
+
+    <div class="container">
+
+      <!-- Marketing Icons Section -->
+      <div class="row">
+
+
+
+          <div class="panel panel-primary">
+            <!-- Default panel contents -->
+            <div class="panel-heading">Facturas enviadas</div>
+
+            <!-- Table -->
+            <table  class="table table-bordered" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                      <th>id_cloud</th>
+                      <th>cliente</th>
+                      <th>proveedor</th>
+                      <th>total</th>
+                      <th>oc_id_cloud</th>
+                      <th>estado</th>
+                      <th>cuenta</th>
+                      <th>nuestra</th>
+                    </tr>
+                </thead>
+
+                <tbody id="news-table">
+                    <% @our_invoices.each do |invoice| %>
+                      <tr>
+
+                        <td><%= invoice.id_cloud %></td>
+                        <td><%= invoice.cliente %></td>
+                        <td><%= invoice.proveedor %></td>
+                        <td><%= invoice.bruto + invoice.iva %></td>
+                        <td><%= invoice.oc_id_cloud %></td>
+                        <td><%= invoice.status %></td>
+                        <td><%= invoice.bank_account %></td>
+                        <td><%= invoice.owner %></td>
+                      </tr>
+                    <% end %>
+                </tbody>
+            </table>
+          </div>
+
+          <div class="panel panel-primary">
+            <!-- Default panel contents -->
+            <div class="panel-heading">Facturas recibida</div>
+
+            <!-- Table -->
+            <table  class="table table-bordered" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                      <th>id_cloud</th>
+                      <th>cliente</th>
+                      <th>proveedor</th>
+                      <th>total</th>
+                      <th>oc_id_cloud</th>
+                      <th>estado</th>
+                      <th>cuenta</th>
+                      <th>nuestra</th>
+                    </tr>
+                </thead>
+
+                <tbody id="news-table">
+                    <% @invoices.each do |invoice| %>
+                      <tr>
+
+                        <td><%= invoice.id_cloud %></td>
+                        <td><%= invoice.cliente %></td>
+                        <td><%= invoice.proveedor %></td>
+                        <td><%= invoice.bruto + invoice.iva %></td>
+                        <td><%= invoice.oc_id_cloud %></td>
+                        <td><%= invoice.status %></td>
+                        <td><%= invoice.bank_account %></td>
+                        <td><%= invoice.owner %></td>
+                      </tr>
+                    <% end %>
+                </tbody>
+            </table>
+          </div>
+
+
+
+
+
+
+
+  <script type="text/javascript" src="/assets/js/jquery.js"></script>
+  <script type="text/javascript" src="/assets/js/bootstrap.js"></script>
+
+
+</body>
+</html>

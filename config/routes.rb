@@ -63,7 +63,14 @@ Rails.application.routes.draw do
   get 'api/publico/precios' => 'products#public_prices'
 
   get 'general' => 'general#index', :as => :general
+  get 'oc' => 'general#oc', :as => :oc
+  get 'transaction' => 'general#transaction', :as => :transaction
+  get 'invoices' => 'general#invoices', :as => :invoices
+  get 'production' => 'general#production', :as => :production
+  
+  
   get 'factory_managment' => 'managments#index', :as => :managment
+
 
   put 'purchase_orders/:id' => 'purchase_orders#realizar_pedido'
 
