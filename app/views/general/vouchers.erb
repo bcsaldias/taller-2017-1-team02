@@ -38,13 +38,13 @@
             <table class="table table-bordered">
               <thead>
                 <tr>
-                  <th>Id cloud</th>
-                  <th>OC id cloud</th>
-                  <th>Estado</th>
-                  <th>Cliente</th>
-                  <th>Bruto</th>
-                  <th>Iva</th>
-                  <th>Total</th>
+                  <th><%= sortable "id_cloud", "Id cloud", Voucher, "id_cloud" %></th>
+                  <th><%= sortable "oc_id_cloud", "OC id cloud", Voucher, "id_cloud" %></th>
+                  <th><%= sortable "status", "Estado", Voucher, "id_cloud" %></th>
+                  <th><%= sortable "client", "Cliente", Voucher, "id_cloud" %></th>
+                  <th><%= sortable "bruto", "Bruto", Voucher, "id_cloud" %></th>
+                  <th><%= sortable "iva", "Iva", Voucher, "id_cloud" %></th>
+                  <th><%= sortable "Total", Voucher, "id_cloud" %></th>
                 </tr>
               </thead>
 

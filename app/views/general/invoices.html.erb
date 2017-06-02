@@ -38,14 +38,14 @@
             <table  class="table table-bordered" cellspacing="0" width="100%">
                 <thead>
                     <tr>
-                      <th>id_cloud</th>
-                      <th>cliente</th>
-                      <th>proveedor</th>
-                      <th>total</th>
-                      <th>oc_id_cloud</th>
-                      <th>estado</th>
-                      <th>cuenta</th>
-                      <th>nuestra</th>
+                      <th><%= sortable "id_cloud", Invoice, "id_cloud" %></th>
+                      <th><%= sortable "cliente", Invoice, "id_cloud" %></th>
+                      <th><%= sortable "proveedor", Invoice, "id_cloud" %></th>
+                      <th><%= sortable "total", Invoice, "id_cloud" %></th> <!-- HACER VARIABLE TOTAL-->
+                      <th><%= sortable "oc_id_cloud", Invoice, "id_cloud" %></th>
+                      <th><%= sortable "status", "estado", Invoice, "id_cloud" %></th>
+                      <th><%= sortable "bank_account", "cuenta", Invoice, "id_cloud" %></th>
+                      <th><%= sortable "owner", "nuestra", Invoice, "id_cloud" %></th>
                     </tr>
                 </thead>
 
@@ -75,14 +75,14 @@
             <table  class="table table-bordered" cellspacing="0" width="100%">
                 <thead>
                     <tr>
-                      <th>id_cloud</th>
-                      <th>cliente</th>
-                      <th>proveedor</th>
-                      <th>total</th>
-                      <th>oc_id_cloud</th>
-                      <th>estado</th>
-                      <th>cuenta</th>
-                      <th>nuestra</th>
+                      <th><%= sortable "id_cloud", Invoice, "id_cloud" %></th>
+                      <th><%= sortable "cliente", Invoice, "id_cloud" %></th>
+                      <th><%= sortable "proveedor", Invoice, "id_cloud" %></th>
+                      <th><%= sortable "total", Invoice, "id_cloud" %></th> <!-- HACER VARIABLE TOTAL-->
+                      <th><%= sortable "oc_id_cloud", Invoice, "id_cloud" %></th>
+                      <th><%= sortable "status", "estado", Invoice, "id_cloud" %></th>
+                      <th><%= sortable "bank_account", "cuenta", Invoice, "id_cloud" %></th>
+                      <th><%= sortable "owner", "nuestra", Invoice, "id_cloud" %></th>
                     </tr>
                 </thead>
 
