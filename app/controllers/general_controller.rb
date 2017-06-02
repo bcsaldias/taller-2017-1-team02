@@ -35,8 +35,6 @@ class GeneralController < ApplicationController
 
   end
 
-<<<<<<< HEAD
-=======
   def oc
     # J: Busca localmente las POrders
     @our_purchase_orders = PurchaseOrder.where(owner: true).order(sort_column + " " + sort_direction)
@@ -60,7 +58,6 @@ class GeneralController < ApplicationController
     @factory = ProductionOrder.all
   end
 
->>>>>>> cee797a... Added column sort PurchaseOrder
   def authorize
     redirect_to '/login' unless current_user
   end
