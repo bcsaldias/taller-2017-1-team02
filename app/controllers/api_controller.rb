@@ -104,19 +104,21 @@ class ApiController < ApplicationController
   end
 
 	def testj3
-		cliente = Supplier.find_by(id: 2)
-		proveedor = Supplier.find_by(id: 7)
-		sku = "2"
-		fechaEntrega = (Time.now + 10.hours)
-		fechaEntrega = Tiempo.tiempo_a_milisegundos(5, 29, 10, 0)
-		puts "fechaEntrega = #{fechaEntrega}"
-		cantidad = 100
-		precioUnitario = 100
-		canal =  "b2b"
-		ret = Purchases.create_purchase_order(cliente, proveedor, sku,
-										fechaEntrega, cantidad, precioUnitario,
-										canal)
-		json_response({response: ret})
+		puts Time.now
+		warehouses_id = Warehouses.get_warehouses_id
+		stock_general = Production.get_all_stock_warehouse(warehouses_id['general'])
+    stock_pregeneral = Production.get_all_stock_warehouse(warehouses_id['pregeneral'])
+    stock_recepcion = Production.get_all_stock_warehouse(warehouses_id['recepcion'])
+    stock_pulmon = Production.get_all_stock_warehouse(warehouses_id['pulmon'])
+    stock_despacho = Production.get_all_stock_warehouse(warehouses_id['despacho'])
+
+    puts "General: #{stock_general}"
+    puts "Pregeneral: #{stock_pregeneral}"
+    puts "Recepcion: #{stock_recepcion}"
+    puts "Pulmon: #{stock_pulmon}"
+    puts "Despacho: #{stock_despacho}"
+		json_response({Despacho: "Finito"})
+
 	end
 
 	# def testj4
@@ -126,11 +128,13 @@ class ApiController < ApplicationController
 	# end
 
 	def testj4
-		t_inicial = Time.now
-		Product.all.each do |p|
-			puts p.reserved_stock
-		end
-		json_response({response: Time.now - t_inicial})
+		warehouse_id = "590baa76d6b4ec000490255e"
+		sku = "26"
+		cant = Production.get_stock(warehouse_id, sku)
+		#puts Production.get_warehouses()
+		#json_response({Despacho: "Des", sku: sku})
+		puts cant
+		json_response({Despacho: cant, sku: sku})
 	end
 
 	def actualizar_deadlines_purchase_orders

@@ -28,16 +28,15 @@
                     <li>
                         <%= link_to "Administración", :managment, method: :get %>
                     </li>
+                    <% if home %>
+                        <li>
+                            <%= link_to "Dashboards", :dashboard, method: :get %>
+                        </li>
+                    <% end %>         
                     <li>
                         <%= link_to "Logout", :logout, method: :get %>
                     </li>
-                <% end %>  
-                <% if home %>
-                    <li>
-                        <%= link_to "Dashboards", :dashboard, method: :get %>
-                    </li>
                 <% end %>                
-
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

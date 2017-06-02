@@ -37,6 +37,9 @@ Rails.application.routes.draw do
   post 'refresh_purchase_orders' => 'managments#refresh_purchase_orders', as: :refresh_purchase_orders
   post 'stocks_force_update' => 'managments#stocks_force_update', as: :stocks_force_update
 
+  post 'move_despacho_general' => 'managments#move_despacho_general', as: :move_despacho_general
+  post 'move_recepcion_general' => 'managments#move_recepcion_general', as: :move_recepcion_general
+
   get 'dashboard/index'
 
   post 'create_oc_with_price' => 'managments#create_oc_with_price', as: :create_oc_with_price
@@ -51,8 +54,8 @@ Rails.application.routes.draw do
   apipie
   #get 'test' => 'api#test'
   #get 'test2' => 'api#test2'
-  #get 'testj3' => 'api#testj3'
-  #get 'testj4' => 'api#testj4'
+  get 'testj3' => 'api#testj3'
+  get 'testj4' => 'api#testj4'
   #get 'tiempo' => 'api#tiempo'
 
 
@@ -68,6 +71,7 @@ Rails.application.routes.draw do
   
   
   get 'factory_managment' => 'managments#index', :as => :managment
+
 
   put 'purchase_orders/:id' => 'purchase_orders#realizar_pedido'
 
