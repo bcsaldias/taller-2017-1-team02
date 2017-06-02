@@ -17,7 +17,7 @@ class ManagmentsController < ApplicationController
       if pv.quantity != pv.quantity_done
 
         if not vouchers_id.include?(pv.voucher_id)
-          voucher = Voucher.find(pv.voucher_id).order(sort_column(Voucher, "id_cloud") + " " + sort_direction)
+          voucher = Voucher.find(pv.voucher_id)#.order(sort_column(Voucher, "id_cloud") + " " + sort_direction)
 
       	  if voucher.status != "despachada"
             		vouchers << voucher
@@ -29,7 +29,7 @@ class ManagmentsController < ApplicationController
       end
     end
 
-    @show_vouchers = vouchers
+    @show_vouchers =  Voucher.where('id IN (?)', vouchers_id).order(sort_column(Voucher, "id_cloud") + " " + sort_direction)
   end
 
   def despachar_boleta
