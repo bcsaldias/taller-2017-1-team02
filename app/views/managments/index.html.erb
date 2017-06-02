@@ -35,15 +35,15 @@
             <table  class="table table-bordered" cellspacing="0" width="100%">
                 <thead>
                     <tr>
-                      <th>Sku</th>
-                      <th>Status</th>
-                      <th>Método de pago</th>
-                      <th>id cloud</th>
-                      <th>Despachado</th>
-                      <th>Cantidad</th>
-                      <th>Creadas</th>
-                      <th>Deadline</th>
-                      <th>Acción</th>
+                      <th><%= sortable "product_sku", "Sku", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "state", "Status", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "payment_method", "Método de pago", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "id_cloud", "id cloud", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "quantity_done", "Despachado", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "quantity", "Cantidad", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "created_at", "Creadas", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "deadline", "Deadline", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "Acción", PurchaseOrder, "product_sku"  %></th>
                     </tr>
                 </thead>
 
@@ -82,11 +82,11 @@
             <table  class="table table-bordered" cellspacing="0" width="100%">
                 <thead>
                     <tr>
-                      <th>Id cloud</th>
-                      <th>Spree order</th>
-                      <th>Dirección</th>
-                      <th>Estado</th>
-                      <th>Monto total</th>
+                      <th><%= sortable "id_cloud", "Id cloud", Voucher, "id_cloud"  %></th>
+                      <th><%= sortable "spree_order_id", "Spree order", Voucher, "id_cloud"  %></th>
+                      <th><%= sortable "address", "Dirección", Voucher, "id_cloud"  %></th>
+                      <th><%= sortable "status", "Estado", Voucher, "id_cloud"  %></th>
+                      <th><%= sortable "Monto total", Voucher, "id_cloud"  %></th>
                     </tr>
                 </thead>
 

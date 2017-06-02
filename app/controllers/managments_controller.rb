@@ -1,13 +1,13 @@
 #include HTTParty
 class ManagmentsController < ApplicationController
   before_action :authorize
-  helper_method :sort_wh, :notify_deliver, :deliver, :check_for_availablility, :create_oc, :accept_oc
+  helper_method :sort_wh, :notify_deliver, :deliver, :check_for_availablility, :create_oc, :accept_oc, :sort_column, :sort_direction
   include Warehouses
   include RawMaterial
   require 'json'
 
   def index
-    @being_delivered = PurchaseOrder.where(delivering: true)
+    @being_delivered = PurchaseOrder.where(delivering: true).order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
     pending_vouchers = VoucherStock.all#where("quantity = ? OR quantity_done = ?", value, value)
 
     #show_stocks_vouchers = []
@@ -17,12 +17,12 @@ class ManagmentsController < ApplicationController
       if pv.quantity != pv.quantity_done
 
         if not vouchers_id.include?(pv.voucher_id)
-          voucher = Voucher.find(pv.voucher_id)
+          voucher = Voucher.find(pv.voucher_id).order(sort_column(Voucher, "id_cloud") + " " + sort_direction)
 
-	  if voucher.status != "despachada"
-		vouchers << voucher
-		vouchers_id << pv.voucher_id
-	  end
+      	  if voucher.status != "despachada"
+            		vouchers << voucher
+            		vouchers_id << pv.voucher_id
+      	  end
           #show_stocks_vouchers <<
         end
         #pv.voucher_id
@@ -30,8 +30,7 @@ class ManagmentsController < ApplicationController
     end
 
     @show_vouchers = vouchers
-
-end
+  end
 
   def despachar_boleta
     voucher_id = params[:voucher_id]
@@ -235,13 +234,18 @@ end
   end
 
 
-
-
-
-
-
   def authorize
     redirect_to '/login' unless current_user
+  end
+
+  private
+  
+  def sort_column(nombre, defecto)
+    nombre.column_names.include?(params[:sort]) ? params[:sort] : defecto
+  end
+  
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
 
 
