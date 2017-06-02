@@ -1,0 +1,76 @@
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" type="text/css" href="/assets/stylesheets/bootstrap.css">
+</head>
+
+<%= render "layouts/header" %>
+
+
+<body>
+    <% if current_user %>
+      <%= render "layouts/navbar",  title: '',  login: false, logout: true, home: true %>
+    <% end %>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="page-header">
+        <h1>Boletas</h1>
+      </div>
+    </div>
+  </div>
+
+    <div class="container">
+
+      <!-- Marketing Icons Section -->
+      <div class="row">
+
+
+          <div class="panel panel-primary">
+            <!-- Default panel contents -->
+            <div class="panel-heading">Boletas</div>
+
+            <!-- Table -->
+            <!-- Table -->
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Id cloud</th>
+                  <th>OC id cloud</th>
+                  <th>Estado</th>
+                  <th>Cliente</th>
+                  <th>Bruto</th>
+                  <th>Iva</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <% @vouchers.each do |p| %>
+                  <tr>
+                    <td><%= p.id_cloud %></td>
+                    <td><%= p.oc_id_cloud %></td>
+                    <td><%= p.status %></td>
+                    <td><%= p.client %></td>
+                    <td><%= p.bruto %></td>
+                    <td><%= p.iva %></td>
+                    <td><%= p.bruto + p.iva %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+
+
+
+
+
+  <script type="text/javascript" src="/assets/js/jquery.js"></script>
+  <script type="text/javascript" src="/assets/js/bootstrap.js"></script>
+
+
+</body>
+</html>
