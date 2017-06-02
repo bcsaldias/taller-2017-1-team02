@@ -74,7 +74,7 @@ module Warehouses
     #preparar bodega para despachar
     #retorna true si queda lista, un int indicando cuantos productos del sku deja en la bodega de despacho
   def self.get_despacho_ready(sku, q_a_despachar)
-    sleep_time = 7
+    sleep_time = 1
     max_request = 50
     warehouses_id = self.get_warehouses_id
 
@@ -300,7 +300,7 @@ module Warehouses
   end
 
   def self.sort_warehouses
-    sleep_time = 6
+    sleep_time = 1
     max_request_counter = 50
     puts "starting reorder"
     warehouses_id = self.get_warehouses_id

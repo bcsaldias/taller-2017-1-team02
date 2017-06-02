@@ -92,7 +92,7 @@ class Product < ApplicationRecord
   end
 
   def stock_disponible
-    minimo_sprint = 100
+    minimo_sprint = 0#100
     stock_actual = self.all_stock
     stock_reservado = self.reserved_stock
 
