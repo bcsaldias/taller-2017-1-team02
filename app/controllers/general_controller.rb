@@ -26,7 +26,13 @@ class GeneralController < ApplicationController
 
     @transactions_ok = Transaction.where(state: true)
     @transactions_fail = Transaction.where(state: false)
-    
+
+    @vouchers = Voucher.all
+  end
+
+  def vouchers
+    @vouchers = Voucher.all
+
   end
 
 <<<<<<< HEAD
