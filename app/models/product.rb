@@ -17,7 +17,7 @@ class Product < ApplicationRecord
 
   def self.public_catalogue
     Product.where(owner: true).map { |p| {:sku => p.sku,
-                          :price => p.price,
+                          :precio => p.price,
                           :stock => p.stock_disponible} }
   end
 
