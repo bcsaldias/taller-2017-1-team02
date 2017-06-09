@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170530144970) do
+ActiveRecord::Schema.define(version: 20170609191139) do
 
   create_table "contacts", force: :cascade do |t|
     t.integer  "product_id"
@@ -1134,11 +1134,11 @@ ActiveRecord::Schema.define(version: 20170530144970) do
     t.string   "id_cloud"
     t.string   "origen"
     t.string   "destino"
-    t.string   "monto"
     t.boolean  "owner"
     t.boolean  "state"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal  "monto"
   end
 
   create_table "users", force: :cascade do |t|
