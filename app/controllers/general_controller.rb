@@ -16,8 +16,8 @@ class GeneralController < ApplicationController
 
   def oc
     # J: Busca localmente las POrders
-    @our_purchase_orders = PurchaseOrder.where(owner: true).where("group_number > 0").order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
-    @purchase_orders = PurchaseOrder.where(owner: nil).where("group_number > 0").order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
+    @our_purchase_orders = PurchaseOrder.where(owner: true).where("group_number != -1").order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
+    @purchase_orders = PurchaseOrder.where(owner: nil).where("group_number != -1").order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
   end
 
   def ftp_oc

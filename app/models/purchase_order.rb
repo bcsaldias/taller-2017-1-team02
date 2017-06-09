@@ -39,7 +39,7 @@ class PurchaseOrder < ApplicationRecord
 
     puts "Precio producto: #{@product.price}"
     puts "Precio OC: #{self.unit_price}"
-    if self.unit_price < @product.price
+    if self.group_number != -1 and self.unit_price < @product.price
       self.cause = "Precio bajo"
       return false
     end
