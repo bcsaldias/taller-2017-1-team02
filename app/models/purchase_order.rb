@@ -51,8 +51,6 @@ class PurchaseOrder < ApplicationRecord
       return false
     end
 
-
-
     #puts "stock_actual: #{stock_actual}"
     #puts "stock_reservado: #{stock_reservado}"
     s_disponible = @product.stock_disponible 

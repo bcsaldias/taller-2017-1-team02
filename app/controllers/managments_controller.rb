@@ -129,9 +129,17 @@ class ManagmentsController < ApplicationController
   def refresh_ftp
     ret =  FtpOrders.check_orders
     json_response({ret: ret})
-
   end
 
+
+  def deliver_ftp
+    puts "deliver ftp"
+    order = PurchaseOrder.where(id_cloud: params[:oc_cloud_id]).first
+    order.delivering = true
+    order.save!
+    out = Production.deliver_ftp_order(params[:oc_cloud_id])
+    json_response({ret: out})
+  end
 
 # Obtiene todas las transacciones del servidor y almacena localmente
   def refresh_transactions

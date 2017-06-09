@@ -178,7 +178,7 @@ module Warehouses
   end
 
 #despachar_OC despacha las ordenes de compra
-  def self.despachar_OC(id_cloud_OC)
+  def self.despachar_OC(id_cloud_OC, distribuidor=false)
     purchase_order = Sales.get_purchase_order(id_cloud_OC)
     our_purchase_order = PurchaseOrder.where(id_cloud: id_cloud_OC).first
 
@@ -232,8 +232,15 @@ module Warehouses
           puts "DESPACHAR"
           puts our_purchase_order.quantity_done
           puts product
-          ret = Production.move_stock_external(client_warehouse, produ=product['_id'],
-                                                id_cloud_OC, price)
+
+          if distribuidor
+            ret = Production.delete_ftp_stock('distribuidor', product['_id'],
+                                                  id_cloud_OC, price)
+          else
+            ret = Production.move_stock_external(client_warehouse, product['_id'],
+                                                  id_cloud_OC, price)
+          end
+
           puts "ret2"
           puts ret
           if ret.code == 200 or ret.code == 201

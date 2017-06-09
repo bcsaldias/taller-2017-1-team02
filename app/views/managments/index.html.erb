@@ -250,11 +250,9 @@
 
                       <tr>
 
-                        <td>Despachar OC</td>
-                        <%= form_tag(:deliver, method: "post") do %>
-                        <!--td><%= label_tag :factura_cloud_id %> <%= text_field_tag :factura_cloud_id %></td-->
+                        <td>Despachar ftp</td>
+                        <%= form_tag(:deliver_ftp, method: "post") do %>
                         <td><%= label_tag :oc_cloud_id %> <%= text_field_tag :oc_cloud_id %></td>
-                        <!--td><%= label_tag :proveedor_id %> <%= text_field_tag :proveedor %></td-->
                         <td> <%= submit_tag('Despachar') %></td>
                         <% end %>
 

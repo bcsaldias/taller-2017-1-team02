@@ -5,7 +5,6 @@ module Production
 
 	def self.get_warehouses
 		auth = Queries.generate_authorization
-		#puts auth
 		@result = Queries.get("bodega/almacenes",
 						  authorization=auth)
 		return JSON.parse @result.body
@@ -153,6 +152,21 @@ module Production
         boleta.save!
 
 		return true
+	end
+
+	def self.delete_ftp_stock(direccion, product_id, purchase_order_id, price)
+	    @auth = Queries.generate_authorization(_method = 'DELETE', 
+	                    params = [product_id, direccion, price, purchase_order_id])
+	    @body = {   'productoId' => product_id, 
+	    			'direccion' => direccion,
+	    			'precio' => price, 
+	    			'oc' => purchase_order_id }
+		ret = Queries.delete('bodega/stock', @auth, @body)
+		return ret
+	end
+
+	def self.deliver_ftp_order(order_id)
+		Warehouses.despachar_OC(order_id, distribuidor=true)
 	end
 
 end

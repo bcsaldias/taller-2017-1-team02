@@ -85,6 +85,7 @@
                     <tr>
                       <th><%= sortable "product_sku", "Sku", PurchaseOrder, "product_sku"  %></th>
                       <th><%= sortable "state", "Status", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "evaluar_si_aceptar", "¿Puedo aceptar?", PurchaseOrder, "product_sku"  %></th>
                       <th><%= sortable "id_cloud", PurchaseOrder, "product_sku"  %></th>
                       <th><%= sortable "quantity_done", "Despachado", PurchaseOrder, "product_sku"  %></th>
                       <th><%= sortable "quantity", "Cantidad", PurchaseOrder, "product_sku"  %></th>
@@ -101,6 +102,7 @@
                         <%= hidden_field_tag :cloud_id, purchase_order.id_cloud %>
                         <td><%= purchase_order.product_sku %></td>
                         <td><%= purchase_order.state %></td>
+                        <td><%= purchase_order.evaluar_si_aceptar %></td>
                         <td><%= purchase_order.id_cloud %></td>
                         <td><%= purchase_order.quantity_done %></td>
                         <td><%= purchase_order.quantity %></td>

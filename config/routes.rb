@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   post 'sort_wh' => 'managments#sort_wh', as: :sort_warehouses
   post 'notify_deliver' => 'managments#notify_deliver', as: :notify_deliver
   post 'deliver' => 'managments#deliver', as: :deliver
+  post 'deliver_ftp' => 'managments#deliver_ftp', as: :deliver_ftp
   post 'create_oc' => 'managments#create_oc', as: :create_oc
   post 'accept_oc' => 'general#accept_oc', as: :accept_oc
   post 'accept_ftp' => 'general#accept_ftp', as: :accept_ftp
