@@ -3,7 +3,7 @@ module FtpOrders
 	def self.save_fpt_order(order_id)
       order = Sales.get_purchase_order(order_id)
       @purchase_order = PurchaseOrder.create!(id_cloud: order['_id'],
-                                          state: 0,
+                                          state: order["estado"],
                                           product_sku: order['sku'],
                                           id_store_reception:  'distribuidor',
                                           quantity: order["cantidad"],
