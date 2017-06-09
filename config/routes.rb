@@ -25,6 +25,7 @@ Rails.application.routes.draw do
 
   post 'sort_wh' => 'managments#sort_wh', as: :sort_warehouses
   post 'notify_deliver' => 'managments#notify_deliver', as: :notify_deliver
+  post 'pay_invoice' => 'managments#pay_invoice', as: :pay_invoice
   post 'deliver' => 'managments#deliver', as: :deliver
   post 'create_oc' => 'managments#create_oc', as: :create_oc
   post 'accept_oc' => 'managments#accept_oc', as: :accept_oc
@@ -68,8 +69,8 @@ Rails.application.routes.draw do
   get 'invoices' => 'general#invoices', :as => :invoices
   get 'production' => 'general#production', :as => :production
   get 'vouchers' => 'general#vouchers', :as => :vouchers
-  
-  
+
+
   get 'factory_managment' => 'managments#index', :as => :managment
 
 

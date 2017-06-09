@@ -110,6 +110,14 @@ class ManagmentsController < ApplicationController
     ## esto va contra factura!
   end
 
+  def pay_invoice
+    puts "pagar factura"
+    puts params[:factura_cloud_id]
+    payment = Invoices.pay_invoice(params[:factura_cloud_id])
+    puts payment
+    json_response({ret: payment})
+  end
+
   def deliver
     puts "deliver"
     puts params[:oc_cloud_id]
@@ -239,11 +247,11 @@ class ManagmentsController < ApplicationController
   end
 
   private
-  
+
   def sort_column(nombre, defecto)
     nombre.column_names.include?(params[:sort]) ? params[:sort] : defecto
   end
-  
+
   def sort_direction
     %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
