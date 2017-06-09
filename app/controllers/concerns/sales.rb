@@ -29,6 +29,26 @@ module Sales
 						  body=body)
 		return @result.body
 	end
+
+	def self.accept_ftp_order(purchase_order_id)
+		order = self.get_purchase_order(purchase_order_id)
+		our_order = PurchaseOrder.where(id_cloud: purchase_order_id).first
+		our_order.state = 1
+		our_order.save!
+		ret = self.recepcionar_purchase_order(purchase_order_id)
+		return ret
+	end
+
+	def self.reject_ftp_order(purchase_order_id, cause)
+		order = self.get_purchase_order(purchase_order_id)
+		our_order = PurchaseOrder.where(id_cloud: purchase_order_id).first
+		our_order.state = 2
+		our_order.save!
+		ret = self.rechazar_purchase_order( purchase_order_id=purchase_order_id,
+											motivo_rechazo=cause)
+		return ret
+	end
+
 	
 
 	def self.accept_purchase_order(purchase_order_id)

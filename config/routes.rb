@@ -27,7 +27,8 @@ Rails.application.routes.draw do
   post 'notify_deliver' => 'managments#notify_deliver', as: :notify_deliver
   post 'deliver' => 'managments#deliver', as: :deliver
   post 'create_oc' => 'managments#create_oc', as: :create_oc
-  post 'accept_oc' => 'managments#accept_oc', as: :accept_oc
+  post 'accept_oc' => 'general#accept_oc', as: :accept_oc
+  post 'accept_ftp' => 'general#accept_ftp', as: :accept_ftp
   post 'detener_despacho' => 'managments#detener_despacho', as: :detener_despacho
   post 'despachar_boleta' => 'managments#despachar_boleta', as: :despachar_boleta
   post 'sent_production' => 'managments#sent_production', as: :sent_production
@@ -52,6 +53,7 @@ Rails.application.routes.draw do
   #resources :products
   #resources :suppliers
   apipie
+  get 'ftp' => 'api#ftp'
   #get 'test' => 'api#test'
   #get 'test2' => 'api#test2'
   #get 'testj3' => 'api#testj3'
@@ -64,6 +66,7 @@ Rails.application.routes.draw do
 
   get 'general' => 'general#index', :as => :general
   get 'oc' => 'general#oc', :as => :oc
+  get 'ftp_oc' => 'general#ftp_oc', :as => :ftp_oc
   get 'transaction' => 'general#transaction', :as => :transaction
   get 'invoices' => 'general#invoices', :as => :invoices
   get 'production' => 'general#production', :as => :production

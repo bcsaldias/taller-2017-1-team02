@@ -8,26 +8,6 @@ class GeneralController < ApplicationController
 
 
   def index
-    #@our_purchase_orders = PurchaseOrder.our_oc
-    #@purchase_orders = PurchaseOrder.requested
-
-    @personal_account = ProductionOrder.all
-
-
-    @production_orders = ProductionOrder.all
-    @factory = ProductionOrder.all
-
-    # J: Busca localmente las POrders
-    @our_purchase_orders = PurchaseOrder.where(owner: true)
-    @purchase_orders = PurchaseOrder.where(owner: nil)
-
-    @our_invoices = Invoice.where(owner: true)
-    @invoices = Invoice.where(owner: nil)
-
-    @transactions_ok = Transaction.where(state: true)
-    @transactions_fail = Transaction.where(state: false)
-
-    @vouchers = Voucher.all
   end
 
   def vouchers
@@ -36,9 +16,38 @@ class GeneralController < ApplicationController
 
   def oc
     # J: Busca localmente las POrders
-    @our_purchase_orders = PurchaseOrder.where(owner: true).order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
-    @purchase_orders = PurchaseOrder.where(owner: nil).order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
+    @our_purchase_orders = PurchaseOrder.where(owner: true).where("group_number > 0").order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
+    @purchase_orders = PurchaseOrder.where(owner: nil).where("group_number > 0").order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
   end
+
+  def ftp_oc
+    ftp_orders = PurchaseOrder.where("group_number == -1")
+    @created_ftp  = ftp_orders.where(state: 0).order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
+    @accepted_ftp  = ftp_orders.where(state: 1).order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
+    @rejected_ftp  = ftp_orders.where(state: 2).order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
+    @delivered_ftp  = ftp_orders.where(state: 3).order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
+  end
+
+  def accept_oc
+    @end =  nil
+    if params[:status] == "Aceptar"
+      @end = Sales.accept_purchase_order(params[:cloud_id])
+    elsif params[:status] == "Rechazar"
+      @end = Sales.reject_purchase_order(params[:cloud_id], cause='no alcanzamos')
+    end
+    json_response({oc:params[:cloud_id], status:params[:status]})
+  end
+
+  def accept_ftp
+    @end =  nil
+    if params[:status] == "Aceptar"
+      @end = Sales.accept_ftp_order(params[:cloud_id])
+    elsif params[:status] == "Rechazar"
+      @end = Sales.reject_ftp_order(params[:cloud_id], cause='no alcanzamos')
+    end
+    json_response({oc:params[:cloud_id], status:params[:status]})
+  end
+
 
   def invoices
     @our_invoices = Invoice.where(owner: true).order(sort_column(Invoice, "id_cloud") + " " + sort_direction)

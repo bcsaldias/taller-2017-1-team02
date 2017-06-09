@@ -58,17 +58,6 @@ class ManagmentsController < ApplicationController
     json_response({oc: params[:cloud_id], delivering: being_delivered.delivering})
   end
 
-
-  def accept_oc
-    @end =  nil
-    if params[:status] == "Aceptar"
-      @end = Sales.accept_purchase_order(params[:cloud_id])
-    elsif params[:status] == "Rechazar"
-      @end = Sales.reject_purchase_order(params[:cloud_id], cause='no alcanzamos')
-    end
-    json_response({oc:params[:cloud_id], status:params[:status]})
-  end
-
   def create_oc
     mes = params[:fecha_mes]
     dia = params[:fecha_dia]
@@ -171,7 +160,18 @@ class ManagmentsController < ApplicationController
   def refresh_purchase_orders
     cant =  PurchaseOrder.all.count
     refreshed = false
-    PurchaseOrder.all.each do |po| #where(owner: true)
+
+    PurchaseOrder.where("group_number == -1").each do |po|
+        puts "sfpt - Local: #{po.state} - Nube: #{cloud_po["estado"]}"
+        if po.state != cloud_po["estado"]
+          po.state = cloud_po["estado"]
+          po.save!
+          refreshed = true
+          puts "Modifico State: #{po.state}"
+        end
+    end
+
+    PurchaseOrder.where("group_number != -1").each do |po| #where(owner: true)
       id_cloud = po.id_cloud
       cloud_po = Sales.get_purchase_order(id_cloud)
 
