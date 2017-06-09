@@ -35,6 +35,9 @@ Rails.application.routes.draw do
   post 'check_for_availablility' => 'managments#check_for_availablility', as: :check_for_availablility
 
   post 'refresh_transactions' => 'managments#refresh_transactions', as: :refresh_transactions
+
+  post 'refresh_balance' => 'managments#refresh_balance', as: :refresh_balance
+
   post 'refresh_purchase_orders' => 'managments#refresh_purchase_orders', as: :refresh_purchase_orders
   post 'stocks_force_update' => 'managments#stocks_force_update', as: :stocks_force_update
 

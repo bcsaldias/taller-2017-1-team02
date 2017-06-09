@@ -232,7 +232,7 @@ module Warehouses
           puts "DESPACHAR"
           puts our_purchase_order.quantity_done
           puts product
-          ret = Production.move_stock_external(client_warehouse, produ=product['_id'],
+          ret = Production.move_stock_external(client_warehouse, product['_id'],
                                                 id_cloud_OC, price)
           puts "ret2"
           puts ret
