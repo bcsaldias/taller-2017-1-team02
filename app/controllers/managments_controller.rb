@@ -230,6 +230,12 @@ class ManagmentsController < ApplicationController
     json_response({response: "Actualizado"})
   end
 
+  def refresh_balance
+    saldo = Bank.get_account(Rails.configuration.environment_ids['bank_id'])['saldo']
+    puts saldo
+    @saldo = saldo
+    render "index.html.erb"
+  end
 
   def move_despacho_general
     puts "Entre mi metodo desp"
