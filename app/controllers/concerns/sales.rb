@@ -49,8 +49,6 @@ module Sales
 		return ret
 	end
 
-	
-
 	def self.accept_purchase_order(purchase_order_id)
 		order = self.get_purchase_order(purchase_order_id)
 		our_order = PurchaseOrder.where(id_cloud: purchase_order_id).first

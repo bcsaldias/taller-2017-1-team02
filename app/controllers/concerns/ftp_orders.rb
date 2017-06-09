@@ -1,6 +1,6 @@
 module FtpOrders
 
-	def save_fpt_order(order_id)
+	def self.save_fpt_order(order_id)
       order = Sales.get_purchase_order(order_id)
       @purchase_order = PurchaseOrder.create!(id_cloud: order['_id'],
                                           state: 0,
@@ -16,13 +16,13 @@ module FtpOrders
                                           )
 	end
 
-	def revisar_ftp_order(order_id)
+	def self.revisar_ftp_order(order_id)
 		if PurchaseOrder.where(id_cloud: order_id).count == 0
-			save_fpt_order(order_id)
+			self.save_fpt_order(order_id)
 		end
 	end
 
-	def check_orders
+	def self.check_orders
 
 		host = Rails.configuration.environment_ids['ftp_host']
 		user = Rails.configuration.environment_ids['ftp_user']
@@ -37,7 +37,7 @@ module FtpOrders
 				   	current_line = f.gets
 				    if current_line.include?('id')
 				    	data = data = Hash.from_xml(current_line)
-				    	revisar_ftp_order(data['id'])
+				    	self.revisar_ftp_order(data['id'])
 				    end
 				  end
 				end
@@ -45,6 +45,7 @@ module FtpOrders
 		  end
 		  json_response({ret:  true })
 		end
+		return true
 	end
 
 end

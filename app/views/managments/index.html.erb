@@ -119,7 +119,7 @@
 
           <div class="panel panel-primary">
             <!-- Default panel contents -->
-            <div class="panel-heading">Generar solicitud manual</div>
+            <div class="panel-heading">Administración OC manual</div>
 
             <!-- Table -->
             <table  class="table table-bordered" cellspacing="0" width="100%">
@@ -221,6 +221,48 @@
             </table>
           </div>
 
+
+    <div class="container">
+
+      <!-- Marketing Icons Section -->
+      <div class="row">
+
+          <div class="panel panel-primary">
+            <!-- Default panel contents -->
+            <div class="panel-heading">FTP</div>
+
+            <!-- Table -->
+            <table  class="table table-bordered" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                      <th>Método</th>
+                      <th>Accionar</th>
+                    </tr>
+                </thead>
+
+                <tbody id="news-table">
+
+                      <tr>
+                        <td>Actualizar ftp orders</td>
+                        <td><%= button_to 'Actualizar oc', :refresh_ftp %></td>
+                      </tr>
+
+
+                      <tr>
+
+                        <td>Despachar OC</td>
+                        <%= form_tag(:deliver, method: "post") do %>
+                        <!--td><%= label_tag :factura_cloud_id %> <%= text_field_tag :factura_cloud_id %></td-->
+                        <td><%= label_tag :oc_cloud_id %> <%= text_field_tag :oc_cloud_id %></td>
+                        <!--td><%= label_tag :proveedor_id %> <%= text_field_tag :proveedor %></td-->
+                        <td> <%= submit_tag('Despachar') %></td>
+                        <% end %>
+
+                      </tr>
+
+                </tbody>
+            </table>
+          </div>
 
   <script type="text/javascript" src="/assets/js/jquery.js"></script>
   <script type="text/javascript" src="/assets/js/bootstrap.js"></script>

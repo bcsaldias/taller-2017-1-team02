@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
 	include Factory
 	include Invoices
 	include Sales
+	include FtpOrders
 
 	private
 	def not_authenticated

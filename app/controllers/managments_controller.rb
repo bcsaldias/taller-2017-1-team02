@@ -4,6 +4,7 @@ class ManagmentsController < ApplicationController
   helper_method :sort_wh, :notify_deliver, :deliver, :check_for_availablility, :create_oc, :accept_oc, :sort_column, :sort_direction
   include Warehouses
   include RawMaterial
+  include FtpOrders
   require 'json'
 
   def index
@@ -124,6 +125,13 @@ class ManagmentsController < ApplicationController
     ret = Warehouses.sort_warehouses
     json_response({ret: ret})
   end
+
+  def refresh_ftp
+    ret =  FtpOrders.check_orders
+    json_response({ret: ret})
+
+  end
+
 
 # Obtiene todas las transacciones del servidor y almacena localmente
   def refresh_transactions
