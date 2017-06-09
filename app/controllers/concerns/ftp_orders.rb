@@ -18,7 +18,7 @@ module FtpOrders
 	def self.revisar_ftp_order(order_id)
 		if PurchaseOrder.where(id_cloud: order_id).count == 0
 			self.save_fpt_order(order_id)
-		end
+	    end
 	end
 
 	def self.check_orders

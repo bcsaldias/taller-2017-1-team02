@@ -18,6 +18,25 @@ class PurchaseOrder < ApplicationRecord
     end
   end
 
+  def self.can_accept_ftp
+    selected_ids = []
+    PurchaseOrder.where("group_number == -1").where(state: 0).each do |item|
+        if item.evaluar_si_aceptar
+          selected_ids << item.id
+        end
+    end
+    return PurchaseOrder.where('id IN (?)', selected_ids)
+  end
+
+  def self.cannot_accept_ftp
+    selected_ids = []
+    PurchaseOrder.where("group_number == -1").where(state: 0).each do |item|
+        if not item.evaluar_si_aceptar
+          selected_ids << item.id
+        end
+    end
+    return PurchaseOrder.where('id IN (?)', selected_ids)
+  end
 
   def cantidad
   	order = Sales.get_purchase_order(self.id_cloud)

@@ -22,7 +22,11 @@ class GeneralController < ApplicationController
 
   def ftp_oc
     ftp_orders = PurchaseOrder.where("group_number == -1")
-    @created_ftp  = ftp_orders.where(state: 0).order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
+    #@created_ftp  = ftp_orders.where(state: 0).order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
+    
+    @created_can_ftp = PurchaseOrder.can_accept_ftp.order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
+    @created_cannot_ftp = PurchaseOrder.cannot_accept_ftp.order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
+
     @accepted_ftp  = ftp_orders.where(state: 1).order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
     @rejected_ftp  = ftp_orders.where(state: 2).order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
     @delivered_ftp  = ftp_orders.where(state: 3).order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
