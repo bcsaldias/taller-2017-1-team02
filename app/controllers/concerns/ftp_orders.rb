@@ -1,5 +1,9 @@
 module FtpOrders
-
+	require 'json'
+	require 'net/http'
+	require 'base64'
+	require 'net/sftp'
+	
 	def self.save_fpt_order(order_id)
       order = Sales.get_purchase_order(order_id)
       @purchase_order = PurchaseOrder.create!(id_cloud: order['_id'],
