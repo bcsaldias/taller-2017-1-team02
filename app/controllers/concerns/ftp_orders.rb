@@ -1,8 +1,4 @@
 module FtpOrders
-	require 'json'
-	require 'net/http'
-	require 'base64'
-	require 'net/sftp'
 	
 	def self.save_fpt_order(order_id)
       order = Sales.get_purchase_order(order_id)
@@ -46,7 +42,6 @@ module FtpOrders
 				end
 		  	end
 		  end
-		  json_response({ret:  true })
 		end
 		return true
 	end
