@@ -306,9 +306,11 @@ module Warehouses
     PurchaseOrder.where(delivering: true).count == 0
   end
 
+
   def self.sort_warehouses
     sleep_time = 1
     max_request_counter = 50
+    moving_batch = 40
     puts "starting reorder"
     warehouses_id = self.get_warehouses_id
     # puts warehouses_id['general']
@@ -341,23 +343,15 @@ module Warehouses
           for product_type in stock_despacho
             stock_despacho_sku = Production.get_stock(warehouses_id['despacho'], product_type['_id'])
 
-            if stock_despacho_sku.length >= 10
-              (0..9).to_a.each do |n|
-                product_id = stock_despacho_sku[n]['_id']
-                if self.puede_reordenar_ok
-                  Production.move_stock(warehouses_id['general'], product_id)
-                  puts "somethg moved"
-                  request_counter += 1
-                end
-              end
-            else
-              product_id = stock_despacho_sku[0]['_id']
-              if self.puede_reordenar_ok
-                Production.move_stock(warehouses_id['general'], product_id)
-                puts "somethg moved"
-                request_counter += 1
-              end
+            cant_a_mover = [stock_recepcion_sku.length, moving_batch].min
+            (0..cant_a_mover-1).to_a.each do |n|
+              product_id = stock_recepcion_sku[n]['_id']
+              Production.move_stock(warehouses_id['general'], product_id)
+              puts "somethg moved R->G"
+              request_counter += 1
             end
+
+
              request_counter = Tiempo.sleep_if_to_many_requests(request_counter, max_request_counter, sleep_time)
 
           end
@@ -371,48 +365,37 @@ module Warehouses
           for product_type in stock_pregeneral
             stock_pregeneral_sku = Production.get_stock(warehouses_id['pregeneral'], product_type['_id'])
 
-            if stock_pregeneral_sku.length >= 10
-              (0..9).to_a.each do |n|
-                product_id = stock_pregeneral_sku[n]['_id']
-                Production.move_stock(warehouses_id['general'], product_id)
-                puts "somethg moved"
-                request_counter += 1
-              end
-            else
-              product_id = stock_pregeneral_sku[0]['_id']
+            cant_a_mover = [stock_pregeneral_sku.length, moving_batch].min
+            (0..cant_a_mover-1).to_a.each do |n|
+              product_id = stock_pregeneral_sku[n]['_id']
               Production.move_stock(warehouses_id['general'], product_id)
-              puts "somethg moved"
+              puts "somethg moved P->G"
               request_counter += 1
             end
+
             request_counter = Tiempo.sleep_if_to_many_requests(request_counter, max_request_counter, sleep_time)
           end
           stock_pregeneral = Production.get_all_stock_warehouse(warehouses_id['pregeneral'])
           stock_general = Production.get_all_stock_warehouse(warehouses_id['general'])
         end
 
-        # RECEPCION -> PREGENERAL
-        if !self.full_warehouse(warehouses_id['pregeneral']) and !self.empty_warehouse(warehouses_id['recepcion'])
-          puts "Entro a RECEPCION -> PREGENERAL"
+        # RECEPCION -> GENERAL
+        if !self.full_warehouse(warehouses_id['general']) and !self.empty_warehouse(warehouses_id['recepcion'])
+          puts "Entro a RECEPCION -> GENERAL"
           for product_type in stock_recepcion
             stock_recepcion_sku = Production.get_stock(warehouses_id['recepcion'], product_type['_id'])
 
-            if stock_recepcion_sku.length >= 10
-              (0..9).to_a.each do |n|
-                product_id = stock_recepcion_sku[n]['_id']
-                Production.move_stock(warehouses_id['pregeneral'], product_id)
-                puts "somethg moved"
-                request_counter += 1
-              end
-            else
-              product_id = stock_recepcion_sku[0]['_id']
-              Production.move_stock(warehouses_id['pregeneral'], product_id)
-              puts "somethg moved"
+            cant_a_mover = [stock_recepcion_sku.length, moving_batch].min
+            (0..cant_a_mover-1).to_a.each do |n|
+              product_id = stock_recepcion_sku[n]['_id']
+              Production.move_stock(warehouses_id['general'], product_id)
+              puts "somethg moved R->G"
               request_counter += 1
-             end
-             request_counter = Tiempo.sleep_if_to_many_requests(request_counter, max_request_counter, sleep_time)
+            end
+            request_counter = Tiempo.sleep_if_to_many_requests(request_counter, max_request_counter, sleep_time)
           end
           stock_recepcion = Production.get_all_stock_warehouse(warehouses_id['recepcion'])
-          stock_pregeneral = Production.get_all_stock_warehouse(warehouses_id['pregeneral'])
+          stock_general = Production.get_all_stock_warehouse(warehouses_id['general'])
         end
 
         # PULMON -> RECEPCION
@@ -421,19 +404,14 @@ module Warehouses
           for product_type in stock_pulmon
             stock_pulmon_sku = Production.get_stock(warehouses_id['pulmon'], product_type['_id'])
 
-            if stock_pulmon_sku.length >= 10
-              (0..9).to_a.each do |n|
-                product_id = stock_pulmon_sku[n]['_id']
-                Production.move_stock(warehouses_id['recepcion'], product_id)
-                puts "somethg moved"
-                request_counter += 1
-              end
-            else
-              product_id = stock_pulmon_sku[0]['_id']
+            cant_a_mover = [stock_pulmon_sku.length, moving_batch].min
+            (0..cant_a_mover-1).to_a.each do |n|
+              product_id = stock_pulmon_sku[n]['_id']
               Production.move_stock(warehouses_id['recepcion'], product_id)
-              puts "somethg moved"
+              puts "somethg moved P->R"
               request_counter += 1
-             end
+            end
+
              request_counter = Tiempo.sleep_if_to_many_requests(request_counter, max_request_counter, sleep_time)
           end
           stock_pulmon = Production.get_all_stock_warehouse(warehouses_id['pulmon'])
