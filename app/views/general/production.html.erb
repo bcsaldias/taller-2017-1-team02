@@ -49,7 +49,11 @@
                       <tr>
                         <td><%= production_order.product_sku %></td>
                         <td><%= production_order.cantidad %></td>
-                        <td><%= production_order.disponible %></td>
+                        <% if production_order.disponible != nil %>
+                          <td><%= production_order.disponible.strftime("%d/%b at %I:%M%p") %></td>
+                        <% else %>
+                          <td>  </td>
+                        <% end %>
                       </tr>
                     <% end %>
                 </tbody>

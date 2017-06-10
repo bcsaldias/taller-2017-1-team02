@@ -1,9 +1,22 @@
 module ApplicationHelper
 
 	def sortable(column, title = nil, nombre, defecto)
-	  title ||= column.titleize
-	  direction = column == sort_column(nombre, defecto) && sort_direction == "asc" ? "desc" : "asc"
-	  link_to title, {:sort => column, :direction => direction}
+		title ||= column.titleize
+		direction = column == sort_column(nombre, defecto) && sort_direction == "asc" ? "desc" : "asc"
+		link_to title, {:sort => column, :direction => direction}
+	end
+
+	def seg2dhms(secs)
+		time = secs.round
+		sec = time % 60
+		time /= 60
+		mins = time % 60
+		time /= 60
+		hrs = time % 24
+		time /= 24
+		days = time
+		days.to_s + "d " + hrs.to_s + "hrs"
+		#[days, hrs, mins, sec]
 	end
 
 end 

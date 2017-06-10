@@ -1,0 +1,77 @@
+<html>
+
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" type="text/css" href="/assets/stylesheets/bootstrap.css">
+</head>
+
+
+<%= render "layouts/header" %>
+
+
+<body>
+    <% if current_user %>
+      <%= render "layouts/navbar",  title: '',  login: false, logout: true, home: true %>
+    <% end %>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="page-header">
+        <h1>Grupo 2 </h1>
+      </div>
+    </div>
+  </div>
+
+    <div class="container">
+
+      <!-- Marketing Icons Section -->
+      <div class="row">
+
+      <div class="panel panel-primary">
+            <!-- Default panel contents -->
+            <div class="panel-heading">Almacenes</div>
+
+
+            <!-- Table -->
+            <table class="table table-bordered sortable">
+              <thead>
+                <tr>
+                  <!--th>Id cloud</th-->
+                  <th>Sku</th>
+                  <th>Nombre</th>
+                  <th>Cantidad en despacho</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <% @stock.each do |s| %>
+                  <tr>
+                    <td><%= s["_id"] %></td>
+                    <% @products.each do |p| %>
+                      <% if p.sku == s["_id"] %>
+                        <td><%= p.description %></td>
+                      <% end %>
+                    <% end %>
+                    <td><%= s["total"] %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+      </div>
+
+      
+
+
+     
+
+
+
+  <script type="text/javascript" src="/assets/js/jquery.js"></script>
+  <script type="text/javascript" src="/assets/js/bootstrap.js"></script>
+
+
+</body>
+</html>

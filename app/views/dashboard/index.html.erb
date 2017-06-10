@@ -40,7 +40,7 @@
             <table class="table table-bordered sortable">
               <thead>
                 <tr>
-                  <!--th>Id cloud</th-->
+                  <th>Id cloud</th>
                   <th>Utilizado</th>
                   <th>Capacidad</th>
                   <th>Disponible</th>
@@ -52,7 +52,7 @@
               <tbody>
                 <% @warehouses.each do |w| %>
                   <tr>
-                    <!--td><%= w["_id"] %></td-->
+                    <td><%= w["_id"] %></td>
                     <td><%= w["usedSpace"] %></td>
                     <td><%= w["totalSpace"] %></td>
                     <td><%= w["totalSpace"] - w["usedSpace"] %></td>
