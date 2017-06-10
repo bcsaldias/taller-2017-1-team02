@@ -228,6 +228,11 @@ module Warehouses
         index_count = 0
         while count < q_to_send
 
+          if index_count = 99
+            stock_a_despachar = Production.get_stock(warehouses_id['despacho'], purchase_order["sku"])
+            index_count = 0
+          end
+
           product = stock_a_despachar[index_count]
           puts "DESPACHAR"
           puts our_purchase_order.quantity_done
@@ -300,13 +305,13 @@ module Warehouses
     end
   end
 
-  #ordena los almacenes, dejando la mayoria en general
 
   def self.puede_reordenar_ok
     PurchaseOrder.where(delivering: true).count == 0
   end
 
 
+  #ordena los almacenes, dejando la mayoria en general
   def self.sort_warehouses
     sleep_time = 1
     max_request_counter = 50
