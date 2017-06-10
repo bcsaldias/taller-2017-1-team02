@@ -321,7 +321,8 @@ module Warehouses
     stock_despacho = Production.get_all_stock_warehouse(warehouses_id['despacho'])
     request_counter = 0
 
-    while self.puede_reordenar_ok
+    Rails.application.config.able_to_reorder = true
+    while Rails.application.config.able_to_reorder
       puts "\n \nIteracion:"
       puts "General: #{stock_general}"
       puts "Pregeneral: #{stock_pregeneral}"
@@ -343,17 +344,14 @@ module Warehouses
           for product_type in stock_despacho
             stock_despacho_sku = Production.get_stock(warehouses_id['despacho'], product_type['_id'])
 
-            cant_a_mover = [stock_recepcion_sku.length, moving_batch].min
+            cant_a_mover = [stock_despacho_sku.length, moving_batch].min
             (0..cant_a_mover-1).to_a.each do |n|
-              product_id = stock_recepcion_sku[n]['_id']
+              product_id = stock_despacho_sku[n]['_id']
               Production.move_stock(warehouses_id['general'], product_id)
-              puts "somethg moved R->G"
+              puts "somethg moved D->G"
               request_counter += 1
             end
-
-
              request_counter = Tiempo.sleep_if_to_many_requests(request_counter, max_request_counter, sleep_time)
-
           end
           stock_despacho = Production.get_all_stock_warehouse(warehouses_id['despacho'])
           stock_general = Production.get_all_stock_warehouse(warehouses_id['general'])
@@ -486,22 +484,17 @@ module Warehouses
   def self.move_despacho_general
     sleep_time = 6
     max_request_counter = 50
-
+    moving_batch = 40
     warehouses_id = self.get_warehouses_id
 
     stock_general = Production.get_all_stock_warehouse(warehouses_id['general'])
-    stock_pregeneral = Production.get_all_stock_warehouse(warehouses_id['pregeneral'])
-    stock_recepcion = Production.get_all_stock_warehouse(warehouses_id['recepcion'])
-    stock_pulmon = Production.get_all_stock_warehouse(warehouses_id['pulmon'])
     stock_despacho = Production.get_all_stock_warehouse(warehouses_id['despacho'])
     request_counter = 0
 
-    while self.puede_reordenar_ok
+    Rails.application.config.able_to_reorder = true
+    while Rails.application.config.able_to_reorder #Crear boton que permita parar esto #self.puede_reordenar_ok
       puts "\n \nIteracion:"
       puts "General: #{stock_general}"
-      puts "Pregeneral: #{stock_pregeneral}"
-      puts "Recepcion: #{stock_recepcion}"
-      puts "Pulmon: #{stock_pulmon}"
       puts "Despacho: #{stock_despacho}"
 
       if stock_despacho.length == 0
@@ -512,34 +505,23 @@ module Warehouses
         return true
       else
         # DESPACHO -> GENERAL
-          if !self.full_warehouse(warehouses_id['general']) and !self.empty_warehouse(warehouses_id['despacho'])
-            puts "Despacho -> General"
-            for product_type in stock_despacho
-              stock_despacho_sku = Production.get_stock(warehouses_id['despacho'], product_type['_id'])
+        if !self.full_warehouse(warehouses_id['general']) and !self.empty_warehouse(warehouses_id['despacho'])
+          puts "Entro a Despacho -> General"
+          for product_type in stock_despacho
+            stock_despacho_sku = Production.get_stock(warehouses_id['despacho'], product_type['_id'])
 
-              if stock_despacho_sku.length >= 10
-                (0..9).to_a.each do |n|
-                  product_id = stock_despacho_sku[n]['_id']
-                  if self.puede_reordenar_ok
-                    Production.move_stock(warehouses_id['general'], product_id)
-                    puts "somethg moved"
-                    request_counter += 1
-                  end
-                end
-              else
-                product_id = stock_despacho_sku[0]['_id']
-                if self.puede_reordenar_ok
-                  Production.move_stock(warehouses_id['general'], product_id)
-                  puts "somethg moved"
-                  request_counter += 1
-                end
-              end
-               request_counter = Tiempo.sleep_if_to_many_requests(request_counter, max_request_counter, sleep_time)
-
+            cant_a_mover = [stock_despacho_sku.length, moving_batch].min
+            (0..cant_a_mover-1).to_a.each do |n|
+              product_id = stock_despacho_sku[n]['_id']
+              Production.move_stock(warehouses_id['general'], product_id)
+              puts "somethg moved Desp->Gen"
+              request_counter += 1
             end
-            stock_despacho = Production.get_all_stock_warehouse(warehouses_id['despacho'])
-            stock_general = Production.get_all_stock_warehouse(warehouses_id['general'])
+             request_counter = Tiempo.sleep_if_to_many_requests(request_counter, max_request_counter, sleep_time)
           end
+          stock_despacho = Production.get_all_stock_warehouse(warehouses_id['despacho'])
+          stock_general = Production.get_all_stock_warehouse(warehouses_id['general'])
+        end
       end
 
     end
@@ -550,22 +532,18 @@ module Warehouses
   def self.move_recepcion_general
     sleep_time = 6
     max_request_counter = 50
+    moving_batch = 40
     warehouses_id = self.get_warehouses_id
 
-
     stock_general = Production.get_all_stock_warehouse(warehouses_id['general'])
-    stock_pregeneral = Production.get_all_stock_warehouse(warehouses_id['pregeneral'])
     stock_recepcion = Production.get_all_stock_warehouse(warehouses_id['recepcion'])
-    stock_pulmon = Production.get_all_stock_warehouse(warehouses_id['pulmon'])
-    stock_despacho = Production.get_all_stock_warehouse(warehouses_id['despacho'])
     request_counter = 0
-    while self.puede_reordenar_ok
+
+    Rails.application.config.able_to_reorder = true
+    while Rails.application.config.able_to_reorder#Crear boton que permita parar esto #self.puede_reordenar_ok
       puts "\n \nIteracion:"
       puts "General: #{stock_general}"
-      puts "Pregeneral: #{stock_pregeneral}"
       puts "Recepcion: #{stock_recepcion}"
-      puts "Pulmon: #{stock_pulmon}"
-      puts "Despacho: #{stock_despacho}"
 
       if stock_recepcion.length == 0
         puts "Nada en recepcion!"
@@ -574,33 +552,24 @@ module Warehouses
         puts "Se llenaron las bodegas general"
         return true
       else
+        # RECEPCION -> GENERAL
+        if !self.full_warehouse(warehouses_id['general']) and !self.empty_warehouse(warehouses_id['recepcion'])
+          puts "Entro a RECEPCION -> GENERAL"
+          for product_type in stock_recepcion
+            stock_recepcion_sku = Production.get_stock(warehouses_id['recepcion'], product_type['_id'])
 
-          # RECEPCION -> GENERAL
-          if !self.full_warehouse(warehouses_id['general']) and !self.empty_warehouse(warehouses_id['recepcion'])
-            puts "RECEPCION -> GENERAL"
-            for product_type in stock_recepcion
-              stock_recepcion_sku = Production.get_stock(warehouses_id['recepcion'], product_type['_id'])
-
-              if stock_recepcion_sku.length >= 10
-                (0..9).to_a.each do |n|
-                  product_id = stock_recepcion_sku[n]['_id']
-                  Production.move_stock(warehouses_id['general'], product_id)
-                  puts "somethg moved"
-                  request_counter += 1
-                end
-              else
-                product_id = stock_recepcion_sku[0]['_id']
-                Production.move_stock(warehouses_id['general'], product_id)
-                puts "somethg moved"
-                request_counter += 1
-               end
-               request_counter = Tiempo.sleep_if_to_many_requests(request_counter, max_request_counter, sleep_time)
+            cant_a_mover = [stock_recepcion_sku.length, moving_batch].min
+            (0..cant_a_mover-1).to_a.each do |n|
+              product_id = stock_recepcion_sku[n]['_id']
+              Production.move_stock(warehouses_id['general'], product_id)
+              puts "somethg moved Recep->Gen"
+              request_counter += 1
             end
-            stock_recepcion = Production.get_all_stock_warehouse(warehouses_id['recepcion'])
-            stock_general = Production.get_all_stock_warehouse(warehouses_id['general'])
+            request_counter = Tiempo.sleep_if_to_many_requests(request_counter, max_request_counter, sleep_time)
           end
-
-
+          stock_recepcion = Production.get_all_stock_warehouse(warehouses_id['recepcion'])
+          stock_general = Production.get_all_stock_warehouse(warehouses_id['general'])
+        end
       end
     end
   end
