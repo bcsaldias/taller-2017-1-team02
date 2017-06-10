@@ -68,6 +68,7 @@ Rails.application.routes.draw do
   get 'invoices' => 'general#invoices', :as => :invoices
   get 'production' => 'general#production', :as => :production
   get 'vouchers' => 'general#vouchers', :as => :vouchers
+  get 'despacho' => 'general#despacho', :as => :despacho
   
   
   get 'factory_managment' => 'managments#index', :as => :managment

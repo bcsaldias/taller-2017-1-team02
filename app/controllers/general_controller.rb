@@ -58,6 +58,14 @@ class GeneralController < ApplicationController
     @factory = ProductionOrder.all.order(sort_column(ProductionOrder, "product_sku") + " " + sort_direction)
   end
 
+  def despacho
+    
+    #@stock = Production.get_all_stock_warehouse("590baa76d6b4ec000490255f") Bodega general
+    @stock = Production.get_all_stock_warehouse("590baa76d6b4ec000490255e") # Bodega despacho
+    @products = Product.all
+  end
+    
+
   def authorize
     redirect_to '/login' unless current_user
   end
