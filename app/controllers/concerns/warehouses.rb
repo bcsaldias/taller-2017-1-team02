@@ -313,7 +313,6 @@ module Warehouses
     moving_batch = 40
     puts "starting reorder"
     warehouses_id = self.get_warehouses_id
-    # puts warehouses_id['general']
     stock_general = Production.get_all_stock_warehouse(warehouses_id['general'])
     stock_pregeneral = Production.get_all_stock_warehouse(warehouses_id['pregeneral'])
     stock_recepcion = Production.get_all_stock_warehouse(warehouses_id['recepcion'])
@@ -416,9 +415,9 @@ module Warehouses
           stock_recepcion = Production.get_all_stock_warehouse(warehouses_id['recepcion'])
         end
       end
+      puts "\n \nAble_to_order: #{Rails.application.config.able_to_reorder}"
     end
-
-    puts "No Ordenado, retorno false (puede ser por estar despachando)"
+    puts "No Ordenado"#, retorno false (puede ser por estar despachando)"
     return false
   end
 
@@ -523,7 +522,7 @@ module Warehouses
           stock_general = Production.get_all_stock_warehouse(warehouses_id['general'])
         end
       end
-
+      puts "\n \nAble_to_order: #{Rails.application.config.able_to_reorder}"
     end
   end
 
@@ -540,7 +539,7 @@ module Warehouses
     request_counter = 0
 
     Rails.application.config.able_to_reorder = true
-    while Rails.application.config.able_to_reorder#Crear boton que permita parar esto #self.puede_reordenar_ok
+    while Rails.application.config.able_to_reorder #self.puede_reordenar_ok
       puts "\n \nIteracion:"
       puts "General: #{stock_general}"
       puts "Recepcion: #{stock_recepcion}"
@@ -571,6 +570,7 @@ module Warehouses
           stock_general = Production.get_all_stock_warehouse(warehouses_id['general'])
         end
       end
+      puts "\n \nAble_to_order: #{Rails.application.config.able_to_reorder}"
     end
   end
 
