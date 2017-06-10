@@ -251,17 +251,21 @@ class ManagmentsController < ApplicationController
     Warehouses.move_recepcion_general
   end
 
+  def stop_warehouses_reorder
+    Rails.application.config.able_to_reorder = false
+    json_response({response: "Todos los REORDENAR se DETENDRAN en breve"})
+  end
 
   def authorize
     redirect_to '/login' unless current_user
   end
 
   private
-  
+
   def sort_column(nombre, defecto)
     nombre.column_names.include?(params[:sort]) ? params[:sort] : defecto
   end
-  
+
   def sort_direction
     %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end

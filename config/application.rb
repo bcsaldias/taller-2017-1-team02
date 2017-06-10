@@ -36,5 +36,8 @@ module Project
     config.time_zone = 'Eastern Time (US & Canada)'
     config.active_record.default_timezone = :local
 
+    config.able_to_reorder = true
+    # Read it with Rails.application.config.reordering_warehouses
+
   end
 end

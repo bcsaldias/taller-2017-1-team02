@@ -42,6 +42,8 @@ Rails.application.routes.draw do
 
   post 'move_despacho_general' => 'managments#move_despacho_general', as: :move_despacho_general
   post 'move_recepcion_general' => 'managments#move_recepcion_general', as: :move_recepcion_general
+  post 'stop_warehouses_reorder' => 'managments#stop_warehouses_reorder', as: :stop_warehouses_reorder
+
 
   get 'dashboard/index'
 
@@ -74,7 +76,6 @@ Rails.application.routes.draw do
   get 'production' => 'general#production', :as => :production
   get 'vouchers' => 'general#vouchers', :as => :vouchers
   get 'despacho' => 'general#despacho', :as => :despacho
-  
   
   get 'factory_managment' => 'managments#index', :as => :managment
 

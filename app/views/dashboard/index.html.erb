@@ -144,6 +144,113 @@
 
 
 
+      <div class="panel panel-primary">
+            <!-- Default panel contents -->
+            <div class="panel-heading">Stock por bodega y por producto</div>
+            <!-- Table -->
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Bodega</th>
+                  <% @product_ids.each do |prod|%>
+                    <th><%=prod%></th>
+                  <%end%>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                  <tr class="danger">
+                    <td><%= "Pulmón" %></td>
+                    <% @product_ids.each do |prod|%>
+                          <td>
+                            <%if @elem = @stock_pulmon.find{|s| s["_id"] == prod}%>
+                              <%= @elem["total"] %>
+                              <%end%>
+                          </td>
+                    <%end%>
+                    <td>
+                      <%= @stock_pulmon.inject(0){|sum, n| sum + n["total"]}%>
+                    </td>
+                  </tr>
+
+                  <tr class="warning">
+                    <td><%= "Recepcion" %></td>
+                    <% @product_ids.each do |prod|%>
+                    <td>
+                      <%if @elem = @stock_recepcion.find{|s| s["_id"] == prod}%>
+                      <%= @elem["total"] %>
+                      <%end%>
+                    </td>
+                    <%end%>
+                    <td>
+                      <%= @stock_recepcion.inject(0){|sum, n| sum + n["total"]}%>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td><%= "Pregeneral" %></td>
+                    <% @product_ids.each do |prod|%>
+                          <td>
+                            <%if @elem = @stock_pregeneral.find{|s| s["_id"] == prod}%>
+                              <%= @elem["total"] %>
+                              <%end%>
+                          </td>
+                    <%end%>
+                    <td>
+                      <%= @stock_pregeneral.inject(0){|sum, n| sum + n["total"]}%>
+                    </td>
+                  </tr>
+
+                  <tr class="success">
+                    <td><%= "General" %></td>
+                    <% @product_ids.each do |prod|%>
+                          <td>
+                            <%if @elem = @stock_general.find{|s| s["_id"] == prod}%>
+                              <%= @elem["total"] %>
+                              <%end%>
+                          </td>
+                    <%end%>
+                    <td>
+                      <%= @stock_general.inject(0){|sum, n| sum + n["total"]}%>
+                    </td>
+                  </tr>
+                  <tr>
+
+                    <td><%= "Despacho" %></td>
+                    <% @product_ids.each do |prod|%>
+                          <td>
+                            <%if @elem = @stock_despacho.find{|s| s["_id"] == prod}%>
+                              <%= @elem["total"] %>
+                              <%end%>
+                          </td>
+                    <%end%>
+                    <td>
+                      <%= @stock_despacho.inject(0){|sum, n| sum + n["total"]}%>
+                    </td>
+                  </tr>
+
+                  <tr class="success">
+
+                    <td><%= "Total" %></td>
+                    <% @product_ids.each do |prod|%>
+                          <td>
+                              <%= @stock_by_product[prod] %>
+                          </td>
+                    <%end%>
+                    <td></td>
+                  </tr>
+
+
+              </tbody>
+            </table>
+      </div>
+      <br>
+
+
+
+
+
   <script type="text/javascript" src="/assets/js/jquery.js"></script>
   <script type="text/javascript" src="/assets/js/bootstrap.js"></script>
 
