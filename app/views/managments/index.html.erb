@@ -190,6 +190,12 @@
 
                       </tr>
                       <tr>
+                        <td><%= button_to 'Actualizar saldo', :refresh_balance %></td>
+                        <% if !@saldo.nil? %>
+                        <td>$<%= @saldo %> (recuerda que el saldo se actualiza cada 10 minutos)</td>
+                        <% end %>
+                      </tr>
+                      <tr>
                         <td>Checkear disponibilidad</td>
                         <%= form_tag(:check_for_availablility, method: "post") do %>
                         <td><%= label_tag :producto_sku %> <%= text_field_tag :oc_sku %></td>
@@ -215,6 +221,15 @@
                         <%= form_tag(:notify_deliver, method: "post") do %>
                         <td><%= label_tag :factura_cloud_id %> <%= text_field_tag :factura_cloud_id %></td>
                         <td> <%= submit_tag('Notificar') %></td>
+                        <% end %>
+
+                      </tr>
+                      <tr>
+
+                        <td>Pagar factura</td>
+                        <%= form_tag(:pay_invoice, method: "post") do %>
+                        <td><%= label_tag :factura_cloud_id %> <%= text_field_tag :factura_cloud_id %></td>
+                        <td> <%= submit_tag('Pagar') %></td>
                         <% end %>
 
                       </tr>

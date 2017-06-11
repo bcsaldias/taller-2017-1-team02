@@ -25,6 +25,7 @@ Rails.application.routes.draw do
 
   post 'sort_wh' => 'managments#sort_wh', as: :sort_warehouses
   post 'notify_deliver' => 'managments#notify_deliver', as: :notify_deliver
+  post 'pay_invoice' => 'managments#pay_invoice', as: :pay_invoice
   post 'deliver' => 'managments#deliver', as: :deliver
   post 'deliver_ftp' => 'managments#deliver_ftp', as: :deliver_ftp
   post 'create_oc' => 'managments#create_oc', as: :create_oc
@@ -37,6 +38,9 @@ Rails.application.routes.draw do
 
   post 'refresh_transactions' => 'managments#refresh_transactions', as: :refresh_transactions
   post 'refresh_ftp' => 'managments#refresh_ftp', as: :refresh_ftp
+
+  post 'refresh_balance' => 'managments#refresh_balance', as: :refresh_balance
+
   post 'refresh_purchase_orders' => 'managments#refresh_purchase_orders', as: :refresh_purchase_orders
   post 'stocks_force_update' => 'managments#stocks_force_update', as: :stocks_force_update
 
@@ -75,8 +79,13 @@ Rails.application.routes.draw do
   get 'invoices' => 'general#invoices', :as => :invoices
   get 'production' => 'general#production', :as => :production
   get 'vouchers' => 'general#vouchers', :as => :vouchers
+<<<<<<< HEAD
   get 'despacho' => 'general#despacho', :as => :despacho
-  
+
+=======
+
+
+>>>>>>> s4_payment-flow
   get 'factory_managment' => 'managments#index', :as => :managment
 
 
