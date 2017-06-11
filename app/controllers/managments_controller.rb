@@ -177,18 +177,6 @@ class ManagmentsController < ApplicationController
     cant =  PurchaseOrder.all.count
     refreshed = false
 
-    PurchaseOrder.where("group_number == -1").each do |po|
-        id_cloud = po.id_cloud
-        cloud_po = Sales.get_purchase_order(id_cloud)
-        puts "sfpt - Local: #{po.state} - Nube: #{cloud_po["estado"]}"
-        if po.state != cloud_po["estado"]
-          po.state = cloud_po["estado"]
-          po.save!
-          refreshed = true
-          puts "Modifico State: #{po.state}"
-        end
-    end
-
     PurchaseOrder.where("group_number != -1").each do |po| #where(owner: true)
       id_cloud = po.id_cloud
       cloud_po = Sales.get_purchase_order(id_cloud)
@@ -233,9 +221,35 @@ class ManagmentsController < ApplicationController
           po.save!
           refreshed = true
         end
+
+        if po.true_quantity_done != cloud_po["cantidadDespachada"]
+          po.true_quantity_done = cloud_po["cantidadDespachada"]
+          po.save!
+          refreshed = true
+        end
       end
 
     end
+
+    PurchaseOrder.where("group_number == -1").each do |po|
+        id_cloud = po.id_cloud
+        cloud_po = Sales.get_purchase_order(id_cloud)
+        puts "sfpt - Local: #{po.state} - Nube: #{cloud_po["estado"]}"
+        if po.state != cloud_po["estado"]
+          po.state = cloud_po["estado"]
+          po.save!
+          refreshed = true
+          puts "Modifico State: #{po.state}"
+        end
+    
+        if po.true_quantity_done != cloud_po["cantidadDespachada"]
+          po.true_quantity_done = cloud_po["cantidadDespachada"]
+          po.save!
+          refreshed = true
+        end
+
+    end
+    
     json_response({resp: "Todo estaba OK", cantidad_oc: cant }) and return if !refreshed
     json_response({response: "Actualizado"})
   end
