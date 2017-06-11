@@ -37,6 +37,7 @@ class ManagmentsController < ApplicationController
     voucher_id = params[:voucher_id]
     # METER A COLA
     #ret = Production.deliver_order_to_address(voucher_id)
+    ret = false
     json_response({voucher_id: voucher_id, despachada: ret})
   end
 
@@ -53,6 +54,7 @@ class ManagmentsController < ApplicationController
     #req = Factory.hacer_pedido_interno(params[:oc_sku],
     #                  params[:cantidad_raw_material].to_i)
     
+    req = false
     json_response({req: req})
   end
 
@@ -111,9 +113,10 @@ class ManagmentsController < ApplicationController
     puts params[:proveedor]
     order = PurchaseOrder.where(id_cloud: params[:oc_cloud_id]).first
     # METER A COLA
-    order.delivering = true
-    order.save!
-    out = Warehouses.despachar_OC(params[:oc_cloud_id])
+    #order.delivering = true
+    #order.save!
+    #out = Warehouses.despachar_OC(params[:oc_cloud_id])
+    out = false
     json_response({ret: out})
   end
 
@@ -144,6 +147,7 @@ class ManagmentsController < ApplicationController
     order.save!
     # METER A COLA
     # out = Production.deliver_ftp_order(params[:oc_cloud_id])
+    out = false
     json_response({ret: out})
   end
 
