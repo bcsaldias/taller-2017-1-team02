@@ -45,6 +45,7 @@
                   <th><%= sortable "bruto", "Bruto", Voucher, "id_cloud" %></th>
                   <th><%= sortable "iva", "Iva", Voucher, "id_cloud" %></th>
                   <th><%= sortable "Total", Voucher, "id_cloud" %></th>
+                  <th><%= sortable "created_at", "fecha de creación", Voucher, "id_cloud" %></th>
                 </tr>
               </thead>
 
@@ -58,6 +59,7 @@
                     <td><%= p.bruto %></td>
                     <td><%= p.iva %></td>
                     <td><%= p.bruto + p.iva %></td>
+                    <td><%= p.created_at.strftime("%d/%b") %></td>
                   </tr>
                 <% end %>
               </tbody>

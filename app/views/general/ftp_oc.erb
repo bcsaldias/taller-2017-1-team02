@@ -222,6 +222,25 @@
             </table>
           </div>
 
+          <% if @total_ftp.count > 0 %>
+            <div class="progress">
+            
+
+              <div class="progress-bar progress-bar-succes" style="<%= 'width:' +(@delivered_ftp.count*100 / @total_ftp.count).to_s %>">
+                <%= (@delivered_ftp.count*100 / @total_ftp.count).round(2).to_s + '%' + "completa"%>
+              </div>
+              <div class="progress-bar progress-bar-warning" style="<%= 'width:' +(@accepted_ftp.count*100 / @total_ftp.count).to_s %>">
+                <%= (@accepted_ftp.count*100 / @total_ftp.count).round(2).to_s + '%' + "aceptada"%>
+              </div>
+              <div class="progress-bar progress-bar-danger" style="<%= 'width:' +(@rejected_ftp.count*100 / @total_ftp.count).to_s %>">
+                <%= (@rejected_ftp.count*100 / @total_ftp.count).round(2).to_s + '%' + "rechazada"%>
+              </div>
+
+            
+            </div>
+          <% end %>
+
+
 
   <script type="text/javascript" src="/assets/js/jquery.js"></script>
   <script type="text/javascript" src="/assets/js/bootstrap.js"></script>

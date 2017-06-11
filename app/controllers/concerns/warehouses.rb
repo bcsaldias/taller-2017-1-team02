@@ -228,7 +228,7 @@ module Warehouses
         index_count = 0
         while count < q_to_send
 
-          if index_count = 99
+          if index_count == 99
             stock_a_despachar = Production.get_stock(warehouses_id['despacho'], purchase_order["sku"])
             index_count = 0
           end

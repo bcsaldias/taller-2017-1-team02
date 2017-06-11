@@ -43,6 +43,7 @@
                       <th><%= sortable "monto", Transaction, "product_sku"  %></th>
                       <th><%= sortable "owner", Transaction, "product_sku"  %></th>
                       <th><%= sortable "state", "status", Transaction, "product_sku"  %></th>
+                      <th><%= sortable "created_at", "fecha de creación", Transaction, "product_sku"  %></th>
                     </tr>
                 </thead>
 
@@ -55,6 +56,7 @@
                         <td><%= trx.monto %></td>
                         <td><%= trx.owner %></td>
                         <td><%= trx.state %></td>
+                        <td><%= trx.created_at.strftime("%d/%b") %></td>
                       </tr>
                     <% end %>
                 </tbody>
@@ -76,6 +78,7 @@
                       <th><%= sortable "monto", Transaction, "product_sku"  %></th>
                       <th><%= sortable "owner", Transaction, "product_sku"  %></th>
                       <th><%= sortable "state", "status", Transaction, "product_sku"  %></th>
+                      <th><%= sortable "created_at", "fecha de creación", Transaction, "product_sku"  %></th>
                     </tr>
                 </thead>
 
@@ -88,6 +91,7 @@
                         <td><%= trx.monto %></td>
                         <td><%= trx.owner %></td>
                         <td><%= trx.state %></td>
+                        <td><%= trx.created_at.strftime("%d/%b") %></td>
                       </tr>
                     <% end %>
                 </tbody>
