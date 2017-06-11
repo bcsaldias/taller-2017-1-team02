@@ -7,20 +7,23 @@ module Bank
     body = {'monto' => monto, 'origen' => origen, 'destino' => destino}
     @result = Queries.put("banco/trx", authorization=false, body)
 
+		puts "bODY RESPUESTA: #{@result.body}"
+		puts "CODE RESPUESTA: #{@result.code}"
+
     status = (@result.code == 200)
     id = nil
 
     if status
   		transfered = JSON.parse @result.body
       id = transfered['_id']
-  		# puts "la transferencia que acabo de hacer"
-  		# puts transfered
+  		puts "la transferencia que acabo de hacer EXITOSA!"
+  		puts transfered
     end
 
-		@transaction = Transaction.create!(id_cloud: id, 
+		@transaction = Transaction.create!(id_cloud: id,
                                   origen: origen,
-																	destino: destino, 
-                                  monto: monto, 
+																	destino: destino,
+                                  monto: monto,
                                   owner: true, state: status)
 
 		# variable_prueba = Transaction.where(id_cloud: transfered['_id']).first['monto']
@@ -55,8 +58,8 @@ module Bank
     end
     if @fechaFin == nil
       @fechaFin =  Time.now.to_f*1000
-    end 
-    
+    end
+
     id_cuenta = Rails.configuration.environment_ids['bank_id']
     body = {'fechaInicio' => @fechaInicio, 'fechaFin' => @fechaFin,
             'id' => id_cuenta, 'limit'=> limit}

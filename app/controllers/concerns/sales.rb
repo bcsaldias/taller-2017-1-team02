@@ -29,7 +29,7 @@ module Sales
 						  body=body)
 		return @result.body
 	end
-	
+
 
 	def self.accept_purchase_order(purchase_order_id)
 		order = self.get_purchase_order(purchase_order_id)
@@ -38,6 +38,8 @@ module Sales
 		our_order.save!
 		ret = self.recepcionar_purchase_order(purchase_order_id)
 		sup = Supplier.get_by_id_cloud(order['cliente'])
+		return_factura = Invoices.emitir_factura(purchase_order_id)
+		puts "Imprimo factura: #{return_factura}"
 		ret = Queries.patch_to_groups_api('purchase_orders/'+order['_id']+'/accepted', sup)
 		return ret
 	end
