@@ -53,6 +53,7 @@ module Sales
 		order = self.get_purchase_order(purchase_order_id)
 		our_order = PurchaseOrder.where(id_cloud: purchase_order_id).first
 		our_order.state = 1
+		our_order.queued = true
 		our_order.save!
 		ret = self.recepcionar_purchase_order(purchase_order_id)
 		sup = Supplier.get_by_id_cloud(order['cliente'])

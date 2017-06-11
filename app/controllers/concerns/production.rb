@@ -104,6 +104,8 @@ module Production
           end
         end
 
+        boleta.queued = true
+    	boleta.save!
 	end
 
 	def self.deliver_order_to_address(boleta_id)
@@ -149,6 +151,8 @@ module Production
 		end
 
         boleta.status = 'despachada'
+        boleta.delivering = false
+        boleta.queued = false
         boleta.save!
 
 		return true

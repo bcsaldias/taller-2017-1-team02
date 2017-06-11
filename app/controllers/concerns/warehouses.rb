@@ -259,8 +259,8 @@ module Warehouses
 
             if count.to_i == q_to_send.to_i
               our_purchase_order.state = 3
-              our_purchase_order.save!
               our_purchase_order.delivering = false
+              our_purchase_order.queued = false
               our_purchase_order.save!
               return true
             end
@@ -311,8 +311,109 @@ module Warehouses
   end
 
 
+  def self.being_delivering
+    production_orders = ProductionOrder.where(delivering: true)
+    if production_orders.count > 0
+      return true
+    end
+    purchase_orders = PurchaseOrder.where(delivering: true)
+    if purchase_orders.count > 0
+      return true
+    end
+    vouchers = Voucher.where(delivering: true)
+    if vouchers.count > 0
+      return true
+    end
+    return false
+  end
+
+  def self.waiting_delivering
+    production_orders = ProductionOrder.where(queued: true)
+    if production_orders.count > 0
+      return true
+    end
+    purchase_orders = PurchaseOrder.where(queued: true)
+    if purchase_orders.count > 0
+      return true
+    end
+    vouchers = Voucher.where(queued: true)
+    if vouchers.count > 0
+      return true
+    end
+    return false
+  end
+
   def self.activate_queue
-    return "MILAN"
+
+    to_deliver = nil
+    global_type = nil
+
+    if self.being_delivering
+      current_delivery = nil
+      type = nil
+      production_orders = ProductionOrder.where(delivering: true)
+      if production_orders.count > 0
+        current_delivery = production_orders.first
+        type = 'production_order'
+      else
+        purchase_orders = PurchaseOrder.where(delivering: true)
+        if purchase_orders.count > 0
+          current_delivery = purchase_orders.first
+          type = 'purchase_order'
+        else
+          vouchers = Voucher.where(delivering: true)
+          if vouchers.count > 0
+            current_delivery = vouchers.first
+            type = 'voucher'
+          end
+        end
+      end
+      to_deliver = current_delivery
+      global_type = type
+      #reactivar current_delivery
+    end
+
+    if not self.being_delivering and self.waiting_delivering
+      next_delivery = nil
+      type = nil
+      production_orders = ProductionOrder.where(queued: true)
+      if production_orders.count > 0
+        next_delivery = production_orders.first
+        type = 'production_order'
+      else
+        purchase_orders = PurchaseOrder.where(queued: true)
+        if purchase_orders.count > 0
+          next_delivery = purchase_orders.first
+          type = 'purchase_order'
+        else
+          vouchers = Voucher.where(queued: true)
+          if vouchers.count > 0
+            next_delivery = vouchers.first
+            type = 'voucher'
+          end
+        end
+      end
+      to_deliver = next_delivery
+      global_type = type
+      #mandar next_delivery
+    end
+
+    if global_type != nil
+      to_deliver.delivering = true
+      to_deliver.save!
+
+      if global_type == "production_order"
+
+      elsif global_type == "purchase_order"
+        distribuidor = (to_deliver.group_number == -1)
+        self.despachar_OC(to_deliver.id_cloud, distribuidor)
+      elsif global_type == "voucher"
+        Production.deliver_order_to_address(to_deliver.id)
+      end
+    end
+
+    self.activate_queue
+    return "cola vacía"
   end
 
 

@@ -36,9 +36,13 @@ class ManagmentsController < ApplicationController
   def despachar_boleta
     voucher_id = params[:voucher_id]
     # METER A COLA
+    # cuando se crean también: se hace Production.save_order_for_delivering
     #ret = Production.deliver_order_to_address(voucher_id)
-    ret = false
-    json_response({voucher_id: voucher_id, despachada: ret})
+    voucher = Voucher.find(voucher_id.to_i)
+    voucher.queued = true
+    voucher.save!
+    ret = voucher.queued
+    json_response({voucher_id: voucher_id, queued: ret})
   end
 
   def stocks_force_update
@@ -60,8 +64,8 @@ class ManagmentsController < ApplicationController
 
   def detener_despacho
     being_delivered = PurchaseOrder.where(id_cloud: params[:cloud_id]).first
-    being_delivered.delivering = false
-    being_delivered.save!
+    #being_delivered.delivering = false
+    #being_delivered.save!
     json_response({oc: params[:cloud_id], delivering: being_delivered.delivering})
   end
 
@@ -112,11 +116,14 @@ class ManagmentsController < ApplicationController
     puts params[:factura_cloud_id]
     puts params[:proveedor]
     order = PurchaseOrder.where(id_cloud: params[:oc_cloud_id]).first
-    # METER A COLA
+    # METER A COLA cuando se acepta se mete a la cola
+    # ojo que aun no veo la factura FIXEME
     #order.delivering = true
     #order.save!
+    order.queued = true
+    order.save!
     #out = Warehouses.despachar_OC(params[:oc_cloud_id])
-    out = false
+    out = true
     json_response({ret: out})
   end
 
@@ -142,12 +149,12 @@ class ManagmentsController < ApplicationController
   def deliver_ftp
     puts "deliver ftp"
     order = PurchaseOrder.where(id_cloud: params[:oc_cloud_id]).first
-    order.delivering = true
+    order.queued = true #el accept lo mete
     order.save!
     # METER A COLA
     # out = Production.deliver_ftp_order(params[:oc_cloud_id])
-    out = false
-    json_response({ret: out})
+    out = order.queued
+    json_response({queued: out})
   end
 
 # Obtiene todas las transacciones del servidor y almacena localmente
