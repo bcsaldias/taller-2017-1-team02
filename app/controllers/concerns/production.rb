@@ -166,7 +166,27 @@ module Production
 	end
 
 	def self.deliver_ftp_order(order_id)
-		Warehouses.despachar_OC(order_id, distribuidor=true)
+		query = Invoice.where(oc_id_cloud: order_id)
+
+		can_deliver = false
+		if query.count == 0
+			Invoices.emitir_factura(order_id)
+		elsif query.count == 1
+			can_deliver = true
+		end
+			
+		if not can_deliver
+			query = Invoice.where(oc_id_cloud: order_id)
+			if query.count == 1
+				can_deliver = true
+			end
+		end
+
+		if can_deliver
+			# Agregar a la cola!
+			#Warehouses.despachar_OC(order_id, distribuidor=true)
+		end
+
 	end
 
 end

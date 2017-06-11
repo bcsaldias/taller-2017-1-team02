@@ -49,7 +49,7 @@ module Invoices
               oc_id_cloud: @body['oc']["_id"],
               purchase_order_id: @oc.id,
               status: @body['estado'],
-              owner: trues
+              owner: true
         )
     end
     return @body
