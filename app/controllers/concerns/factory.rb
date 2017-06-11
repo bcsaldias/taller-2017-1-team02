@@ -53,7 +53,13 @@ module Factory
 
 		puts 'materia prima disponible para producir producto procesado'
 	
-		result = self.fabricate(sku, un_lote_cantidad)
+
+		product = Product.find(production_order.product_sku)
+    	contact = product.contacts.where(supplier_id: 2).first
+
+    	un_lote_cantidad = contact.min_production_batch
+
+		result = self.fabricate(production_order.product_sku, un_lote_cantidad)
 		if result.keys.include?("error")
 			return result["error"]
 		else 
@@ -70,13 +76,18 @@ module Factory
 			rescue
 				puts "error"
 			ensure
-				needed_products.each do |recipe|
-					puts 'enviando solicitud de reavastecimiento', recipe.needed_product_sku, recipe.requirement
-					pedido = RawMaterial.restore_stock(recipe.needed_product_sku, 
-																		recipe.requirement)
-				end
+				production_order.delivering = false
+				production_order.queued = false
+				production_order.save!
+				#needed_products.each do |recipe|
+				#	puts 'enviando solicitud de reavastecimiento', recipe.needed_product_sku, recipe.requirement
+				#	pedido = RawMaterial.restore_stock(recipe.needed_product_sku, 
+				#														recipe.requirement.to_i)
+				#end
 			end
 		end
+
+
 
 	end
 
