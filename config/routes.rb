@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   get 'logout' => 'user_sessions#destroy', :as => :logout
 
   post 'sort_wh' => 'managments#sort_wh', as: :sort_warehouses
+  post 'activate_queue' => 'general#activate_queue', as: :activate_queue
   post 'notify_deliver' => 'managments#notify_deliver', as: :notify_deliver
   post 'deliver' => 'managments#deliver', as: :deliver
   post 'deliver_ftp' => 'managments#deliver_ftp', as: :deliver_ftp
@@ -76,6 +77,7 @@ Rails.application.routes.draw do
   get 'production' => 'general#production', :as => :production
   get 'vouchers' => 'general#vouchers', :as => :vouchers
   get 'despacho' => 'general#despacho', :as => :despacho
+  get 'queue' => 'general#queue', :as => :queue
   
   get 'factory_managment' => 'managments#index', :as => :managment
 

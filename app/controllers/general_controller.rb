@@ -65,6 +65,18 @@ class GeneralController < ApplicationController
     @transactions_fail = Transaction.where(state: false).order(sort_column(Transaction, "id_cloud") + " " + sort_direction)
   end
 
+  def queue
+    @production_orders = ProductionOrder.where(queued: true).order(sort_column(ProductionOrder, "product_sku") + " " + sort_direction)
+    @purchase_orders = PurchaseOrder.where(queued: true).order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
+    @vouchers = Voucher.where(queued: true).order(sort_column(Invoice, "id_cloud") + " " + sort_direction)
+  end
+
+  def activate_queue
+    puts "ACTIVANDO COLA"
+    ret = Warehouses.activate_queue
+    json_response({ret: ret})
+  end
+
   def production
     @personal_account = ProductionOrder.all.order(sort_column(ProductionOrder, "product_sku") + " " + sort_direction)
     @production_orders = ProductionOrder.all.order(sort_column(ProductionOrder, "product_sku") + " " + sort_direction)

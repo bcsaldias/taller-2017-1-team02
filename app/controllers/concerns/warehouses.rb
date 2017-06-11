@@ -311,6 +311,11 @@ module Warehouses
   end
 
 
+  def self.activate_queue
+    return "MILAN"
+  end
+
+
   #ordena los almacenes, dejando la mayoria en general
   def self.sort_warehouses
     sleep_time = 1

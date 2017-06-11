@@ -128,7 +128,6 @@ class ManagmentsController < ApplicationController
     json_response({ret: product.stock_disponible >= cantidad})
   end
 
-
   def sort_wh
     ret = Warehouses.sort_warehouses
     json_response({ret: ret})
