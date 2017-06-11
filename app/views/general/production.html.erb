@@ -40,6 +40,7 @@
                     <tr>
                       <th><%= sortable "product_sku", "Sku", ProductionOrder, "product_sku"  %></th>
                       <th><%= sortable "cantidad", "Cantidad", ProductionOrder, "product_sku"  %></th>
+                      <th><%= sortable "created_at", "Fecha de creación", ProductionOrder, "product_sku" %></th>
                       <th><%= sortable "disponible", "Disponible", ProductionOrder, "product_sku" %></th>
                     </tr>
                 </thead>
@@ -49,6 +50,7 @@
                       <tr>
                         <td><%= production_order.product_sku %></td>
                         <td><%= production_order.cantidad %></td>
+                        <td><%= production_order.created_at.strftime("%d/%b") %></td>
                         <% if production_order.disponible != nil %>
                           <td><%= production_order.disponible.strftime("%d/%b at %I:%M%p") %></td>
                         <% else %>

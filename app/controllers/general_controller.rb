@@ -24,7 +24,7 @@ class GeneralController < ApplicationController
     ftp_orders = PurchaseOrder.where("group_number == -1")
     @total_ftp = PurchaseOrder.where("group_number == -1")
     
-    #@created_ftp  = ftp_orders.where(state: 0).order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
+    @created_ftp  = ftp_orders.where(state: 0).order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
     
     @created_can_ftp = PurchaseOrder.can_accept_ftp.order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
     @created_cannot_ftp = PurchaseOrder.cannot_accept_ftp.order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
