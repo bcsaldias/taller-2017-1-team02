@@ -412,7 +412,9 @@ module Warehouses
       end
     end
 
-    self.activate_queue
+    if self.waiting_delivering
+      self.activate_queue
+    end
     return "cola vacía"
   end
 
