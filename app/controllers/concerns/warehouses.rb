@@ -403,7 +403,7 @@ module Warehouses
       to_deliver.save!
 
       if global_type == "production_order"
-
+        Factory.mandar_op_despacho(to_deliver.id)
       elsif global_type == "purchase_order"
         distribuidor = (to_deliver.group_number == -1)
         self.despachar_OC(to_deliver.id_cloud, distribuidor)

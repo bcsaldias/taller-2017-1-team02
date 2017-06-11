@@ -38,6 +38,48 @@ module Factory
 
 	end
 
+	def self.mandar_op_despacho(id_production_order)
+		production_order = ProductionOrder.find(id_production_order)
+		needed_products = Recipe.where(final_product_sku: production_order.product_sku)
+
+		needed_products.each do |recipe|
+			eval_despacho = Warehouses.get_despacho_ready(recipe.needed_product_sku,
+														  recipe.requirement)
+			if not eval_despacho
+				puts "no pudo get despachado ready " + (recipe.needed_product_sku).to_s
+				return false
+			end
+		end
+
+		puts 'materia prima disponible para producir producto procesado'
+	
+		result = self.fabricate(sku, un_lote_cantidad)
+		if result.keys.include?("error")
+			return result["error"]
+		else 
+  			production_order.id_cloud = result['_id']
+  			production_order.product_sku = result['sku']
+  			production_order.cantidad = result['cantidad']
+  			production_order.cantidad = result['cantidad']
+  			production_order.despachado = result['despachado']
+  			production_order.disponible = result['disponible']                                        				
+  			production_order.delivering = true
+  			production_order.save!
+  			begin
+				return true
+			rescue
+				puts "error"
+			ensure
+				needed_products.each do |recipe|
+					puts 'enviando solicitud de reavastecimiento', recipe.needed_product_sku, recipe.requirement
+					pedido = RawMaterial.restore_stock(recipe.needed_product_sku, 
+																		recipe.requirement)
+				end
+			end
+		end
+
+	end
+
 	def self.hacer_pedido_interno(sku, cantidad=0)
 		## procesado solo acepta de a un lote
 		product = Product.find(sku)
@@ -56,7 +98,7 @@ module Factory
 			if result.keys.include?("error")
 				return false
 			else 
-      			purchase_order = ProductionOrder.create!(id_cloud: result['_id'], 
+      			production_order = ProductionOrder.create!(id_cloud: result['_id'], 
                                         				 product_sku: result['sku'],
                                         				 cantidad: result['cantidad'],
                                         				 despachado: result['despachado'],
@@ -79,42 +121,15 @@ module Factory
 				end
 			end
 
-			needed_products.each do |recipe|
-				eval_despacho = Warehouses.get_despacho_ready(recipe.needed_product_sku,
-															  recipe.requirement)
-				if not eval_despacho
-					puts "no pudo get despachado ready " + (recipe.needed_product_sku).to_s
-					return false
-				end
-			end
+			# CREAR ORDEN DE PRODUCCIÓN LOCAL
+  			production_order = ProductionOrder.create!(id_cloud: Time.now.to_s, 
+                                    				 product_sku: sku,
+                                    				 cantidad: un_lote_cantidad,
+                                    				 despachado: Time.now,
+                                    				 disponible: Time.now,
+                                    				 queued: true)
 
-			puts 'materia prima disponible para producir producto procesado'
-		
-
-			result = self.fabricate(sku, un_lote_cantidad)
-			if result.keys.include?("error")
-				return result["error"]
-			else 
-      			purchase_order = ProductionOrder.create!(id_cloud: result['_id'], 
-                                        				 product_sku: result['sku'],
-                                        				 cantidad: result['cantidad'],
-                                        				 despachado: result['despachado'],
-                                        				 disponible: result['disponible'])
-      			begin
-					return true
-				rescue
-					puts "error"
-				ensure
-					needed_products.each do |recipe|
-						puts 'enviando solicitud de reavastecimiento', recipe.needed_product_sku, recipe.requirement
-						pedido = RawMaterial.restore_stock(recipe.needed_product_sku, 
-																			recipe.requirement)
-					
-					end
-				end
-			end
-
-			return false
+			return true
 		end
 
 	end

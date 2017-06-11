@@ -55,10 +55,10 @@ class ManagmentsController < ApplicationController
     puts params[:cantidad_raw_material]
 
     # METER A COLA si procesado
-    #req = Factory.hacer_pedido_interno(params[:oc_sku],
-    #                  params[:cantidad_raw_material].to_i)
+    req = Factory.hacer_pedido_interno(params[:oc_sku],
+                      params[:cantidad_raw_material].to_i)
     
-    req = false
+    #req = false
     json_response({req: req})
   end
 
