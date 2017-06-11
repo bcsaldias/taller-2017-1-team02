@@ -183,8 +183,7 @@ module Production
 		end
 
 		if can_deliver
-			# Agregar a la cola!
-			#Warehouses.despachar_OC(order_id, distribuidor=true)
+			Warehouses.despachar_OC(order_id, distribuidor=true)
 		end
 
 	end
