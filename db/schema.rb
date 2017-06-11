@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170530144975) do
+ActiveRecord::Schema.define(version: 20170530144980) do
 
   create_table "contacts", force: :cascade do |t|
     t.integer  "product_id"
@@ -62,6 +62,8 @@ ActiveRecord::Schema.define(version: 20170530144975) do
     t.datetime "disponible"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "delivering",  default: false
+    t.boolean  "queued",      default: false
     t.index ["id_cloud"], name: "index_production_orders_on_id_cloud", unique: true
   end
 
@@ -78,9 +80,9 @@ ActiveRecord::Schema.define(version: 20170530144975) do
   end
 
   create_table "purchase_orders", force: :cascade do |t|
-    t.string   "id_cloud",           null: false
+    t.string   "id_cloud",                           null: false
     t.integer  "state"
-    t.string   "product_sku",        null: false
+    t.string   "product_sku",                        null: false
     t.integer  "quantity"
     t.integer  "quantity_done"
     t.string   "id_store_reception"
@@ -96,6 +98,7 @@ ActiveRecord::Schema.define(version: 20170530144975) do
     t.integer  "group_number"
     t.string   "team_id_cloud"
     t.integer  "true_quantity_done"
+    t.boolean  "queued",             default: false
     t.index ["id_cloud"], name: "index_purchase_orders_on_id_cloud", unique: true
   end
 
@@ -1169,8 +1172,10 @@ ActiveRecord::Schema.define(version: 20170530144975) do
     t.integer  "iva"
     t.string   "oc_id_cloud"
     t.string   "status"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.boolean  "delivering",     default: false
+    t.boolean  "queued",         default: false
   end
 
   create_table "warehouses", force: :cascade do |t|
