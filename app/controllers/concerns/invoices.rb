@@ -103,8 +103,11 @@ module Invoices
 		invoice = self.obtener_factura(invoice_id)
 		origen = Rails.configuration.environment_ids['bank_id']
 		our_invoice = Invoice.where(id_cloud: invoice_id).first
-		our_invoice.status = 1
-		our_invoice.save!
+		puts "status: #{our_invoice.status}"
+		if our_invoice.pagada?
+			puts "factura ya fue pagada"
+			return false
+		end
 		puts "Monto: #{invoice['total']}"
 		transaction = Bank.transfer(invoice['total'].to_i, origen, our_invoice.bank_account)
 		if transaction.id_cloud != nil
@@ -112,6 +115,8 @@ module Invoices
       id_transaction = (JSON.parse trx.body)[0]["_id"]
 
       factura_pagada = self.pagar_factura(invoice_id)
+			our_invoice.status = 1
+			our_invoice.save!
 
       body = {'id_transaction' => id_transaction}
       sup = Supplier.get_by_id_cloud(invoice['proveedor'])
