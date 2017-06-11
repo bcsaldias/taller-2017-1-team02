@@ -343,23 +343,23 @@ module Warehouses
       else
 
         # DESPACHO -> GENERAL
-        if !self.full_warehouse(warehouses_id['general']) and !self.empty_warehouse(warehouses_id['despacho'])
-          puts "Entro a Despacho -> General"
-          for product_type in stock_despacho
-            stock_despacho_sku = Production.get_stock(warehouses_id['despacho'], product_type['_id'])
+        #if !self.full_warehouse(warehouses_id['general']) and !self.empty_warehouse(warehouses_id['despacho'])
+        #  puts "Entro a Despacho -> General"
+        #  for product_type in stock_despacho
+        #    stock_despacho_sku = Production.get_stock(warehouses_id['despacho'], product_type['_id'])
 
-            cant_a_mover = [stock_despacho_sku.length, moving_batch].min
-            (0..cant_a_mover-1).to_a.each do |n|
-              product_id = stock_despacho_sku[n]['_id']
-              Production.move_stock(warehouses_id['general'], product_id)
-              puts "somethg moved D->G"
-              request_counter += 1
-            end
-             request_counter = Tiempo.sleep_if_to_many_requests(request_counter, max_request_counter, sleep_time)
-          end
-          stock_despacho = Production.get_all_stock_warehouse(warehouses_id['despacho'])
-          stock_general = Production.get_all_stock_warehouse(warehouses_id['general'])
-        end
+        #    cant_a_mover = [stock_despacho_sku.length, moving_batch].min
+        #    (0..cant_a_mover-1).to_a.each do |n|
+        #      product_id = stock_despacho_sku[n]['_id']
+        #      Production.move_stock(warehouses_id['general'], product_id)
+        #      puts "somethg moved D->G"
+        #      request_counter += 1
+        #    end
+        #     request_counter = Tiempo.sleep_if_to_many_requests(request_counter, max_request_counter, sleep_time)
+        #  end
+        #  stock_despacho = Production.get_all_stock_warehouse(warehouses_id['despacho'])
+        #  stock_general = Production.get_all_stock_warehouse(warehouses_id['general'])
+        #end
 
         # PREGENERAL -> GENERAL
         if !self.full_warehouse(warehouses_id['general']) and !self.empty_warehouse(warehouses_id['pregeneral'])
