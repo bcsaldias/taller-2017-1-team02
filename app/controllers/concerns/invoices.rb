@@ -53,7 +53,7 @@ module Invoices
         )
     end
     return @body
-    
+
 
   end
 
@@ -103,21 +103,24 @@ module Invoices
 		invoice = self.obtener_factura(invoice_id)
 		origen = Rails.configuration.environment_ids['bank_id']
 		our_invoice = Invoice.where(id_cloud: invoice_id).first
-		our_invoice.state = 1
-		our_invoice.save!
-
-		transaction = Bank.transfer(invoice['valor_total'].to_i, origen, our_invoice.bank_account)
-
-    if transaction.id_cloud != nil
-
+		puts "status: #{our_invoice.status}"
+		if our_invoice.pagada?
+			puts "factura ya fue pagada"
+			return false
+		end
+		puts "Monto: #{invoice['total']}"
+		transaction = Bank.transfer(invoice['total'].to_i, origen, our_invoice.bank_account)
+		if transaction.id_cloud != nil
       trx = Bank.get_transaction(transaction.id_cloud)
       id_transaction = (JSON.parse trx.body)[0]["_id"]
 
       factura_pagada = self.pagar_factura(invoice_id)
+			our_invoice.status = 1
+			our_invoice.save!
 
       body = {'id_transaction' => id_transaction}
       sup = Supplier.get_by_id_cloud(invoice['proveedor'])
-      ret = Queries.patch_to_groups_api('invoices/'+invoice['_id']+'/paid', sup, body=body)
+      ret = Queries.patch_to_groups_api('invoices/'+invoice['_id']+'/paid', sup, false, body=body)
 
       return true
 
@@ -138,7 +141,7 @@ module Invoices
     our_invoice = Invoice.where(id_cloud: invoice_id).first
     our_invoice.status = 4
     our_invoice.save!
-    sup = Supplier.get_by_id_cloud(invoice['proveedor']) 
+    sup = Supplier.get_by_id_cloud(invoice['proveedor'])
     ret = Queries.patch_to_groups_api('invoices/'+invoice['_id']+'/accepted', sup)
     return ret
   end
@@ -172,7 +175,7 @@ module Invoices
   def self.delivered_invoice(invoice_id)
     invoice = self.obtener_factura(invoice_id)
 
-    sup = Supplier.get_by_id_cloud(invoice['cliente']) 
+    sup = Supplier.get_by_id_cloud(invoice['cliente'])
     ret = Queries.patch_to_groups_api('invoices/'+invoice['_id']+'/delivered', sup)
 
     invoice = Invoice.where(id_cloud: invoice_id).first

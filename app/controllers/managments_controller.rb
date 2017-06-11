@@ -110,6 +110,14 @@ class ManagmentsController < ApplicationController
     ## esto va contra factura!
   end
 
+  def pay_invoice
+    puts "pagar factura"
+    puts params[:factura_cloud_id]
+    payment = Invoices.pay_invoice(params[:factura_cloud_id])
+    puts payment
+    json_response({ret: payment})
+  end
+
   def deliver
     puts "deliver"
     puts params[:oc_cloud_id]
@@ -270,6 +278,41 @@ class ManagmentsController < ApplicationController
     json_response({response: "Actualizado"})
   end
 
+  def refresh_balance
+
+    response = Bank.get_account(Rails.configuration.environment_ids['bank_id'])
+    puts response
+
+    @saldo = response.first["saldo"]
+
+    ## FIXME J:
+    @being_delivered = PurchaseOrder.where(delivering: true).order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
+    pending_vouchers = VoucherStock.all#where("quantity = ? OR quantity_done = ?", value, value)
+
+    #show_stocks_vouchers = []
+    vouchers = []
+    vouchers_id = []
+    pending_vouchers.each do |pv|
+      if pv.quantity != pv.quantity_done
+
+        if not vouchers_id.include?(pv.voucher_id)
+          voucher = Voucher.find(pv.voucher_id)#.order(sort_column(Voucher, "id_cloud") + " " + sort_direction)
+
+      	  if voucher.status != "despachada"
+            		vouchers << voucher
+            		vouchers_id << pv.voucher_id
+      	  end
+          #show_stocks_vouchers <<
+        end
+        #pv.voucher_id
+      end
+    end
+
+    @show_vouchers =  Voucher.where('id IN (?)', vouchers_id).order(sort_column(Voucher, "id_cloud") + " " + sort_direction)
+    ##
+
+    render "index.html.erb"
+  end
 
   def move_despacho_general
     puts "Entre mi metodo desp"

@@ -1,0 +1,31 @@
+[1mdiff --git a/app/controllers/concerns/warehouses.rb b/app/controllers/concerns/warehouses.rb[m
+[1mindex e79bfb8..a81d14c 100644[m
+[1m--- a/app/controllers/concerns/warehouses.rb[m
+[1m+++ b/app/controllers/concerns/warehouses.rb[m
+[36m@@ -178,7 +178,7 @@[m [mmodule Warehouses[m
+   end[m
+ [m
+ #despachar_OC despacha las ordenes de compra[m
+[31m-  def self.despachar_OC(id_cloud_OC, distribuidor=false)[m
+[32m+[m[32m  def self.despachar_OC(id_cloud_OC)[m
+     purchase_order = Sales.get_purchase_order(id_cloud_OC)[m
+     our_purchase_order = PurchaseOrder.where(id_cloud: id_cloud_OC).first[m
+ [m
+[36m@@ -232,15 +232,8 @@[m [mmodule Warehouses[m
+           puts "DESPACHAR"[m
+           puts our_purchase_order.quantity_done[m
+           puts product[m
+[31m-[m
+[31m-          if distribuidor[m
+[31m-            ret = Production.delete_ftp_stock('distribuidor', product['_id'],[m
+[31m-                                                  id_cloud_OC, price)[m
+[31m-          else[m
+[31m-            ret = Production.move_stock_external(client_warehouse, product['_id'],[m
+[31m-                                                  id_cloud_OC, price)[m
+[31m-          end[m
+[31m-[m
+[32m+[m[32m          ret = Production.move_stock_external(client_warehouse, produ=product['_id'],[m
+[32m+[m[32m                                                id_cloud_OC, price)[m
+           puts "ret2"[m
+           puts ret[m
+           if ret.code == 200 or ret.code == 201[m
