@@ -20,7 +20,9 @@ class DashboardController < ActionController::Base
       @stock_by_product[p_id] = 0
     end
     (@stock_pulmon + @stock_recepcion + @stock_pregeneral + @stock_general + @stock_despacho).each do |stock|
-      @stock_by_product[stock["_id"]] += stock["total"]
+      if stock["total"] != nil and @stock_by_product[stock["_id"]] != nil
+        @stock_by_product[stock["_id"]] += stock["total"]
+      end
     end
 
   end
