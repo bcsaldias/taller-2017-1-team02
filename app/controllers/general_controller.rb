@@ -85,8 +85,9 @@ class GeneralController < ApplicationController
 
   def despacho
     
+    warehouses_id = Warehouses.get_warehouses_id
     #@stock = Production.get_all_stock_warehouse("590baa76d6b4ec000490255f") Bodega general
-    @stock = Production.get_all_stock_warehouse("590baa76d6b4ec000490255e") # Bodega despacho
+    @stock = Production.get_all_stock_warehouse(warehouses_id['despacho']) # Bodega despacho
     @products = Product.all
   end
     
