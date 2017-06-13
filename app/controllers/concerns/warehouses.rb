@@ -386,6 +386,12 @@ module Warehouses
         if purchase_orders.count > 0
           next_delivery = purchase_orders.first
           type = 'purchase_order'
+
+          ftps = purchase_orders.where(group_number: -1)
+          if ftps.count > 0
+            next_delivery = ftps.first
+          end
+
         else
           vouchers = Voucher.where(queued: true)
           if vouchers.count > 0
