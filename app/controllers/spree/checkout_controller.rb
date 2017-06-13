@@ -66,7 +66,7 @@ module Spree
             Transaction.create!(id_cloud: trx['_id'], 
                                 origen: trx['origen'],
                                 destino: trx['destino'], 
-                                monto: trx['monto'],
+                                monto: trx['monto'].to_i,
                                 owner: false, state: true)
             all_ok = true
           end

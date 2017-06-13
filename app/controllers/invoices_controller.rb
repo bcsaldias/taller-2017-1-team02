@@ -83,7 +83,16 @@ class InvoicesController < ApplicationController
           json_response ({ error: "Ya se anuló la factura" }), 403
         else
           invoice.status = 4
-          invoice.save
+          invoice.save!
+
+          # AGREGAR A COLA DE DESPACHO
+          count_our_order = PurchaseOrder.where(id_cloud: invoice.oc_id_cloud)
+          if count_our_order.count > 0
+            our_order = count_our_order.first
+            our_order.queued = true
+            our_order.save!
+          end
+
           json_response(
               {
                 id_invoice: params[:id],
