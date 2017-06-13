@@ -172,7 +172,7 @@ class ManagmentsController < ApplicationController
     Transaction.all.each do |trx|
       cloud_trx = Bank.get_transaction(trx.id_cloud)
       
-      if trx.monto.to_i != cloud_trx['monto'].to_i
+      if trx.monto == nil
         trx.monto = cloud_trx['monto'].to_i
         trx.save!
       end
