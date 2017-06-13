@@ -169,15 +169,7 @@ class ManagmentsController < ApplicationController
   def refresh_transactions
     puts "Entro al metodo"
 
-    Transaction.all.each do |trx|
-      cloud_trx = Bank.get_transaction(trx.id_cloud)
-      
-      if trx.monto == nil
-        trx.monto = cloud_trx['monto'].to_i
-        trx.save!
-      end
-    end
-
+    
     #fechaInicio = (Time.now - 1.week).to_f*1000 # 1 semana atras
     fechaInicio = 1 # Desde 1970
     transactions_query = Bank.get_our_card(9999999999, fechaInicio)
@@ -199,6 +191,10 @@ class ManagmentsController < ApplicationController
                             monto: trx['monto'],
                             owner: owner,
                             state: true)
+      else
+
+	temp_trx.monto = trx['monto']
+	temp_trx.save!
       end
     end
 
