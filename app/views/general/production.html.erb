@@ -42,6 +42,7 @@
                       <th><%= sortable "cantidad", "Cantidad", ProductionOrder, "product_sku"  %></th>
                       <th><%= sortable "created_at", "Fecha de creación", ProductionOrder, "product_sku" %></th>
                       <th><%= sortable "disponible", "Disponible", ProductionOrder, "product_sku" %></th>
+                      <th><%= sortable "queued", "Enviada", ProductionOrder, "product_sku" %></th>
                     </tr>
                 </thead>
 
@@ -56,6 +57,7 @@
                         <% else %>
                           <td>  </td>
                         <% end %>
+                        <td><%= not production_order.queued %></td>
                       </tr>
                     <% end %>
                 </tbody>
