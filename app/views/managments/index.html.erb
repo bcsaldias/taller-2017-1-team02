@@ -87,6 +87,18 @@
                         <% end %>
 
                       </tr>
+
+                      <tr>
+                        <td>Generar producción</td>
+                        <%= form_tag(:mover_cantidad, method: "post") do %>
+                          <td><%= label_tag :inicio %> <%= text_field_tag :inicio %></td>
+                          <td><%= label_tag :fin %> <%= text_field_tag :fin %></td>
+                          <td><%= label_tag :cantidad %> <%= text_field_tag :cantidad %></td>
+                          <td> <%= submit_tag('Mover') %></td>
+                        <% end %>
+
+                      </tr>
+
                       <tr>
                         <td><%= button_to 'Actualizar stocks', :stocks_force_update %></td>
                         <td><%= button_to 'Actualizar transacciones', :refresh_transactions %></td>

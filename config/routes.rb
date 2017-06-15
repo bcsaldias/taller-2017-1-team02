@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   post 'detener_despacho' => 'managments#detener_despacho', as: :detener_despacho
   post 'despachar_boleta' => 'managments#despachar_boleta', as: :despachar_boleta
   post 'sent_production' => 'managments#sent_production', as: :sent_production
+  post 'mover_cantidad' => 'managments#mover_cantidad', as: :mover_cantidad
   post 'check_for_availablility' => 'managments#check_for_availablility', as: :check_for_availablility
 
   post 'refresh_transactions' => 'managments#refresh_transactions', as: :refresh_transactions
@@ -64,7 +65,7 @@ Rails.application.routes.draw do
   #resources :suppliers
   apipie
   get 'ftp' => 'api#ftp'
-  #get 'test' => 'api#test'
+  get 'test' => 'api#test'
   #get 'test2' => 'api#test2'
   #get 'testj3' => 'api#testj3'
   #get 'testj4' => 'api#testj4'

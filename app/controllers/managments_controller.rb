@@ -33,6 +33,14 @@ class ManagmentsController < ApplicationController
     @show_vouchers =  Voucher.where('id IN (?)', vouchers_id).order(sort_column(Voucher, "id_cloud") + " " + sort_direction)
   end
 
+  def mover_cantidad
+    inicio = params[:inicio]
+    fin = params[:fin]
+    cantidad = params[:cantidad].to_i
+    ret = Warehouses.move_A_B(inicio, fin, cantidad)
+    json_response({ret:  true })
+  end
+
   def despachar_boleta
     voucher_id = params[:voucher_id]
     # METER A COLA

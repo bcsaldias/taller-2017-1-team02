@@ -601,98 +601,73 @@ module Warehouses
   end
 
 
-  def self.move_despacho_general
+  def self.move_A_B(_B, _A, _Q)
+
     sleep_time = 6
     max_request_counter = 50
     moving_batch = 40
     warehouses_id = self.get_warehouses_id
 
-    stock_general = Production.get_all_stock_warehouse(warehouses_id['general'])
-    stock_despacho = Production.get_all_stock_warehouse(warehouses_id['despacho'])
+    stock_general = Production.get_all_stock_warehouse(warehouses_id[_A])
+    stock_despacho = Production.get_all_stock_warehouse(warehouses_id[_B])
     request_counter = 0
 
+    counter = 0
+
     Rails.application.config.able_to_reorder = true
-    while Rails.application.config.able_to_reorder #Crear boton que permita parar esto #self.puede_reordenar_ok
+    while Rails.application.config.able_to_reorder and counter < _Q#Crear boton que permita parar esto #self.puede_reordenar_ok
       puts "\n \nIteracion:"
       puts "General: #{stock_general}"
       puts "Despacho: #{stock_despacho}"
 
       if stock_despacho.length == 0
-        puts "Nada en despacho!"
+        puts "Nada en #{_B}!"
         return true
-      elsif self.full_warehouse(warehouses_id['general'])
-        puts "Se llenaron las bodegas general"
+      elsif self.full_warehouse(warehouses_id[_A])
+        puts "Se llenaron las bodegas #{_A}"
         return true
       else
         # DESPACHO -> GENERAL
-        if !self.full_warehouse(warehouses_id['general']) and !self.empty_warehouse(warehouses_id['despacho'])
-          puts "Entro a Despacho -> General"
+        if !self.full_warehouse(warehouses_id[_A]) and !self.empty_warehouse(warehouses_id[_B])
+          puts "Entro a #{_A} -> #{_B}"
           for product_type in stock_despacho
-            stock_despacho_sku = Production.get_stock(warehouses_id['despacho'], product_type['_id'])
+            if counter < _Q
+              stock_despacho_sku = Production.get_stock(warehouses_id[_B], product_type['_id'])
 
-            cant_a_mover = [stock_despacho_sku.length, moving_batch].min
-            (0..cant_a_mover-1).to_a.each do |n|
-              product_id = stock_despacho_sku[n]['_id']
-              Production.move_stock(warehouses_id['general'], product_id)
-              puts "somethg moved Desp->Gen"
-              request_counter += 1
+              cant_a_mover = [stock_despacho_sku.length, moving_batch].min
+              (0..cant_a_mover-1).to_a.each do |n|
+                product_id = stock_despacho_sku[n]['_id']
+                if counter < _Q
+                  counter += 1
+                  Production.move_stock(warehouses_id[_A], product_id)
+                  puts "somethg moved Desp->Gen"
+                  request_counter += 1
+                else
+                  break
+                end
+              end
+               request_counter = Tiempo.sleep_if_to_many_requests(request_counter, max_request_counter, sleep_time)
+            else
+              break
             end
-             request_counter = Tiempo.sleep_if_to_many_requests(request_counter, max_request_counter, sleep_time)
           end
-          stock_despacho = Production.get_all_stock_warehouse(warehouses_id['despacho'])
-          stock_general = Production.get_all_stock_warehouse(warehouses_id['general'])
+          stock_despacho = Production.get_all_stock_warehouse(warehouses_id[_B])
+          stock_general = Production.get_all_stock_warehouse(warehouses_id[_A])
         end
       end
       puts "\n \nAble_to_order: #{Rails.application.config.able_to_reorder}"
     end
+
   end
 
 
+  def self.move_despacho_general
+    self.move_A_B('despacho', 'general', 10000000000)
+  end
+
 
   def self.move_recepcion_general
-    sleep_time = 6
-    max_request_counter = 50
-    moving_batch = 40
-    warehouses_id = self.get_warehouses_id
-
-    stock_general = Production.get_all_stock_warehouse(warehouses_id['general'])
-    stock_recepcion = Production.get_all_stock_warehouse(warehouses_id['recepcion'])
-    request_counter = 0
-
-    Rails.application.config.able_to_reorder = true
-    while Rails.application.config.able_to_reorder #self.puede_reordenar_ok
-      puts "\n \nIteracion:"
-      puts "General: #{stock_general}"
-      puts "Recepcion: #{stock_recepcion}"
-
-      if stock_recepcion.length == 0
-        puts "Nada en recepcion!"
-        return true
-      elsif self.full_warehouse(warehouses_id['general'])
-        puts "Se llenaron las bodegas general"
-        return true
-      else
-        # RECEPCION -> GENERAL
-        if !self.full_warehouse(warehouses_id['general']) and !self.empty_warehouse(warehouses_id['recepcion'])
-          puts "Entro a RECEPCION -> GENERAL"
-          for product_type in stock_recepcion
-            stock_recepcion_sku = Production.get_stock(warehouses_id['recepcion'], product_type['_id'])
-
-            cant_a_mover = [stock_recepcion_sku.length, moving_batch].min
-            (0..cant_a_mover-1).to_a.each do |n|
-              product_id = stock_recepcion_sku[n]['_id']
-              Production.move_stock(warehouses_id['general'], product_id)
-              puts "somethg moved Recep->Gen"
-              request_counter += 1
-            end
-            request_counter = Tiempo.sleep_if_to_many_requests(request_counter, max_request_counter, sleep_time)
-          end
-          stock_recepcion = Production.get_all_stock_warehouse(warehouses_id['recepcion'])
-          stock_general = Production.get_all_stock_warehouse(warehouses_id['general'])
-        end
-      end
-      puts "\n \nAble_to_order: #{Rails.application.config.able_to_reorder}"
-    end
+    self.move_A_B('recepcion', 'general', 10000000000)
   end
 
 

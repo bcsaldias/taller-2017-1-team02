@@ -57,6 +57,12 @@ class ApiController < ApplicationController
 	end
 
 	def test
+		ret = Warehouses.move_A_B('general', 'despacho', 10)
+		json_response({ret:  ret })
+
+	end
+
+	def test_old00
 
 		voucher = Voucher.where(id_cloud: "59302fe5e7efa40004329ecb").first
 		Production.save_order_for_delivering(voucher)
