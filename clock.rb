@@ -1,12 +1,10 @@
 module Clockwork
 
-  def puts_shak
-    i = 0
-    every(10.seconds, 'frequent.job') do 
-      puts i
-      puts "SHAKIRA"
-      i += 1
-    end
+  i = 0
+  every(10.seconds, 'frequent.job') do 
+    puts i
+    puts "SHAKIRA"
+    i += 1
   end
   
 end
