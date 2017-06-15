@@ -94,6 +94,11 @@ module Invoices
     #parametros: id (string), motivo
     #retorno: factura o error
     #testeada
+    our_invoice = Invoice.where(id_cloud: invoice_id).first
+    our_invoice.status = 2
+    our_invoice.cause = motive
+    our_invoice.save!
+
     body = {'id' => invoice_id, 'motivo' => motive}
     @result = Queries.post("sii/cancel", body = body)
     return JSON.parse @result.body
