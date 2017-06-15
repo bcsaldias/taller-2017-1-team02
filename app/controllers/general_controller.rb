@@ -22,7 +22,7 @@ class GeneralController < ApplicationController
 
   def ventas
     # J: Busca localmente las POrders
-    @purchase_orders = PurchaseOrder.where(owner: nil).where("group_number != -1").order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
+    @purchase_orders = PurchaseOrder.where(owner: nil).where("group_number != -1").order(sort_column(PurchaseOrder, "id") + " " + sort_direction)
   end
 
 
