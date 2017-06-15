@@ -39,6 +39,7 @@ Rails.application.routes.draw do
 
   post 'refresh_transactions' => 'managments#refresh_transactions', as: :refresh_transactions
   post 'refresh_ftp' => 'managments#refresh_ftp', as: :refresh_ftp
+  get 'refresh_ftp' => 'managments#refresh_ftp'
 
   post 'refresh_balance' => 'managments#refresh_balance', as: :refresh_balance
 
