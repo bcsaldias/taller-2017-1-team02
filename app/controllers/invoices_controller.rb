@@ -182,8 +182,16 @@ class InvoicesController < ApplicationController
         json_response ({ error: "Debe entregar el id de una transacción"}), 400
       else
         invoice_id = params[:id]
-        invoice = Invoice.where(id_cloud: invoice_id).first
-        # purchase_order = PurchaseOrder.where(id_cloud: invoice.oc_id_cloud).first
+        q_invoice = Invoice.where(id_cloud: invoice_id)#.first
+        invoice = nil
+	if q_invoice.count > 0
+	  invoice = q_invoice.first
+	else
+   	  json_response ({ error: "Factura no existe"}), 404
+	  return 
+	end
+	
+	# purchase_order = PurchaseOrder.where(id_cloud: invoice.oc_id_cloud).first
         #llamar la transaccion a la nube
         transaction_id = @body['id_transaction']
         transaction = Bank.get_transaction(transaction_id)
