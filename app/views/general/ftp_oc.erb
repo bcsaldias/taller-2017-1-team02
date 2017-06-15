@@ -82,6 +82,7 @@
             <table  class="table table-bordered" cellspacing="0" width="100%">
                 <thead>
                     <tr>
+                      <th><%= sortable "id", "ID", PurchaseOrder, "product_sku"  %></th>
                       <th><%= sortable "product_sku", "Sku", PurchaseOrder, "product_sku"  %></th>
                       <th><%= sortable "state", "Status", PurchaseOrder, "product_sku"  %></th>
                       <th><%= sortable "id_cloud", PurchaseOrder, "product_sku"  %></th>
@@ -99,6 +100,7 @@
                       <tr>
                         <%= form_tag(:accept_ftp,  method: "post") do %>
                         <%= hidden_field_tag :cloud_id, purchase_order.id_cloud %>
+                        <td><%= purchase_order.id %></td>
                         <td><%= purchase_order.product_sku %></td>
                         <td><%= purchase_order.state %></td>
                         <td><%= purchase_order.id_cloud %></td>
@@ -126,6 +128,7 @@
             <table  class="table table-bordered" cellspacing="0" width="100%">
                 <thead>
                     <tr>
+                      <th><%= sortable "id", "ID", PurchaseOrder, "product_sku"  %></th>
                       <th><%= sortable "product_sku", "Sku", PurchaseOrder, "product_sku"  %></th>
                       <th><%= sortable "state", "Status", PurchaseOrder, "product_sku"  %></th>
                       <th><%= sortable "evaluar_si_aceptar", "¿Puedo aceptar?", PurchaseOrder, "product_sku"  %></th>
@@ -144,6 +147,7 @@
                       <tr>
                         <%= form_tag(:accept_ftp,  method: "post") do %>
                         <%= hidden_field_tag :cloud_id, purchase_order.id_cloud %>
+                        <td><%= purchase_order.id %></td>
                         <td><%= purchase_order.product_sku %></td>
                         <td><%= purchase_order.state %></td>
                         <td><%= purchase_order.evaluar_si_aceptar %></td>
@@ -163,6 +167,7 @@
                       <tr>
                         <%= form_tag(:accept_ftp,  method: "post") do %>
                         <%= hidden_field_tag :cloud_id, purchase_order.id_cloud %>
+                        <td><%= purchase_order.id %></td>
                         <td><%= purchase_order.product_sku %></td>
                         <td><%= purchase_order.state %></td>
                         <td><%= purchase_order.evaluar_si_aceptar %></td>
@@ -191,6 +196,7 @@
             <table  class="table table-bordered" cellspacing="0" width="100%">
                 <thead>
                     <tr>
+                      <th><%= sortable "id", "ID", PurchaseOrder, "product_sku"  %></th>
                       <th><%= sortable "product_sku", "Sku", PurchaseOrder, "product_sku"  %></th>
                       <th><%= sortable "state", "Status", PurchaseOrder, "product_sku"  %></th>
                       <th><%= sortable "id_cloud", PurchaseOrder, "product_sku"  %></th>
@@ -208,6 +214,7 @@
                       <tr>
                         <%= form_tag(:accept_ftp,  method: "post") do %>
                         <%= hidden_field_tag :cloud_id, purchase_order.id_cloud %>
+                        <td><%= purchase_order.id %></td>
                         <td><%= purchase_order.product_sku %></td>
                         <td><%= purchase_order.state %></td>
                         <td><%= purchase_order.id_cloud %></td>
@@ -236,6 +243,7 @@
             <table  class="table table-bordered" cellspacing="0" width="100%">
                 <thead>
                     <tr>
+                      <th><%= sortable "id", "ID", PurchaseOrder, "product_sku"  %></th>
                       <th><%= sortable "product_sku", "Sku", PurchaseOrder, "product_sku"  %></th>
                       <th><%= sortable "state", "Status", PurchaseOrder, "product_sku"  %></th>
                       <th><%= sortable "id_cloud", PurchaseOrder, "product_sku"  %></th>
@@ -253,6 +261,7 @@
                       <tr>
                         <%= form_tag(:accept_ftp,  method: "post") do %>
                         <%= hidden_field_tag :cloud_id, purchase_order.id_cloud %>
+                        <td><%= purchase_order.id %></td>
                         <td><%= purchase_order.product_sku %></td>
                         <td><%= purchase_order.state %></td>
                         <td><%= purchase_order.id_cloud %></td>
