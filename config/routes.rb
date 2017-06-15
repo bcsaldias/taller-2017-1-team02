@@ -77,6 +77,7 @@ Rails.application.routes.draw do
 
   get 'general' => 'general#index', :as => :general
   get 'oc' => 'general#oc', :as => :oc
+  get 'ventas' => 'general#ventas', :as => :ventas
   get 'ftp_oc' => 'general#ftp_oc', :as => :ftp_oc
   get 'transaction' => 'general#transaction', :as => :transaction
   get 'invoices' => 'general#invoices', :as => :invoices

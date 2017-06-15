@@ -20,6 +20,12 @@ class GeneralController < ApplicationController
     @purchase_orders = PurchaseOrder.where(owner: nil).where("group_number != -1").order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
   end
 
+  def ventas
+    # J: Busca localmente las POrders
+    @purchase_orders = PurchaseOrder.where(owner: nil).where("group_number != -1").order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
+  end
+
+
   def ftp_oc
     ftp_orders = PurchaseOrder.where("group_number == -1")
     @total_ftp = PurchaseOrder.where("group_number == -1")
