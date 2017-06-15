@@ -250,13 +250,15 @@ class ManagmentsController < ApplicationController
           po.save!
           refreshed = true
         end
+	
+      end
 
         if po.true_quantity_done != cloud_po["cantidadDespachada"]
           po.true_quantity_done = cloud_po["cantidadDespachada"]
           po.save!
           refreshed = true
         end
-      end
+     
 
     end
 
