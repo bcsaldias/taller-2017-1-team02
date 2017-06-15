@@ -8,6 +8,7 @@ require "rails/all"
 Bundler.require(*Rails.groups)
 
 module Project
+  include Clockwork
   class Application < Rails::Application
 
     config.to_prepare do
@@ -37,6 +38,8 @@ module Project
     config.active_record.default_timezone = :local
 
     config.able_to_reorder = true
+
+    Clockwork.puts_shak
     # Read it with Rails.application.config.reordering_warehouses
 
   end
