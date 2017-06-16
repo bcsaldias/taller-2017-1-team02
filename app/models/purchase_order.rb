@@ -56,6 +56,10 @@ class PurchaseOrder < ApplicationRecord
     sku = self.product_sku
     @product = Product.find_by(sku: sku)
 
+    if !@product or !@product.price
+      self.cause = "No vendemos ese producto"
+      return false
+    end
 
     puts "Precio producto: #{@product.price}"
     puts "Precio OC: #{self.unit_price}"
@@ -73,7 +77,7 @@ class PurchaseOrder < ApplicationRecord
 
     #puts "stock_actual: #{stock_actual}"
     #puts "stock_reservado: #{stock_reservado}"
-    s_disponible = @product.stock_disponible 
+    s_disponible = @product.stock_disponible
 
     if s_disponible < self.quantity
       puts "No_stock"
