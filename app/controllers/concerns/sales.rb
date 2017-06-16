@@ -62,6 +62,7 @@ module Sales
 		return_factura = Invoices.emitir_factura(purchase_order_id)
 		puts "Imprimo factura: #{return_factura}"
 		ret = Queries.patch_to_groups_api('purchase_orders/'+order['_id']+'/accepted', sup)
+		ret = Invoices.enviar_factura(return_factura['_id'])
 		return ret
 	end
 

@@ -165,7 +165,7 @@ module Invoices
   end
 
   #PUT /invoices/:id
-  def enviar_factura(invoice_id, bank_account)
+  def enviar_factura(invoice_id, bank_account=nil)
     invoice = self.obtener_factura(invoice_id)
     sup = Supplier.get_by_id_cloud(invoice['cliente'])
     our_account = Rails.configuration.environment_ids['bank_id']
