@@ -63,8 +63,8 @@ class PurchaseOrdersController < ApplicationController
             if @purchase_order.evaluar_si_aceptar
               puts 'oc aceptada'
               #@purchase_order.aceptada!
-              ret = Sales.accept_purchase_order(params[:id]) # FIXME si no le podemos avisar no deberiamos guardar
-              puts "Accept OC al cliente: #{ret}"
+              #ret = Sales.accept_purchase_order(params[:id]) # FIXME si no le podemos avisar no deberiamos guardar
+              #puts "Accept OC al cliente: #{ret}"
 
               puts "HACER PAGO!!" # FIXEME
               #enviar factura
