@@ -8,6 +8,18 @@
 class GetSFTP
   def perform
     ret =  FtpOrders.check_orders
+
+    total_ftp = PurchaseOrder.where("group_number == -1")
+    created_ftp  = total_ftp.where(state: 0).order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
+    
+    created_ftp.each do |ftp_oc|
+    	if ftp_oc.evaluar_si_aceptar
+    		Sales.accept_ftp_order(ftp_oc.id_cloud)
+    	end
+    end
+
+    return Warehouses.activate_queue
+
     puts 'Shakira!'
   end
 end
