@@ -173,7 +173,7 @@ module Invoices
     @body = { 'bank_account' => our_account }
     ret = Queries.put_to_groups_api('invoices/'+invoice['_id'], sup,
                                     access_token=false, params={}, body=@body)
-    return ret
+    return ret.body
   end
 
 
