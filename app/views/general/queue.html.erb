@@ -102,7 +102,7 @@
                       <tr>
                         <%= form_tag(:detener_despacho,  method: "post") do %>
                         <%= hidden_field_tag :cloud_id, purchase_order.id_cloud %>
-                        <td><%= purchase_order.ids %></td>
+                        <td><%= purchase_order.id %></td>
                         <td><%= purchase_order.product_sku %></td>
                         <td><%= purchase_order.group_number %></td>
                         <td><%= purchase_order.state %></td>

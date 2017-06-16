@@ -217,16 +217,17 @@ class ManagmentsController < ApplicationController
   def refresh_invoices
 
     refreshed = false
-    
-    Invoices.all.each do |po|
+    cant = 0
+    Invoice.all.each do |po|
         id_cloud = po.id_cloud
         cloud_po = Invoices.obtener_factura(id_cloud)
-        puts "sfpt - Local: #{po.state} - Nube: #{cloud_po["estado"]}"
-        if po.state != cloud_po["estado"]
-          po.state = cloud_po["estado"]
+        puts "sfpt - Local: #{po.status} - Nube: #{cloud_po["estado"]}"
+        if po.status != cloud_po["estado"]
+          cant += 1
+	  po.status = cloud_po["estado"]
           po.save!
           refreshed = true
-          puts "Modifico State: #{po.state}"
+          puts "Modifico State: #{po.status}"
         end
         
     end
