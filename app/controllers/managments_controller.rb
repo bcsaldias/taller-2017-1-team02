@@ -248,7 +248,7 @@ class ManagmentsController < ApplicationController
       if cloud_po == nil
         puts po.id_cloud
         puts "nil"
-        po.delete!
+        po.destroy!
       else
 
         if po.owner != true and po.team_id_cloud != cloud_po["cliente"]
