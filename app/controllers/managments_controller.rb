@@ -245,6 +245,11 @@ class ManagmentsController < ApplicationController
       id_cloud = po.id_cloud
       cloud_po = Sales.get_purchase_order(id_cloud)
 
+      if cloud_po == nil
+        puts po.id_cloud
+        puts "nil"
+        break
+      end
 
       if po.owner != true and po.team_id_cloud != cloud_po["cliente"]
         po.team_id_cloud = cloud_po["cliente"]
