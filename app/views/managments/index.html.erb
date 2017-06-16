@@ -149,6 +149,17 @@
                       </tr>
                       <tr>
 
+                        <td>Enviar factura</td>
+                        <%= form_tag(:enviar_factura, method: "post") do %>
+                        <td><%= label_tag :id_cloud %> <%= text_field_tag :id_cloud %></td>
+                        <td> <%= submit_tag('Enviar') %></td>
+                        <% end %>
+
+                      </tr>
+
+
+                      <tr>
+
                         <td>Pagar factura</td>
                         <%= form_tag(:pay_invoice, method: "post") do %>
                         <td><%= label_tag :factura_cloud_id %> <%= text_field_tag :factura_cloud_id %></td>

@@ -58,6 +58,11 @@ class ManagmentsController < ApplicationController
     json_response({req: req})
   end
 
+  def enviar_factura
+    req = Invoices.enviar_factura(params[:id_cloud])
+    json_response({req: req})
+  end
+
   def sent_production
     puts params[:oc_sku]
     puts params[:cantidad_raw_material]
