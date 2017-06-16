@@ -221,14 +221,23 @@ class ManagmentsController < ApplicationController
     Invoice.all.each do |po|
         id_cloud = po.id_cloud
         cloud_po = Invoices.obtener_factura(id_cloud)
+
+      if cloud_po == nil
+        puts po.id_cloud
+        puts "nil"
+        po.destroy!
+      else
+
         puts "sfpt - Local: #{po.status} - Nube: #{cloud_po["estado"]}"
         if po.status != cloud_po["estado"]
           cant += 1
-	  po.status = cloud_po["estado"]
+	        po.status = cloud_po["estado"]
           po.save!
           refreshed = true
           puts "Modifico State: #{po.status}"
         end
+
+      end
         
     end
     
