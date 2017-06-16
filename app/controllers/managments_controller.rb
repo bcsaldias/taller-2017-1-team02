@@ -247,26 +247,13 @@ class ManagmentsController < ApplicationController
       if cloud_po == nil
         puts po.id_cloud
         puts "nil"
-        break
-      end
+        po.delete!
+      else
 
-      if po.owner != true and po.team_id_cloud != cloud_po["cliente"]
-        po.team_id_cloud = cloud_po["cliente"]
-        po.save!
-        supp = Supplier.get_by_id_cloud(cloud_po['cliente'])
-        if supp
-          po.group_number = supp.id
+        if po.owner != true and po.team_id_cloud != cloud_po["cliente"]
+          po.team_id_cloud = cloud_po["cliente"]
           po.save!
-        end
-        refreshed = true
-      end
-
-      if po.owner == true
-
-        if po.team_id_cloud != cloud_po["proveedor"]
-          po.team_id_cloud = cloud_po["proveedor"]
-          po.save!
-          supp = Supplier.get_by_id_cloud(cloud_po['proveedor'])
+          supp = Supplier.get_by_id_cloud(cloud_po['cliente'])
           if supp
             po.group_number = supp.id
             po.save!
@@ -274,31 +261,46 @@ class ManagmentsController < ApplicationController
           refreshed = true
         end
 
-        puts "Local: #{po.state} - Nube: #{cloud_po["estado"]}"
-        if po.state != cloud_po["estado"]
-          po.state = cloud_po["estado"]
-          po.save!
-          refreshed = true
-          puts "Modifico State: #{po.state}"
-        end
+        if po.owner == true
 
-        puts "Q local: #{po.quantity_done} -- Q nube: #{cloud_po["cantidadDespachada"]}"
+          if po.team_id_cloud != cloud_po["proveedor"]
+            po.team_id_cloud = cloud_po["proveedor"]
+            po.save!
+            supp = Supplier.get_by_id_cloud(cloud_po['proveedor'])
+            if supp
+              po.group_number = supp.id
+              po.save!
+            end
+            refreshed = true
+          end
 
-        if po.quantity_done != cloud_po["cantidadDespachada"]
-          po.quantity_done = cloud_po["cantidadDespachada"]
-          po.save!
-          refreshed = true
+          puts "Local: #{po.state} - Nube: #{cloud_po["estado"]}"
+          if po.state != cloud_po["estado"]
+            po.state = cloud_po["estado"]
+            po.save!
+            refreshed = true
+            puts "Modifico State: #{po.state}"
+          end
+
+          puts "Q local: #{po.quantity_done} -- Q nube: #{cloud_po["cantidadDespachada"]}"
+
+          if po.quantity_done != cloud_po["cantidadDespachada"]
+            po.quantity_done = cloud_po["cantidadDespachada"]
+            po.save!
+            refreshed = true
+          end
+    
         end
-	
-      end
 
         if po.true_quantity_done != cloud_po["cantidadDespachada"]
           po.true_quantity_done = cloud_po["cantidadDespachada"]
           po.save!
           refreshed = true
         end
-     
+       
+      end
 
+      
     end
 
     PurchaseOrder.where("group_number == -1").each do |po|
