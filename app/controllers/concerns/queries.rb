@@ -93,7 +93,7 @@ module Queries
 					'X-ACCESS-TOKEN' => Rails.configuration.environment_ids['team_id']}
 		header["Token"] = access_token if access_token
 		puts body
-		@result = HTTParty.put(path, headers: header, query: params, body: body )
+		@result = HTTParty.put(path, headers: header, query: params, body: body.to_json )
 		puts @result.body
 		return @result
 	end
