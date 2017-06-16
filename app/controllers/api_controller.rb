@@ -56,10 +56,15 @@ class ApiController < ApplicationController
 		end
 	end
 
-	def test
+	def test_old01
 		ret = Warehouses.move_A_B('general', 'despacho', 10)
 		json_response({ret:  ret })
 
+	end
+
+	def test
+		ret = Invoices.anular_factura("5943231ba695a90004a9b4b6", "cliente no la recibe")
+		json_response({ret: ret})
 	end
 
 	def test_old00
