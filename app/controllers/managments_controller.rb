@@ -214,6 +214,27 @@ class ManagmentsController < ApplicationController
     json_response({ret: "Actualizado!", cant: cant, trx_descargadas: counter})
   end
 
+  def refresh_invoices
+
+    refreshed = false
+    
+    Invoices.all.each do |po|
+        id_cloud = po.id_cloud
+        cloud_po = Invoices.obtener_factura(id_cloud)
+        puts "sfpt - Local: #{po.state} - Nube: #{cloud_po["estado"]}"
+        if po.state != cloud_po["estado"]
+          po.state = cloud_po["estado"]
+          po.save!
+          refreshed = true
+          puts "Modifico State: #{po.state}"
+        end
+        
+    end
+    
+    json_response({resp: "Todo estaba OK", cantidad_oc: cant }) and return if !refreshed
+    json_response({response: "Actualizado"})
+  end
+
   # Revisa que todas las PO locales esten actualizadas con servidor
   def refresh_purchase_orders
     cant =  PurchaseOrder.all.count
