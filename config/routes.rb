@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   get 'logout' => 'user_sessions#destroy', :as => :logout
 
   post 'sort_wh' => 'managments#sort_wh', as: :sort_warehouses
+  post 'enviar_factura' => 'managments#enviar_factura', as: :enviar_factura
   post 'activate_queue' => 'general#activate_queue', as: :activate_queue
   post 'notify_deliver' => 'managments#notify_deliver', as: :notify_deliver
   post 'pay_invoice' => 'managments#pay_invoice', as: :pay_invoice
