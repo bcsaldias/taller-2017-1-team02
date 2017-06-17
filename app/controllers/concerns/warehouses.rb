@@ -552,8 +552,10 @@ module Warehouses
       count = 0
       stock_general = Production.get_all_stock_warehouse(warehouse_id)
       for _object in stock_general
-        if _object["_id"] == sku
-          count += _object["total"]
+        if _object != nil
+          if _object["_id"] == sku
+            count += _object["total"]
+          end
         end
       end
       return count
