@@ -103,6 +103,10 @@ module Warehouses
       if (stock_in_general == 0 and stock_in_recepcion == 0 and stock_in_pulmon == 0 and stock_in_pregeneral == 0)
         puts "no hay stock en realidad"
         break
+      
+      elsif self.full_warehouse(warehouses_id['recepcion'])
+        self.move_A_B('recepcion', 'pulmon', 10)      
+
       else
 
         stock_general = Production.get_stock(warehouses_id['general'], sku)
@@ -454,9 +458,6 @@ module Warehouses
         puts "Todo ordenado!"
         return true
 
-      elsif self.full_warehouse(warehouses_id['recepcion'])
-        self.move_A_B('recepcion', 'pulmon', 10)
-            
       elsif self.full_warehouse(warehouses_id['general']) and self.full_warehouse(warehouses_id['pregeneral'])
         puts "Se llenaron las bodegas general y pregeneral"
         return true
@@ -606,6 +607,10 @@ module Warehouses
 
 
   def self.move_A_B(_B, _A, _Q)
+    puts "move"
+    puts _B
+    puts _A
+    puts _Q.to_s
 
     sleep_time = 6
     max_request_counter = 50
