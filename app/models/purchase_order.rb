@@ -77,11 +77,17 @@ class PurchaseOrder < ApplicationRecord
 
     #puts "stock_actual: #{stock_actual}"
     #puts "stock_reservado: #{stock_reservado}"
-    s_disponible = @product.stock_disponible
+
+    base = 400 # reservado para nosotros
+    if self.group_number == -1
+      base = 0
+    end
+
+    s_disponible = @product.stock_disponible - base
 
     if s_disponible < self.quantity
       puts "No_stock"
-      self.cause = "no tenemos stock para cumplir plazo"
+      self.cause = "no tenemos stock para cumplir plazo."
       return false
     end
 
