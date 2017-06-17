@@ -49,21 +49,30 @@
                 <tbody id="news-table">
                     <% @production_orders.each do |production_order| %>
                       <tr>
+                        <%= form_tag(:encolar_order,  method: "post") do %>
+                        <%= hidden_field_tag :order_id, production_order.id %>
+
                         <td><%= production_order.product_sku %></td>
                         <td><%= production_order.cantidad %></td>
                         <td><%= production_order.created_at.strftime("%d/%b") %></td>
-                        <% if production_order.disponible != nil %>
-                          <td><%= production_order.disponible.strftime("%d/%b at %I:%M%p") %></td>
-                        <% else %>
-                          <td>  </td>
+                          <% if production_order.disponible != nil %>
+                            <td><%= production_order.disponible.strftime("%d/%b at %I:%M%p") %></td>
+                          <% else %>
+                            <td>  </td>
+                          <% end %>
+                          <% if production_order.queued == nil %>
+                            <td><%= submit_tag 'Encolar', :name => "status"  %></td>
+                          <% else %>
+                            <td> <%= production_order.queued %> </td>
+                          <% end %>
+
                         <% end %>
-                        <td><%= production_order.queued %></td>
+
                       </tr>
                     <% end %>
                 </tbody>
             </table>
           </div>
-
 
 
 
@@ -75,3 +84,4 @@
 
 </body>
 </html>
+

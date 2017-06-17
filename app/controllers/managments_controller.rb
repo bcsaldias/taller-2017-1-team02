@@ -75,6 +75,24 @@ class ManagmentsController < ApplicationController
     json_response({req: req})
   end
 
+  def encolar_order
+    puts params[:order_id]
+    order_id = params[:order_id].to_i
+    order = ProductionOrder.find(order_id)
+    order.queued = true
+    order.save!
+    json_response({queued: order.queued})
+  end
+
+  def desencolar_order
+    puts params[:order_id]
+    order_id = params[:order_id].to_i
+    order = ProductionOrder.find(order_id)
+    order.queued = nil
+    order.save!
+    json_response({queued: order.queued})
+  end
+
   def detener_despacho
     being_delivered = PurchaseOrder.where(id_cloud: params[:cloud_id]).first
     #being_delivered.delivering = false

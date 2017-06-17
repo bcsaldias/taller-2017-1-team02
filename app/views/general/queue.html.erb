@@ -48,23 +48,40 @@
                 </thead>
 
                 <tbody id="news-table">
+
                     <% @production_orders.each do |production_order| %>
                       <tr>
+                        <%= form_tag(:desencolar_order,  method: "post") do %>
+                        <%= hidden_field_tag :order_id, production_order.id %>
+
                         <td><%= production_order.product_sku %></td>
                         <td><%= production_order.cantidad %></td>
-                        <% if production_order.disponible != nil %>
-                          <td><%= production_order.disponible.strftime("%d/%b at %I:%M%p") %></td>
-                        <% else %>
-                          <td>  </td>
-                        <% end %>
-                        <td><%= production_order.queued %></td>
+                          <% if production_order.disponible != nil %>
+                            <td><%= production_order.disponible.strftime("%d/%b at %I:%M%p") %></td>
+                          <% else %>
+                            <td>  </td>
+                          <% end %>
+
+                          <% if production_order.queued == true and production_order.delivering != true %>
+                            <td><%= submit_tag 'Desencolar', :name => "status"  %></td>
+                          <% else %>
+                            <td> <%= production_order.queued %> </td>
+                          <% end %>
                         <td><%= production_order.delivering %></td>
+
+                        <% end %>
 
                       </tr>
                     <% end %>
+
                 </tbody>
             </table>
           </div>
+
+
+
+
+
 
 
 

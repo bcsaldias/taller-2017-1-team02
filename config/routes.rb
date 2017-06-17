@@ -33,6 +33,8 @@ Rails.application.routes.draw do
   post 'deliver_ftp' => 'managments#deliver_ftp', as: :deliver_ftp
   post 'create_oc' => 'managments#create_oc', as: :create_oc
   post 'accept_oc' => 'general#accept_oc', as: :accept_oc
+  post 'encolar_order' => 'managments#encolar_order', as: :encolar_order
+  post 'desencolar_order' => 'managments#desencolar_order', as: :desencolar_order
   post 'accept_ftp' => 'general#accept_ftp', as: :accept_ftp
   post 'detener_despacho' => 'managments#detener_despacho', as: :detener_despacho
   post 'despachar_boleta' => 'managments#despachar_boleta', as: :despachar_boleta
