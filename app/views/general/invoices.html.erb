@@ -89,7 +89,8 @@
                 <tbody id="news-table">
                     <% @invoices.each do |invoice| %>
                       <tr>
-
+                        <%= form_tag(:accept_invoice,  method: "post") do %>
+                        <%= hidden_field_tag :cloud_id, invoice.id_cloud %>
                         <td><%= invoice.id_cloud %></td>
                         <td><%= invoice.cliente %></td>
                         <td><%= invoice.proveedor %></td>
@@ -98,6 +99,9 @@
                         <td><%= invoice.status %></td>
                         <td><%= invoice.bank_account %></td>
                         <td><%= invoice.owner %></td>
+                        <td> <%= submit_tag 'Aceptar', :name => "status"  %></td>
+                        <td> <%= submit_tag 'Rechazar', :name => "status"  %></td>
+                        <% end %>
                       </tr>
                     <% end %>
                 </tbody>

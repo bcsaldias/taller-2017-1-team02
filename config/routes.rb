@@ -33,6 +33,7 @@ Rails.application.routes.draw do
   post 'deliver_ftp' => 'managments#deliver_ftp', as: :deliver_ftp
   post 'create_oc' => 'managments#create_oc', as: :create_oc
   post 'accept_oc' => 'general#accept_oc', as: :accept_oc
+  post 'accept_invoice' => 'general#accept_invoice', as: :accept_invoice
   post 'encolar_order' => 'managments#encolar_order', as: :encolar_order
   post 'desencolar_order' => 'managments#desencolar_order', as: :desencolar_order
   post 'accept_ftp' => 'general#accept_ftp', as: :accept_ftp
@@ -48,8 +49,8 @@ Rails.application.routes.draw do
 
   post 'refresh_balance' => 'managments#refresh_balance', as: :refresh_balance
 
-  post 'refresh_purchase_orders' => 'managments#refresh_purchase_orders', as: :refresh_purchase_orders 
-  post 'refresh_invoices' => 'managments#refresh_invoices', as: :refresh_invoices 
+  post 'refresh_purchase_orders' => 'managments#refresh_purchase_orders', as: :refresh_purchase_orders
+  post 'refresh_invoices' => 'managments#refresh_invoices', as: :refresh_invoices
   post 'stocks_force_update' => 'managments#stocks_force_update', as: :stocks_force_update
 
   post 'move_despacho_general' => 'managments#move_despacho_general', as: :move_despacho_general

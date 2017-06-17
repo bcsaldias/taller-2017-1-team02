@@ -28,9 +28,9 @@ class GeneralController < ApplicationController
 
   def ftp_oc
     @total_ftp = PurchaseOrder.where("group_number == -1")
-    
+
     @created_ftp  = @total_ftp.where(state: 0).order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
-    
+
     @created_can_ftp = PurchaseOrder.can_accept_ftp.order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
     @created_cannot_ftp = PurchaseOrder.cannot_accept_ftp.order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
 
@@ -47,6 +47,23 @@ class GeneralController < ApplicationController
       @end = Sales.reject_purchase_order(params[:cloud_id], cause='no alcanzamos')
     end
     json_response({oc:params[:cloud_id], status:params[:status]})
+  end
+
+  # TODO
+  def accept_invoice
+    puts "Entre al aceptar o rechazar invoice"
+    @end =  nil
+    if params[:status] == "Aceptar"
+      puts "Entre al aceptar fact"
+      @end = Invoices.enviar_confirmacion_factura(params[:cloud_id])
+      # @end = Sales.accept_purchase_order(params[:cloud_id])
+    elsif params[:status] == "Rechazar"
+      puts "Entre al Rechazar fact"
+      @end = Invoices.enviar_rechazo_factura(params[:cloud_id], cause='no aceptable')
+
+      # @end = Sales.reject_purchase_order(params[:cloud_id], cause='no alcanzamos')
+    end
+    json_response({invoice:params[:cloud_id], status:params[:status]})
   end
 
   def accept_ftp
@@ -89,13 +106,13 @@ class GeneralController < ApplicationController
   end
 
   def despacho
-    
+
     warehouses_id = Warehouses.get_warehouses_id
     #@stock = Production.get_all_stock_warehouse("590baa76d6b4ec000490255f") Bodega general
     @stock = Production.get_all_stock_warehouse(warehouses_id['despacho']) # Bodega despacho
     @products = Product.all
   end
-    
+
 
   def authorize
     redirect_to '/login' unless current_user
@@ -104,7 +121,7 @@ class GeneralController < ApplicationController
   private
 
   # CAMBIAR A INDICE !!
-  
+
   def sort_column(nombre, defecto)
     nombre.column_names.include?(params[:sort]) ? params[:sort] : defecto
   end

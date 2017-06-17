@@ -66,7 +66,6 @@ class PurchaseOrdersController < ApplicationController
               #ret = Sales.accept_purchase_order(params[:id]) # FIXME si no le podemos avisar no deberiamos guardar
               #puts "Accept OC al cliente: #{ret}"
 
-              puts "HACER PAGO!!" # FIXEME
               #enviar factura
               #cuando la acepta/paga despachar
 

@@ -26,6 +26,7 @@ module Purchases
 															payment_method: "contra_factura",
 															quantity: cantidad,
 															quantity_done: 0,
+															unit_price: precioUnitario.to_i,
 															owner: true,
 															deadline: order['fechaEntrega'],
 															group_number: proveedor.id,

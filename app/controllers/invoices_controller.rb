@@ -42,11 +42,32 @@ class InvoicesController < ApplicationController
                                                   status: 0,
                                                   bank_account: bank_account,
                                                   purchase_order_id: oc.id)
-              json_response(
-                      {
-                        id_invoice: params[:id],
-                        bank_account: params[:bank_account]
-                      }, 200)
+              puts "Factura recibida: #{params[:id]}"
+              begin
+                json_response(
+                {
+                  id_invoice: params[:id],
+                  bank_account: params[:bank_account]
+                  }, 200)
+                  puts "Retorno status 200 (factura recibida)"
+              rescue
+                puts "error"
+              ensure
+                  puts "evaluando factura recibida", params[:id]
+
+                  if @invoice.evaluar_si_aceptar
+                    puts 'Aceptando factura'
+                    ret = Invoices.enviar_confirmacion_factura(@invoice.id_cloud)
+                    puts "Aceptacion factura, cliente retorna: #{ret}"
+                  else
+                    puts 'Rechazando factura'
+                    ret = Invoices.enviar_rechazo_factura(@invoice.id_cloud, @invoice.cause)
+                    puts "Factura rechazo cliente retorna: #{ret}"
+                  end
+
+
+              end
+
             else
               json_response({ :error => "Factura no nos corresponde a nosotros"}, 400)
             end
@@ -188,9 +209,9 @@ class InvoicesController < ApplicationController
 	  invoice = q_invoice.first
 	else
    	  json_response ({ error: "Factura no existe"}), 404
-	  return 
+	  return
 	end
-	
+
 	# purchase_order = PurchaseOrder.where(id_cloud: invoice.oc_id_cloud).first
         #llamar la transaccion a la nube
         transaction_id = @body['id_transaction']
