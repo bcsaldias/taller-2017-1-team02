@@ -25,5 +25,11 @@ class DashboardController < ActionController::Base
       end
     end
 
+    @product_ids.each do |p_id|
+      product = Product.find(p_id)
+      product.stock = @stock_by_product[p_id]
+      product.save!
+    end
+
   end
 end

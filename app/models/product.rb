@@ -50,7 +50,7 @@ class Product < ApplicationRecord
     _now = (DateTime.now.to_f * 1000).to_i
     _then = (self.updated_at.to_f * 1000).to_i
 
-    if _now - _then > 1000*60*10#60*2 #2 horas #10 minutos
+    if _now - _then > 1000*60*60*2 #2 horas
       self.stock = Warehouses.product_stock(self.sku)
       self.updated_at = DateTime.now
       self.save!
