@@ -19,6 +19,11 @@ module FtpOrders
 		if PurchaseOrder.where(id_cloud: order_id).count == 0
 			self.save_fpt_order(order_id)
 	    end
+
+		if Invoice.where(oc_id_cloud: order_id).count == 0
+  			Invoices.emitir_factura(order_id)
+	    end	    
+
 	end
 
 	def self.check_orders
