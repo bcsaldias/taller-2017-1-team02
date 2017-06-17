@@ -114,14 +114,20 @@ module Warehouses
           if cantidad_en_despacho >= q_a_despachar
             break
           end
-          Production.move_stock(warehouses_id['despacho'], product['_id'])
-          contador_de_requests +=1
-          if contador_de_requests > max_request
-            contador_de_requests = 0
-            sleep(sleep_time)
+          ret_code = Production.move_stock(warehouses_id['despacho'], product['_id'])
+
+          if ret_code == 200 or ret_code == 201
+            contador_de_requests +=1
+            if contador_de_requests > max_request
+              contador_de_requests = 0
+              sleep(sleep_time)
+            end
+            cantidad_en_despacho += 1
+            # puts "general a despacho"
+          else
+            break
           end
-          cantidad_en_despacho += 1
-          # puts "general a despacho"
+
         end
 
 
@@ -130,12 +136,19 @@ module Warehouses
           if cantidad_en_despacho >= q_a_despachar
             break
           end
-          Production.move_stock(warehouses_id['general'], product['_id'])
-          contador_de_requests +=1
-          if contador_de_requests > max_request
-            contador_de_requests = 0
-            sleep(sleep_time)
+          ret_code = Production.move_stock(warehouses_id['general'], product['_id'])
+
+          if ret_code == 200 or ret_code == 201
+            contador_de_requests +=1
+            if contador_de_requests > max_request
+              contador_de_requests = 0
+              sleep(sleep_time)
+            end
+          else
+            break
           end
+
+
           # puts "pregeneral a general"
         end
 
@@ -144,12 +157,18 @@ module Warehouses
           if cantidad_en_despacho >= q_a_despachar
             break
           end
-          Production.move_stock(warehouses_id['pregeneral'], product['_id'])
-          contador_de_requests +=1
-          if contador_de_requests > max_request
-            contador_de_requests = 0
-            sleep(sleep_time)
+          ret_code = Production.move_stock(warehouses_id['pregeneral'], product['_id'])
+
+          if ret_code == 200 or ret_code == 201
+            contador_de_requests +=1
+            if contador_de_requests > max_request
+              contador_de_requests = 0
+              sleep(sleep_time)
+            end
+          else
+            break
           end
+
           # puts "recepcion a pregeneral"
         end
 
@@ -158,12 +177,17 @@ module Warehouses
           if cantidad_en_despacho >= q_a_despachar
             break
           end
-          Production.move_stock(warehouses_id['recepcion'], product['_id'])
-          contador_de_requests +=1
-          if contador_de_requests > max_request
-            contador_de_requests = 0
-            sleep(sleep_time)
+          ret_code = Production.move_stock(warehouses_id['recepcion'], product['_id'])
+          if ret_code == 200 or ret_code == 201
+            contador_de_requests +=1
+            if contador_de_requests > max_request
+              contador_de_requests = 0
+              sleep(sleep_time)
+            end
+          else
+            break
           end
+          
         end
       end
     end
@@ -247,7 +271,7 @@ module Warehouses
             ret = Production.delete_ftp_stock('distribuidor', product['_id'],
                                                   id_cloud_OC, price)
           else
-            ret = Production.move_stock_external(client_warehouse, product['_id'],
+            ret = ret_code = Production.move_stock_external(client_warehouse, product['_id'],
                                                   id_cloud_OC, price)
           end
 
@@ -472,7 +496,7 @@ module Warehouses
         #    cant_a_mover = [stock_despacho_sku.length, moving_batch].min
         #    (0..cant_a_mover-1).to_a.each do |n|
         #      product_id = stock_despacho_sku[n]['_id']
-        #      Production.move_stock(warehouses_id['general'], product_id)
+        #      ret_code = Production.move_stock(warehouses_id['general'], product_id)
         #      puts "somethg moved D->G"
         #      request_counter += 1
         #    end
@@ -491,7 +515,7 @@ module Warehouses
             cant_a_mover = [stock_pregeneral_sku.length, moving_batch].min
             (0..cant_a_mover-1).to_a.each do |n|
               product_id = stock_pregeneral_sku[n]['_id']
-              Production.move_stock(warehouses_id['general'], product_id)
+              ret_code = Production.move_stock(warehouses_id['general'], product_id)
               puts "somethg moved P->G"
               request_counter += 1
             end
@@ -511,7 +535,7 @@ module Warehouses
             cant_a_mover = [stock_recepcion_sku.length, moving_batch].min
             (0..cant_a_mover-1).to_a.each do |n|
               product_id = stock_recepcion_sku[n]['_id']
-              Production.move_stock(warehouses_id['general'], product_id)
+              ret_code = Production.move_stock(warehouses_id['general'], product_id)
               puts "somethg moved R->G"
               request_counter += 1
             end
@@ -530,7 +554,7 @@ module Warehouses
             cant_a_mover = [stock_pulmon_sku.length, moving_batch].min
             (0..cant_a_mover-1).to_a.each do |n|
               product_id = stock_pulmon_sku[n]['_id']
-              Production.move_stock(warehouses_id['recepcion'], product_id)
+              ret_code = Production.move_stock(warehouses_id['recepcion'], product_id)
               puts "somethg moved P->R"
               request_counter += 1
             end
@@ -650,7 +674,7 @@ module Warehouses
                 product_id = stock_despacho_sku[n]['_id']
                 if counter < _Q
                   counter += 1
-                  Production.move_stock(warehouses_id[_A], product_id)
+                  ret_code = Production.move_stock(warehouses_id[_A], product_id)
                   puts "somethg moved Desp->Gen"
                   request_counter += 1
                 else

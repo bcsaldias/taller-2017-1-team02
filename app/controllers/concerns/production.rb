@@ -38,7 +38,7 @@ module Production
 		@result = Queries.post("bodega/moveStock",
 							body=body, params={},
 							authorization=auth)
-		return JSON.parse @result.body.force_encoding("UTF-8")
+		return @result.code#body.force_encoding("UTF-8") #JSON.parse 
 	end
 
 	def self.move_stock_external(warehouse_id, product_id, purchase_order, price)
