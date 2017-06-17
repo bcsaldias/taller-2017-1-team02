@@ -453,6 +453,10 @@ module Warehouses
       if stock_despacho.length == 0 and stock_pregeneral.length == 0 and stock_recepcion.length == 0 and stock_pulmon.length == 0
         puts "Todo ordenado!"
         return true
+
+      elsif self.full_warehouse(warehouses_id['recepcion'])
+        self.move_A_B('recepcion', 'pulmon', 10)
+            
       elsif self.full_warehouse(warehouses_id['general']) and self.full_warehouse(warehouses_id['pregeneral'])
         puts "Se llenaron las bodegas general y pregeneral"
         return true
