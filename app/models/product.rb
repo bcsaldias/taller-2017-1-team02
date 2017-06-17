@@ -87,7 +87,20 @@ class Product < ApplicationRecord
             stock_reservado += (pv.quantity - pv.quantity_done)               
       end
     end
-    
+
+
+    production_orders = ProductionOrder.where(queued: true)
+
+    production_orders.each do |po|
+      needed_products = Recipe.where(final_product_sku: po.product_sku)
+      needed_products.each do |recipe|
+        if self.sku.to_s == recipe.needed_product_sku.to_s
+          stock_reservado += recipe.requirement.to_i
+        end
+      end
+    end
+
+
     stock_reservado
   end
 
