@@ -104,8 +104,8 @@ module Warehouses
         puts "no hay stock en realidad"
         break
       
-      elsif self.full_warehouse(warehouses_id['recepcion'])
-        self.move_A_B('recepcion', 'pulmon', 10)      
+      #elsif self.full_warehouse(warehouses_id['recepcion'])
+      #  self.move_A_B('recepcion', 'pulmon', 10)      
 
       else
 

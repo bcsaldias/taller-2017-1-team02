@@ -99,6 +99,7 @@
                   <th>SKU</th>
                   <th>Nombre</th>
                   <th>Stock</th>
+		  <th>Disponible</th>
                 </tr>
               </thead>
 
@@ -106,7 +107,8 @@
                   <tr>
                     <td><%= @leche.sku %></td>
                     <td><%= @leche.description %></td>
-                    <td><%= @leche.stock %></td>
+                    <td><%= @leche.all_stock %></td>
+                    <td><%= @leche.stock_disponible %></td>
                   </tr>
               </tbody>
             </table>
