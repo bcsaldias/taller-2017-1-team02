@@ -16,13 +16,14 @@ module FtpOrders
 	end
 
 	def self.revisar_ftp_order(order_id)
-		if PurchaseOrder.where(id_cloud: order_id).count == 0
+		query = PurchaseOrder.where(id_cloud: order_id)
+		if query.count == 0
 			self.save_fpt_order(order_id)
-	    end
-
-		if Invoice.where(oc_id_cloud: order_id).count == 0
-  			Invoices.emitir_factura(order_id)
-	    end	    
+	    elsif query.first.state == "finalizada"
+			if Invoice.where(oc_id_cloud: order_id).count == 0
+	  		  Invoices.emitir_factura(order_id)
+		    end	 
+	    end   
 
 	end
 
