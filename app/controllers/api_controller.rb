@@ -63,7 +63,7 @@ class ApiController < ApplicationController
 	end
 
 	def test
-		ret = Invoices.anular_factura("5943231ba695a90004a9b4b6", "cliente no la recibe")
+		ret = Sales.anular_purchase_order("5943fe88c97220000479bee0", "cliente no responde")
 		json_response({ret: ret})
 	end
 

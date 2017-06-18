@@ -25,10 +25,13 @@ module Sales
 
 	def self.anular_purchase_order(purchase_order_id, motivo_anulacion)
 		body = {'anulacion' => motivo_anulacion}
-		@result = Queries.post(next_path= "oc/anular/" + purchase_order_id,
+		@result = Queries.delete(next_path= "oc/anular/" + purchase_order_id,
+							authorization=false,
 						  body=body)
 		return @result.body
 	end
+
+
 
 	def self.accept_ftp_order(purchase_order_id)
 		order = self.get_purchase_order(purchase_order_id)
