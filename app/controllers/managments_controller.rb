@@ -293,6 +293,17 @@ class ManagmentsController < ApplicationController
           refreshed = true
         end
 
+        if po.owner != true and po.team_id_cloud != cloud_po["cliente"]
+
+          if cloud_po["estado"] == 'anulada'
+            po.state = cloud_po["estado"]
+            po.save!
+            refreshed = true
+            puts "Modifico State: #{po.state}"
+          end
+
+        end
+
         if po.owner == true
 
           if po.team_id_cloud != cloud_po["proveedor"]
