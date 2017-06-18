@@ -205,13 +205,16 @@ class InvoicesController < ApplicationController
       else
         invoice_id = params[:id]
         q_invoice = Invoice.where(id_cloud: invoice_id)#.first
+        puts "PROBANDO NOTIF PAGO"
         invoice = nil
-	if q_invoice.count > 0
-	  invoice = q_invoice.first
-	else
-   	  json_response ({ error: "Factura no existe"}), 404
-	  return
-	end
+        puts "count"
+        puts q_invoice.count.to_s
+        if q_invoice.count > 0
+          invoice = q_invoice.first
+        else
+          json_response ({ error: "Factura no existe"}), 404
+          return
+        end
 
 	# purchase_order = PurchaseOrder.where(id_cloud: invoice.oc_id_cloud).first
         #llamar la transaccion a la nube
