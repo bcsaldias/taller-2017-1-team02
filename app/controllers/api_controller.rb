@@ -180,21 +180,20 @@ class ApiController < ApplicationController
 
 	end
 
-	# def testj4
-	# 	transaction = Bank.transfer(100, "590baa00d6b4ec000490246c", "590baa00d6b4ec000490246c")
-	# 	puts transaction
-	# 	json_response({response: transaction})
-	# end
-
 	def testj4
-		warehouse_id = "590baa76d6b4ec000490255e"
-		sku = "26"
-		cant = Production.get_stock(warehouse_id, sku)
-		#puts Production.get_warehouses()
-		#json_response({Despacho: "Des", sku: sku})
-		puts cant
-		json_response({Despacho: cant, sku: sku})
+		ret = Transaction.refresh
+		json_response(ret)
 	end
+
+	# def testj4
+	# 	warehouse_id = "590baa76d6b4ec000490255e"
+	# 	sku = "26"
+	# 	cant = Production.get_stock(warehouse_id, sku)
+	# 	#puts Production.get_warehouses()
+	# 	#json_response({Despacho: "Des", sku: sku})
+	# 	puts cant
+	# 	json_response({Despacho: cant, sku: sku})
+	# end
 
 	def actualizar_deadlines_purchase_orders
 		PurchaseOrder.all.each do |po|

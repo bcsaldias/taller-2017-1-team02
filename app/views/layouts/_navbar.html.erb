@@ -24,6 +24,7 @@
                         <li><%= link_to "Ventas", :ventas, method: :get %></li>
                         <li><%= link_to "Ftp - Ordenes Compra", :ftp_oc, method: :get %></li>
                         <li><%= link_to "Facturas", :invoices, method: :get %></li>
+                        <li><%= link_to "Asociar factura/transacc", :invoice_and_transactions, method: :get %></li>
                         <li><%= link_to "Boletas", :vouchers, method: :get %></li>
                         <li><%= link_to "Cola despacho", :queue, method: :get %></li>
                         <li><%= link_to "Despacho", :despacho, method: :get %></li>
@@ -36,14 +37,14 @@
                         <li>
                             <%= link_to "Dashboards", :dashboard, method: :get %>
                         </li>
-                    <% end %>         
+                    <% end %>
                     <li>
                         <%= link_to "Logout", :logout, method: :get %>
                     </li>
-                <% end %>                
+                <% end %>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
-    </nav>                   
+    </nav>

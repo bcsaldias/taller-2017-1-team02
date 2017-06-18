@@ -234,7 +234,12 @@ class InvoicesController < ApplicationController
               #guardar transaccion localmente
               #se guarda como una transaccion exitosa
               status = true
-              factura_pagada = self.pagar_factura(invoice_id)
+              #TODO test
+              factura_pagada = Invoices.pagar_factura(invoice_id)
+              invoice.pagada!
+              invoice.transaction_id = trx.id
+              invoice.save!
+              #TODO j: Conectar factura con trx
               puts "Factura se marca como pagada en el sistema. #{factura_pagada}"
             else
               #se guarda como una transaccion NO exitosa

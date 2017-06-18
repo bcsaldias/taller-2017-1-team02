@@ -82,6 +82,74 @@ class GeneralController < ApplicationController
     @invoices = Invoice.where(owner: nil).order(sort_column(Invoice, "id_cloud") + " " + sort_direction)
   end
 
+  def invoice_and_transactions
+    puts "Entro al controlador invoice_and_transactions"
+    Transaction.refresh
+    @transactions_received = Transaction.where(owner: false)#.where.not(state: true)
+    @our_invoices = Invoice.where(owner: true).where.not(cliente: "distribuidor")
+    .where.not(status: 1).order(sort_column(Invoice, "id_cloud") + " " + sort_direction)
+    # TODO J: Agregar que factura no debe tener orden asociada y que trx no debe tener factura asociada
+    puts "Transactions_received: #{@transactions_received.count}"
+    puts "Our_invoices: #{@our_invoices.count}"
+    @combinaciones = []
+
+    @our_invoices.each do |invoice|
+      row = {invoice: invoice.attributes}
+      trxs = []
+      @transactions_received.each do |trx|
+        if trx.invoice
+          next
+        end
+
+        puts "monto trx = #{trx.monto}"
+        puts "monto invoice = #{invoice.iva + invoice.bruto}"
+        if trx.monto == invoice.iva + invoice.bruto
+          puts "Son iguales los montos!"
+          trxs << trx.attributes
+        end
+      end
+      row[:transacciones] = trxs
+      @combinaciones << row
+    end
+
+    puts @combinaciones
+
+  end
+
+  def asociar_factura_transaccion
+    puts "Entre aqui"
+    invoice_id_cloud = params[:factura_id_cloud]
+    transaction_id_cloud = params[:transaction_id_cloud]
+    puts invoice_id_cloud
+    puts transaction_id_cloud
+
+    invoice = Invoice.find_by(id_cloud: invoice_id_cloud)
+    trx = Transaction.find_by(id_cloud: transaction_id_cloud)
+
+    if !invoice or !trx
+      json_response({error: "No encontrada invoice o trx"})
+      return
+    end
+    #Son unibles??
+    if trx.monto != invoice.iva + invoice.bruto
+      json_response({error: "No son asociables, montos distintos"})
+      return
+    end
+
+    #TODO test
+    puts 1
+    factura_pagada = Invoices.pagar_factura(invoice_id_cloud)
+    puts 2
+    invoice.pagada!
+    puts 3
+    invoice.transaction_id = trx.id
+    puts 4
+    invoice.save!
+    #TODO j: Conectar factura con trx
+    puts "Factura se marca como pagada en el sistema. #{factura_pagada}"
+    json_response({ :status => "Exito"}, 201)
+  end
+
   def transaction
     @transactions_ok = Transaction.where(state: true).order(sort_column(Transaction, "id_cloud") + " " + sort_direction)
     @transactions_fail = Transaction.where(state: false).order(sort_column(Transaction, "id_cloud") + " " + sort_direction)

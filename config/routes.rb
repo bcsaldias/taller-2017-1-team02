@@ -42,6 +42,8 @@ Rails.application.routes.draw do
   post 'sent_production' => 'managments#sent_production', as: :sent_production
   post 'mover_cantidad' => 'managments#mover_cantidad', as: :mover_cantidad
   post 'check_for_availablility' => 'managments#check_for_availablility', as: :check_for_availablility
+  post 'asociar_factura_transaccion' => 'general#asociar_factura_transaccion', as: :asociar_factura_transaccion
+
 
   post 'refresh_transactions' => 'managments#refresh_transactions', as: :refresh_transactions
   post 'refresh_ftp' => 'managments#refresh_ftp', as: :refresh_ftp
@@ -74,7 +76,7 @@ Rails.application.routes.draw do
   get 'test' => 'api#test'
   #get 'test2' => 'api#test2'
   #get 'testj3' => 'api#testj3'
-  #get 'testj4' => 'api#testj4'
+  get 'testj4' => 'api#testj4'
   #get 'tiempo' => 'api#tiempo'
 
 
@@ -91,6 +93,9 @@ Rails.application.routes.draw do
   get 'vouchers' => 'general#vouchers', :as => :vouchers
   get 'despacho' => 'general#despacho', :as => :despacho
   get 'queue' => 'general#queue', :as => :queue
+
+  get 'invoice_and_transactions' => 'general#invoice_and_transactions', :as => :invoice_and_transactions
+
 
   get 'factory_managment' => 'managments#index', :as => :managment
 
