@@ -121,6 +121,7 @@ module Invoices
 
       factura_pagada = self.pagar_factura(invoice_id)
 			our_invoice.status = 1
+      our_invoice.trx = transaction.id
 			our_invoice.save!
 
       body = {'id_transaction' => id_transaction}

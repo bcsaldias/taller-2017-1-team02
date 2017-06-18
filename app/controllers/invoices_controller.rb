@@ -40,6 +40,7 @@ class InvoicesController < ApplicationController
                                                   iva: invoice['iva'],
                                                   oc_id_cloud: invoice['oc'],
                                                   status: 0,
+                                                  owner: false,
                                                   bank_account: bank_account,
                                                   purchase_order_id: oc.id)
               puts "Factura recibida: #{params[:id]}"
