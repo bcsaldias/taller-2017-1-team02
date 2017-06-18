@@ -70,7 +70,7 @@ class ManagmentsController < ApplicationController
     # METER A COLA si procesado
     req = Factory.hacer_pedido_interno(params[:oc_sku],
                       params[:cantidad_raw_material].to_i)
-    
+
     #req = false
     json_response({req: req})
   end
@@ -200,36 +200,37 @@ class ManagmentsController < ApplicationController
   def refresh_transactions
     puts "Entro al metodo"
 
-    
-    #fechaInicio = (Time.now - 1.week).to_f*1000 # 1 semana atras
-    fechaInicio = 1 # Desde 1970
-    transactions_query = Bank.get_our_card(9999999999, fechaInicio)
-    puts transactions_query
-    transactions =  transactions_query['data']
-    counter = 0
-    cant = 0
-    transactions.each do |trx|
-      temp_trx = Transaction.where(id_cloud: trx['_id']).first
-      cant += 1
+  #   #fechaInicio = (Time.now - 1.week).to_f*1000 # 1 semana atras
+  #   fechaInicio = 1 # Desde 1970
+  #   transactions_query = Bank.get_our_card(9999999999, fechaInicio)
+  #   puts transactions_query
+  #   transactions =  transactions_query['data']
+  #   counter = 0
+  #   cant = 0
+  #   transactions.each do |trx|
+  #     temp_trx = Transaction.where(id_cloud: trx['_id']).first
+  #     cant += 1
+  #
+  #     puts "#{trx['_id']}: #{temp_trx}"
+  #     if temp_trx == nil
+  #       owner = (trx['origen'] == Rails.configuration.environment_ids['bank_id'])
+  #       counter += 1
+  #       Transaction.create!(id_cloud: trx['_id'],
+  #                           origen: trx['origen'],
+  #                           destino: trx['destino'],
+  #                           monto: trx['monto'],
+  #                           owner: owner,
+  #                           state: true)
+  #     else
+  #
+	# temp_trx.monto = trx['monto']
+	# temp_trx.save!
+  #     end
+  #   end
+  # json_response({ret: "Actualizado!", cant: cant, trx_descargadas: counter})
+    ret = Transaction.refresh
+    json_response(ret)
 
-      puts "#{trx['_id']}: #{temp_trx}"
-      if temp_trx == nil
-        owner = (trx['origen'] == Rails.configuration.environment_ids['bank_id'])
-        counter += 1
-        Transaction.create!(id_cloud: trx['_id'],
-                            origen: trx['origen'],
-                            destino: trx['destino'],
-                            monto: trx['monto'],
-                            owner: owner,
-                            state: true)
-      else
-
-	temp_trx.monto = trx['monto']
-	temp_trx.save!
-      end
-    end
-
-    json_response({ret: "Actualizado!", cant: cant, trx_descargadas: counter})
   end
 
   def refresh_invoices
@@ -256,9 +257,9 @@ class ManagmentsController < ApplicationController
         end
 
       end
-        
+
     end
-    
+
     json_response({resp: "Todo estaba OK", cantidad_oc: cant }) and return if !refreshed
     json_response({response: "Actualizado"})
   end
@@ -317,7 +318,7 @@ class ManagmentsController < ApplicationController
             po.save!
             refreshed = true
           end
-    
+
         end
 
         if po.true_quantity_done != cloud_po["cantidadDespachada"]
@@ -325,10 +326,10 @@ class ManagmentsController < ApplicationController
           po.save!
           refreshed = true
         end
-       
+
       end
 
-      
+
     end
 
     PurchaseOrder.where("group_number == -1").each do |po|
@@ -341,7 +342,7 @@ class ManagmentsController < ApplicationController
           refreshed = true
           puts "Modifico State: #{po.state}"
         end
-    
+
         if po.true_quantity_done != cloud_po["cantidadDespachada"]
           po.true_quantity_done = cloud_po["cantidadDespachada"]
           po.save!
@@ -349,7 +350,7 @@ class ManagmentsController < ApplicationController
         end
 
     end
-    
+
     json_response({resp: "Todo estaba OK", cantidad_oc: cant }) and return if !refreshed
     json_response({response: "Actualizado"})
   end

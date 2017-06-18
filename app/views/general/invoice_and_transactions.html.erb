@@ -1,0 +1,152 @@
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" type="text/css" href="/assets/stylesheets/bootstrap.css">
+</head>
+
+<%= render "layouts/header" %>
+
+
+<body>
+    <% if current_user %>
+      <%= render "layouts/navbar",  title: '',  login: false, logout: true, home: true %>
+    <% end %>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="page-header">
+        <h1>Fscturas / Transacciones</h1>
+      </div>
+    </div>
+  </div>
+
+    <div class="container">
+
+      <!-- Marketing Icons Section -->
+      <div class="row">
+
+
+        <h3>Asociar factura/ transaccion</h1>
+        <%= form_tag(:asociar_factura_transaccion, method: "post") do %>
+          <%= label_tag :factura_id_cloud %> <%= text_field_tag :factura_id_cloud %>
+          <%= label_tag :transaction_id_cloud %> <%= text_field_tag :transaction_id_cloud %>
+           <%= submit_tag('Asociar') %>
+        <% end %>
+        <br>
+
+
+        <div class="panel panel-primary">
+          <!-- Default panel contents -->
+          <div class="panel-heading">Facturas enviadas</div>
+
+          <!-- Table -->
+          <table  class="table table-bordered" cellspacing="0" width="100%">
+              <thead>
+                  <tr>
+                    <th colspan ="9"><%= "Factura"%></th>
+                      <th colspan ="3"> <%= "Transacciones posibles" %></th>
+                  </tr>
+                  <tr>
+                    <th>id_local</th>
+                    <th>id_cloud</th>
+                    <th>Cliente</th>
+                    <th>Monto</th>
+                    <th>oc_id_cloud</th>
+                    <th>status</th>
+                    <th>bank_account</th>
+                    <th>owr</th>
+                    <th>created_at</th>
+
+                  </tr>
+              </thead>
+
+              <tbody id="news-table">
+                  <% @combinaciones.each do |comb| %>
+                    <tr>
+                      <td><%= comb[:invoice]["id"]%></td>
+                      <td><%= comb[:invoice]["id_cloud"]%></td>
+                      <td><%= comb[:invoice]["cliente"]%></td>
+                      <td><%= comb[:invoice]["bruto"].to_i + comb[:invoice]["iva"]%></td>
+                      <td><%= comb[:invoice]["oc_id_cloud"]%></td>
+                      <td><%= comb[:invoice]["status"]%></td>
+                      <td><%= comb[:invoice]["bank_account"]%></td>
+                      <td><%= comb[:invoice]["owner"]%></td>
+                      <td><%= comb[:invoice]["created_at"].strftime("%H:%M, %d/%b")%></td>
+
+                      <% comb[:transacciones].each do |trx| %>
+                          <td><%= trx["id"] %></td>
+                      <% end %>
+                    </tr>
+                  <% end %>
+              </tbody>
+          </table>
+        </div>
+
+
+
+        <div class="panel panel-primary">
+          <!-- Default panel contents -->
+          <div class="panel-heading">Transacciones recibidas</div>
+
+          <!-- Table -->
+          <table  class="table table-bordered" cellspacing="0" width="100%">
+              <thead>
+                  <tr>
+                    <th>id_local</th>
+                    <th>id_cloud</th>
+                    <th>origen</th>
+                    <th>destino</th>
+                    <th>Monto</th>
+                    <th>owner</th>
+                    <th>state</th>
+                    <th>created_at</th>
+                    <th>factura_asociada</th>
+                  </tr>
+
+              </thead>
+
+              <tbody id="news-table">
+                  <% @transactions_received.each do |trx| %>
+                    <tr>
+                      <td><%= trx.id %></td>
+                      <td><%= trx.id_cloud %></td>
+                      <td><%= trx.origen %></td>
+                      <td><%= trx.destino %></td>
+                      <td><%= trx.monto %></td>
+                      <td><%= trx.owner %></td>
+                      <td><%= trx.state %></td>
+                      <td><%= trx.created_at.strftime("%H:%M, %d/%b") %></td>
+                      <td><%= trx.invoice.id_cloud if trx.invoice %></td>
+
+
+                    </tr>
+                  <% end %>
+              </tbody>
+          </table>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script type="text/javascript" src="/assets/js/jquery.js"></script>
+  <script type="text/javascript" src="/assets/js/bootstrap.js"></script>
+
+
+</body>
+</html>

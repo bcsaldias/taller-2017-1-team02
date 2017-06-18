@@ -46,6 +46,7 @@
                       <th><%= sortable "status", "estado", Invoice, "id_cloud" %></th>
                       <th><%= sortable "bank_account", "cuenta", Invoice, "id_cloud" %></th>
                       <th><%= sortable "owner", "nuestra", Invoice, "id_cloud" %></th>
+                      <th><%= sortable "Trx_asociada", Invoice, "id_cloud" %></th>
                     </tr>
                 </thead>
 
@@ -61,6 +62,7 @@
                         <td><%= invoice.status %></td>
                         <td><%= invoice.bank_account %></td>
                         <td><%= invoice.owner %></td>
+                        <td><%= invoice.trx.id_cloud if invoice.trx %></td>
                       </tr>
                     <% end %>
                 </tbody>
@@ -89,7 +91,8 @@
                 <tbody id="news-table">
                     <% @invoices.each do |invoice| %>
                       <tr>
-
+                        <%= form_tag(:accept_invoice,  method: "post") do %>
+                        <%= hidden_field_tag :cloud_id, invoice.id_cloud %>
                         <td><%= invoice.id_cloud %></td>
                         <td><%= invoice.cliente %></td>
                         <td><%= invoice.proveedor %></td>
@@ -98,6 +101,9 @@
                         <td><%= invoice.status %></td>
                         <td><%= invoice.bank_account %></td>
                         <td><%= invoice.owner %></td>
+                        <td> <%= submit_tag 'Aceptar', :name => "status"  %></td>
+                        <td> <%= submit_tag 'Rechazar', :name => "status"  %></td>
+                        <% end %>
                       </tr>
                     <% end %>
                 </tbody>

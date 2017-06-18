@@ -33,6 +33,7 @@ Rails.application.routes.draw do
   post 'deliver_ftp' => 'managments#deliver_ftp', as: :deliver_ftp
   post 'create_oc' => 'managments#create_oc', as: :create_oc
   post 'accept_oc' => 'general#accept_oc', as: :accept_oc
+  post 'accept_invoice' => 'general#accept_invoice', as: :accept_invoice
   post 'encolar_order' => 'managments#encolar_order', as: :encolar_order
   post 'desencolar_order' => 'managments#desencolar_order', as: :desencolar_order
   post 'accept_ftp' => 'general#accept_ftp', as: :accept_ftp
@@ -41,6 +42,8 @@ Rails.application.routes.draw do
   post 'sent_production' => 'managments#sent_production', as: :sent_production
   post 'mover_cantidad' => 'managments#mover_cantidad', as: :mover_cantidad
   post 'check_for_availablility' => 'managments#check_for_availablility', as: :check_for_availablility
+  post 'asociar_factura_transaccion' => 'general#asociar_factura_transaccion', as: :asociar_factura_transaccion
+
 
   post 'refresh_transactions' => 'managments#refresh_transactions', as: :refresh_transactions
   post 'refresh_ftp' => 'managments#refresh_ftp', as: :refresh_ftp
@@ -48,8 +51,8 @@ Rails.application.routes.draw do
 
   post 'refresh_balance' => 'managments#refresh_balance', as: :refresh_balance
 
-  post 'refresh_purchase_orders' => 'managments#refresh_purchase_orders', as: :refresh_purchase_orders 
-  post 'refresh_invoices' => 'managments#refresh_invoices', as: :refresh_invoices 
+  post 'refresh_purchase_orders' => 'managments#refresh_purchase_orders', as: :refresh_purchase_orders
+  post 'refresh_invoices' => 'managments#refresh_invoices', as: :refresh_invoices
   post 'stocks_force_update' => 'managments#stocks_force_update', as: :stocks_force_update
 
   post 'move_despacho_general' => 'managments#move_despacho_general', as: :move_despacho_general
@@ -73,7 +76,7 @@ Rails.application.routes.draw do
   get 'test' => 'api#test'
   #get 'test2' => 'api#test2'
   #get 'testj3' => 'api#testj3'
-  #get 'testj4' => 'api#testj4'
+  get 'testj4' => 'api#testj4'
   #get 'tiempo' => 'api#tiempo'
 
 
@@ -90,6 +93,9 @@ Rails.application.routes.draw do
   get 'vouchers' => 'general#vouchers', :as => :vouchers
   get 'despacho' => 'general#despacho', :as => :despacho
   get 'queue' => 'general#queue', :as => :queue
+
+  get 'invoice_and_transactions' => 'general#invoice_and_transactions', :as => :invoice_and_transactions
+
 
   get 'factory_managment' => 'managments#index', :as => :managment
 
