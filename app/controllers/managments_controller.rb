@@ -293,7 +293,7 @@ class ManagmentsController < ApplicationController
           refreshed = true
         end
 
-        if po.owner != true and po.team_id_cloud != cloud_po["cliente"]
+        if po.owner != true
 
           if cloud_po["estado"] == 'anulada'
             po.state = cloud_po["estado"]
