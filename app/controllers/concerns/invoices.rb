@@ -128,7 +128,7 @@ module Invoices
       sup = Supplier.get_by_id_cloud(invoice['proveedor'])
       ret = Queries.patch_to_groups_api('invoices/'+invoice['_id']+'/paid', sup, false, body=body)
 
-      return true
+      return "true: #{ret}"
 
     else
       puts "imposible hace transferencia"
