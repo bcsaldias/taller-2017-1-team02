@@ -32,4 +32,38 @@ class Transaction < ActiveRecord::Base
     end
     {ret: "Actualizado!", cant: cant, trx_descargadas: counter}
   end
+
+
+
+
+
+  def group_number(id_cloud)
+
+    supp = Supplier.get_by_id_cloud(id_cloud)
+
+    puts "supp"
+    puts "supp"
+    puts "supp"
+    puts "supp"
+    puts "supp"
+
+    puts supp
+
+    puts "id"
+    puts "id"
+    puts "id"
+    puts "id"
+    puts "id"
+
+    
+
+    if supp
+      puts supp.id
+      group_number = supp.id
+      return group_number
+    end
+    return id_cloud
+  end
+
+
 end
