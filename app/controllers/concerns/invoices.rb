@@ -191,7 +191,7 @@ module Invoices
     our_invoice.save!
 
     #oc_id = invoice['oc']
-    purchase_order = PurchaseOrder.where(id_cloud: oc_id)
+    purchase_order = PurchaseOrder.where(id_cloud: oc_id).first
     purchase_order.state = 3
     purchase_order.save!
     # poner finalizada a la OC del profe, asumimos que el profe lo cambia.
