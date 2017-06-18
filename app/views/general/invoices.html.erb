@@ -55,8 +55,10 @@
                       <tr>
 
                         <td><%= invoice.id_cloud %></td>
-                        <td><%= invoice.cliente %></td>
-                        <td><%= invoice.proveedor %></td>
+                        <td><%= invoice.group_number(invoice.cliente) %></td>
+                        <td><%= invoice.group_number(invoice.proveedor)%></td>
+                        <!-- <td><%= invoice.cliente %></td>
+                        <td><%= invoice.proveedor %></td> -->
                         <td><%= invoice.bruto + invoice.iva %></td>
                         <td><%= invoice.oc_id_cloud %></td>
                         <td><%= invoice.status %></td>
@@ -95,8 +97,10 @@
                         <%= form_tag(:accept_invoice,  method: "post") do %>
                         <%= hidden_field_tag :cloud_id, invoice.id_cloud %>
                         <td><%= invoice.id_cloud %></td>
-                        <td><%= invoice.cliente %></td>
-                        <td><%= invoice.proveedor %></td>
+                        <td><%= invoice.group_number(invoice.cliente) %></td>
+                        <td><%= invoice.group_number(invoice.proveedor)%></td>
+                        <!-- <td><%= invoice.cliente %></td>
+                        <td><%= invoice.proveedor %></td> -->
                         <td><%= invoice.bruto + invoice.iva %></td>
                         <td><%= invoice.oc_id_cloud %></td>
                         <td><%= invoice.status %></td>

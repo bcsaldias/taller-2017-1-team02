@@ -40,23 +40,7 @@ class Transaction < ActiveRecord::Base
   def group_number(id_cloud)
 
     supp = Supplier.get_by_id_cloud(id_cloud)
-
-    puts "supp"
-    puts "supp"
-    puts "supp"
-    puts "supp"
-    puts "supp"
-
-    puts supp
-
-    puts "id"
-    puts "id"
-    puts "id"
-    puts "id"
-    puts "id"
-
     
-
     if supp
       puts supp.id
       group_number = supp.id
