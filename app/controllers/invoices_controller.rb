@@ -196,7 +196,7 @@ class InvoicesController < ApplicationController
   # PATCH /invoices/:id/paid
   def enviar_confirmacion_pago
 
-    begin
+    #begin
       @body = JSON.parse request.body.read
       @keys = @body.keys
       if not @keys.include?("id_transaction")
@@ -215,8 +215,9 @@ class InvoicesController < ApplicationController
 	# purchase_order = PurchaseOrder.where(id_cloud: invoice.oc_id_cloud).first
         #llamar la transaccion a la nube
         transaction_id = @body['id_transaction']
+        puts "Trx_id: #{transaction_id}"
         transaction = Bank.get_transaction(transaction_id)
-
+        puts "Bank_transaction: #{transaction}"
 
         #revisar si la transaccion existe
         if transaction.code!=200 && transaction.code!=201
@@ -228,7 +229,7 @@ class InvoicesController < ApplicationController
           if our_transaction == nil
             #comparo valor desde purchase order y transferencia
             total_a_pagar = invoice.bruto + invoice.iva
-            total_pagado = transaction['monto']
+            total_pagado = transaction[0]['monto'].to_i
             if total_pagado == total_a_pagar
               #guardar transaccion localmente
               #se guarda como una transaccion exitosa
@@ -237,21 +238,26 @@ class InvoicesController < ApplicationController
               #se guarda como una transaccion NO exitosa
               status = false
             end
-            @transaction = Transaction.create!(id_cloud: transfered['_id'], origen: transfered['origen'],
-                                          destino: transfered['destino'], monto: transfered['monto'],
+            transaction = transaction[0]
+            puts "Creando transaccion localmente"
+            @transaction = Transaction.create!(id_cloud: transaction['_id'], origen: transaction['origen'],
+                                          destino: transaction['destino'], monto: transaction['monto'].to_i,
                                           owner: false, state: status)
-
-            json_response(@transaction, 204)
+            puts "Creada: #{@transaction}"
+            # json_response({status: "success"}, 204)
+            json_response({ :status => "Exito"}, 201)
+            # json_response(@transaction, 204)
             #si ya estaba en mi tabla local
           else
+            puts "Ya se habia enviado confirmacion de pago"
             json_response({ :error => "Ya se envió confirmación de pago"}, 403)
           end
         end
       end
 
-    rescue
-          json_response({ :error => "Formato de Body incorrecto" }, 400)
-    end
+    #rescue
+    #      json_response({ :error => "Formato de Body incorrecto" }, 400)
+    #end
 
   end
 
