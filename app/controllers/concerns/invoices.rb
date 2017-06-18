@@ -129,7 +129,7 @@ module Invoices
 
       puts "notificó"
       puts "#{ret}"
-      our_invoice.trx = transaction.id
+      our_invoice.trx = transaction
       our_invoice.save!
       return "true: #{ret}"
 
