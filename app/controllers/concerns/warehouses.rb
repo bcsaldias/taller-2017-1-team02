@@ -117,12 +117,12 @@ module Warehouses
           ret_code = Production.move_stock(warehouses_id['despacho'], product['_id'])
 
           if ret_code == 200 or ret_code == 201
+            cantidad_en_despacho += 1
             contador_de_requests +=1
             if contador_de_requests > max_request
               contador_de_requests = 0
               sleep(sleep_time)
             end
-            cantidad_en_despacho += 1
             # puts "general a despacho"
           else
             break
@@ -271,7 +271,7 @@ module Warehouses
             ret = Production.delete_ftp_stock('distribuidor', product['_id'],
                                                   id_cloud_OC, price)
           else
-            ret = ret_code = Production.move_stock_external(client_warehouse, product['_id'],
+            ret = Production.move_stock_external(client_warehouse, product['_id'],
                                                   id_cloud_OC, price)
           end
 
