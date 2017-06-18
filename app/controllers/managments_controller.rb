@@ -295,7 +295,7 @@ class ManagmentsController < ApplicationController
 
         if po.owner != true
 
-          if cloud_po["estado"] == 'anulada'
+          if cloud_po["estado"] != po.state
             po.state = cloud_po["estado"]
             po.save!
             refreshed = true
