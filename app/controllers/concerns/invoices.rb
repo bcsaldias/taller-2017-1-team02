@@ -187,9 +187,8 @@ module Invoices
     sup = Supplier.get_by_id_cloud(invoice['cliente'])
     ret = Queries.patch_to_groups_api('invoices/'+invoice['_id']+'/delivered', sup)
 
-    invoice = Invoice.where(id_cloud: invoice_id).first
-    invoice.status = 5
-    invoice.save!
+    our_invoice.status = 5
+    our_invoice.save!
 
     #oc_id = invoice['oc']
     purchase_order = PurchaseOrder.where(id_cloud: oc_id)
