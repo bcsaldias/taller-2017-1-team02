@@ -18,6 +18,19 @@ class GeneralController < ApplicationController
     # J: Busca localmente las POrders
     @our_purchase_orders = PurchaseOrder.where(owner: true).where("group_number != -1").order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
     @purchase_orders = PurchaseOrder.where(owner: nil).where("group_number != -1").order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
+
+    @our_purchase_orders_created = PurchaseOrder.where(owner: true).where("group_number != -1").where(state: 0).order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
+    @purchase_orders_created = PurchaseOrder.where(owner: nil).where("group_number != -1").where(state: 0).order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
+    
+    @our_purchase_orders_accepted = PurchaseOrder.where(owner: true).where("group_number != -1").where(state: 1).order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
+    @purchase_orders_accepted = PurchaseOrder.where(owner: nil).where("group_number != -1").where(state: 1).order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
+    
+    @our_purchase_orders_rejected = PurchaseOrder.where(owner: true).where("group_number != -1").where(state: 2).order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
+    @purchase_orders_rejected = PurchaseOrder.where(owner: nil).where("group_number != -1").where(state: 2).order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
+    
+    @our_purchase_orders_delivered = PurchaseOrder.where(owner: true).where("group_number != -1").where(state: 3).order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
+    @purchase_orders_delivered = PurchaseOrder.where(owner: nil).where("group_number != -1").where(state: 3).order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
+    
   end
 
   def ventas

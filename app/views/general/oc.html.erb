@@ -29,9 +29,9 @@
       <div class="row">
 
 
-          <div class="panel panel-primary">
+          <div class="panel panel-info">
             <!-- Default panel contents -->
-            <div class="panel-heading">Ordenes de compras enviadas</div>
+            <div class="panel-heading">Ordenes de compras enviadas: creadas</div>
 
             <!-- Table -->
             <table  class="table table-bordered" cellspacing="0" width="100%">
@@ -53,7 +53,175 @@
                 </thead>
 
                 <tbody id="news-table">
-                    <% @our_purchase_orders.each do |purchase_order| %>
+                    <% @our_purchase_orders_created.each do |purchase_order| %>
+                      <tr>
+                        <td><%= purchase_order.id %></td>
+                        <td><%= purchase_order.product_sku %></td>
+                        <td><%= purchase_order.group_number %></td>
+                        <td><%= purchase_order.state %></td>
+                        <td><%= purchase_order.payment_method %></td>
+                        <td><%= purchase_order.id_cloud %></td>
+                        <td><%= purchase_order.true_quantity_done %></td>
+                        <td><%= purchase_order.quantity_done %></td>
+                        <td><%= purchase_order.quantity %></td>
+                        <td><%= purchase_order.created_at.strftime("%d/%b") %></td>
+                        <% if purchase_order.deadline != nil %>
+                          <td><%= purchase_order.deadline.strftime("%d/%b") %></td>
+                        <% else %>
+                          <td> </td>
+                        <% end %>
+                        <% if purchase_order.deadline != nil %>
+                          <% if purchase_order.deadline - Time.now > 0%>
+                          <td><%=seg2dhms(purchase_order.deadline - Time.now)%></td>
+                          <% else%>
+                          <td>deadline ya pasó</td>
+                          <% end %>
+                        <% else%>
+                          <td>no existe el campo deadline</td>
+                        <% end %>
+                      </tr>
+                    <% end %>
+                </tbody>
+            </table>
+          </div>
+
+          <div class="panel panel-info">
+            <!-- Default panel contents -->
+            <div class="panel-heading">Ordenes de compras enviadas: aceptadas</div>
+
+            <!-- Table -->
+            <table  class="table table-bordered" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                      <th><%= sortable "id", "Id", PurchaseOrder, "product_sku" %></th>
+                      <th><%= sortable "product_sku", "Sku", PurchaseOrder, "product_sku" %></th>
+                      <th><%= sortable "group_number", "Grupo", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "state", "Status", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "payment_method", "Método de pago", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "id_cloud", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "true_quantity_done", "Profe Despachado", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "quantity_done", "Despachado", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "quantity", "Cantidad", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "created_at", "Creadas", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "deadline", "Deadline", PurchaseOrder, "product_sku"  %></th>
+                      <th> Falta para deadline</th>
+                    </tr>
+                </thead>
+
+                <tbody id="news-table">
+                    <% @our_purchase_orders_accepted.each do |purchase_order| %>
+                      <tr>
+                        <td><%= purchase_order.id %></td>
+                        <td><%= purchase_order.product_sku %></td>
+                        <td><%= purchase_order.group_number %></td>
+                        <td><%= purchase_order.state %></td>
+                        <td><%= purchase_order.payment_method %></td>
+                        <td><%= purchase_order.id_cloud %></td>
+                        <td><%= purchase_order.true_quantity_done %></td>
+                        <td><%= purchase_order.quantity_done %></td>
+                        <td><%= purchase_order.quantity %></td>
+                        <td><%= purchase_order.created_at.strftime("%d/%b") %></td>
+                        <% if purchase_order.deadline != nil %>
+                          <td><%= purchase_order.deadline.strftime("%d/%b") %></td>
+                        <% else %>
+                          <td> </td>
+                        <% end %>
+                        <% if purchase_order.deadline != nil %>
+                          <% if purchase_order.deadline - Time.now > 0%>
+                          <td><%=seg2dhms(purchase_order.deadline - Time.now)%></td>
+                          <% else%>
+                          <td>deadline ya pasó</td>
+                          <% end %>
+                        <% else%>
+                          <td>no existe el campo deadline</td>
+                        <% end %>
+                      </tr>
+                    <% end %>
+                </tbody>
+            </table>
+          </div>
+
+          <div class="panel panel-info">
+            <!-- Default panel contents -->
+            <div class="panel-heading">Ordenes de compras enviadas: rechazadas</div>
+
+            <!-- Table -->
+            <table  class="table table-bordered" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                      <th><%= sortable "id", "Id", PurchaseOrder, "product_sku" %></th>
+                      <th><%= sortable "product_sku", "Sku", PurchaseOrder, "product_sku" %></th>
+                      <th><%= sortable "group_number", "Grupo", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "state", "Status", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "payment_method", "Método de pago", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "id_cloud", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "true_quantity_done", "Profe Despachado", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "quantity_done", "Despachado", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "quantity", "Cantidad", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "created_at", "Creadas", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "deadline", "Deadline", PurchaseOrder, "product_sku"  %></th>
+                      <th> Falta para deadline</th>
+                    </tr>
+                </thead>
+
+                <tbody id="news-table">
+                    <% @our_purchase_orders_rejected.each do |purchase_order| %>
+                      <tr>
+                        <td><%= purchase_order.id %></td>
+                        <td><%= purchase_order.product_sku %></td>
+                        <td><%= purchase_order.group_number %></td>
+                        <td><%= purchase_order.state %></td>
+                        <td><%= purchase_order.payment_method %></td>
+                        <td><%= purchase_order.id_cloud %></td>
+                        <td><%= purchase_order.true_quantity_done %></td>
+                        <td><%= purchase_order.quantity_done %></td>
+                        <td><%= purchase_order.quantity %></td>
+                        <td><%= purchase_order.created_at.strftime("%d/%b") %></td>
+                        <% if purchase_order.deadline != nil %>
+                          <td><%= purchase_order.deadline.strftime("%d/%b") %></td>
+                        <% else %>
+                          <td> </td>
+                        <% end %>
+                        <% if purchase_order.deadline != nil %>
+                          <% if purchase_order.deadline - Time.now > 0%>
+                          <td><%=seg2dhms(purchase_order.deadline - Time.now)%></td>
+                          <% else%>
+                          <td>deadline ya pasó</td>
+                          <% end %>
+                        <% else%>
+                          <td>no existe el campo deadline</td>
+                        <% end %>
+                      </tr>
+                    <% end %>
+                </tbody>
+            </table>
+          </div>
+
+          <div class="panel panel-info">
+            <!-- Default panel contents -->
+            <div class="panel-heading">Ordenes de compras enviadas: despachadas</div>
+
+            <!-- Table -->
+            <table  class="table table-bordered" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                      <th><%= sortable "id", "Id", PurchaseOrder, "product_sku" %></th>
+                      <th><%= sortable "product_sku", "Sku", PurchaseOrder, "product_sku" %></th>
+                      <th><%= sortable "group_number", "Grupo", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "state", "Status", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "payment_method", "Método de pago", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "id_cloud", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "true_quantity_done", "Profe Despachado", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "quantity_done", "Despachado", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "quantity", "Cantidad", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "created_at", "Creadas", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "deadline", "Deadline", PurchaseOrder, "product_sku"  %></th>
+                      <th> Falta para deadline</th>
+                    </tr>
+                </thead>
+
+                <tbody id="news-table">
+                    <% @our_purchase_orders_delivered.each do |purchase_order| %>
                       <tr>
                         <td><%= purchase_order.id %></td>
                         <td><%= purchase_order.product_sku %></td>
@@ -87,9 +255,9 @@
 
 
 
-          <div class="panel panel-primary">
+          <div class="panel panel-warning">
             <!-- Default panel contents -->
-            <div class="panel-heading">Ordenes de compras recibida</div>
+            <div class="panel-heading">Ordenes de compras recibida: creadas</div>
 
             <!-- Table -->
             <table  class="table table-bordered" cellspacing="0" width="100%">
@@ -114,7 +282,214 @@
                 </thead>
 
                 <tbody id="news-table">
-                    <% @purchase_orders.each do |purchase_order| %>
+                    <% @purchase_orders_created.each do |purchase_order| %>
+                      <tr>
+
+                        <%= form_tag(:accept_oc,  method: "post") do %>
+                        <%= hidden_field_tag :cloud_id, purchase_order.id_cloud %>
+                        <td><%= purchase_order.id %></td>
+                        <td><%= purchase_order.product_sku %></td>
+                        <td><%= purchase_order.group_number %></td>
+                        <td><%= purchase_order.state %></td>
+                        <td><%= purchase_order.evaluar_si_aceptar %></td>
+                        <td><%= purchase_order.payment_method %></td>
+                        <td><%= purchase_order.id_cloud %></td>
+                        <td><%= purchase_order.id_store_reception %></td>
+                        <td><%= purchase_order.true_quantity_done %></td>
+                        <td><%= purchase_order.quantity_done %></td>
+                        <td><%= purchase_order.quantity %></td>
+                        <td><%= purchase_order.created_at.strftime("%d/%b") %></td>
+                        <% if purchase_order.deadline != nil %>
+                          <td><%= purchase_order.deadline.strftime("%d/%b") %></td>
+                        <% else %>
+                          <td>  </td>
+                        <% end %>
+                        <% if purchase_order.deadline != nil %>
+                          <% if purchase_order.deadline - Time.now > 0%>
+                          <td><%=seg2dhms(purchase_order.deadline - Time.now)%></td>
+                          <% else%>
+                          <td>deadline ya pasó</td>
+                          <% end %>
+                        <% else%>
+                          <td>no existe el campo deadline</td>
+                        <% end %>
+                        <td> <%= submit_tag 'Aceptar', :name => "status"  %></td>
+                        <td> <%= submit_tag 'Rechazar', :name => "status"  %></td>
+                        <% end %>
+
+
+                      </tr>
+                    <% end %>
+                </tbody>
+            </table>
+          </div>
+
+          <div class="panel panel-warning">
+            <!-- Default panel contents -->
+            <div class="panel-heading">Ordenes de compras recibida: aceptadas</div>
+
+            <!-- Table -->
+            <table  class="table table-bordered" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                      <th><%= sortable "id", "Id", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "product_sku", "Sku", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "group_number", "Grupo", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "state", "Status", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "evaluar_si_aceptar", "¿Puedo aceptar?", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "payment_method", "Método de pago", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "id_cloud", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "id_store_reception", "id warehouse", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "true_quantity_done", "Profe Despachado", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "quantity_done", "Despachado", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "quantity", "Cantidad", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "created_at", "Creadas", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "deadline", "Deadline", PurchaseOrder, "product_sku"  %></th>
+                      <th> Falta para deadline</th>
+                      <th><%= sortable "Acción", PurchaseOrder, "product_sku"  %></th>
+                    </tr>
+                </thead>
+
+                <tbody id="news-table">
+                    <% @purchase_orders_accepted.each do |purchase_order| %>
+                      <tr>
+
+                        <%= form_tag(:accept_oc,  method: "post") do %>
+                        <%= hidden_field_tag :cloud_id, purchase_order.id_cloud %>
+                        <td><%= purchase_order.id %></td>
+                        <td><%= purchase_order.product_sku %></td>
+                        <td><%= purchase_order.group_number %></td>
+                        <td><%= purchase_order.state %></td>
+                        <td><%= purchase_order.evaluar_si_aceptar %></td>
+                        <td><%= purchase_order.payment_method %></td>
+                        <td><%= purchase_order.id_cloud %></td>
+                        <td><%= purchase_order.id_store_reception %></td>
+                        <td><%= purchase_order.true_quantity_done %></td>
+                        <td><%= purchase_order.quantity_done %></td>
+                        <td><%= purchase_order.quantity %></td>
+                        <td><%= purchase_order.created_at.strftime("%d/%b") %></td>
+                        <% if purchase_order.deadline != nil %>
+                          <td><%= purchase_order.deadline.strftime("%d/%b") %></td>
+                        <% else %>
+                          <td>  </td>
+                        <% end %>
+                        <% if purchase_order.deadline != nil %>
+                          <% if purchase_order.deadline - Time.now > 0%>
+                          <td><%=seg2dhms(purchase_order.deadline - Time.now)%></td>
+                          <% else%>
+                          <td>deadline ya pasó</td>
+                          <% end %>
+                        <% else%>
+                          <td>no existe el campo deadline</td>
+                        <% end %>
+                        <td> <%= submit_tag 'Aceptar', :name => "status"  %></td>
+                        <td> <%= submit_tag 'Rechazar', :name => "status"  %></td>
+                        <% end %>
+
+
+                      </tr>
+                    <% end %>
+                </tbody>
+            </table>
+          </div>
+
+          <div class="panel panel-warning">
+            <!-- Default panel contents -->
+            <div class="panel-heading">Ordenes de compras recibida: rechazadas</div>
+
+            <!-- Table -->
+            <table  class="table table-bordered" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                      <th><%= sortable "id", "Id", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "product_sku", "Sku", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "group_number", "Grupo", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "state", "Status", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "evaluar_si_aceptar", "¿Puedo aceptar?", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "payment_method", "Método de pago", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "id_cloud", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "id_store_reception", "id warehouse", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "true_quantity_done", "Profe Despachado", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "quantity_done", "Despachado", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "quantity", "Cantidad", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "created_at", "Creadas", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "deadline", "Deadline", PurchaseOrder, "product_sku"  %></th>
+                      <th> Falta para deadline</th>
+                      <th><%= sortable "Acción", PurchaseOrder, "product_sku"  %></th>
+                    </tr>
+                </thead>
+
+                <tbody id="news-table">
+                    <% @purchase_orders_rejected.each do |purchase_order| %>
+                      <tr>
+
+                        <%= form_tag(:accept_oc,  method: "post") do %>
+                        <%= hidden_field_tag :cloud_id, purchase_order.id_cloud %>
+                        <td><%= purchase_order.id %></td>
+                        <td><%= purchase_order.product_sku %></td>
+                        <td><%= purchase_order.group_number %></td>
+                        <td><%= purchase_order.state %></td>
+                        <td><%= purchase_order.evaluar_si_aceptar %></td>
+                        <td><%= purchase_order.payment_method %></td>
+                        <td><%= purchase_order.id_cloud %></td>
+                        <td><%= purchase_order.id_store_reception %></td>
+                        <td><%= purchase_order.true_quantity_done %></td>
+                        <td><%= purchase_order.quantity_done %></td>
+                        <td><%= purchase_order.quantity %></td>
+                        <td><%= purchase_order.created_at.strftime("%d/%b") %></td>
+                        <% if purchase_order.deadline != nil %>
+                          <td><%= purchase_order.deadline.strftime("%d/%b") %></td>
+                        <% else %>
+                          <td>  </td>
+                        <% end %>
+                        <% if purchase_order.deadline != nil %>
+                          <% if purchase_order.deadline - Time.now > 0%>
+                          <td><%=seg2dhms(purchase_order.deadline - Time.now)%></td>
+                          <% else%>
+                          <td>deadline ya pasó</td>
+                          <% end %>
+                        <% else%>
+                          <td>no existe el campo deadline</td>
+                        <% end %>
+                        <td> <%= submit_tag 'Aceptar', :name => "status"  %></td>
+                        <td> <%= submit_tag 'Rechazar', :name => "status"  %></td>
+                        <% end %>
+
+
+                      </tr>
+                    <% end %>
+                </tbody>
+            </table>
+          </div>
+
+          <div class="panel panel-warning">
+            <!-- Default panel contents -->
+            <div class="panel-heading">Ordenes de compras recibida: despachadas</div>
+
+            <!-- Table -->
+            <table  class="table table-bordered" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                      <th><%= sortable "id", "Id", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "product_sku", "Sku", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "group_number", "Grupo", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "state", "Status", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "evaluar_si_aceptar", "¿Puedo aceptar?", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "payment_method", "Método de pago", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "id_cloud", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "id_store_reception", "id warehouse", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "true_quantity_done", "Profe Despachado", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "quantity_done", "Despachado", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "quantity", "Cantidad", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "created_at", "Creadas", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "deadline", "Deadline", PurchaseOrder, "product_sku"  %></th>
+                      <th> Falta para deadline</th>
+                      <th><%= sortable "Acción", PurchaseOrder, "product_sku"  %></th>
+                    </tr>
+                </thead>
+
+                <tbody id="news-table">
+                    <% @purchase_orders_delivered.each do |purchase_order| %>
                       <tr>
 
                         <%= form_tag(:accept_oc,  method: "post") do %>
