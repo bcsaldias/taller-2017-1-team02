@@ -291,6 +291,11 @@ module Warehouses
               our_purchase_order.delivering = false
               our_purchase_order.queued = false
               our_purchase_order.save!
+
+              if distribuidor == false
+                Invoices.delivered_invoice(id_cloud_OC)
+              end
+
               return true
             end
           else

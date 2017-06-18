@@ -164,6 +164,7 @@ module Invoices
     return ret
   end
 
+
   #PUT /invoices/:id
   def self.enviar_factura(invoice_id, bank_account=nil)
     invoice = self.obtener_factura(invoice_id)
@@ -177,8 +178,11 @@ module Invoices
   end
 
 
-  def self.delivered_invoice(invoice_id)
-    invoice = self.obtener_factura(invoice_id)
+
+   # PATCH /invoices/:id/delivered
+  def self.delivered_invoice(oc_id)
+    our_invoice = Invoice.where(oc_id_cloud: oc_id).first
+    invoice = self.obtener_factura(our_invoice.id_cloud)
 
     sup = Supplier.get_by_id_cloud(invoice['cliente'])
     ret = Queries.patch_to_groups_api('invoices/'+invoice['_id']+'/delivered', sup)
@@ -187,7 +191,7 @@ module Invoices
     invoice.status = 5
     invoice.save!
 
-    oc_id = invoice['oc']
+    #oc_id = invoice['oc']
     purchase_order = PurchaseOrder.where(id_cloud: oc_id)
     purchase_order.state = 3
     purchase_order.save!

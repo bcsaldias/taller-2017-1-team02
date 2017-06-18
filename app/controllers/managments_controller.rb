@@ -134,9 +134,12 @@ class ManagmentsController < ApplicationController
   def notify_deliver
     puts "notify_deliver"
     puts params[:oc_cloud_id]
-    puts params[:factura_cloud_id]
-    puts params[:proveedor]
-    redirect_to :managment
+
+    ret = Invoices.delivered_invoice(params[:oc_cloud_id])
+
+    json_response({ret: ret})
+
+    #redirect_to :managment
     ## FIXMEE
     ## esto va contra factura!
   end
