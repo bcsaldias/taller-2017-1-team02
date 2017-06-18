@@ -238,8 +238,6 @@ class InvoicesController < ApplicationController
               #TODO test
               factura_pagada = Invoices.pagar_factura(invoice_id)
               invoice.pagada!
-              invoice.transaction_id = our_transaction.id
-              invoice.save!
               #TODO j: Conectar factura con trx
               puts "Factura se marca como pagada en el sistema. #{factura_pagada}"
             else
@@ -252,8 +250,10 @@ class InvoicesController < ApplicationController
                                           destino: transaction['destino'], monto: transaction['monto'].to_i,
                                           owner: false, state: status)
             puts "Creada: #{@transaction}"
+            invoice.transaction_id = @transaction.id
+            invoice.save!
             # json_response({status: "success"}, 204)
-            json_response({ :status => "Exito"}, 201)
+            json_response({ :status => "Exito #{invoice.transaction_id}"}, 201)
             # json_response(@transaction, 204)
             #si ya estaba en mi tabla local
           else
