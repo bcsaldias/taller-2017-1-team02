@@ -234,6 +234,8 @@ class InvoicesController < ApplicationController
               #guardar transaccion localmente
               #se guarda como una transaccion exitosa
               status = true
+              factura_pagada = self.pagar_factura(invoice_id)
+              puts "Factura se marca como pagada en el sistema. #{factura_pagada}"
             else
               #se guarda como una transaccion NO exitosa
               status = false

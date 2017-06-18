@@ -1,8 +1,7 @@
 class Invoice < ApplicationRecord
   enum status: [:pendiente, :pagada, :anulada, :rechazada, :aceptada, :despachada]
   belongs_to :purchase_order
-
-
+  belongs_to :trx, :class_name => 'Transaction', :foreign_key => 'transaction_id'
 
   def evaluar_si_aceptar
     if self.purchase_order_id.nil?

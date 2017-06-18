@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170616182520) do
+ActiveRecord::Schema.define(version: 20170618071500) do
 
   create_table "contacts", force: :cascade do |t|
     t.integer  "product_id"
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 20170616182520) do
     t.string   "bank_account"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "transaction_id"
     t.index ["id_cloud"], name: "index_invoices_on_id_cloud", unique: true
   end
 
