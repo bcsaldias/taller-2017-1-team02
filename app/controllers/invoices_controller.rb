@@ -203,9 +203,11 @@ class InvoicesController < ApplicationController
       if not @keys.include?("id_transaction")
         json_response ({ error: "Debe entregar el id de una transacción"}), 400
       else
-        invoice_id = params[:id]
-        q_invoice = Invoice.where(id_cloud: invoice_id)#.first
+        invoice_id = params["id"]
+        q_invoice = Invoice.where(id_cloud: invoice_id.to_s)#.first
         puts "PROBANDO NOTIF PAGO"
+        puts q_invoice
+        puts params[:id]
         invoice = nil
         puts "count"
         puts q_invoice.count.to_s
@@ -230,7 +232,7 @@ class InvoicesController < ApplicationController
 
           #revisar que no exista localmente
           our_transaction = Transaction.find_by(id_cloud: @body['id_transaction'])
-          if our_transaction == nil
+          if our_transaction.invoice == nil
             #comparo valor desde purchase order y transferencia
             total_a_pagar = invoice.bruto + invoice.iva
             total_pagado = transaction[0]['monto'].to_i
@@ -238,10 +240,10 @@ class InvoicesController < ApplicationController
               #guardar transaccion localmente
               #se guarda como una transaccion exitosa
               status = true
-              #TODO test
+              
               factura_pagada = Invoices.pagar_factura(invoice_id)
               invoice.pagada!
-              #TODO j: Conectar factura con trx
+              
               puts "Factura se marca como pagada en el sistema. #{factura_pagada}"
             else
               #se guarda como una transaccion NO exitosa

@@ -63,8 +63,9 @@ class ApiController < ApplicationController
 	end
 
 	def test
-		ret = Sales.anular_purchase_order("5943fe88c97220000479bee0", "cliente no responde")
-		json_response({ret: ret})
+		ret = Invoices.anular_factura("5947005016d24d000466fb56", "OC rechazada")
+		ret2 = 0# Bank.transfer(17578800, "5910c0910e42840004f6e689", "5910c0910e42840004f6e68a")
+		json_response({ret: ret, r2: ret2})
 	end
 
 	def test_old00

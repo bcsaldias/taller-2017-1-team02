@@ -146,6 +146,8 @@ class GeneralController < ApplicationController
     invoice.transaction_id = trx.id
     puts 4
     invoice.save!
+    trx.state = true
+    trx.save!
     #TODO j: Conectar factura con trx
     puts "Factura se marca como pagada en el sistema. #{factura_pagada}"
     json_response({ :status => "Exito"}, 201)
