@@ -49,6 +49,7 @@
                       <th><%= sortable "created_at", "Creadas", PurchaseOrder, "product_sku"  %></th>
                       <th><%= sortable "deadline", "Deadline", PurchaseOrder, "product_sku"  %></th>
                       <th> Falta para deadline</th>
+                      <th><%= sortable "invoice", "Factura asociada", PurchaseOrder, "product_sku"  %></th>
                     </tr>
                 </thead>
 
@@ -79,6 +80,7 @@
                         <% else%>
                           <td>no existe el campo deadline</td>
                         <% end %>
+                        <td><%= purchase_order.invoice(purchase_order.id_cloud) %></td>
                       </tr>
                     <% end %>
                 </tbody>
@@ -106,6 +108,7 @@
                       <th><%= sortable "created_at", "Creadas", PurchaseOrder, "product_sku"  %></th>
                       <th><%= sortable "deadline", "Deadline", PurchaseOrder, "product_sku"  %></th>
                       <th> Falta para deadline</th>
+                      
                     </tr>
                 </thead>
 
@@ -136,6 +139,7 @@
                         <% else%>
                           <td>no existe el campo deadline</td>
                         <% end %>
+                        
                       </tr>
                     <% end %>
                 </tbody>
@@ -163,6 +167,7 @@
                       <th><%= sortable "created_at", "Creadas", PurchaseOrder, "product_sku"  %></th>
                       <th><%= sortable "deadline", "Deadline", PurchaseOrder, "product_sku"  %></th>
                       <th> Falta para deadline</th>
+                      
                     </tr>
                 </thead>
 
@@ -193,6 +198,7 @@
                         <% else%>
                           <td>no existe el campo deadline</td>
                         <% end %>
+                        
                       </tr>
                     <% end %>
                 </tbody>
@@ -219,6 +225,7 @@
                       <th><%= sortable "created_at", "Creadas", PurchaseOrder, "product_sku"  %></th>
                       <th><%= sortable "deadline", "Deadline", PurchaseOrder, "product_sku"  %></th>
                       <th> Falta para deadline</th>
+                      <th><%= sortable "invoice", "Factura asociada", PurchaseOrder, "product_sku"  %></th>
                     </tr>
                 </thead>
 
@@ -249,6 +256,7 @@
                         <% else%>
                           <td>no existe el campo deadline</td>
                         <% end %>
+                        <td><%= purchase_order.invoice(purchase_order.id_cloud) %></td>
                       </tr>
                     <% end %>
                 </tbody>
@@ -278,6 +286,7 @@
                       <th><%= sortable "deadline", "Deadline", PurchaseOrder, "product_sku"  %></th>
                       <th> Falta para deadline</th>
                       <th><%= sortable "Acción", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "invoice", "Factura asociada", PurchaseOrder, "product_sku"  %></th>
                     </tr>
                 </thead>
 
@@ -316,6 +325,7 @@
                         <td> <%= submit_tag 'Aceptar', :name => "status"  %></td>
                         <td> <%= submit_tag 'Rechazar', :name => "status"  %></td>
                         <% end %>
+                        <td><%= purchase_order.invoice(purchase_order.id_cloud) %></td>
 
 
                       </tr>
@@ -347,6 +357,7 @@
                       <th><%= sortable "deadline", "Deadline", PurchaseOrder, "product_sku"  %></th>
                       <th> Falta para deadline</th>
                       <th><%= sortable "Acción", PurchaseOrder, "product_sku"  %></th>
+                      
                     </tr>
                 </thead>
 
@@ -385,6 +396,7 @@
                         <td> <%= submit_tag 'Aceptar', :name => "status"  %></td>
                         <td> <%= submit_tag 'Rechazar', :name => "status"  %></td>
                         <% end %>
+                        
 
 
                       </tr>
@@ -418,6 +430,7 @@
                       <th><%= sortable "deadline", "Deadline", PurchaseOrder, "product_sku"  %></th>
                       <th> Falta para deadline</th>
                       <th><%= sortable "Acción", PurchaseOrder, "product_sku"  %></th>
+                      
                     </tr>
                 </thead>
 
@@ -456,6 +469,7 @@
                         <td> <%= submit_tag 'Aceptar', :name => "status"  %></td>
                         <td> <%= submit_tag 'Rechazar', :name => "status"  %></td>
                         <% end %>
+                        
 
 
                       </tr>
@@ -487,6 +501,7 @@
                       <th><%= sortable "deadline", "Deadline", PurchaseOrder, "product_sku"  %></th>
                       <th> Falta para deadline</th>
                       <th><%= sortable "Acción", PurchaseOrder, "product_sku"  %></th>
+                      <th><%= sortable "invoice", "Factura asociada", PurchaseOrder, "product_sku"  %></th>
                     </tr>
                 </thead>
 
@@ -525,6 +540,7 @@
                         <td> <%= submit_tag 'Aceptar', :name => "status"  %></td>
                         <td> <%= submit_tag 'Rechazar', :name => "status"  %></td>
                         <% end %>
+                        <td><%= purchase_order.invoice(purchase_order.id_cloud) %></td>
 
 
                       </tr>
