@@ -51,8 +51,8 @@
                     <% @transactions_fail.each do |trx| %>
                       <tr>
                         <td><%= trx.id_cloud %></td>
-                        <td><%= trx.origen %></td>
-                        <td><%= trx.destino %></td>
+                        <td><%= trx.group_number(trx.origen) %></td>
+                        <td><%= trx.group_number(trx.destino)%></td>
                         <td><%= trx.monto %></td>
                         <td><%= trx.owner %></td>
                         <td><%= trx.state %></td>
@@ -86,8 +86,8 @@
                     <% @transactions_ok.each do |trx| %>
                       <tr>
                         <td><%= trx.id_cloud %></td>
-                        <td><%= trx.origen %></td>
-                        <td><%= trx.destino %></td>
+                        <td><%= trx.group_number(trx.origen) %></td>
+                        <td><%= trx.group_number(trx.destino)%></td>
                         <td><%= trx.monto %></td>
                         <td><%= trx.owner %></td>
                         <td><%= trx.state %></td>
@@ -99,7 +99,7 @@
           </div>
 
 
-
+          
 
 
 
