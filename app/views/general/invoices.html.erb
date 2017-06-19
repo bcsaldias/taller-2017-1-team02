@@ -28,11 +28,9 @@
       <!-- Marketing Icons Section -->
       <div class="row">
 
-
-
-          <div class="panel panel-primary">
+          <div class="panel panel-info">
             <!-- Default panel contents -->
-            <div class="panel-heading">Facturas enviadas</div>
+            <div class="panel-heading">Facturas enviadas distribuidor</div>
 
             <!-- Table -->
             <table  class="table table-bordered" cellspacing="0" width="100%">
@@ -40,7 +38,7 @@
                     <tr>
                       <th><%= sortable "id_cloud", Invoice, "id_cloud" %></th>
                       <th><%= sortable "cliente", Invoice, "id_cloud" %></th>
-                      <th><%= sortable "proveedor", Invoice, "id_cloud" %></th>
+                      <!-- <th><%= sortable "proveedor", Invoice, "id_cloud" %></th> -->
                       <th><%= sortable "total", Invoice, "id_cloud" %></th> <!-- HACER VARIABLE TOTAL-->
                       <th><%= sortable "oc_id_cloud", Invoice, "id_cloud" %></th>
                       <th><%= sortable "status", "estado", Invoice, "id_cloud" %></th>
@@ -51,12 +49,12 @@
                 </thead>
 
                 <tbody id="news-table">
-                    <% @our_invoices.each do |invoice| %>
+                    <% @our_invoices_distribuidor.each do |invoice| %>
                       <tr>
 
                         <td><%= invoice.id_cloud %></td>
-                        <td><%= invoice.group_number(invoice.cliente) %></td>
-                        <td><%= invoice.group_number(invoice.proveedor)%></td>
+                        <td><%= invoice.cliente %></td>
+                        <!-- <td><%= invoice.group_number(invoice.proveedor)%></td> -->
                         <!-- <td><%= invoice.cliente %></td>
                         <td><%= invoice.proveedor %></td> -->
                         <td><%= invoice.bruto + invoice.iva %></td>
@@ -71,9 +69,9 @@
             </table>
           </div>
 
-          <div class="panel panel-primary">
+          <div class="panel panel-info">
             <!-- Default panel contents -->
-            <div class="panel-heading">Facturas recibida</div>
+            <div class="panel-heading">Facturas enviadas b2b </div>
 
             <!-- Table -->
             <table  class="table table-bordered" cellspacing="0" width="100%">
@@ -81,7 +79,7 @@
                     <tr>
                       <th><%= sortable "id_cloud", Invoice, "id_cloud" %></th>
                       <th><%= sortable "cliente", Invoice, "id_cloud" %></th>
-                      <th><%= sortable "proveedor", Invoice, "id_cloud" %></th>
+                      <!-- <th><%= sortable "proveedor", Invoice, "id_cloud" %></th> -->
                       <th><%= sortable "total", Invoice, "id_cloud" %></th> <!-- HACER VARIABLE TOTAL-->
                       <th><%= sortable "oc_id_cloud", Invoice, "id_cloud" %></th>
                       <th><%= sortable "status", "estado", Invoice, "id_cloud" %></th>
@@ -92,13 +90,12 @@
                 </thead>
 
                 <tbody id="news-table">
-                    <% @invoices.each do |invoice| %>
+                    <% @our_invoices_b2b.each do |invoice| %>
                       <tr>
-                        <%= form_tag(:accept_invoice,  method: "post") do %>
-                        <%= hidden_field_tag :cloud_id, invoice.id_cloud %>
+
                         <td><%= invoice.id_cloud %></td>
                         <td><%= invoice.group_number(invoice.cliente) %></td>
-                        <td><%= invoice.group_number(invoice.proveedor)%></td>
+                        <!-- <td><%= invoice.group_number(invoice.proveedor)%></td> -->
                         <!-- <td><%= invoice.cliente %></td>
                         <td><%= invoice.proveedor %></td> -->
                         <td><%= invoice.bruto + invoice.iva %></td>
@@ -107,13 +104,104 @@
                         <td><%= invoice.bank_account %></td>
                         <td><%= invoice.owner %></td>
                         <td><%= invoice.trx.id_cloud if invoice.trx %></td>
-                        <td> <%= submit_tag 'Aceptar', :name => "status"  %></td>
-                        <td> <%= submit_tag 'Rechazar', :name => "status"  %></td>
-                        <% end %>
                       </tr>
                     <% end %>
                 </tbody>
             </table>
+          </div>
+
+
+
+          <div class="panel panel-warning">
+            <!-- Default panel contents -->
+            <div class="panel-heading">Facturas recibidas distribuidor</div>
+
+              <!-- Table -->
+              <table  class="table table-bordered" cellspacing="0" width="100%">
+                  <thead>
+                      <tr>
+                        <th><%= sortable "id_cloud", Invoice, "id_cloud" %></th>
+                        <!-- <th><%= sortable "cliente", Invoice, "id_cloud" %></th> -->
+                        <th><%= sortable "proveedor", Invoice, "id_cloud" %></th>
+                        <th><%= sortable "total", Invoice, "id_cloud" %></th> <!-- HACER VARIABLE TOTAL-->
+                        <th><%= sortable "oc_id_cloud", Invoice, "id_cloud" %></th>
+                        <th><%= sortable "status", "estado", Invoice, "id_cloud" %></th>
+                        <th><%= sortable "bank_account", "cuenta", Invoice, "id_cloud" %></th>
+                        <th><%= sortable "owner", "nuestra", Invoice, "id_cloud" %></th>
+                        <th><%= sortable "Trx_asociada", Invoice, "id_cloud" %></th>
+                      </tr>
+                  </thead>
+
+                  <tbody id="news-table">
+                      <% @invoices_distribuidor.each do |invoice| %>
+                        <tr>
+                          <%= form_tag(:accept_invoice,  method: "post") do %>
+                          <%= hidden_field_tag :cloud_id, invoice.id_cloud %>
+                          <td><%= invoice.id_cloud %></td>
+                          <!-- <td><%= invoice.group_number(invoice.cliente) %></td> -->
+                          <td><%= invoice.proveedor%></td>
+                          <!-- <td><%= invoice.cliente %></td>
+                          <td><%= invoice.proveedor %></td> -->
+                          <td><%= invoice.bruto + invoice.iva %></td>
+                          <td><%= invoice.oc_id_cloud %></td>
+                          <td><%= invoice.status %></td>
+                          <td><%= invoice.bank_account %></td>
+                          <td><%= invoice.owner %></td>
+                          <td><%= invoice.trx.id_cloud if invoice.trx %></td>
+                          <td> <%= submit_tag 'Aceptar', :name => "status"  %></td>
+                          <td> <%= submit_tag 'Rechazar', :name => "status"  %></td>
+                          <% end %>
+                        </tr>
+                      <% end %>
+                  </tbody>
+              </table>
+            
+          </div>
+
+          <div class="panel panel-warning">
+            <!-- Default panel contents -->
+            <div class="panel-heading">Facturas recibidas b2b</div>
+
+              <!-- Table -->
+              <table  class="table table-bordered" cellspacing="0" width="100%">
+                  <thead>
+                      <tr>
+                        <th><%= sortable "id_cloud", Invoice, "id_cloud" %></th>
+                        <!-- <th><%= sortable "cliente", Invoice, "id_cloud" %></th> -->
+                        <th><%= sortable "proveedor", Invoice, "id_cloud" %></th>
+                        <th><%= sortable "total", Invoice, "id_cloud" %></th> <!-- HACER VARIABLE TOTAL-->
+                        <th><%= sortable "oc_id_cloud", Invoice, "id_cloud" %></th>
+                        <th><%= sortable "status", "estado", Invoice, "id_cloud" %></th>
+                        <th><%= sortable "bank_account", "cuenta", Invoice, "id_cloud" %></th>
+                        <th><%= sortable "owner", "nuestra", Invoice, "id_cloud" %></th>
+                        <th><%= sortable "Trx_asociada", Invoice, "id_cloud" %></th>
+                      </tr>
+                  </thead>
+
+                  <tbody id="news-table">
+                      <% @invoices_b2b.each do |invoice| %>
+                        <tr>
+                          <%= form_tag(:accept_invoice,  method: "post") do %>
+                          <%= hidden_field_tag :cloud_id, invoice.id_cloud %>
+                          <td><%= invoice.id_cloud %></td>
+                          <!-- <td><%= invoice.group_number(invoice.cliente) %></td> -->
+                          <td><%= invoice.group_number(invoice.proveedor)%></td>
+                          <!-- <td><%= invoice.cliente %></td>
+                          <td><%= invoice.proveedor %></td> -->
+                          <td><%= invoice.bruto + invoice.iva %></td>
+                          <td><%= invoice.oc_id_cloud %></td>
+                          <td><%= invoice.status %></td>
+                          <td><%= invoice.bank_account %></td>
+                          <td><%= invoice.owner %></td>
+                          <td><%= invoice.trx.id_cloud if invoice.trx %></td>
+                          <td> <%= submit_tag 'Aceptar', :name => "status"  %></td>
+                          <td> <%= submit_tag 'Rechazar', :name => "status"  %></td>
+                          <% end %>
+                        </tr>
+                      <% end %>
+                  </tbody>
+              </table>
+            
           </div>
 
 

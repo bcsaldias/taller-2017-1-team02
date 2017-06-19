@@ -18,6 +18,19 @@ class GeneralController < ApplicationController
     # J: Busca localmente las POrders
     @our_purchase_orders = PurchaseOrder.where(owner: true).where("group_number != -1").order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
     @purchase_orders = PurchaseOrder.where(owner: nil).where("group_number != -1").order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
+
+    @our_purchase_orders_created = PurchaseOrder.where(owner: true).where("group_number != -1").where(state: 0).order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
+    @purchase_orders_created = PurchaseOrder.where(owner: nil).where("group_number != -1").where(state: 0).order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
+    
+    @our_purchase_orders_accepted = PurchaseOrder.where(owner: true).where("group_number != -1").where(state: 1).order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
+    @purchase_orders_accepted = PurchaseOrder.where(owner: nil).where("group_number != -1").where(state: 1).order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
+    
+    @our_purchase_orders_rejected = PurchaseOrder.where(owner: true).where("group_number != -1").where(state: 2).order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
+    @purchase_orders_rejected = PurchaseOrder.where(owner: nil).where("group_number != -1").where(state: 2).order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
+    
+    @our_purchase_orders_delivered = PurchaseOrder.where(owner: true).where("group_number != -1").where(state: 3).order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
+    @purchase_orders_delivered = PurchaseOrder.where(owner: nil).where("group_number != -1").where(state: 3).order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
+    
   end
 
   def ventas
@@ -87,8 +100,13 @@ class GeneralController < ApplicationController
 
   def invoices
     @our_invoices = Invoice.where(owner: true).order(sort_column(Invoice, "id_cloud") + " " + sort_direction)
-    # @invoices = Invoice.where(owner: nil).order(sort_column(Invoice, "id_cloud") + " " + sort_direction)
     @invoices = Invoice.where("owner IN (?)", [nil, false]).order(sort_column(Invoice, "id_cloud") + " " + sort_direction)
+
+    @our_invoices_b2b = Invoice.where(owner: true).where.not(cliente: "distribuidor").order(sort_column(Invoice, "id_cloud") + " " + sort_direction)
+    @our_invoices_distribuidor = Invoice.where(owner: true).where(cliente: "distribuidor").order(sort_column(Invoice, "id_cloud") + " " + sort_direction)
+    # @invoices = Invoice.where(owner: nil).order(sort_column(Invoice, "id_cloud") + " " + sort_direction)
+    @invoices_b2b = Invoice.where("owner IN (?)", [nil, false]).where.not(proveedor: "distribuidor").order(sort_column(Invoice, "id_cloud") + " " + sort_direction)
+    @invoices_distribuidor = Invoice.where("owner IN (?)", [nil, false]).where(proveedor: "distribuidor").order(sort_column(Invoice, "id_cloud") + " " + sort_direction)
   end
 
   def invoice_and_transactions

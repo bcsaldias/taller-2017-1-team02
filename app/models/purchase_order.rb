@@ -94,5 +94,12 @@ class PurchaseOrder < ApplicationRecord
     return true
   end
 
+  def invoice(id_cloud_oc)
+    inv = Invoice.where(oc_id_cloud: id_cloud_oc).first
+    if inv
+      return inv.id_cloud
+    end
+  end
+
 
 end
