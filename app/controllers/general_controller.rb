@@ -180,8 +180,10 @@ class GeneralController < ApplicationController
   end
 
   def transaction
-    @transactions_ok = Transaction.where(state: true).order(sort_column(Transaction, "id_cloud") + " " + sort_direction)
-    @transactions_fail = Transaction.where(state: false).order(sort_column(Transaction, "id_cloud") + " " + sort_direction)
+    @transactions_ok = Transaction.where(state: true).where(owner: false).order(sort_column(Transaction, "id_cloud") + " " + sort_direction)
+    @transactions_fail = Transaction.where(state: false).where(owner: false).order(sort_column(Transaction, "id_cloud") + " " + sort_direction)
+    @our_transactions_ok = Transaction.where(state: true).where(owner: true).order(sort_column(Transaction, "id_cloud") + " " + sort_direction)
+    @our_transactions_fail = Transaction.where(state: false).where(owner: true).order(sort_column(Transaction, "id_cloud") + " " + sort_direction)
   end
 
   def queue
