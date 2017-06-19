@@ -29,75 +29,6 @@
       <div class="row">
 
 
-           <div class="panel panel-info">
-            <!-- Default panel contents -->
-            <div class="panel-heading">Transacciones fallidas desde nosotros</div>
-
-            <!-- Table -->
-            <table  class="table table-bordered" cellspacing="0" width="100%">
-                <thead>
-                    <tr>
-                      <th><%= sortable "id_cloud", Transaction, "product_sku"  %></th>
-                      <th><%= sortable "origen", Transaction, "product_sku"  %></th>
-                      <th><%= sortable "destino", Transaction, "product_sku"  %></th>
-                      <th><%= sortable "monto", Transaction, "product_sku"  %></th>
-                      <th><%= sortable "owner", Transaction, "product_sku"  %></th>
-                      <th><%= sortable "state", "status", Transaction, "product_sku"  %></th>
-                      <th><%= sortable "created_at", "fecha de creación", Transaction, "product_sku"  %></th>
-                    </tr>
-                </thead>
-
-                <tbody id="news-table">
-                    <% @our_transactions_fail.each do |trx| %>
-                      <tr>
-                        <td><%= trx.id_cloud %></td>
-                        <td><%= trx.group_number(trx.origen) %></td>
-                        <td><%= trx.group_number(trx.destino)%></td>
-                        <td><%= trx.monto %></td>
-                        <td><%= trx.owner %></td>
-                        <td><%= trx.state %></td>
-                        <td><%= trx.created_at.strftime("%d/%b") %></td>
-                      </tr>
-                    <% end %>
-                </tbody>
-            </table>
-          </div>
-
-
-          <div class="panel panel-info">
-            <!-- Default panel contents -->
-            <div class="panel-heading">Transacciones exitosas desde nosotros</div>
-
-            <!-- Table -->
-            <table  class="table table-bordered" cellspacing="0" width="100%">
-                <thead>
-                    <tr>
-                      <th><%= sortable "id_cloud", Transaction, "product_sku"  %></th>
-                      <th><%= sortable "origen", Transaction, "product_sku"  %></th>
-                      <th><%= sortable "destino", Transaction, "product_sku"  %></th>
-                      <th><%= sortable "monto", Transaction, "product_sku"  %></th>
-                      <th><%= sortable "owner", Transaction, "product_sku"  %></th>
-                      <th><%= sortable "state", "status", Transaction, "product_sku"  %></th>
-                      <th><%= sortable "created_at", "fecha de creación", Transaction, "product_sku"  %></th>
-                    </tr>
-                </thead>
-
-                <tbody id="news-table">
-                    <% @our_transactions_ok.each do |trx| %>
-                      <tr>
-                        <td><%= trx.id_cloud %></td>
-                        <td><%= trx.group_number(trx.origen) %></td>
-                        <td><%= trx.group_number(trx.destino)%></td>
-                        <td><%= trx.monto %></td>
-                        <td><%= trx.owner %></td>
-                        <td><%= trx.state %></td>
-                        <td><%= trx.created_at.strftime("%d/%b") %></td>
-                      </tr>
-                    <% end %>
-                </tbody>
-            </table>
-          </div>
-
 
           <div class="panel panel-warning">
             <!-- Default panel contents -->
@@ -171,6 +102,78 @@
 
 
          
+
+
+           <div class="panel panel-info">
+            <!-- Default panel contents -->
+            <div class="panel-heading">Transacciones fallidas desde nosotros</div>
+
+            <!-- Table -->
+            <table  class="table table-bordered" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                      <th><%= sortable "id_cloud", Transaction, "product_sku"  %></th>
+                      <th><%= sortable "origen", Transaction, "product_sku"  %></th>
+                      <th><%= sortable "destino", Transaction, "product_sku"  %></th>
+                      <th><%= sortable "monto", Transaction, "product_sku"  %></th>
+                      <th><%= sortable "owner", Transaction, "product_sku"  %></th>
+                      <th><%= sortable "state", "status", Transaction, "product_sku"  %></th>
+                      <th><%= sortable "created_at", "fecha de creación", Transaction, "product_sku"  %></th>
+                    </tr>
+                </thead>
+
+                <tbody id="news-table">
+                    <% @our_transactions_fail.each do |trx| %>
+                      <tr>
+                        <td><%= trx.id_cloud %></td>
+                        <td><%= trx.group_number(trx.origen) %></td>
+                        <td><%= trx.group_number(trx.destino)%></td>
+                        <td><%= trx.monto %></td>
+                        <td><%= trx.owner %></td>
+                        <td><%= trx.state %></td>
+                        <td><%= trx.created_at.strftime("%d/%b") %></td>
+                      </tr>
+                    <% end %>
+                </tbody>
+            </table>
+          </div>
+
+
+          <div class="panel panel-info">
+            <!-- Default panel contents -->
+            <div class="panel-heading">Transacciones exitosas desde nosotros</div>
+
+            <!-- Table -->
+            <table  class="table table-bordered" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                      <th><%= sortable "id_cloud", Transaction, "product_sku"  %></th>
+                      <th><%= sortable "origen", Transaction, "product_sku"  %></th>
+                      <th><%= sortable "destino", Transaction, "product_sku"  %></th>
+                      <th><%= sortable "monto", Transaction, "product_sku"  %></th>
+                      <th><%= sortable "owner", Transaction, "product_sku"  %></th>
+                      <th><%= sortable "state", "status", Transaction, "product_sku"  %></th>
+                      <th><%= sortable "created_at", "fecha de creación", Transaction, "product_sku"  %></th>
+                    </tr>
+                </thead>
+
+                <tbody id="news-table">
+                    <% @our_transactions_ok.each do |trx| %>
+                      <tr>
+                        <td><%= trx.id_cloud %></td>
+                        <td><%= trx.group_number(trx.origen) %></td>
+                        <td><%= trx.group_number(trx.destino)%></td>
+                        <td><%= trx.monto %></td>
+                        <td><%= trx.owner %></td>
+                        <td><%= trx.state %></td>
+                        <td><%= trx.created_at.strftime("%d/%b") %></td>
+                      </tr>
+                    <% end %>
+                </tbody>
+            </table>
+          </div>
+
+
 
 
           
