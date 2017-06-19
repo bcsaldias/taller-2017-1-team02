@@ -31,6 +31,8 @@ class GeneralController < ApplicationController
     @our_purchase_orders_delivered = PurchaseOrder.where(owner: true).where("group_number != -1").where(state: 3).order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
     @purchase_orders_delivered = PurchaseOrder.where(owner: nil).where("group_number != -1").where(state: 3).order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
     
+    @our_purchase_orders_anuladas = PurchaseOrder.where(owner: true).where("group_number != -1").where(state: 4).order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
+    @purchase_orders_anuladas = PurchaseOrder.where(owner: nil).where("group_number != -1").where(state: 4).order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
   end
 
   def ventas
@@ -180,8 +182,10 @@ class GeneralController < ApplicationController
   end
 
   def transaction
-    @transactions_ok = Transaction.where(state: true).order(sort_column(Transaction, "id_cloud") + " " + sort_direction)
-    @transactions_fail = Transaction.where(state: false).order(sort_column(Transaction, "id_cloud") + " " + sort_direction)
+    @transactions_ok = Transaction.where(state: true).where(owner: false).order(sort_column(Transaction, "id_cloud") + " " + sort_direction)
+    @transactions_fail = Transaction.where(state: false).where(owner: false).order(sort_column(Transaction, "id_cloud") + " " + sort_direction)
+    @our_transactions_ok = Transaction.where(state: true).where(owner: true).order(sort_column(Transaction, "id_cloud") + " " + sort_direction)
+    @our_transactions_fail = Transaction.where(state: false).where(owner: true).order(sort_column(Transaction, "id_cloud") + " " + sort_direction)
   end
 
   def queue
