@@ -249,7 +249,7 @@
                       <th><%= sortable "quantity", "Cantidad", PurchaseOrder, "product_sku"  %></th>
                       <th><%= sortable "created_at", "Creadas", PurchaseOrder, "product_sku"  %></th>
                       <th><%= sortable "deadline", "Deadline", PurchaseOrder, "product_sku"  %></th>
-                      <th><%= sortable "Acción", PurchaseOrder, "product_sku"  %></th>
+                      
                     </tr>
                 </thead>
 
@@ -267,7 +267,7 @@
                         <td><%= purchase_order.quantity %></td>
                         <td><%= purchase_order.created_at %></td>
                         <td><%= purchase_order.deadline %></td>
-                        <td> <%= submit_tag 'Aceptar', :name => "status"  %></td>
+                        
                         <% end %>
 
 
