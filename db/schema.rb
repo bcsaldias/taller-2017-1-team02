@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170618071500) do
+ActiveRecord::Schema.define(version: 20170718071500) do
 
   create_table "contacts", force: :cascade do |t|
     t.integer  "product_id"
@@ -31,6 +31,18 @@ ActiveRecord::Schema.define(version: 20170618071500) do
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
     t.index ["job_id"], name: "index_crono_jobs_on_job_id", unique: true
+  end
+
+  create_table "discounts", force: :cascade do |t|
+    t.string   "sku"
+    t.integer  "precio"
+    t.datetime "inicio"
+    t.datetime "fin"
+    t.string   "codigo",           null: false
+    t.boolean  "publicar"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "activation_count"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -145,10 +157,10 @@ ActiveRecord::Schema.define(version: 20170618071500) do
   end
 
   create_table "spree_adjustments", force: :cascade do |t|
-    t.integer  "source_id"
     t.string   "source_type"
-    t.integer  "adjustable_id"
+    t.integer  "source_id"
     t.string   "adjustable_type"
+    t.integer  "adjustable_id"
     t.decimal  "amount",          precision: 10, scale: 2
     t.string   "label"
     t.boolean  "mandatory"
@@ -165,8 +177,8 @@ ActiveRecord::Schema.define(version: 20170618071500) do
   end
 
   create_table "spree_assets", force: :cascade do |t|
-    t.integer  "viewable_id"
     t.string   "viewable_type"
+    t.integer  "viewable_id"
     t.integer  "attachment_width"
     t.integer  "attachment_height"
     t.integer  "attachment_file_size"
@@ -185,8 +197,8 @@ ActiveRecord::Schema.define(version: 20170618071500) do
 
   create_table "spree_calculators", force: :cascade do |t|
     t.string   "type"
-    t.integer  "calculable_id"
     t.string   "calculable_type"
+    t.integer  "calculable_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.text     "preferences"
@@ -286,8 +298,8 @@ ActiveRecord::Schema.define(version: 20170618071500) do
   end
 
   create_table "spree_log_entries", force: :cascade do |t|
-    t.integer  "source_id"
     t.string   "source_type"
+    t.integer  "source_id"
     t.text     "details"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
@@ -414,8 +426,8 @@ ActiveRecord::Schema.define(version: 20170618071500) do
   create_table "spree_payments", force: :cascade do |t|
     t.decimal  "amount",               precision: 10, scale: 2, default: "0.0", null: false
     t.integer  "order_id"
-    t.integer  "source_id"
     t.string   "source_type"
+    t.integer  "source_id"
     t.integer  "payment_method_id"
     t.string   "state"
     t.string   "response_code"
@@ -863,8 +875,8 @@ ActiveRecord::Schema.define(version: 20170618071500) do
     t.string   "action"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
-    t.integer  "originator_id"
     t.string   "originator_type"
+    t.integer  "originator_id"
     t.index ["stock_item_id"], name: "index_spree_stock_movements_on_stock_item_id"
   end
 
@@ -1110,8 +1122,8 @@ ActiveRecord::Schema.define(version: 20170618071500) do
   end
 
   create_table "spree_zone_members", force: :cascade do |t|
-    t.integer  "zoneable_id"
     t.string   "zoneable_type"
+    t.integer  "zoneable_id"
     t.integer  "zone_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
@@ -1187,6 +1199,9 @@ ActiveRecord::Schema.define(version: 20170618071500) do
     t.datetime "updated_at",                     null: false
     t.boolean  "delivering",     default: false
     t.boolean  "queued",         default: false
+    t.integer  "discount_id"
+    t.integer  "original_value"
+    t.index ["discount_id"], name: "index_vouchers_on_discount_id"
   end
 
   create_table "warehouses", force: :cascade do |t|
