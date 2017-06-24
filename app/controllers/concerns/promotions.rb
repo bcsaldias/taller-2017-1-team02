@@ -10,7 +10,7 @@ module Promotions
     promotion = Spree::Promotion.create!(
       description: codigo, 
       expires_at: fin, 
-      starts_at: codigo, 
+      starts_at: inicio, 
       name: codigo, 
       type: nil, 
       usage_limit: 1000000000, 
@@ -32,7 +32,6 @@ module Promotions
     rule.products << product
     rule.save!
 
-    ### guardar referencia a este en la tabla!!
     ajuste = Spree::Promotion::Actions::CreateItemAdjustments.create!(
       promotion_id: promotion.id,
       position: nil,
@@ -50,7 +49,6 @@ module Promotions
 	      spree_adj_id: ajuste.id
     	)
 
-    ### al hacer la transacción actualizar este!!
     calculator = Spree::Calculator.create!(
         type: "Spree::Calculator::FlexiRate", 
         calculable_type: "Spree::PromotionAction", 
@@ -67,12 +65,10 @@ module Promotions
 
   end
 
-  def self.update(codigo) #precio_final
+  def self.update(codigo)
 
     discount = Discount.where(codigo: codigo).first
     ajuste = Spree::Promotion::Actions::CreateItemAdjustments.find(discount.spree_adj_id)
-    #discount.precio = precio_final
-    #discount.save!
     
     product = Product.find(discount.sku)
     precio_final = discount.precio
