@@ -85,7 +85,11 @@ module Spree
       end
 
       begin
-        redirect_to(current_bp+'orders/'+@order.number.to_s)
+        if all_ok
+           redirect_to(current_bp+'orders/'+@order.number.to_s)
+        else
+           redirect_to(current_bp+'checkout/payment')
+        end
       rescue
         puts "ERROR"
       ensure
