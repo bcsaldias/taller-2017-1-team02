@@ -11,24 +11,27 @@ class ApiController < ApplicationController
 	include Queries
 	include Invoices
 	include Purchases
+	include Promotions
 	include Bank
 
 
 	def get_ofertas
 
-		uri = Rails.configuration.environment_ids['queue']
-		b = Bunny.new uri
-		b.start
-		ch = b.create_channel
-		q = ch.queue('ofertas', :durable=>true)
-		e = ch.exchange("")
-		#e.publish("shakira", :key=>'ofertas')
-		delivery, headers, msg = q.pop
-		puts delivery
-		puts headers
-		puts msg
-		b.stop
-		json_response({msg:  msg })
+		#prom = Promotions.create('shakira_test', Time.now, Time.now+2.days, "8", 100, true)
+		#uri = Rails.configuration.environment_ids['queue']
+		#b = Bunny.new uri
+		#b.start
+		#ch = b.create_channel
+		#q = ch.queue('ofertas', :durable=>true)
+		#e = ch.exchange("")
+		##e.publish("shakira", :key=>'ofertas')
+		#delivery, headers, msg = q.pop
+		#puts delivery
+		#puts headers
+		#puts msg
+		#b.stop
+		prom = Promotions.update('shakira_test', 4000)
+		json_response({msg:  prom })
 
 	end
 

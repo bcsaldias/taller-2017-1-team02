@@ -38,11 +38,12 @@ ActiveRecord::Schema.define(version: 20170718071500) do
     t.integer  "precio"
     t.datetime "inicio"
     t.datetime "fin"
-    t.string   "codigo",           null: false
+    t.string   "codigo",                       null: false
     t.boolean  "publicar"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "activation_count"
+    t.integer  "activation_count", default: 0
+    t.integer  "spree_adj_id"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|

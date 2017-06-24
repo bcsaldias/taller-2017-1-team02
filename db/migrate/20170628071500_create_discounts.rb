@@ -10,6 +10,7 @@ class CreateDiscounts < ActiveRecord::Migration
       t.boolean :publicar
       t.timestamps
       t.integer :activation_count, default: 0
+      t.integer :spree_adj_id
       
     end
   end
