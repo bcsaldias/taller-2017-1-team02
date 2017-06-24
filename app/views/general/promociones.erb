@@ -107,7 +107,38 @@
           </div>
 
 
+    <div class="container">
 
+      <!-- Marketing Icons Section -->
+      <div class="row">
+
+
+          <div class="panel panel-primary">
+            <!-- Default panel contents -->
+            <div class="panel-heading">SPREE</div>
+
+            <!-- Table -->
+            <!-- Table -->
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th><%= sortable "code", "code", Spree::Promotion, "fin" %></th>
+                  <th><%= sortable "starts_at", "starts_at", Spree::Promotion, "fin" %></th>
+                  <th><%= sortable "expires_at", "expires_at", Spree::Promotion, "fin" %></th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <% @spree_promociones.each do |p| %>
+                  <tr>
+                    <td><%= p.code %></td>
+                    <td><%= p.starts_at  %></td>
+                    <td><%= p.expires_at  %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
 
 
   <script type="text/javascript" src="/assets/js/jquery.js"></script>

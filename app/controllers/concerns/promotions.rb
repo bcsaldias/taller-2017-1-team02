@@ -7,6 +7,15 @@ module Promotions
     final_discount = producto.price - precio
     final_discount = [0, final_discount].max
 
+    discount = Discount.create!(
+	      sku: sku,
+	      precio: precio,
+	      inicio: inicio,
+	      fin: fin,
+	      codigo: codigo,
+	      publicar: publicar,
+	      activation_count: 0)
+
     promotion = Spree::Promotion.create!(
       description: codigo, 
       expires_at: fin, 
@@ -38,16 +47,8 @@ module Promotions
       type: "Spree::Promotion::Actions::CreateItemAdjustments",
       deleted_at: nil)
 
-    discount = Discount.create!(
-	      sku: sku,
-	      precio: precio,
-	      inicio: inicio,
-	      fin: fin,
-	      codigo: codigo,
-	      publicar: publicar,
-	      activation_count: 0,
-	      spree_adj_id: ajuste.id
-    	)
+	discount.spree_adj_id = ajuste.id
+	discount.save!
 
     calculator = Spree::Calculator.create!(
         type: "Spree::Calculator::FlexiRate", 

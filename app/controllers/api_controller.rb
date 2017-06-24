@@ -30,7 +30,7 @@ class ApiController < ApplicationController
 		#puts headers
 		#puts msg
 		#b.stop
-		prom = Promotions.update('shakira_test', 4000)
+		prom = Promotions.update('shakira_test')#, 4000)
 		json_response({msg:  prom })
 
 	end
