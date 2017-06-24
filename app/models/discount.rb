@@ -15,7 +15,7 @@ class Discount < ApplicationRecord
     ret_id = []
     all.each do |discount|
         if discount.disponible
-            ret << discount.id
+            ret_id << discount.id
         end
     end
     where('id IN (?)', ret_id)
@@ -24,7 +24,7 @@ class Discount < ApplicationRecord
 
   def disponible
 
-    now = (DateTime.now.to_f * 1000).to_i
+    now = (Time.now.to_f * 1000).to_i
     deadline = (self.fin.to_f * 1000).to_i
 
     if now <= deadline
