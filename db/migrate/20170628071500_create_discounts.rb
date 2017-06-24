@@ -9,7 +9,7 @@ class CreateDiscounts < ActiveRecord::Migration
       t.string :codigo, null: false, unique: true
       t.boolean :publicar
       t.timestamps
-      t.integer :activation_count
+      t.integer :activation_count, default: 0
       
     end
   end

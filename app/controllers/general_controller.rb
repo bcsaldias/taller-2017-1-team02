@@ -15,7 +15,7 @@ class GeneralController < ApplicationController
   end
 
   def promociones
-    @vouchers = Voucher.all.order(sort_column(Voucher, "id_cloud") + " " + sort_direction)
+    @discounts = Discount.all.order(sort_column(Discount, "fin") + " " + sort_direction)
   end
 
   def oc

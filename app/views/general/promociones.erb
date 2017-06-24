@@ -18,7 +18,7 @@
   <div class="container">
     <div class="row">
       <div class="page-header">
-        <h1>Boletas</h1>
+        <h1>Promociones</h1>
       </div>
     </div>
   </div>
@@ -31,35 +31,33 @@
 
           <div class="panel panel-primary">
             <!-- Default panel contents -->
-            <div class="panel-heading">Boletas</div>
+            <div class="panel-heading">Promociones</div>
 
             <!-- Table -->
             <!-- Table -->
             <table class="table table-bordered">
               <thead>
                 <tr>
-                  <th><%= sortable "id_cloud", "Id cloud", Voucher, "id_cloud" %></th>
-                  <th><%= sortable "oc_id_cloud", "OC id cloud", Voucher, "id_cloud" %></th>
-                  <th><%= sortable "status", "Estado", Voucher, "id_cloud" %></th>
-                  <th><%= sortable "client", "Cliente", Voucher, "id_cloud" %></th>
-                  <th><%= sortable "bruto", "Bruto", Voucher, "id_cloud" %></th>
-                  <th><%= sortable "iva", "Iva", Voucher, "id_cloud" %></th>
-                  <th><%= sortable "Total", Voucher, "id_cloud" %></th>
-                  <th><%= sortable "created_at", "fecha de creación", Voucher, "id_cloud" %></th>
+                  <th><%= sortable "codigo", "codigo", Discount, "fin" %></th>
+                  <th><%= sortable "sku", "sku", Discount, "fin" %></th>
+                  <th><%= sortable "precio", "precio", Discount, "fin" %></th>
+                  <th><%= sortable "inicio", "inicio", Discount, "fin" %></th>
+                  <th><%= sortable "fin", "fin", Discount, "fin" %></th>
+                  <th><%= sortable "publicar", "publicar", Discount, "fin" %></th>
+                  <th><%= sortable "activation_count", "activation_count", Discount, "fin" %></th>
                 </tr>
               </thead>
 
               <tbody>
-                <% @vouchers.each do |p| %>
+                <% @discounts.each do |p| %>
                   <tr>
-                    <td><%= p.id_cloud %></td>
-                    <td><%= p.oc_id_cloud %></td>
-                    <td><%= p.status %></td>
-                    <td><%= p.client %></td>
-                    <td><%= p.bruto %></td>
-                    <td><%= p.iva %></td>
-                    <td><%= p.bruto + p.iva %></td>
-                    <td><%= p.created_at.strftime("%d/%b") %></td>
+                    <td><%= p.codigo %></td>
+                    <td><%= p.sku %></td>
+                    <td><%= p.precio %></td>
+                    <td><%= p.inicio.strftime("%c")  %></td>
+                    <td><%= p.fin.strftime("%c")  %></td>
+                    <td><%= p.publicar %></td>
+                    <td><%= p.activation_count %></td>
                   </tr>
                 <% end %>
               </tbody>
