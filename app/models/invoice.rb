@@ -28,7 +28,7 @@ class Invoice < ApplicationRecord
   end
 
 
-    def group_number(id_cloud)
+  def group_number(id_cloud)
 
     supp = Supplier.get_by_id_cloud(id_cloud)
     
