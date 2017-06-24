@@ -14,6 +14,10 @@ class GeneralController < ApplicationController
     @vouchers = Voucher.all.order(sort_column(Voucher, "id_cloud") + " " + sort_direction)
   end
 
+  def promociones
+    @vouchers = Voucher.all.order(sort_column(Voucher, "id_cloud") + " " + sort_direction)
+  end
+
   def oc
     # J: Busca localmente las POrders
     @our_purchase_orders = PurchaseOrder.where(owner: true).where("group_number != -1").order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
