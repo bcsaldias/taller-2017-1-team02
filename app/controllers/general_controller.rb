@@ -15,7 +15,8 @@ class GeneralController < ApplicationController
   end
 
   def promociones
-    @discounts = Discount.all.order(sort_column(Discount, "fin") + " " + sort_direction)
+    @old_discounts = Discount.old.order(sort_column(Discount, "fin") + " " + sort_direction)
+    @current_discounts = Discount.current.order(sort_column(Discount, "fin") + " " + sort_direction)
   end
 
   def oc
