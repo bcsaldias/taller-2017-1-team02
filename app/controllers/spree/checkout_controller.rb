@@ -29,9 +29,11 @@ module Spree
     def create_voucher(order)
       _id = order.number
       _user_id = order.user_id
+      _user_id ||= 'anonymous'
       _address = order.ship_address.address1
       _amount = order.total.to_i
       invoice = Invoices.crear_boleta(_id, _user_id, _amount, _address)
+      return invoice
     end
 
     def escape_uri(string)
