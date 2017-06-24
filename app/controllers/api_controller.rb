@@ -3,12 +3,35 @@ require 'net/http'
 require 'base64'
 require 'net/sftp'
 
+require 'bunny'
+
+
 class ApiController < ApplicationController
 
 	include Queries
 	include Invoices
 	include Purchases
 	include Bank
+
+
+	def get_ofertas
+
+		uri = Rails.configuration.environment_ids['queue']
+		b = Bunny.new uri
+		b.start
+		ch = b.create_channel
+		q = ch.queue('ofertas', :durable=>true)
+		e = ch.exchange("")
+		#e.publish("shakira", :key=>'ofertas')
+		delivery, headers, msg = q.pop
+		puts delivery
+		puts headers
+		puts msg
+		b.stop
+		json_response({msg:  msg })
+
+	end
+
 
 	def save_fpt_order(order_id)
       order = Sales.get_purchase_order(order_id)

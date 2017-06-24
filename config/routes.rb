@@ -73,10 +73,11 @@ Rails.application.routes.draw do
   #resources :suppliers
   apipie
   get 'ftp' => 'api#ftp'
-  get 'test' => 'api#test'
+  get 'ofertas' => 'api#get_ofertas'
+  #get 'test' => 'api#test'
   #get 'test2' => 'api#test2'
   #get 'testj3' => 'api#testj3'
-  get 'testj4' => 'api#testj4'
+  #get 'testj4' => 'api#testj4'
   #get 'tiempo' => 'api#tiempo'
 
 
