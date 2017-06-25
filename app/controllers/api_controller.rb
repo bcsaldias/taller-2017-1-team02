@@ -17,21 +17,30 @@ class ApiController < ApplicationController
 
 	def get_ofertas
 
-		#prom = Promotions.create('shakira_test', Time.now, Time.now+2.days, "8", 100, true)
+		
 		#uri = Rails.configuration.environment_ids['queue']
 		#b = Bunny.new uri
 		#b.start
 		#ch = b.create_channel
-		#q = ch.queue('ofertas', :durable=>true)
-		#e = ch.exchange("")
-		##e.publish("shakira", :key=>'ofertas')
+		#q = ch.queue('ofertas', auto_delete: true) #, :durable=>true
 		#delivery, headers, msg = q.pop
-		#puts delivery
-		#puts headers
-		#puts msg
 		#b.stop
-		prom = Promotions.update('shakira_test')#, 4000)
-		json_response({msg:  prom })
+
+		msg = {"sku"=>"14","precio"=>1077,
+			"inicio"=>1498340740123,
+			"fin"=>1498347940123,
+			"publicar"=>true,
+			"codigo"=>"integrapromo54857"}
+		
+		#prom = Promotions.update('shakira_test')#, 4000)
+		
+		prom = Promotions.create(msg["codigo"], 
+								Time.at(msg["inicio"].to_f /  1000), 
+								Time.at(msg["fin"].to_f / 1000), 
+								msg["sku"], msg["precio"], msg["publicar"])
+
+
+		json_response(msg)
 
 	end
 

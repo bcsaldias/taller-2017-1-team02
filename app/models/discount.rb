@@ -1,5 +1,8 @@
 class Discount < ApplicationRecord
 
+  validates :codigo, uniqueness: true
+
+
   def self.old
     ret_id = []
     all.each do |discount|
