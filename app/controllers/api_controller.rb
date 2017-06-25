@@ -15,32 +15,22 @@ class ApiController < ApplicationController
 	include Bank
 
 
+
 	def get_ofertas
-
-		
-		#uri = Rails.configuration.environment_ids['queue']
-		#b = Bunny.new uri
-		#b.start
-		#ch = b.create_channel
-		#q = ch.queue('ofertas', auto_delete: true) #, :durable=>true
-		#delivery, headers, msg = q.pop
-		#b.stop
-
-		msg = {"sku"=>"14","precio"=>1077,
-			"inicio"=>1498340740123,
-			"fin"=>1498347940123,
-			"publicar"=>true,
-			"codigo"=>"integrapromo54857"}
-		
 		#prom = Promotions.update('shakira_test')#, 4000)
-		
-		prom = Promotions.create(msg["codigo"], 
-								Time.at(msg["inicio"].to_f /  1000), 
-								Time.at(msg["fin"].to_f / 1000), 
-								msg["sku"], msg["precio"], msg["publicar"])
 
+		promotion = Promotions.get_next_promotion()
+		prom = nil
+		while promotion != nil
+			puts promotion
+			prom = Promotions.create(promotion["codigo"], 
+									Time.at(promotion["inicio"].to_f /  1000), 
+									Time.at(promotion["fin"].to_f / 1000), 
+									promotion["sku"], promotion["precio"], promotion["publicar"])
+		    promotion = Promotions.get_next_promotion()
+		end
 
-		json_response(msg)
+		json_response({ret: prom})
 
 	end
 

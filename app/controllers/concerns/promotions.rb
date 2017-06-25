@@ -1,5 +1,23 @@
 module Promotions
   
+  def self.get_next_promotion
+
+    uri = Rails.configuration.environment_ids['queue']
+    b = Bunny.new uri
+    b.start
+    ch = b.create_channel
+    q = ch.queue('ofertas', auto_delete: true)
+    delivery, headers, msg = q.pop
+    puts msg
+    b.stop
+    return msg
+
+  end
+
+
+
+
+
   def self.create(codigo, inicio, fin, sku, precio, publicar)
 
     producto = Product.find(sku)
