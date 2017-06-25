@@ -31,5 +31,5 @@ class ActivePromotions
 end
 
 
-Crono.perform(GetSFTP).every 20.minutes
-Crono.perform(ActivePromotions).every 20.minutes
+Crono.perform(GetSFTP).every 15.minutes
+Crono.perform(ActivePromotions).every 8.minutes
