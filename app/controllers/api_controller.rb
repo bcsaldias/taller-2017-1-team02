@@ -16,12 +16,12 @@ class ApiController < ApplicationController
 
     def get_ofertas
 
-        #ret = Promotions.get_ofertas
+        ret = Promotions.get_ofertas
         
-        ret =  Promotions.create("test_shk_huevo", 
-                                  Time.now, 
-                                  Time.now + 2.hours, 
-                                  "2", 150, true)
+        #ret =  Promotions.update("test_huevo_1")#, 
+                                  #Time.now, 
+                                  #Time.now + 3.hours, 
+                                  #"2", 180, true)
 
         json_response(ret)
 

@@ -74,7 +74,7 @@ module Promotions
       description: codigo, 
       expires_at: fin, 
       starts_at: inicio, 
-      name: product_name + " -$" + final_discount.to_s + " c/u", 
+      name: self.get_name(product_name, final_discount),
       type: nil, 
       usage_limit: 1000000000, 
       match_policy: "all", 
@@ -139,11 +139,20 @@ module Promotions
           additional_item: final_discount, 
           max_items: 10000000000}
       calculator.save!
+      puts ajuste.promotion.name
+      ajuste.promotion.name = self.get_name(product.description, final_discount)
+      ajuste.promotion.save!
+      puts ajuste.promotion.name
 
       return discount
     end
     return nil
 
   end
+
+  def self.get_name(product_name, discount)
+    return product_name + " -$" + discount.to_s + " c/u"
+  end
+
 
 end
