@@ -10,7 +10,10 @@ module Promotions
     delivery, headers, msg = q.pop
     puts msg
     b.stop
-    return JSON.parse msg
+    if msg != nil
+      return JSON.parse msg
+    end
+    return msg
     
   end
 
