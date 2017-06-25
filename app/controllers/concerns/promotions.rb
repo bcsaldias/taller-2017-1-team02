@@ -10,8 +10,8 @@ module Promotions
     delivery, headers, msg = q.pop
     puts msg
     b.stop
-    return msg
-
+    return JSON.parse msg
+    
   end
 
 
@@ -24,18 +24,18 @@ module Promotions
         first_p = promotion
         while promotion != nil
             puts promotion
-
-            our_product = Product.find(promotion[:sku])
+            puts promotion["sku"]
+            our_product = Product.find(promotion["sku"])
             if our_product != nil
               our_product = our_product.owner
             end
             puts our_product
             if our_product
               many +=1
-                prom = Promotions.create(promotion[:codigo], 
-                                        Time.at(promotion[:inicio].to_f /  1000), 
-                                        Time.at(promotion[:fin].to_f / 1000), 
-                                        promotion[:sku], promotion[:precio], promotion[:publicar])
+                prom = Promotions.create(promotion["codigo"], 
+                                        Time.at(promotion["inicio"].to_f /  1000), 
+                                        Time.at(promotion["fin"].to_f / 1000), 
+                                        promotion["sku"], promotion["precio"], promotion["publicar"])
             end
             promotion = Promotions.get_next_promotion()
         end
