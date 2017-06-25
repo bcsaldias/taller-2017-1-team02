@@ -16,7 +16,13 @@ class ApiController < ApplicationController
 
     def get_ofertas
 
-        ret = Promotions.get_ofertas
+        #ret = Promotions.get_ofertas
+        
+        ret =  Promotions.create("test_shk_huevo", 
+                                  Time.now, 
+                                  Time.now + 2.hours, 
+                                  "2", 150, true)
+
         json_response(ret)
 
     end

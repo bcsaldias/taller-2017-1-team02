@@ -123,6 +123,7 @@
               <thead>
                 <tr>
                   <th><%= sortable "code", "code", Spree::Promotion, "fin" %></th>
+                  <th><%= sortable "name", "name", Spree::Promotion, "fin" %></th>
                   <th><%= sortable "starts_at", "starts_at", Spree::Promotion, "fin" %></th>
                   <th><%= sortable "expires_at", "expires_at", Spree::Promotion, "fin" %></th>
                 </tr>
@@ -132,6 +133,7 @@
                 <% @spree_promociones.each do |p| %>
                   <tr>
                     <td><%= p.code %></td>
+                    <td><%= p.name %></td>
                     <td><%= p.starts_at  %></td>
                     <td><%= p.expires_at  %></td>
                   </tr>

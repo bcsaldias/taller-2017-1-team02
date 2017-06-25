@@ -74,7 +74,7 @@ module Promotions
       description: codigo, 
       expires_at: fin, 
       starts_at: inicio, 
-      name: codigo, 
+      name: product_name + " -$" + final_discount.to_s + " c/u", 
       type: nil, 
       usage_limit: 1000000000, 
       match_policy: "all", 
