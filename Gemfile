@@ -49,3 +49,4 @@ gem 'crono'
 gem 'daemons'
 gem 'haml'
 gem 'sinatra', require: nil
+gem 'bunny'

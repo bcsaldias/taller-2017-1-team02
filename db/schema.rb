@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170618071500) do
+ActiveRecord::Schema.define(version: 20170718071500) do
 
   create_table "contacts", force: :cascade do |t|
     t.integer  "product_id"
@@ -31,6 +31,19 @@ ActiveRecord::Schema.define(version: 20170618071500) do
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
     t.index ["job_id"], name: "index_crono_jobs_on_job_id", unique: true
+  end
+
+  create_table "discounts", force: :cascade do |t|
+    t.string   "sku"
+    t.integer  "precio"
+    t.datetime "inicio"
+    t.datetime "fin"
+    t.string   "codigo",                       null: false
+    t.boolean  "publicar"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "activation_count", default: 0
+    t.integer  "spree_adj_id"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -1187,6 +1200,9 @@ ActiveRecord::Schema.define(version: 20170618071500) do
     t.datetime "updated_at",                     null: false
     t.boolean  "delivering",     default: false
     t.boolean  "queued",         default: false
+    t.integer  "discount_id"
+    t.integer  "original_value"
+    t.index ["discount_id"], name: "index_vouchers_on_discount_id"
   end
 
   create_table "warehouses", force: :cascade do |t|

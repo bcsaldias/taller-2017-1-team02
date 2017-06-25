@@ -195,6 +195,7 @@
                       <th><%= sortable "created_at", "Creadas", PurchaseOrder, "id"  %></th>
                       <th><%= sortable "deadline", "Deadline", PurchaseOrder, "id"  %></th>
                       <th> Falta para deadline</th>
+                      <th><%= sortable "invoice", "Factura asociada", PurchaseOrder, "product_sku"  %></th>
                     </tr>
                 </thead>
 
@@ -231,6 +232,7 @@
                           <td>no existe el campo deadline</td>
                         <% end %>
                         <% end %>
+                        <td><%= purchase_order.invoice(purchase_order.id_cloud) %></td>
 
 
                       </tr>

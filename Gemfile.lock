@@ -49,6 +49,7 @@ GEM
       activerecord (>= 3.0)
     addressable (2.5.1)
       public_suffix (~> 2.0, >= 2.0.2)
+    amq-protocol (2.2.0)
     apipie-rails (0.5.1)
       rails (>= 4.1)
     arel (7.1.4)
@@ -62,6 +63,8 @@ GEM
       sass (>= 3.3.4)
     bootstrap_progressbar (0.2.0)
     builder (3.2.3)
+    bunny (2.7.0)
+      amq-protocol (>= 2.2.0)
     byebug (9.0.6)
     camertron-eprun (1.1.1)
     cancancan (1.10.1)
@@ -356,6 +359,7 @@ DEPENDENCIES
   activesupport (~> 5.0.2)
   apipie-rails
   bootstrap_progressbar
+  bunny
   byebug
   coffee-rails
   crono

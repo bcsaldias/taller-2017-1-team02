@@ -29,9 +29,11 @@ module Spree
     def create_voucher(order)
       _id = order.number
       _user_id = order.user_id
+      _user_id ||= 'anonymous'
       _address = order.ship_address.address1
       _amount = order.total.to_i
       invoice = Invoices.crear_boleta(_id, _user_id, _amount, _address)
+      return invoice
     end
 
     def escape_uri(string)
@@ -83,7 +85,11 @@ module Spree
       end
 
       begin
-        redirect_to(current_bp+'orders/'+@order.number.to_s)
+        if all_ok
+           redirect_to(current_bp+'orders/'+@order.number.to_s)
+        else
+           redirect_to(current_bp+'checkout/payment')
+        end
       rescue
         puts "ERROR"
       ensure

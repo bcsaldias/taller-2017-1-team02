@@ -73,10 +73,11 @@ Rails.application.routes.draw do
   #resources :suppliers
   apipie
   get 'ftp' => 'api#ftp'
-  get 'test' => 'api#test'
+  get 'ofertas' => 'api#get_ofertas'
+  #get 'test' => 'api#test'
   #get 'test2' => 'api#test2'
   #get 'testj3' => 'api#testj3'
-  get 'testj4' => 'api#testj4'
+  #get 'testj4' => 'api#testj4'
   #get 'tiempo' => 'api#tiempo'
 
 
@@ -92,6 +93,7 @@ Rails.application.routes.draw do
   get 'production' => 'general#production', :as => :production
   get 'vouchers' => 'general#vouchers', :as => :vouchers
   get 'despacho' => 'general#despacho', :as => :despacho
+  get 'promociones' => 'general#promociones', :as => :promociones
   get 'queue' => 'general#queue', :as => :queue
 
   get 'invoice_and_transactions' => 'general#invoice_and_transactions', :as => :invoice_and_transactions

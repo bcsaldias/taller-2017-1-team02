@@ -3,58 +3,23 @@ require 'net/http'
 require 'base64'
 require 'net/sftp'
 
+require 'bunny'
+
+
 class ApiController < ApplicationController
 
 	include Queries
 	include Invoices
 	include Purchases
+	include Promotions
 	include Bank
 
-	def save_fpt_order(order_id)
-      order = Sales.get_purchase_order(order_id)
-      @purchase_order = PurchaseOrder.create!(id_cloud: order['_id'],
-                                          state: 0,
-                                          product_sku: order['sku'],
-                                          payment_method: params[:payment_method],
-                                          id_store_reception:  params[:id_store_reception],
-                                          quantity: order["cantidad"],
-                                          quantity_done: 0,
-                                          deadline: order['fechaEntrega'],
-                                          unit_price: order['precioUnitario'],
-                                          group_number: -1, #means sftp
-                                          team_id_cloud: order['cliente']
-                                          )
-	end
+    def get_ofertas
 
-	def revisar_ftp_order(order_id)
-		if PurchaseOrder.where(id_cloud: order_id).count == 0
-			save_fpt_order(order_id)
-		end
-	end
+        ret = Promotions.get_ofertas
+        json_response(ret)
 
-	def ftp
-
-		host = "integra17dev.ing.puc.cl"
-		user = "grupo2"
-		password = "xvHAjFqVU8W3fa4h"
-		Net::SFTP.start(host, user, :password => password) do |sftp|
-		  base = "./pedidos/"
-		  sftp.dir.foreach(base) do |entry|
-		  	if not ['.','..','.cache'].include?(entry.name)
-		    	sftp.file.open(base+entry.name, "r") do |f|
-				   while !f.eof?
-				   	current_line = f.gets
-				    if current_line.include?('id')
-				    	data = data = Hash.from_xml(current_line)
-				    	revisar_ftp_order(data['id'])
-				    end
-				  end
-				end
-		  	end
-		  end
-		  json_response({ret:  true })
-		end
-	end
+    end
 
 	def test_old01
 		ret = Warehouses.move_A_B('general', 'despacho', 10)
