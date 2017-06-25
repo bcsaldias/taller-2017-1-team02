@@ -23,8 +23,13 @@ class GetSFTP
     puts 'Shakira!'
   end
 end
-#
-# Crono.perform(TestJob).every 2.days, at: '15:30'
-#
+
+class ActivePromotions
+    def perform
+      Promotions.get_ofertas
+    end
+end
+
 
 Crono.perform(GetSFTP).every 20.minutes
+Crono.perform(ActivePromotions).every 20.minutes

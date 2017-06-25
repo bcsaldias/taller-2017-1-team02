@@ -15,6 +15,42 @@ module Promotions
   end
 
 
+  def self.get_ofertas
+
+        promotion = Promotions.get_next_promotion() 
+        prom = nil
+        puts "Starging while Promotions"
+        many = 0
+        first_p = promotion
+        while promotion != nil
+            puts promotion
+
+            our_product = Product.find(promotion[:sku])
+            if our_product != nil
+              our_product = our_product.owner
+            end
+            puts our_product
+            if our_product
+              many +=1
+                prom = Promotions.create(promotion[:codigo], 
+                                        Time.at(promotion[:inicio].to_f /  1000), 
+                                        Time.at(promotion[:fin].to_f / 1000), 
+                                        promotion[:sku], promotion[:precio], promotion[:publicar])
+            end
+            promotion = Promotions.get_next_promotion()
+        end
+
+        Discount.all.each do |d|
+          Promotions.update(d.codigo)
+        end
+
+        puts "NUEVAS"
+        puts many
+        return first_p
+
+    end
+
+
   def self.create(codigo, inicio, fin, sku, precio, publicar)
 
     producto = Product.find(sku)
