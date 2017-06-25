@@ -4,7 +4,7 @@ Deface::Override.new(virtual_path: 'spree/products/show',
   text: "<h4><%= 'Stock disponible: ' + @product.total_on_hand.to_s %></h4>")
 
 Deface::Override.new(virtual_path: 'spree/products/show',
-  name: 'drop_promotions',
+  name: 'drop_promotions_from_product_view',
   replace: "[data-hook='promotions']",
   text: "")
 
