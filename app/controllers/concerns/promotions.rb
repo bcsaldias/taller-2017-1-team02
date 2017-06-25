@@ -28,18 +28,10 @@ module Promotions
         while promotion != nil
             puts promotion
             puts promotion["sku"]
-            our_product = Product.find(promotion["sku"])
-            if our_product != nil
-              our_product = our_product.owner
-            end
-            puts our_product
-            if our_product
-              many +=1
-                prom = Promotions.create(promotion["codigo"], 
-                                        Time.at(promotion["inicio"].to_f /  1000), 
-                                        Time.at(promotion["fin"].to_f / 1000), 
-                                        promotion["sku"], promotion["precio"], promotion["publicar"])
-            end
+            many += Promotions.create(promotion["codigo"], 
+                                    Time.at(promotion["inicio"].to_f /  1000), 
+                                    Time.at(promotion["fin"].to_f / 1000), 
+                                    promotion["sku"], promotion["precio"], promotion["publicar"])
             promotion = Promotions.get_next_promotion()
         end
 
@@ -57,8 +49,19 @@ module Promotions
   def self.create(codigo, inicio, fin, sku, precio, publicar)
 
     producto = Product.find(sku)
+
+    our_product = false
+    if producto != nil
+      our_product = producto.owner
+    else
+      return 0
+    end
+
+
     product_name = producto.description 
-    final_discount = producto.price - precio
+    producto_price = producto.price
+    producto_price ||= 0
+    final_discount = producto_price - precio
     final_discount = [0, final_discount].max
 
     discount = Discount.create!(
@@ -67,56 +70,61 @@ module Promotions
 	      inicio: inicio,
 	      fin: fin,
 	      codigo: codigo,
-	      publicar: publicar,
+        publicar: publicar && our_product,
+	      owner: our_product,
 	      activation_count: 0)
 
-    promotion = Spree::Promotion.create!(
-      description: codigo, 
-      expires_at: fin, 
-      starts_at: inicio, 
-      name: self.get_name(product_name, final_discount),
-      type: nil, 
-      usage_limit: 1000000000, 
-      match_policy: "all", 
-      code: codigo, 
-      advertise: true, 
-      path: nil,
-      promotion_category_id: nil)
+    if our_product
+      promotion = Spree::Promotion.create!(
+        description: codigo, 
+        expires_at: fin, 
+        starts_at: inicio, 
+        name: self.get_name(product_name, final_discount),
+        type: nil, 
+        usage_limit: 1000000000, 
+        match_policy: "all", 
+        code: codigo, 
+        advertise: true, 
+        path: nil,
+        promotion_category_id: nil)
 
-    rule = Spree::Promotion::Rules::Product.create!(
-      promotion_id: promotion.id, 
-      user_id: nil, 
-      product_group_id: nil, 
-      type: "Spree::Promotion::Rules::Product",
-      code: nil, 
-      preferences: {match_policy: "any"})
+      rule = Spree::Promotion::Rules::Product.create!(
+        promotion_id: promotion.id, 
+        user_id: nil, 
+        product_group_id: nil, 
+        type: "Spree::Promotion::Rules::Product",
+        code: nil, 
+        preferences: {match_policy: "any"})
 
-    product = Spree::Product.where(name: product_name).first
-    rule.products << product
-    rule.save!
+      product = Spree::Product.where(name: product_name).first
+      rule.products << product
+      rule.save!
 
-    ajuste = Spree::Promotion::Actions::CreateItemAdjustments.create!(
-      promotion_id: promotion.id,
-      position: nil,
-      type: "Spree::Promotion::Actions::CreateItemAdjustments",
-      deleted_at: nil)
+      ajuste = Spree::Promotion::Actions::CreateItemAdjustments.create!(
+        promotion_id: promotion.id,
+        position: nil,
+        type: "Spree::Promotion::Actions::CreateItemAdjustments",
+        deleted_at: nil)
 
-	discount.spree_adj_id = ajuste.id
-	discount.save!
+      discount.spree_adj_id = ajuste.id
+      discount.save!
 
-    calculator = Spree::Calculator.create!(
-        type: "Spree::Calculator::FlexiRate", 
-        calculable_type: "Spree::PromotionAction", 
-        calculable_id: 4, 
-        preferences: {currency: "USD", 
-        first_item: final_discount, 
-        additional_item: final_discount, 
-        max_items: 10000000000})
+      calculator = Spree::Calculator.create!(
+          type: "Spree::Calculator::FlexiRate", 
+          calculable_type: "Spree::PromotionAction", 
+          calculable_id: 4, 
+          preferences: {currency: "USD", 
+          first_item: final_discount, 
+          additional_item: final_discount, 
+          max_items: 10000000000})
 
-    ajuste.calculator = calculator
-    ajuste.save!
+      ajuste.calculator = calculator
+      ajuste.save!
+      return 1
+    end 
 
-    return discount
+
+    return 0
 
   end
 

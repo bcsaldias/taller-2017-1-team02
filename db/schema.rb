@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170718081613) do
+ActiveRecord::Schema.define(version: 20170718081614) do
 
   create_table "contacts", force: :cascade do |t|
     t.integer  "product_id"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20170718081613) do
     t.integer  "spree_adj_id"
     t.integer  "twitter_times",    default: 0
     t.integer  "facebook_times",   default: 0
+    t.boolean  "owner"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
