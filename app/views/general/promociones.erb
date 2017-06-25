@@ -126,6 +126,7 @@
                   <th><%= sortable "name", "name", Spree::Promotion, "fin" %></th>
                   <th><%= sortable "starts_at", "starts_at", Spree::Promotion, "fin" %></th>
                   <th><%= sortable "expires_at", "expires_at", Spree::Promotion, "fin" %></th>
+                  <th><%= sortable "expirada", "expirada", Spree::Promotion, "fin" %></th>
                 </tr>
               </thead>
 
@@ -136,6 +137,7 @@
                     <td><%= p.name %></td>
                     <td><%= p.starts_at  %></td>
                     <td><%= p.expires_at  %></td>
+                    <td><%= p.expires_at <= Time.now  %></td>
                   </tr>
                 <% end %>
               </tbody>
