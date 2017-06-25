@@ -39,12 +39,12 @@
 
                   <% if @order.line_item_adjustments.nonzero.exists? %>
                       <% @order.line_item_adjustments.nonzero.promotion.eligible.group_by(&:label).each do |label, adjustments| %>
-                          <% if adjustments[0].label.to_s.split('(')[1].split(' ')[0] == item.variant.name %>
+                          <% if adjustments[0].label.to_s.split('(')[1].split('-')[0].strip == item.variant.name %>
                              <td class="item-price">$<%= item.variant.price-
-                                adjustments[0].label.to_s.split('(')[1].split(' ')[1].split('$')[1].split(' ')[0].to_i
+                                adjustments[0].label.to_s.split('(')[1].split('-')[1].strip.split('$')[1].split(' ')[0].to_i
                              %></td>
                              <td class="item-price"><%=
-                                  Spree::Money.new(adjustments[0].label.to_s.split('(')[1].split(' ')[1].split('$')[1].split(' ')[0].to_i, currency: @order.currency).to_html %></td>
+                                  Spree::Money.new(adjustments[0].label.to_s.split('(')[1].split('-')[1].strip.split('$')[1].split(' ')[0].to_i, currency: @order.currency).to_html %></td>
                           <% end %>
                       <% end %>
                   <% end %>
