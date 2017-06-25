@@ -84,22 +84,26 @@ module Promotions
   def self.update(codigo)
 
     discount = Discount.where(codigo: codigo).first
-    ajuste = Spree::Promotion::Actions::CreateItemAdjustments.find(discount.spree_adj_id)
+    ajuste = Spree::Promotion::Actions::CreateItemAdjustments.where(id: discount.spree_adj_id)
     
-    product = Product.find(discount.sku)
-    precio_final = discount.precio
-    final_discount = product.price - precio_final
-    final_discount = [0, final_discount].max
+    if ajuste.count > 0
+      ajuste = ajuste.first
+      product = Product.find(discount.sku)
+      precio_final = discount.precio
+      final_discount = product.price - precio_final
+      final_discount = [0, final_discount].max
 
-    calculator = ajuste.calculator
-    puts calculator
-    calculator.preferences = {currency: "USD", 
-        first_item: final_discount, 
-        additional_item: final_discount, 
-        max_items: 10000000000}
-    calculator.save!
+      calculator = ajuste.calculator
+      puts calculator
+      calculator.preferences = {currency: "USD", 
+          first_item: final_discount, 
+          additional_item: final_discount, 
+          max_items: 10000000000}
+      calculator.save!
 
-    return discount
+      return discount
+    end
+    return nil
 
   end
 
