@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170718071500) do
+ActiveRecord::Schema.define(version: 20170718081613) do
 
   create_table "contacts", force: :cascade do |t|
     t.integer  "product_id"
@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(version: 20170718071500) do
     t.datetime "updated_at"
     t.integer  "activation_count", default: 0
     t.integer  "spree_adj_id"
+    t.integer  "twitter_times",    default: 0
+    t.integer  "facebook_times",   default: 0
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -1202,6 +1204,7 @@ ActiveRecord::Schema.define(version: 20170718071500) do
     t.boolean  "queued",         default: false
     t.integer  "discount_id"
     t.integer  "original_value"
+    t.integer  "facebook_times"
     t.index ["discount_id"], name: "index_vouchers_on_discount_id"
   end
 

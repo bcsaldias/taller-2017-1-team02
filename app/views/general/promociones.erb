@@ -44,7 +44,9 @@
                   <th><%= sortable "inicio", "inicio", Discount, "fin" %></th>
                   <th><%= sortable "fin", "fin", Discount, "fin" %></th>
                   <th><%= sortable "publicar", "publicar", Discount, "fin" %></th>
-                  <th><%= sortable "activation_count", "activation_count", Discount, "fin" %></th>
+                  <th><%= sortable "twitter_times", "twitter_times", Discount, "fin" %></th>
+                  <th><%= sortable "facebook_times", "facebook_times", Discount, "fin" %></th>
+                  <!--th><%= sortable "activation_count", "activation_count", Discount, "fin" %></th-->
                 </tr>
               </thead>
 
@@ -57,7 +59,9 @@
                     <td><%= p.inicio  %></td>
                     <td><%= p.fin  %></td>
                     <td><%= p.publicar %></td>
-                    <td><%= p.activation_count %></td>
+                    <td><%= p.twitter_times %></td>
+                    <td><%= p.facebook_times %></td>
+                    <!--td><%= p.activation_count %></td-->
                   </tr>
                 <% end %>
               </tbody>
@@ -86,7 +90,9 @@
                   <th><%= sortable "inicio", "inicio", Discount, "fin" %></th>
                   <th><%= sortable "fin", "fin", Discount, "fin" %></th>
                   <th><%= sortable "publicar", "publicar", Discount, "fin" %></th>
-                  <th><%= sortable "activation_count", "activation_count", Discount, "fin" %></th>
+                  <th><%= sortable "twitter_times", "twitter_times", Discount, "fin" %></th>
+                  <th><%= sortable "facebook_times", "facebook_times", Discount, "fin" %></th>
+                  <!--th><%= sortable "activation_count", "usage", Discount, "fin" %></th-->
                 </tr>
               </thead>
 
@@ -99,7 +105,9 @@
                     <td><%= p.inicio  %></td>
                     <td><%= p.fin  %></td>
                     <td><%= p.publicar %></td>
-                    <td><%= p.activation_count %></td>
+                    <td><%= p.twitter_times %></td>
+                    <td><%= p.facebook_times %></td>
+                    <!--td><%= p.activation_count %></td-->
                   </tr>
                 <% end %>
               </tbody>
@@ -127,6 +135,7 @@
                   <th><%= sortable "starts_at", "starts_at", Spree::Promotion, "fin" %></th>
                   <th><%= sortable "expires_at", "expires_at", Spree::Promotion, "fin" %></th>
                   <th><%= sortable "expirada", "expirada", Spree::Promotion, "fin" %></th>
+                  <th><%= sortable "usos", "usos", Spree::Promotion, "fin" %></th>
                 </tr>
               </thead>
 
@@ -138,6 +147,7 @@
                     <td><%= p.starts_at  %></td>
                     <td><%= p.expires_at  %></td>
                     <td><%= p.expires_at <= Time.now  %></td>
+                    <td><%= p.credits_count %></td>
                   </tr>
                 <% end %>
               </tbody>
