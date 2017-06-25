@@ -14,23 +14,55 @@ class ApiController < ApplicationController
 	include Promotions
 	include Bank
 
+    def get_ofertas
+        #prom = Promotions.update('shakira_test')#, 4000)
+
+        promotion = Promotions.get_next_promotion() #{"sku":"8","precio":647,"inicio":1498381108425,"fin":1498388308425,"publicar":false,"codigo":"2"}#
+        prom = nil
+        puts "Starging while Promotions"
+        while promotion != nil
+            puts promotion
+
+            our_product = Product.find(promotion[:sku])
+            if our_product != nil
+            	our_product = our_product.owner
+            end
+            puts our_product
+            if our_product
+                prom = Promotions.create(promotion[:codigo], 
+                                        Time.at(promotion[:inicio].to_f /  1000), 
+                                        Time.at(promotion[:fin].to_f / 1000), 
+                                        promotion[:sku], promotion[:precio], promotion[:publicar])
+            end
+            promotion = Promotions.get_next_promotion()
+        end
+
+        json_response({ret: prom})
+
+    end
 
 
-	def get_ofertas
-		#prom = Promotions.update('shakira_test')#, 4000)
+	def get_ofertas2
 
-		promotion = Promotions.get_next_promotion()
-		prom = nil
-		while promotion != nil
-			puts promotion
-			prom = Promotions.create(promotion["codigo"], 
-									Time.at(promotion["inicio"].to_f /  1000), 
-									Time.at(promotion["fin"].to_f / 1000), 
-									promotion["sku"], promotion["precio"], promotion["publicar"])
-		    promotion = Promotions.get_next_promotion()
-		end
+		#prom = Promotions.create('shakira_test', Time.now, Time.now+2.days, "8", 100, true)
+		uri = Rails.configuration.environment_ids['queue']
+		b = Bunny.new uri
+		b.start
+		ch = b.create_channel
+		q = ch.queue('ofertas', auto_delete: true) #, :durable=>true
+		e = ch.exchange("")
+		e.publish({"sku"=>"14","precio"=>1077,"inicio"=>1498340740123,"fin"=>1498347940123,"publicar"=>true,"codigo"=>"integrapromo54857"}, :key=>'ofertas')
+		e.publish({"sku"=>"25","precio"=>88,"inicio"=>1498343501826,"fin"=>1498350701826,"publicar"=>false,"codigo"=>""}, :key=>'ofertas')
+		e.publish({"sku"=>"38","precio"=>504,"inicio"=>1498347072576,"fin"=>1498361472576,"publicar"=>false,"codigo"=>""}, :key=>'ofertas')
 
-		json_response({ret: prom})
+
+		#delivery, headers, msg = q.pop
+		#puts delivery
+		#puts headers
+		#puts msg
+		#b.stop
+		prom = Promotions.update('shakira_test')#, 4000)
+		json_response(msg)
 
 	end
 

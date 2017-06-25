@@ -15,9 +15,6 @@ module Promotions
   end
 
 
-
-
-
   def self.create(codigo, inicio, fin, sku, precio, publicar)
 
     producto = Product.find(sku)
