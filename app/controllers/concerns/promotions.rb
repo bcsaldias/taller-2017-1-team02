@@ -9,7 +9,7 @@ module Promotions
     q = ch.queue('ofertas', auto_delete: true)
     delivery, headers, msg = q.pop
     puts msg
-    b.stop
+    b.close
     if msg != nil
       return JSON.parse msg
     end
