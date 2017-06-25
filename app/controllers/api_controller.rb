@@ -15,12 +15,12 @@ class ApiController < ApplicationController
 	include Bank
 
     def get_ofertas
-        #prom = Promotions.update('shakira_test')
 
-        promotion = Promotions.get_next_promotion() #{"sku":"8","precio":647,"inicio":1498381108425,"fin":1498388308425,"publicar":false,"codigo":"2"}#
+        promotion = Promotions.get_next_promotion() 
         prom = nil
         puts "Starging while Promotions"
         many = 0
+        first_p = promotion
         while promotion != nil
             puts promotion
 
@@ -43,7 +43,7 @@ class ApiController < ApplicationController
         	Promotions.update(d.codigo)
         end
 
-        json_response({new_promotions: many})
+        json_response({new_promotions: first_p})
 
     end
 
