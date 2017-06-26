@@ -11,7 +11,7 @@ class GetSFTP
 
     total_ftp = PurchaseOrder.where("group_number == -1")
     created_ftp  = total_ftp.where(state: 0)
-    
+
     created_ftp.each do |ftp_oc|
     	if ftp_oc.evaluar_si_aceptar
     		Sales.accept_ftp_order(ftp_oc.id_cloud)
