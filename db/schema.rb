@@ -103,6 +103,7 @@ ActiveRecord::Schema.define(version: 20170718081620) do
     t.boolean  "owner"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "min_batch"
     t.index ["sku"], name: "index_products_on_sku", unique: true
   end
 
@@ -1205,6 +1206,7 @@ ActiveRecord::Schema.define(version: 20170718081620) do
     t.boolean  "queued",         default: false
     t.integer  "discount_id"
     t.integer  "original_value"
+    t.integer  "facebook_times"
     t.index ["discount_id"], name: "index_vouchers_on_discount_id"
   end
 

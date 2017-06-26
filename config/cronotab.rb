@@ -30,6 +30,15 @@ class ActivePromotions
     end
 end
 
+class RestoreStock
+    def perform
+      puts "Ejecutando crono de restore stock"
+      Warehouses.check_and_restore_stock
+      puts "Crono finalizada"
+    end
+end
+
 
 Crono.perform(GetSFTP).every 15.minutes
 Crono.perform(ActivePromotions).every 8.minutes
+Crono.perform(RestoreStock).every 30.minutes

@@ -616,10 +616,14 @@ module Warehouses
 # chequea si hay que comprar mas de algun producto y manda a comprar el producto en particular
   def self.check_and_restore_stock
     warehouses_id = self.get_warehouses_id
-    lista_de_productos = Product.where(owner: true)
+    lista_de_productos = Product.where(owner: true).or(Product.where(sku: '7'))
     cantidad_de_productos = lista_de_productos.length
 
-    cantidad_deseada= {"7": 6000, "2": 2000, "6": 500, "8": 2000, "14": 2000, "20": 2000, "26": 2000, "39": 2000, "40": 500, "41": 3000, "49": 3000}
+    cantidad_deseada= {7 => 6000, 2 => 2000, 6=> 500, 8 => 2000, 14=> 2000, 20=> 2000, 26=> 2000, 39=> 2000, 40=> 500, 41=> 3000, 49=> 3000}
+    # puts cantidad_deseada
+    # puts cantidad_deseada[7]
+
+    # @leche = Product.leche
     #cant_minima = 70% cant_deseada
 
     #cantidad_deseada = 25000/cantidad_de_productos
@@ -632,11 +636,14 @@ module Warehouses
       stock_recepcion = Production.get_stock(warehouses_id['recepcion'],sku)
       stock_pulmon = Production.get_stock(warehouses_id['pulmon'],sku)
       stock_actual = stock_general.length + stock_pregeneral.length + stock_recepcion.length + stock_pulmon.length
-      puts "stock actual de #{sku} = #{stock_actual}"
 
+      # puts sku
+      sku = sku.to_i
+      puts "stock actual de #{sku} = #{stock_actual}"
+      puts "CAnt_minima = #{0.7 * cantidad_deseada[sku].to_i}"
       if stock_actual < 0.7 * cantidad_deseada[sku]
-        puts "Reponer!"
-        cantidad_por_comprar = 0.7 * cantidad_deseada[sku] - stock_actual
+        puts "Reponer #{sku}!"
+        cantidad_por_comprar = cantidad_deseada[sku] - stock_actual
         resp = RawMaterial.restore_stock(sku, cantidad_por_comprar)
         puts "Restore_stock responde: #{resp}"
       end
