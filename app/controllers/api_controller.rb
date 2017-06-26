@@ -14,7 +14,7 @@ class ApiController < ApplicationController
 	include Promotions
 	include Bank
 
-    def get_ofertas
+    def get_ofertassd
 
         ret = Promotions.get_ofertas
         
@@ -25,6 +25,21 @@ class ApiController < ApplicationController
 
         json_response(ret)
 
+    end
+
+	def get_ofertas
+      next_path = 'https://graph.facebook.com/oauth/access_token?'
+      fb_exchange_token = ''
+      params={
+        'grant_type'=>'fb_exchange_token',           
+        'client_id'  =>  '1359547220792049',
+        'client_secret'  =>  '64090baac0aa284bf230439e647900e4',
+        'fb_exchange_token' => fb_exchange_token
+      } 
+          
+      ret =  HTTParty.get(next_path, :query => params )
+      json_response(ret.body)
+        
     end
 
 	def test_old01
