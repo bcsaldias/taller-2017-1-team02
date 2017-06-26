@@ -196,83 +196,65 @@ class InvoicesController < ApplicationController
   error 500, "El envío ha fallado"
   # PATCH /invoices/:id/paid
   def enviar_confirmacion_pago
-
-    #begin
       @body = JSON.parse request.body.read
       @keys = @body.keys
       if not @keys.include?("id_transaction")
-        json_response ({ error: "Debe entregar el id de una transacción"}), 400
-      else
-        invoice_id = params["id"]
-        q_invoice = Invoice.where(id_cloud: invoice_id.to_s)#.first
-        puts "PROBANDO NOTIF PAGO"
-        puts q_invoice
-        puts params[:id]
-        invoice = nil
-        puts "count"
-        puts q_invoice.count.to_s
-        if q_invoice.count > 0
-          invoice = q_invoice.first
-        else
-          json_response ({ error: "Factura no existe"}), 404
-          return
-        end
-
-	# purchase_order = PurchaseOrder.where(id_cloud: invoice.oc_id_cloud).first
-        #llamar la transaccion a la nube
-        transaction_id = @body['id_transaction']
-        puts "Trx_id: #{transaction_id}"
-        transaction = Bank.get_transaction(transaction_id)
-        puts "Bank_transaction: #{transaction}"
-
-        #revisar si la transaccion existe
-        if transaction.code!=200 && transaction.code!=201
-          json_response ({ error: "Transaccion no existente"}), 404
-        else
-
-          #revisar que no exista localmente
-          our_transaction = Transaction.find_by(id_cloud: @body['id_transaction'])
-          if our_transaction.invoice == nil
-            #comparo valor desde purchase order y transferencia
-            total_a_pagar = invoice.bruto + invoice.iva
-            total_pagado = transaction[0]['monto'].to_i
-            if total_pagado == total_a_pagar
-              #guardar transaccion localmente
-              #se guarda como una transaccion exitosa
-              status = true
-              
-              factura_pagada = Invoices.pagar_factura(invoice_id)
-              invoice.pagada!
-              
-              puts "Factura se marca como pagada en el sistema. #{factura_pagada}"
-            else
-              #se guarda como una transaccion NO exitosa
-              status = false
-            end
-            transaction = transaction[0]
-            puts "Creando transaccion localmente"
-            @transaction = Transaction.create!(id_cloud: transaction['_id'], origen: transaction['origen'],
-                                          destino: transaction['destino'], monto: transaction['monto'].to_i,
-                                          owner: false, state: status)
-            puts "Creada: #{@transaction}"
-            invoice.transaction_id = @transaction.id
-            invoice.save!
-            # json_response({status: "success"}, 204)
-            json_response({ :status => "Exito #{invoice.transaction_id}"}, 201)
-            # json_response(@transaction, 204)
-            #si ya estaba en mi tabla local
-          else
-            puts "Ya se habia enviado confirmacion de pago"
-            json_response({ :error => "Ya se envió confirmación de pago"}, 403)
-          end
-        end
+        return json_response ({ error: "Debe entregar el id de una transacción"}), 400
       end
 
-    #rescue
-    #      json_response({ :error => "Formato de Body incorrecto" }, 400)
-    #end
+      invoice_id = params["id"]
+      invoice = Invoice.find_by(id_cloud: invoice_id.to_s)#.first
+      puts "PROBANDO NOTIFICACION DE PAGO"
+      puts params[:id]
+      if !invoice
+        return json_response ({ error: "Factura no existe"}), 404
+      end
+      # purchase_order = PurchaseOrder.where(id_cloud: invoice.oc_id_cloud).first
+      #llamar la transaccion a la nube
+      transaction_id = @body['id_transaction']
+      puts "Trx_id: #{transaction_id}"
+      transaction = Bank.get_transaction(transaction_id)
+      puts "Bank_transaction: #{transaction}"
 
+      #revisar si la transaccion existe
+      if transaction.code!=200 && transaction.code!=201
+        render json_response ({ error: "Transaccion no existente"}), 404
+      end
+
+      #Se guarda trx localmente si no existe ya
+      transaction = transaction[0]
+      @transaction = Transaction.find_by(id_cloud: @body['id_transaction'])
+      if !@transaction
+        puts "Creando transaccion localmente"
+        @transaction = Transaction.create!(id_cloud: transaction['_id'], origen: transaction['origen'],
+                                      destino: transaction['destino'], monto: transaction['monto'].to_i,
+                                      owner: false, state: false)
+        puts "Creada: #{@transaction}"
+      end
+
+      if @transaction.invoice == nil
+        #comparo valor desde purchase order y transferencia
+        total_a_pagar = invoice.bruto + invoice.iva
+        total_pagado = transaction['monto'].to_i
+        if small_difference?(total_pagado, total_a_pagar)
+          # Asociamos factura con transaccion
+          factura_pagada = Invoices.pagar_factura(invoice_id)
+          invoice.transaction_id = @transaction.id
+          invoice.save!
+          invoice.pagada!
+          @transaction.state = true
+          @transaction.save!
+          puts "Factura se marca como pagada en el sistema. #{factura_pagada}"
+          json_response({ :status => "Exito, id: #{invoice.transaction_id}"}, 201)
+        else
+          return json_response ({ error: "Monto factura = #{total_a_pagar}, monto trx = #{total_pagado}"}), 400
+        end
+      else
+        puts "Ya se habia enviado confirmacion de pago"
+        json_response({ :error => "Ya se envió confirmación de pago"}, 403)
+      end
   end
+
 
 
   api! "notificar_orden_despachada: Notificar para cambiar de estado de una factura.

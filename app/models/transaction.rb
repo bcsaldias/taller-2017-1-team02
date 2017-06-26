@@ -10,7 +10,8 @@ class Transaction < ActiveRecord::Base
     counter = 0
     cant = 0
     transactions.each do |trx|
-      temp_trx = Transaction.where(id_cloud: trx['_id']).first
+      temp_trx = nil
+      temp_trx = Transaction.find_by(id_cloud: trx['_id'])
       cant += 1
 
       puts "#{trx['_id']}: #{temp_trx}"
@@ -22,7 +23,7 @@ class Transaction < ActiveRecord::Base
                             destino: trx['destino'],
                             monto: trx['monto'],
                             owner: owner,
-                            #state: true
+                            state: false
                             )
       else
 
@@ -40,7 +41,7 @@ class Transaction < ActiveRecord::Base
   def group_number(id_cloud)
 
     supp = Supplier.get_by_id_cloud(id_cloud)
-    
+
     if supp
       puts supp.id
       group_number = supp.id

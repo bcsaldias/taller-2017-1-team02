@@ -49,7 +49,7 @@ module Bank
     return JSON.parse @result.body
   end
 
-  def self.get_our_card(limit=10, fechaInicio=nil, fechaFin=nil)
+  def self.get_our_card(limit=100000, fechaInicio=nil, fechaFin=nil)
     @fechaInicio = fechaInicio
     @fechaFin = fechaFin
 

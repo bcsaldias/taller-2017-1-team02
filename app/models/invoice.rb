@@ -31,7 +31,7 @@ class Invoice < ApplicationRecord
   def group_number(id_cloud)
 
     supp = Supplier.get_by_id_cloud(id_cloud)
-    
+
     if supp
       puts supp.id
       group_number = supp.id
@@ -41,5 +41,6 @@ class Invoice < ApplicationRecord
   end
 
 
-  
+
+
 end

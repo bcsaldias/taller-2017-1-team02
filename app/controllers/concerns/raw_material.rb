@@ -5,8 +5,19 @@ module RawMaterial
 
   # Proceso que permite obtener una materia prima, retorna true si la logra comprar
   # o producir
+  def self.producir_materia_prima(product, quantity)
+    cant = RawMaterial.calculate_order_quantity(quantity, product.min_batch)
+    Factory.hacer_pedido_interno(sku, cant)
+  end
+
+  # TODO J: Fix method completely
   def self.restore_stock(sku, quantity, needed_date = Tiempo.tiempo_a_milisegundos(12, 30, 23, 59))
     product = Product.find(sku)
+
+    if product.owner == true
+      puts "Producto es producido por nosotros"
+      return RawMaterial.producir_materia_prima(product, quantity)
+    end
 
     return false unless product.suppliers #FALSE si no hay proveedores del producto
 
@@ -151,7 +162,7 @@ module RawMaterial
       puts "producir: #{producir}, wh: #{whouse_space}"
     end
     #return producir unless producir > whouse_space
-    return producir
+    producir
   end
 
 

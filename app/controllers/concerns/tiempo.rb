@@ -16,4 +16,9 @@ module Tiempo
     return 0
   end
 
+  # Returns true if numbers are very similar
+  def small_difference?(n1, n2)
+    (n1-n2).abs < 1
+  end
+
 end
