@@ -1,5 +1,50 @@
 module Promotions
+
+  def self.get_beautty_message(promotion)
+
+    product = Product.find(promotion.sku)
+    inicio = promotion.inicio.strftime("%d/%b at %I:%M%p")
+    fin = promotion.fin.strftime("%d/%b at %I:%M%p")
+    env_path = Rails.configuration.environment_ids['our_env_path']
+    return "Usa el código '#{promotion.codigo}' para poder comprar #{product.description} a solo $#{promotion.precio}. 
+            Válido entre #{inicio} y #{fin}. ¡Visítanos en "+env_path+"ecommerce!"
+
+  end
+
+  def self.get_promo_picture(promotion)
+
+    env_path = Rails.configuration.environment_ids['our_env_path']
+    product = Product.find(promotion.sku)
+    spree_product = Spree::Product.where(name: product.description).first
+    return env_path+'spree/products/'+spree_product.id.to_s+'/large/'+spree_product.name.to_s+'.jpg'
+    
+
+  end
   
+  def self.publish_on_facebook(promotion)
+
+    facebook_auth = Rails.configuration.environment_ids['facebook_token']
+    @user_graph = Koala::Facebook::API.new(facebook_auth)
+
+    pages = @user_graph.get_connections('me', 'accounts')
+    facebook_id_page = Rails.configuration.environment_ids['facebook_id_page']
+    selected_page = pages.find {|p| p['id']== facebook_id_page}['access_token']
+    
+    @page_graph = Koala::Facebook::API.new(selected_page)
+
+    options = {
+      :message => self.get_beautty_message(promotion),
+      :picture => self.get_promo_picture(promotion)
+    }
+    @page_graph.put_picture(options[:picture], {:caption => options[:message]})
+
+
+  end
+
+  def self.publish_on_twitter()
+
+  end
+
   def self.get_next_promotion
 
     uri = Rails.configuration.environment_ids['queue']
