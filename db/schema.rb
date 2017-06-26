@@ -1206,6 +1206,7 @@ ActiveRecord::Schema.define(version: 20170718081620) do
     t.boolean  "queued",         default: false
     t.integer  "discount_id"
     t.integer  "original_value"
+    t.integer  "facebook_times"
     t.index ["discount_id"], name: "index_vouchers_on_discount_id"
   end
 

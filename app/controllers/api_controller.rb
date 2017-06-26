@@ -17,10 +17,10 @@ class ApiController < ApplicationController
     def get_ofertas
 
         ret = Promotions.get_ofertas
-        
-        #ret =  Promotions.update("test_huevo_1")#, 
-                                  #Time.now, 
-                                  #Time.now + 3.hours, 
+
+        #ret =  Promotions.update("test_huevo_1")#,
+                                  #Time.now,
+                                  #Time.now + 3.hours,
                                   #"2", 180, true)
 
         json_response(ret)
@@ -153,8 +153,9 @@ class ApiController < ApplicationController
 	end
 
 	def testj4
-		ret = Transaction.refresh
-		json_response(ret)
+		puts "Entro a controller"
+		ret = Warehouses.check_and_restore_stock
+		json_response({Despacho: ret})
 	end
 
 	# def testj4

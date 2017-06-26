@@ -615,10 +615,10 @@ module Warehouses
 # FIXME J :test me
 # chequea si hay que comprar mas de algun producto y manda a comprar el producto en particular
   def self.check_and_restore_stock
-    puts 'hermaguayuda'
     warehouses_id = self.get_warehouses_id
-    lista_de_productos = Product.where(owner: true)
+    lista_de_productos = Product.where(owner: true).or(Product.where(sku: '7'))
     cantidad_de_productos = lista_de_productos.length
+
     #ordenes de produccion
     production_orders = ProductionOrder.where("disponible > ?",Time.now)
     cantidad_deseada= {7 => 6000, 2 => 2000, 6=> 500, 8 => 2000, 14=> 2000, 20=> 2000, 26=> 2000, 39=> 2000, 40=> 500, 41=> 3000, 49=> 3000}
@@ -628,7 +628,6 @@ module Warehouses
     #cantidad_minima = 15000/cantidad_de_productos
 
     for producto in lista_de_productos
-      puts 'agua'
       sku = producto['sku']
       stock_general = Production.get_stock(warehouses_id['general'],sku)
       stock_pregeneral = Production.get_stock(warehouses_id['pregeneral'],sku)
@@ -647,7 +646,7 @@ module Warehouses
       if stock_actual < 0.7 * cantidad_deseada[sku.to_i]
         puts "Reponer!"
         cantidad_por_comprar = cantidad_deseada[sku.to_i] - stock_actual
-        resp = RawMaterial.restore_stock(sku, cantidad_por_comprar)
+        resp = RawMaterial.restore_stock(sku, cantidad_por_comprar) #FIXME quizas agregar to_i
         puts "Restore_stock responde: #{resp}"
       end
 
