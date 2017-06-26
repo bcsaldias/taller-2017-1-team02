@@ -50,3 +50,5 @@ gem 'daemons'
 gem 'haml'
 gem 'sinatra', require: nil
 gem 'bunny'
+gem 'koala'
+gem 'twitter'
