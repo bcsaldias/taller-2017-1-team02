@@ -11,13 +11,30 @@ module Promotions
 
   end
 
-  def self.get_promo_picture(promotion)
+  def self.get_short_beautty_message(promotion)
 
+    product = Product.find(promotion.sku)
+    inicio = promotion.inicio.strftime("%d/%b at %I:%M%p")
+    fin = promotion.fin.strftime("%d/%b at %I:%M%p")
+    env_path = Rails.configuration.environment_ids['our_env_path']
+    return  "#{product.description} a $#{promotion.precio}. Usa '#{promotion.codigo}'. 
+            Desde #{inicio} a #{fin}."+"Ven https://goo.gl/EyzEYq !"
+
+
+  end
+
+  def self.get_promo_picture(promotion)
     env_path = Rails.configuration.environment_ids['our_env_path']
     product = Product.find(promotion.sku)
     spree_product = Spree::Product.where(name: product.description).first
     return env_path+'spree/products/'+spree_product.id.to_s+'/large/'+spree_product.name.to_s+'.jpg'
-    
+  end
+
+  def self.get_promo_local_picture(promotion)
+    env_path = Rails.configuration.environment_ids['our_env_path']
+    product = Product.find(promotion.sku)
+    spree_product = Spree::Product.where(name: product.description).first
+    return 'public/spree/products/'+spree_product.id.to_s+'/large/'+spree_product.name.to_s+'.jpg'
 
   end
   
@@ -41,7 +58,21 @@ module Promotions
 
   end
 
-  def self.publish_on_twitter()
+  def self.publish_on_twitter(promotion)
+
+
+    ## twitter
+    @twitter = Twitter::REST::Client.new do |config|
+      config.consumer_key = 'MReVzy5O7qXJ0nxEXwrekTjI8'
+      config.consumer_secret =  'YqLRtE2ftXOANqoppx8HHB6DyXNHyRAzxxQprNE90hfgxRY5dY'
+      config.access_token =   '878628188464836608-4rtAtrGCHOicZLvfsPUZL8NxC0KezdI'
+      config.access_token_secret = 'R8GI4W4pY8iokBZ7Yfj6rLcAItRS5XgfqlhKvnIlqDEur'
+    end
+
+    msg = self.get_short_beautty_message(promotion)
+    pic = self.get_promo_local_picture(promotion)
+    @twitter.update_with_media(msg, File.new(pic))
+
 
   end
 
