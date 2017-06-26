@@ -20,46 +20,6 @@ class GeneralController < ApplicationController
 
     @spree_promociones = Spree::Promotion.all
 
-    ## Facebook
-    #a_t = 'EAATUgEEmkvEBANZAsBPsKn7NdGFVwDnUuNnrSDnbjZCKTDP7u9acmefzm6YUxBwW2a1QytMon37qH9j36NJ73DBzYSlkBzHwQkYQ2teq3nkyZAMf9shmHdBLv1DjfRnG1lyj9hPOjHA9qFXVNcxBYBM1ZAAeetJqBSIMeIjZBZCeiebzTgBv6ZAaAVZBnt3EmRMZD'
-    #@user_graph = Koala::Facebook::API.new(a_t)
-
-    # retrieve collection fo all your managed pages: returns collection of hashes with page id, name, category, access token and permissions
-    #pages = @user_graph.get_connections('me', 'accounts')
-    #puts pages
-    # get access token for first page
-    #first_page_token = pages.first['access_token']
-    #@page_graph = Koala::Facebook::API.new(first_page_token)
-    #puts @page_graph
-
-    #@page_graph.get_object('me') # I'm a page
-    #@page_graph.get_connection('me', 'feed') # the page's wall
-    #@page_graph.put_wall_post('4to post') # post as page, requires new publish_pages permission
-
-    # path = Rails.root + 'public/assets/images/products/' + sku_image[product.sku]
-    #/{"463352627338821"}/photos/
-    # options = {
-    #   :message => "Cacao",
-    #   :picture => "http://i.vanidades.com/dam/estilo-de-vida/14/09/683531-beneficios-cacao-3008x2000.jpg.imgw.1280.1280.jpeg"
-    # }
-    # @page_graph.put_picture(options[:picture], {:caption => options[:message]})
-
-    ## twitter
-
-    @twitter = Twitter::REST::Client.new do |config|
-      # config.consumer_key = ENV['CONSUMER_KEY']
-      # config.consumer_secret = ENV['CONSUMER_SECRET']
-      # config.access_token = request.env["omniauth.auth"][:credentials][:token]
-      # config.access_token_secret = request.env["omniauth.auth"][:credentials][:secret]
-      config.consumer_key = 'MReVzy5O7qXJ0nxEXwrekTjI8'
-      config.consumer_secret =  'YqLRtE2ftXOANqoppx8HHB6DyXNHyRAzxxQprNE90hfgxRY5dY'
-      config.access_token =   '878628188464836608-4rtAtrGCHOicZLvfsPUZL8NxC0KezdI'
-      config.access_token_secret = 'R8GI4W4pY8iokBZ7Yfj6rLcAItRS5XgfqlhKvnIlqDEur'
-    end
-
-    
-    @twitter.update("Primer post")
-
   end
 
   def oc

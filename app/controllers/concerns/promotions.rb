@@ -55,6 +55,8 @@ module Promotions
     }
     @page_graph.put_picture(options[:picture], {:caption => options[:message]})
 
+    promotion.facebook_times += 1
+    promotion.save!
 
   end
 
@@ -72,6 +74,9 @@ module Promotions
     msg = self.get_short_beautty_message(promotion)
     pic = self.get_promo_local_picture(promotion)
     @twitter.update_with_media(msg, File.new(pic))
+
+    promotion.twitter_times += 1
+    promotion.save!
 
   end
 
@@ -92,6 +97,20 @@ module Promotions
     
   end
 
+  def self.publish_discounts
+
+    publicar_twt = Discount.current.where(publicar: true).where(twitter_times: 0)
+    publicar_fb = Discount.current.where(publicar: true).where(facebook_times: 0)
+
+    publicar_twt.each do |prom|
+      Promotions.publish_on_twitter(prom)
+    end
+
+    publicar_fb.each do |prom|
+      Promotions.publish_on_facebook(prom)
+    end
+
+  end
 
   def self.get_ofertas
 
@@ -114,10 +133,11 @@ module Promotions
           Promotions.update(d.codigo)
         end
 
+        Promotions.publish_discounts
+
         puts "NUEVAS"
         puts many
         return first_p
-
     end
 
 
