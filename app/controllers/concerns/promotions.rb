@@ -60,19 +60,18 @@ module Promotions
 
   def self.publish_on_twitter(promotion)
 
-
-    ## twitter
     @twitter = Twitter::REST::Client.new do |config|
-      config.consumer_key = 'MReVzy5O7qXJ0nxEXwrekTjI8'
-      config.consumer_secret =  'YqLRtE2ftXOANqoppx8HHB6DyXNHyRAzxxQprNE90hfgxRY5dY'
-      config.access_token =   '878628188464836608-4rtAtrGCHOicZLvfsPUZL8NxC0KezdI'
-      config.access_token_secret = 'R8GI4W4pY8iokBZ7Yfj6rLcAItRS5XgfqlhKvnIlqDEur'
+
+      config.consumer_key = Rails.configuration.environment_ids['twitter_consumer_key']         
+      config.consumer_secret = Rails.configuration.environment_ids['twitter_consumer_secret']      
+      config.access_token = Rails.configuration.environment_ids['twitter_access_token']         
+      config.access_token_secret = Rails.configuration.environment_ids['twitter_access_token_secret']  
+
     end
 
     msg = self.get_short_beautty_message(promotion)
     pic = self.get_promo_local_picture(promotion)
     @twitter.update_with_media(msg, File.new(pic))
-
 
   end
 
