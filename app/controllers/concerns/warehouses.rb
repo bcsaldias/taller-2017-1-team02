@@ -615,17 +615,20 @@ module Warehouses
 # FIXME J :test me
 # chequea si hay que comprar mas de algun producto y manda a comprar el producto en particular
   def self.check_and_restore_stock
+    puts 'hermaguayuda'
     warehouses_id = self.get_warehouses_id
     lista_de_productos = Product.where(owner: true)
     cantidad_de_productos = lista_de_productos.length
-
-    cantidad_deseada= {"7": 6000, "2": 2000, "6": 500, "8": 2000, "14": 2000, "20": 2000, "26": 2000, "39": 2000, "40": 500, "41": 3000, "49": 3000}
+    #ordenes de produccion
+    production_orders = ProductionOrder.where("disponible > ?",Time.now)
+    cantidad_deseada= {7 => 6000, 2 => 2000, 6=> 500, 8 => 2000, 14=> 2000, 20=> 2000, 26=> 2000, 39=> 2000, 40=> 500, 41=> 3000, 49=> 3000}
     #cant_minima = 70% cant_deseada
 
     #cantidad_deseada = 25000/cantidad_de_productos
     #cantidad_minima = 15000/cantidad_de_productos
 
     for producto in lista_de_productos
+      puts 'agua'
       sku = producto['sku']
       stock_general = Production.get_stock(warehouses_id['general'],sku)
       stock_pregeneral = Production.get_stock(warehouses_id['pregeneral'],sku)
@@ -633,10 +636,17 @@ module Warehouses
       stock_pulmon = Production.get_stock(warehouses_id['pulmon'],sku)
       stock_actual = stock_general.length + stock_pregeneral.length + stock_recepcion.length + stock_pulmon.length
       puts "stock actual de #{sku} = #{stock_actual}"
+      # incluir ordenes de produccion pendientes
+      for production_order in production_orders
+        if production_order['product_sku'] == sku
+          stock_actual += production_order['cantidad']
+        end
+      end
+      puts "stock actual contando ordenes de produccion de #{sku} = #{stock_actual}"
 
-      if stock_actual < 0.7 * cantidad_deseada[sku]
+      if stock_actual < 0.7 * cantidad_deseada[sku.to_i]
         puts "Reponer!"
-        cantidad_por_comprar = 0.7 * cantidad_deseada[sku] - stock_actual
+        cantidad_por_comprar = cantidad_deseada[sku.to_i] - stock_actual
         resp = RawMaterial.restore_stock(sku, cantidad_por_comprar)
         puts "Restore_stock responde: #{resp}"
       end
