@@ -2,8 +2,8 @@ module Promotions
 
   def self.get_beautty_message(promotion)
     product = Product.find(promotion.sku)
-    inicio = promotion.inicio.strftime("%d/%b at %I:%M%p")
-    fin = promotion.fin.strftime("%d/%b at %I:%M%p")
+    inicio = promotion.inicio.strftime("%d/%b a las %I:%M%p")
+    fin = promotion.fin.strftime("%d/%b a las %I:%M%p")
     env_path = Rails.configuration.environment_ids['our_env_path']
     return "Usa el código '#{promotion.codigo}' para poder comprar #{product.description} a solo $#{promotion.precio}. 
             Válido entre #{inicio} y #{fin}. ¡Visítanos en "+env_path+"ecommerce!"
@@ -11,11 +11,11 @@ module Promotions
 
   def self.get_short_beautty_message(promotion)
     product = Product.find(promotion.sku)
-    inicio = promotion.inicio.strftime("%d/%b at %I:%M%p")
-    fin = promotion.fin.strftime("%d/%b at %I:%M%p")
+    inicio = promotion.inicio.strftime("%d/%b a las %I:%M%p")
+    fin = promotion.fin.strftime("%d/%b a las %I:%M%p")
     env_path = Rails.configuration.environment_ids['our_env_path']
-    return  "#{product.description} a $#{promotion.precio}. Usa '#{promotion.codigo}'. 
-            Desde #{inicio} a #{fin}."+"Ven https://goo.gl/EyzEYq !"
+    return  ("#{product.description} a $#{promotion.precio}. Usa '#{promotion.codigo}'. 
+            Desde #{inicio} a #{fin}."+"Ven https://goo.gl/EyzEYq !")[0,140]
   end
 
   def self.get_promo_picture(promotion)
