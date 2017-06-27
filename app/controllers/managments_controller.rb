@@ -272,6 +272,17 @@ class ManagmentsController < ApplicationController
     cant =  PurchaseOrder.all.count
     refreshed = false
 
+    PurchaseOrder.all.each do |po|
+      id_cloud = po.id_cloud
+      cloud_po = Sales.get_purchase_order(id_cloud)
+      if cloud_po == nil
+        puts po.id_cloud
+        puts "nil"
+        po.destroy!
+      end
+    end
+
+
     PurchaseOrder.where("group_number != -1").each do |po| #where(owner: true)
       id_cloud = po.id_cloud
       cloud_po = Sales.get_purchase_order(id_cloud)
