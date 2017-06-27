@@ -634,7 +634,7 @@ module Warehouses
 
     for producto in lista_de_productos
       sku = producto['sku']
-      stock_actual = producto.stock 
+      stock_actual = producto.stock_disponible 
       puts "stock actual de #{sku} = #{stock_actual}"
       # incluir ordenes de produccion pendientes
       for production_order in production_orders
