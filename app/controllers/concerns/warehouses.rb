@@ -629,11 +629,12 @@ module Warehouses
 
     for producto in lista_de_productos
       sku = producto['sku']
-      stock_general = Production.get_stock(warehouses_id['general'],sku)
-      stock_pregeneral = Production.get_stock(warehouses_id['pregeneral'],sku)
-      stock_recepcion = Production.get_stock(warehouses_id['recepcion'],sku)
-      stock_pulmon = Production.get_stock(warehouses_id['pulmon'],sku)
-      stock_actual = stock_general.length + stock_pregeneral.length + stock_recepcion.length + stock_pulmon.length
+      #stock_general = Production.get_stock(warehouses_id['general'],sku)
+      #stock_pregeneral = Production.get_stock(warehouses_id['pregeneral'],sku)
+      #stock_recepcion = Production.get_stock(warehouses_id['recepcion'],sku)
+      #stock_pulmon = Production.get_stock(warehouses_id['pulmon'],sku)
+      stock_actual = producto.stock 
+      #stock_general.length + stock_pregeneral.length + stock_recepcion.length + stock_pulmon.length
       puts "stock actual de #{sku} = #{stock_actual}"
       # incluir ordenes de produccion pendientes
       for production_order in production_orders

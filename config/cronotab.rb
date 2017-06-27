@@ -38,7 +38,15 @@ class RestoreStock
     end
 end
 
+class SortWarehouses
+    def perform
+      puts "Ejecutando crono de sort Warehouses"
+      Warehouses.sort_warehouses
+      puts "Crono finalizada"
+    end
+end
 
 Crono.perform(GetSFTP).every 15.minutes
 Crono.perform(ActivePromotions).every 8.minutes
 Crono.perform(RestoreStock).every 30.minutes
+Crono.perform(SortWarehouses).every 30.minutes
