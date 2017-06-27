@@ -194,7 +194,7 @@
                           <td><%= invoice.bank_account %></td>
                           <td><%= invoice.owner %></td>
                           <td><%= invoice.trx.id_cloud if invoice.trx %></td>
-                          <%= if invoice.trx == nil %>
+                          <% if invoice.trx == nil %>
                             <td> <%= submit_tag 'Aceptar y Pagar', :name => "status"  %></td>
                             <td> <%= submit_tag 'Rechazar', :name => "status"  %></td>
                           <% end %>
