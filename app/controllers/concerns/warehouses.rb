@@ -616,7 +616,7 @@ module Warehouses
 # chequea si hay que comprar mas de algun producto y manda a comprar el producto en particular
   def self.check_and_restore_stock
     warehouses_id = self.get_warehouses_id
-    lista_de_productos = Product.where(owner: true).or(Product.where(sku: '7'))
+    lista_de_productos = Product.where(owner: true).where(category: "Materia prima").or(Product.where(sku: '7'))
     cantidad_de_productos = lista_de_productos.length
 
     #ordenes de produccion
