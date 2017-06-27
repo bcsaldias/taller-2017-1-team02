@@ -46,7 +46,7 @@ class SortWarehouses
     end
 end
 
-Crono.perform(GetSFTP).every 15.minutes
-Crono.perform(ActivePromotions).every 8.minutes
-Crono.perform(RestoreStock).every 30.minutes
-Crono.perform(SortWarehouses).every 30.minutes
+Crono.perform(GetSFTP).every 18.minutes
+#Crono.perform(ActivePromotions).every 8.minutes
+Crono.perform(RestoreStock).every 60.minutes
+Crono.perform(SortWarehouses).every 45.minutes
