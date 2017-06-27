@@ -233,12 +233,17 @@ class ManagmentsController < ApplicationController
   # json_response({ret: "Actualizado!", cant: cant, trx_descargadas: counter})
     Transaction.all.each do |po|
       id_cloud = po.id_cloud
-      trx = Bank.get_transaction(id_cloud)
-      cloud_po = (JSON.parse trx.body)[0]
-      if cloud_po == nil
-        puts po.id_cloud
+      if id_cloud == nil
         puts "nil"
         po.destroy!
+      else
+        trx = Bank.get_transaction(id_cloud)
+        cloud_po = (JSON.parse trx.body)[0]
+        if cloud_po == nil
+          puts po.id_cloud
+          puts "nil"
+          po.destroy!
+        end
       end
     end
 
