@@ -11,7 +11,7 @@ module RawMaterial
   end
 
   # TODO J: Fix method completely
-  def self.restore_stock(sku, quantity, needed_date = Tiempo.tiempo_a_milisegundos(12, 30, 23, 59))
+  def self.restore_stock(sku, quantity, needed_date = (Time.now + 1.days).to_i*1000)
     product = Product.find(sku)
 
     if product.owner == true
