@@ -313,7 +313,7 @@ module Warehouses
     warehouses = Production.get_warehouses
     for warehouse in warehouses
       if warehouse['_id'] == warehouse_id
-        space = warehouse['totalSpace']-warehouse['usedSpace']
+        space = warehouse['totalSpace'].to_i-warehouse['usedSpace'].to_i
         if space == 0
           return true
         else
@@ -329,7 +329,7 @@ module Warehouses
     usedSpace = 0
     for warehouse in warehouses
       if warehouse['_id'] == warehouse_id
-        usedSpace = warehouse['usedSpace']
+        usedSpace = warehouse['usedSpace'].to_i
         if usedSpace == 0
           return true
         else
