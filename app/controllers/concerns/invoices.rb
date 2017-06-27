@@ -152,6 +152,9 @@ module Invoices
     our_invoice.save!
     sup = Supplier.get_by_id_cloud(invoice['proveedor'])
     ret = Queries.patch_to_groups_api('invoices/'+invoice['_id']+'/accepted', sup)
+    if ret.code == 200 or ret.code == 201
+      self.pay_invoice(invoice_id)
+    end
     return ret
   end
 
