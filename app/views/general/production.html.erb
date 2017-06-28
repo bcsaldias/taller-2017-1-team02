@@ -38,6 +38,7 @@
             <table  class="table table-bordered" cellspacing="0" width="100%">
                 <thead>
                     <tr>
+                      <th><%= sortable "id_cloud", "id_cloud", ProductionOrder, "product_sku"  %></th> 
                       <th><%= sortable "product_sku", "Sku", ProductionOrder, "product_sku"  %></th>
                       <th><%= sortable "cantidad", "Cantidad", ProductionOrder, "product_sku"  %></th>
                       <th><%= sortable "created_at", "Fecha de creación", ProductionOrder, "product_sku" %></th>
@@ -52,6 +53,7 @@
                         <%= form_tag(:encolar_order,  method: "post") do %>
                         <%= hidden_field_tag :order_id, production_order.id %>
 
+                        <td><%= production_order.id_cloud %></td>
                         <td><%= production_order.product_sku %></td>
                         <td><%= production_order.cantidad %></td>
                         <td><%= production_order.created_at.strftime("%d/%b") %></td>
