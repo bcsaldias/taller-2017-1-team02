@@ -14,10 +14,10 @@ class ApiController < ApplicationController
 	include Promotions
 	include Bank
 
-	def update_prices
+    def update_prices
 
 
-    Product.all.each do |product|
+     Product.all.each do |product|
       product.price = 184 if product.sku == "2"
       product.price = 16546 if product.sku == "6"
       product.price = 454 if product.sku == "8"
@@ -29,9 +29,9 @@ class ApiController < ApplicationController
       product.price = 9768 if product.sku == "41"
       product.price = 1803 if product.sku == "49"
       product.save!
-    end
+     end
 
-    Spree::Product.all.each do |product|
+     Spree::Product.all.each do |product|
       product.price = 184 if product.name == "Huevo"
       product.price = 16546 if product.name == "Crema"
       product.price = 454 if product.name == "Trigo"
@@ -43,10 +43,11 @@ class ApiController < ApplicationController
       product.price = 9768 if product.name == "Suero de Leche"
       product.price = 1803 if product.name == "Leche Descremada"
       product.save!
+     end
+
+     json_response({ret: 'ok'})
+
     end
-
-
-	end
 
 
     def get_ofertas
