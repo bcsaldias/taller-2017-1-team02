@@ -46,7 +46,40 @@ class SortWarehouses
     end
 end
 
+class MoveToRecepcion
+    def perform
+    inicio = 'pulmon'
+    fin = 'recepcion'
+    cantidad = 100000
+    ret = Warehouses.move_A_B(inicio, fin, cantidad)
+    end
+end
+
+class MoveToPreGeneral
+    def perform
+    inicio = 'recepcion'
+    fin = 'pregeneral'
+    cantidad = 100000
+    ret = Warehouses.move_A_B(inicio, fin, cantidad)
+    end
+end
+
+class MoveToGeneral
+    def perform
+    inicio = 'recepcion'
+    fin = 'general'
+    cantidad = 100000
+    ret = Warehouses.move_A_B(inicio, fin, cantidad)
+    end
+end
+
+
 Crono.perform(GetSFTP).every 18.minutes
 #Crono.perform(ActivePromotions).every 8.minutes
 Crono.perform(RestoreStock).every 60.minutes
 Crono.perform(SortWarehouses).every 45.minutes
+
+Crono.perform(MoveToRecepcion).every 30.minutes
+Crono.perform(MoveToPreGeneral).every 50.minutes
+Crono.perform(MoveToGeneral).every 15.minutes
+
