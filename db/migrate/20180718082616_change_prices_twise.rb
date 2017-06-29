@@ -1,4 +1,4 @@
-class ChangePricesSpree < ActiveRecord::Migration[5.0]
+class ChangePricesTwise < ActiveRecord::Migration[5.0]
   def change
 
     Product.all.each do |product|
