@@ -422,10 +422,10 @@ module Warehouses
           next_delivery = purchase_orders.first
           type = 'purchase_order'
 
-          ftps = purchase_orders.where(group_number: -1)
-          if ftps.count > 0
-            next_delivery = ftps.first
-          end
+          #ftps = purchase_orders.where(group_number: -1)
+          #if ftps.count > 0
+          #  next_delivery = ftps.first
+          #end
 
         else
           vouchers = Voucher.where(queued: true)
