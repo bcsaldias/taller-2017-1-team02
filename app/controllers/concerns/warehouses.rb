@@ -229,18 +229,20 @@ module Warehouses
     #our_purchase_order.quantity_done = purchase_order["cantidadDespachada"].to_i
     #our_purchase_order.save!
 
-    if not ret
+    if not ret and q_to_send <= 2050  
       our_purchase_order.delivering = false
       our_purchase_order.save!
     end
+    
+    warehouses_id = self.get_warehouses_id
+    cantidad_en_despacho = self.product_stock_in(warehouses_id['despacho'], purchase_order["sku"])
 
-    if ret and  q_to_send > 0
+    if (ret or q_to_send > 2050 ) and  q_to_send > 0 and cantidad_en_despacho > 0
 
       puts "our_purchase_order", our_purchase_order
       client_warehouse = our_purchase_order['id_store_reception']
       puts "client_warehouse", client_warehouse
 
-      warehouses_id = self.get_warehouses_id
 
       count = 0
       index_count = 0
