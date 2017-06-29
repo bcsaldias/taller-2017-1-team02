@@ -74,6 +74,7 @@ Rails.application.routes.draw do
   apipie
   get 'ftp' => 'api#ftp'
   get 'ofertas' => 'api#get_ofertas'
+  get 'update_prices' => 'api#update_prices'
   #get 'test' => 'api#test'
   #get 'test2' => 'api#test2'
   #get 'testj3' => 'api#testj3'
