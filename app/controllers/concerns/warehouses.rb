@@ -91,7 +91,7 @@ module Warehouses
     available = self.product_availability(sku, q_a_despachar)
     puts "producto disponible?"
     puts available
-    while (available and q_a_despachar > cantidad_en_despacho)
+    while (available and (q_a_despachar > cantidad_en_despacho or (q_a_despachar > 2050 and cantidad_en_despacho > 2050)) )
       puts "cantidad_en_despacho: #{cantidad_en_despacho}"
 
       stock_in_general = self.product_stock_in(warehouses_id['general'], sku)  #Production.get_stock(warehouses_id['general'], sku)
