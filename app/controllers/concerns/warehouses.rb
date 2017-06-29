@@ -625,7 +625,7 @@ module Warehouses
     production_orders = ProductionOrder.where("disponible > ?",Time.now)
     cantidad_deseada= {7 => 4500, 2 => 2000,
                        6=> 500, 8 => 2000,
-                       14=> 2000, 20=> 2000,
+                       14=> 1700, 20=> 2000,
                        26=> 2000, 39=> 2000,
                        40=> 500, 41=> 800,
                        49=> 800}
@@ -646,7 +646,7 @@ module Warehouses
       end
       puts "stock actual contando ordenes de produccion de #{sku} = #{stock_actual}"
 
-      if stock_actual < 0.25 * cantidad_deseada[sku.to_i]
+      if stock_actual < 0.35 * cantidad_deseada[sku.to_i]
         puts "Reponer!"
         cantidad_por_comprar = cantidad_deseada[sku.to_i] - stock_actual
         resp = RawMaterial.restore_stock(sku, cantidad_por_comprar) #FIXME quizas agregar to_i
