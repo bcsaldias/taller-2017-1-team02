@@ -623,10 +623,10 @@ module Warehouses
 
     #ordenes de produccion
     production_orders = ProductionOrder.where("disponible > ?",Time.now)
-    cantidad_deseada= {7 => 4500, 2 => 2000,
-                       6=> 500, 8 => 2000,
-                       14=> 1700, 20=> 2000,
-                       26=> 2000, 39=> 2000,
+    cantidad_deseada= {7 => 4500, 2 => 600,
+                       6=> 500, 8 => 1600,
+                       14=> 1700, 20=> 1600,
+                       26=> 600, 39=> 600,
                        40=> 500, 41=> 800,
                        49=> 800}
     #cant_minima = 25% cant_deseada
