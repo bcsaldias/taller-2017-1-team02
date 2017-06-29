@@ -68,7 +68,7 @@ class Product < ApplicationRecord
   def reserved_stock
     stock_reservado = 0
     PurchaseOrder.where(owner: nil, product_sku: self.sku, state: 1).each do |po|
-      stock_reservado += po.quantity
+      stock_reservado += (po.quantity - po.quantity_done)
     end
 
     orders = Spree::Order.where.not(state: "complete")
