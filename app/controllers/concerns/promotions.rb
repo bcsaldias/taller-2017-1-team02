@@ -13,8 +13,8 @@ module Promotions
     product = Product.find(promotion.sku)
     inicio = promotion.inicio.strftime("%d/%b a las %I:%M%p")
     fin = promotion.fin.strftime("%d/%b a las %I:%M%p")
-    env_path = Rails.configuration.environment_ids['our_env_path']
-    s = "#{product.description} a $#{promotion.precio}. Usa '#{promotion.codigo}'. Desde #{inicio} a #{fin}."+"Ven https://goo.gl/EyzEYq !"
+    ecommerce_uri = Rails.configuration.environment_ids['ecommerce_uri']
+    s = "#{product.description} a $#{promotion.precio}. Usa '#{promotion.codigo}'. Desde #{inicio} a #{fin}."+"Ven #{ecommerce_uri} !"
     return s[0,140]
   end
 
