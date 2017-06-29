@@ -14,8 +14,8 @@ module Promotions
     inicio = promotion.inicio.strftime("%d/%b a las %I:%M%p")
     fin = promotion.fin.strftime("%d/%b a las %I:%M%p")
     env_path = Rails.configuration.environment_ids['our_env_path']
-    return  ("#{product.description} a $#{promotion.precio}. Usa '#{promotion.codigo}'. 
-            Desde #{inicio} a #{fin}."+"Ven https://goo.gl/EyzEYq !")[0,140]
+    s = "#{product.description} a $#{promotion.precio}. Usa '#{promotion.codigo}'. Desde #{inicio} a #{fin}."+"Ven https://goo.gl/EyzEYq !"
+    return s[0,140]
   end
 
   def self.get_promo_picture(promotion)
