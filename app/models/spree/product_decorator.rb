@@ -10,8 +10,9 @@ module Spree
 
 	  def stock
   		_p = DecoProd.original_products.find(sku)
-		Spree::StockItem.where(variant_id: id).delete_all
-
+		#Spree::StockItem.where(variant_id: id).delete_all
+		price = _p.price
+		save!
 		###
 		### Actualizar con stock disponible.
 		### El stock reservado tiene que ver todas las OC no completadas.
