@@ -99,9 +99,9 @@ module Factory
     	un_lote_cantidad = contact.min_production_batch
     	
     	prima_cantidad = un_lote_cantidad
-    	if cantidad > 0
-    		prima_cantidad = cantidad
-    	end 
+    	#if cantidad > 0
+    	#	prima_cantidad = cantidad
+    	#end 
 
     	
 		if product.category == "Materia prima"
@@ -114,7 +114,7 @@ module Factory
                                         				 cantidad: result['cantidad'],
                                         				 despachado: result['despachado'],
                                         				 disponible: result['disponible'])
-				return true
+				return "se ha mandado a producir solo un lote."
 			end
 
 		elsif product.category == 'Producto procesado'
