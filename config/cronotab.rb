@@ -76,8 +76,8 @@ end
 
 Crono.perform(GetSFTP).every 18.minutes
 #Crono.perform(ActivePromotions).every 8.minutes
-Crono.perform(RestoreStock).every 60.minutes
-Crono.perform(SortWarehouses).every 45.minutes
+#Crono.perform(RestoreStock).every 60.minutes
+#Crono.perform(SortWarehouses).every 45.minutes
 
 Crono.perform(MoveToRecepcion).every 30.minutes
 Crono.perform(MoveToPreGeneral).every 50.minutes
