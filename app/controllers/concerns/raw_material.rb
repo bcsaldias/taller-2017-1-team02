@@ -151,7 +151,7 @@ module RawMaterial
 
   #Devuelve la cantidad a producir, si no hay espacio
   def self.calculate_order_quantity(quantity, min_batch, whouse_space = 2000000)
-    max = 4999
+    max = 4000
     quantity = [quantity, max].min
     if min_batch > quantity
       producir = min_batch
