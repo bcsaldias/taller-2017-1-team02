@@ -8,5 +8,10 @@ Deface::Override.new(virtual_path: 'spree/products/show',
   replace: "[data-hook='promotions']",
   text: "")
 
+Deface::Override.new(virtual_path: 'spree/checkout/_payment',
+  name: 'drop_coupon_from_product_view',
+  replace: "[data-hook='coupon_code']",
+  text: "")
+
 
 
