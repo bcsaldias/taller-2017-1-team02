@@ -646,7 +646,7 @@ module Warehouses
       end
       puts "stock actual contando ordenes de produccion de #{sku} = #{stock_actual}"
 
-      if stock_actual < 0.35 * cantidad_deseada[sku.to_i]
+      if stock_actual < 400
         puts "Reponer!"
         cantidad_por_comprar = cantidad_deseada[sku.to_i] - stock_actual
         resp = RawMaterial.restore_stock(sku, cantidad_por_comprar) #FIXME quizas agregar to_i
