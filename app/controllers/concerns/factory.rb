@@ -115,7 +115,7 @@ module Factory
                                                          cantidad: result['cantidad'],
                                                          despachado: result['despachado'],
                                                          disponible: result['disponible'])
-                return "se ha mandado a producir solo un lote."
+                return true
             end
 
         elsif product.category == 'Producto procesado'
