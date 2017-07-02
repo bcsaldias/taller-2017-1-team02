@@ -43,6 +43,7 @@
                   <th><%= sortable "starts_at", "starts_at", Spree::Promotion, "fin" %></th>
                   <th><%= sortable "expires_at", "expires_at", Spree::Promotion, "fin" %></th>
                   <th><%= sortable "expirada", "expirada", Spree::Promotion, "fin" %></th>
+                  <th><%= sortable "available", "available", Spree::Promotion, "fin" %></th>
                   <th><%= sortable "usos", "usos", Spree::Promotion, "fin" %></th>
                 </tr>
               </thead>
@@ -55,6 +56,7 @@
                     <td><%= p.starts_at  %></td>
                     <td><%= p.expires_at  %></td>
                     <td><%= p.expires_at <= Time.now  %></td>
+                    <td><%= p.starts_at <= Time.now && p.expires_at >= Time.now  %></td>
                     <td><%= p.credits_count %></td>
                   </tr>
                 <% end %>
