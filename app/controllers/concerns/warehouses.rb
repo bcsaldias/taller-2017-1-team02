@@ -229,11 +229,11 @@ module Warehouses
     #our_purchase_order.quantity_done = purchase_order["cantidadDespachada"].to_i
     #our_purchase_order.save!
 
-    if not ret and q_to_send <= 2050  
+    if not ret and q_to_send <= 2050
       our_purchase_order.delivering = false
       our_purchase_order.save!
     end
-    
+
     warehouses_id = self.get_warehouses_id
     cantidad_en_despacho = self.product_stock_in(warehouses_id['despacho'], purchase_order["sku"])
 
@@ -623,20 +623,10 @@ module Warehouses
 
     #ordenes de produccion
     production_orders = ProductionOrder.where("disponible > ?",Time.now)
-    cantidad_deseada= {7 => 1500, 2 => 600,
-                       6=> 500, 8 => 1600,
-                       14=> 1700, 20=> 1600,
-                       26=> 600, 39=> 600,
-                       40=> 500, 41=> 800,
-                       49=> 800}
-    #cant_minima = 25% cant_deseada
-
-    #cantidad_deseada = 25000/cantidad_de_productos
-    #cantidad_minima = 15000/cantidad_de_productos
 
     for producto in lista_de_productos
       sku = producto['sku']
-      stock_actual = producto.stock_disponible 
+      stock_actual = producto.stock_disponible
       puts "stock actual de #{sku} = #{stock_actual}"
       # incluir ordenes de produccion pendientes
       for production_order in production_orders
@@ -644,12 +634,13 @@ module Warehouses
           stock_actual += production_order['cantidad']
         end
       end
-      puts "stock actual contando ordenes de produccion de #{sku} = #{stock_actual}"
+      puts "stock actual + ordenes de produccion de #{sku} = #{stock_actual}"
+      puts "Desired stock = #{producto.desired_stock}"
 
-      if stock_actual < 0.35 * cantidad_deseada[sku.to_i]
+      if stock_actual < 0.7 * producto.desired_stock #cantidad_deseada[sku.to_i] #elsif
         puts "Reponer!"
-        cantidad_por_comprar = cantidad_deseada[sku.to_i] - stock_actual
-        resp = RawMaterial.restore_stock(sku, cantidad_por_comprar) #FIXME quizas agregar to_i
+        cantidad_por_comprar = producto.desired_stock - stock_actual
+        resp = RawMaterial.restore_stock(sku, cantidad_por_comprar)
         puts "Restore_stock #{producto.description} responde: #{resp}"
       end
 

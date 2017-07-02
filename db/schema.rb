@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170718081620) do
+ActiveRecord::Schema.define(version: 20180718082618) do
 
   create_table "contacts", force: :cascade do |t|
     t.integer  "product_id"
@@ -95,7 +95,7 @@ ActiveRecord::Schema.define(version: 20170718081620) do
   end
 
   create_table "products", id: false, force: :cascade do |t|
-    t.string   "sku",         null: false
+    t.string   "sku",           null: false
     t.string   "description"
     t.string   "category"
     t.integer  "price"
@@ -104,6 +104,7 @@ ActiveRecord::Schema.define(version: 20170718081620) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "min_batch"
+    t.integer  "desired_stock"
     t.index ["sku"], name: "index_products_on_sku", unique: true
   end
 
