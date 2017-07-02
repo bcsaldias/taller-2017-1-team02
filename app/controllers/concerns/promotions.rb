@@ -85,7 +85,7 @@ module Promotions
     b = Bunny.new uri
     b.start
     ch = b.create_channel
-    q = ch.queue('ofertas', durable: true)
+    q = ch.queue('ofertas', auto_delete: true)
     delivery, headers, msg = q.pop
     puts msg
     b.close
