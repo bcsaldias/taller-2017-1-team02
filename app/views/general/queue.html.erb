@@ -24,6 +24,55 @@
     </div>
   </div>
 
+
+  <div class="container">
+    <div class="row">
+      <div class="page-header">
+        <h1>Grupo 2 </h1>
+      </div>
+    </div>
+  </div>
+
+    <div class="container">
+
+      <!-- Marketing Icons Section -->
+      <div class="row">
+
+      <div class="panel panel-primary">
+            <!-- Default panel contents -->
+            <div class="panel-heading">Almacenes</div>
+
+
+            <!-- Table -->
+            <table class="table table-bordered sortable">
+              <thead>
+                <tr>
+                  <!--th>Id cloud</th-->
+                  <th>Sku</th>
+                  <th>Nombre</th>
+                  <th>Cantidad en despacho</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <% @stock.each do |s| %>
+                  <tr>
+                    <td><%= s["_id"] %></td>
+                    <% @products.each do |p| %>
+                      <% if p.sku == s["_id"] %>
+                        <td><%= p.description %></td>
+                      <% end %>
+                    <% end %>
+                    <td><%= s["total"] %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+      </div>
+
+      
+
+
     <div class="container">
 
       <!-- Marketing Icons Section -->

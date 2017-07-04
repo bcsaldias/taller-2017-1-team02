@@ -204,6 +204,12 @@ class GeneralController < ApplicationController
     @production_orders = ProductionOrder.where(queued: true).order(sort_column(ProductionOrder, "product_sku") + " " + sort_direction)
     @purchase_orders = PurchaseOrder.where(queued: true).order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
     @vouchers = Voucher.where(queued: true).order(sort_column(Invoice, "id_cloud") + " " + sort_direction)
+
+    warehouses_id = Warehouses.get_warehouses_id
+    #@stock = Production.get_all_stock_warehouse("590baa76d6b4ec000490255f") Bodega general
+    @stock = Production.get_all_stock_warehouse(warehouses_id['despacho']) # Bodega despacho
+    @products = Product.all
+
   end
 
   def activate_queue
