@@ -96,6 +96,7 @@ Rails.application.routes.draw do
   get 'despacho' => 'general#despacho', :as => :despacho
   get 'promociones' => 'general#promociones', :as => :promociones
   get 'queue' => 'general#queue', :as => :queue
+  get 'sprint_5' => 'general#sprint_5', :as => :sprint_5
 
   get 'invoice_and_transactions' => 'general#invoice_and_transactions', :as => :invoice_and_transactions
 
