@@ -15,10 +15,14 @@ class GeneralController < ApplicationController
   end
 
   def promociones
-    @owner_old_discounts = Discount.old.where(owner: true).order(sort_column(Discount, "fin") + " " + sort_direction)
+    #@spree_promociones = Spree::Promotion.all
+
+    @owner_active_discounts = Discount.active.where(owner: true).order(sort_column(Discount, "fin") + " " + sort_direction)
     @owner_current_discounts = Discount.current.where(owner: true).order(sort_column(Discount, "fin") + " " + sort_direction)
+    @owner_old_discounts = Discount.old.where(owner: true).order(sort_column(Discount, "fin") + " " + sort_direction)
+
+
     @others_discounts = Discount.where(owner: false).order(sort_column(Discount, "fin") + " " + sort_direction)
-    @spree_promociones = Spree::Promotion.all
 
   end
 
