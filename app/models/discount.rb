@@ -1,5 +1,4 @@
 class Discount < ApplicationRecord
-
   validates :codigo, uniqueness: true
 
 
@@ -24,7 +23,6 @@ class Discount < ApplicationRecord
     where('id IN (?)', ret_id)
   end
 
-
   def self.active
     ret_id = []
     all.each do |discount|
@@ -38,6 +36,11 @@ class Discount < ApplicationRecord
   def spree_ref
     spree_discount = Spree::Promotion.where(code: self.codigo).first
     return spree_discount
+  end
+
+  def original_price
+    op = Product.find(self.sku)
+    return op.price
   end
 
   def activa
