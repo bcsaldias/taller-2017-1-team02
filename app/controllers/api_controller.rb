@@ -209,11 +209,6 @@ class ApiController < ApplicationController
 		json_response({Despacho: ret})
 	end
 
-	def testj4
-		Warehouses.check_and_restore_stock
-		json_response({Despacho: "fINALIZADO"})
-	end
-
 	def actualizar_deadlines_purchase_orders
 		PurchaseOrder.all.each do |po|
 			order = Sales.get_purchase_order(po.id_cloud)

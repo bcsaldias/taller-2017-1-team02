@@ -33,16 +33,16 @@ class GeneralController < ApplicationController
 
     @our_purchase_orders_created = PurchaseOrder.where(owner: true).where("group_number != -1").where(state: 0).order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
     @purchase_orders_created = PurchaseOrder.where(owner: nil).where("group_number != -1").where(state: 0).order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
-    
+
     @our_purchase_orders_accepted = PurchaseOrder.where(owner: true).where("group_number != -1").where(state: 1).order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
     @purchase_orders_accepted = PurchaseOrder.where(owner: nil).where("group_number != -1").where(state: 1).order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
-    
+
     @our_purchase_orders_rejected = PurchaseOrder.where(owner: true).where("group_number != -1").where(state: 2).order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
     @purchase_orders_rejected = PurchaseOrder.where(owner: nil).where("group_number != -1").where(state: 2).order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
-    
+
     @our_purchase_orders_delivered = PurchaseOrder.where(owner: true).where("group_number != -1").where(state: 3).order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
     @purchase_orders_delivered = PurchaseOrder.where(owner: nil).where("group_number != -1").where(state: 3).order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
-    
+
     @our_purchase_orders_anuladas = PurchaseOrder.where(owner: true).where("group_number != -1").where(state: 4).order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
     @purchase_orders_anuladas = PurchaseOrder.where(owner: nil).where("group_number != -1").where(state: 4).order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
   end
@@ -50,7 +50,7 @@ class GeneralController < ApplicationController
   def ventas
     # state: [:creada, :aceptada, :rechazada, :finalizada, :anulada]
     # J: Busca localmente las POrders
-    
+
     @purchase_orders = PurchaseOrder.where(owner: nil).where("group_number != -1").order(sort_column(PurchaseOrder, "id") + " " + sort_direction)
     @purchase_orders_created = PurchaseOrder.where(owner: nil).where("group_number != -1").where(state: 0).order(sort_column(PurchaseOrder, "id") + " " + sort_direction)
     @purchase_orders_accepted = PurchaseOrder.where(owner: nil).where("group_number != -1").where(state: 1).order(sort_column(PurchaseOrder, "id") + " " + sort_direction)
@@ -226,6 +226,38 @@ class GeneralController < ApplicationController
     @products = Product.all
   end
 
+  def sprint_5
+    @our_purchase_orders_accepted = PurchaseOrder.where(owner: true).where("group_number != -1").where(state: 1).order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
+    @purchase_orders_accepted = PurchaseOrder.where(owner: nil).where("group_number != -1").where(state: 1).order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
+    @our_invoices = Invoice.where(owner: true).order(sort_column(Invoice, "id_cloud") + " " + sort_direction)
+    @invoices = Invoice.where("owner IN (?)", [nil, false]).order(sort_column(Invoice, "id_cloud") + " " + sort_direction)
+
+    @flujo_compra = []
+    @our_purchase_orders_accepted.each do |po|
+      row = {po: po.attributes}
+      @invoices.each do |i|
+        if i.oc_id_cloud == po.id_cloud
+          row[:invoice] = i.attributes
+          row[:trx] = i.trx.attributes  if i.trx
+          break
+        end
+      end
+      @flujo_compra << row
+    end
+
+    @flujo_venta = []
+    @purchase_orders_accepted.each do |po|
+      row = {po: po.attributes}
+      @our_invoices.each do |i|
+        if i.oc_id_cloud == po.id_cloud
+          row[:invoice] = i.attributes
+          row[:trx] = i.trx.attributes  if i.trx
+          break
+        end
+      end
+      @flujo_venta << row
+    end
+  end
 
   def authorize
     redirect_to '/login' unless current_user
