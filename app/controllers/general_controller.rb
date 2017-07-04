@@ -227,8 +227,8 @@ class GeneralController < ApplicationController
   end
 
   def sprint_5
-    @our_purchase_orders_accepted = PurchaseOrder.where(owner: true).where("group_number != -1").where(state: 1).order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
-    @purchase_orders_accepted = PurchaseOrder.where(owner: nil).where("group_number != -1").where(state: 1).order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
+    @our_purchase_orders_accepted = PurchaseOrder.where(owner: true).where("group_number != -1").where("state IN (?) ", [1,3]).order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
+    @purchase_orders_accepted = PurchaseOrder.where(owner: nil).where("group_number != -1").where("state IN (?) ", [1,3]).order(sort_column(PurchaseOrder, "product_sku") + " " + sort_direction)
     @our_invoices = Invoice.where(owner: true).order(sort_column(Invoice, "id_cloud") + " " + sort_direction)
     @invoices = Invoice.where("owner IN (?)", [nil, false]).order(sort_column(Invoice, "id_cloud") + " " + sort_direction)
 
