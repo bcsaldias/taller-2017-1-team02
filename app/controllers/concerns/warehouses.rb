@@ -622,7 +622,7 @@ module Warehouses
     cantidad_de_productos = lista_de_productos.length
 
     #ordenes de produccion
-    production_orders = ProductionOrder.where("disponible > ?",Time.now)
+    production_orders = ProductionOrder.where("disponible > ?",Time.now - 1.hours )
 
     for producto in lista_de_productos
       sku = producto['sku']
