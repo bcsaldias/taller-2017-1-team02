@@ -127,8 +127,8 @@ class GeneralController < ApplicationController
     puts "Entro al controlador invoice_and_transactions"
     Transaction.refresh
     @transactions_received = Transaction.where(owner: false)#.where.not(state: true)
-    @our_invoices = Invoice.where(owner: true).where.not(cliente: "distribuidor")
-    .where.not(status: 1).order(sort_column(Invoice, "id_cloud") + " " + sort_direction)
+    @our_invoices = Invoice.where(owner: true).where("status IN (?) ", [0, 1,4,5]).order(sort_column(Invoice, "id_cloud") + " " + sort_direction)
+    #@our_invoices = Invoice.where(owner: true).w
     # TODO J: Agregar que factura no debe tener orden asociada y que trx no debe tener factura asociada
     puts "Transactions_received: #{@transactions_received.count}"
     puts "Our_invoices: #{@our_invoices.count}"
@@ -146,7 +146,7 @@ class GeneralController < ApplicationController
         puts "monto invoice = #{invoice.iva + invoice.bruto}"
         if trx.monto == invoice.iva + invoice.bruto
           puts "Son iguales los montos!"
-          trxs << trx.attributes
+          trxs << trx.attributes   #      trxs << trx.id_cloud
         end
       end
       row[:transacciones] = trxs
