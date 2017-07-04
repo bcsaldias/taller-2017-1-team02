@@ -67,15 +67,15 @@ class ApiController < ApplicationController
       next_path = 'https://graph.facebook.com/oauth/access_token?'
       fb_exchange_token = ''
       params={
-        'grant_type'=>'fb_exchange_token',           
+        'grant_type'=>'fb_exchange_token',
         'client_id'  =>  '1359547220792049',
         'client_secret'  =>  '64090baac0aa284bf230439e647900e4',
         'fb_exchange_token' => fb_exchange_token
-      } 
+      }
 
       ret =  HTTParty.get(next_path, :query => params )
       json_response(ret.body)
-        
+
     end
 
 	def test_old01
@@ -209,15 +209,10 @@ class ApiController < ApplicationController
 		json_response({Despacho: ret})
 	end
 
-	# def testj4
-	# 	warehouse_id = "590baa76d6b4ec000490255e"
-	# 	sku = "26"
-	# 	cant = Production.get_stock(warehouse_id, sku)
-	# 	#puts Production.get_warehouses()
-	# 	#json_response({Despacho: "Des", sku: sku})
-	# 	puts cant
-	# 	json_response({Despacho: cant, sku: sku})
-	# end
+	def testj4
+		Warehouses.check_and_restore_stock
+		json_response({Despacho: "fINALIZADO"})
+	end
 
 	def actualizar_deadlines_purchase_orders
 		PurchaseOrder.all.each do |po|
