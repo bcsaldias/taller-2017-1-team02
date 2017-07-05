@@ -115,7 +115,9 @@ module Warehouses
             break
           end
           ret_code = Production.move_stock(warehouses_id['despacho'], product['_id'])
-
+          #puts ret_code
+          #puts stock_general
+          #puts "SHAAAAAAAAAAAAK"
           if ret_code == 200 or ret_code == 201
             cantidad_en_despacho += 1
             contador_de_requests +=1
@@ -211,8 +213,8 @@ module Warehouses
     purchase_order = Sales.get_purchase_order(id_cloud_OC)
     our_purchase_order = PurchaseOrder.where(id_cloud: id_cloud_OC).first
 
-    puts purchase_order
-    puts purchase_order["sku"], purchase_order["cantidad"]
+    #puts purchase_order
+    #puts purchase_order["sku"], purchase_order["cantidad"]
 
     #q_to_send = purchase_order["cantidad"].to_i - purchase_order["cantidadDespachada"].to_i
 
@@ -221,13 +223,13 @@ module Warehouses
     ret = self.get_despacho_ready(purchase_order["sku"], q_to_send)
 
 
-    puts "ret", ret
+    #puts "ret", ret
     price = purchase_order['precioUnitario']
-    puts("price",price)
+    #puts("price",price)
 
     #our_purchase_order = our_purchase_order
     #our_purchase_order.quantity_done = purchase_order["cantidadDespachada"].to_i
-    #our_purchase_order.save!
+    #our_purchase_order.sav
 
     if not ret and q_to_send <= 2050
       our_purchase_order.delivering = false
@@ -251,9 +253,9 @@ module Warehouses
         stock_a_despachar = Production.get_stock(warehouses_id['despacho'], purchase_order["sku"])
 
 
-        puts "stock_a_despachar"
-        puts stock_a_despachar
-        puts "stock_a_despachar"
+        #puts "stock_a_despachar"
+        #puts stock_a_despachar
+        #puts "stock_a_despachar"
 
         #for product in stock_a_despachar
         index_count = 0
@@ -265,9 +267,9 @@ module Warehouses
           end
 
           product = stock_a_despachar[index_count]
-          puts "DESPACHAR"
-          puts our_purchase_order.quantity_done
-          puts product
+         # puts "DESPACHAR"
+         # puts our_purchase_order.quantity_done
+         # puts product
 
           if distribuidor
             ret = Production.delete_ftp_stock('distribuidor', product['_id'],
@@ -277,8 +279,8 @@ module Warehouses
                                                   id_cloud_OC, price)
           end
 
-          puts "ret2"
-          puts ret
+          #puts "ret2"
+          #puts ret
           if ret.code == 200 or ret.code == 201
 
             count += 1
